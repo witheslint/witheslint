@@ -1,0 +1,49 @@
+{
+  "name": "@witheslint/preset-solid",
+  "version": "0.0.0",
+  "type": "module",
+  "description": "ESLint config preset for solid.",
+  "author": "Joie <leaps@live.com>",
+  "license": "MIT",
+  "homepage": "https://github.com/witheslint/witheslint",
+  "bugs": "https://github.com/witheslint/witheslint/issues",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/witheslint/witheslint.git",
+    "directory": "packages/preset/solid"
+  },
+  "keywords": [
+    "eslint-config",
+    "eslint-flat-config",
+    "eslint-preset",
+    "solid"
+  ],
+  "exports": {
+    ".": {
+      "import": "./dist/index.mjs",
+      "types": "./dist/index.d.ts"
+    },
+    "./modules": {
+      "import": "./dist/modules.mjs",
+      "types": "./dist/modules.d.ts"
+    }
+  },
+  "main": "./dist/index.mjs",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "unbuild"
+  },
+  "dependencies": {
+    "eslint-plugin-solid": "^0.13.0"
+  },
+  "devDependencies": {
+    "@witheslint/core": "workspace:^"
+  },
+  "peerDependencies": {
+    "@witheslint/core": "workspace:^"
+  }
+}
