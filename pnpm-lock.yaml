@@ -20,9 +20,6 @@ importers:
       '@types/node':
         specifier: '18'
         version: 18.19.3
-      '@witheslint/core':
-        specifier: workspace:^
-        version: link:packages/core
       changesets-commit:
         specifier: ^0.1.0
         version: 0.1.0
@@ -38,6 +35,9 @@ importers:
       unbuild:
         specifier: ^2.0.0
         version: 2.0.0(typescript@5.3.3)
+      witheslint:
+        specifier: workspace:^
+        version: link:packages/witheslint
 
   packages/core:
     dependencies:

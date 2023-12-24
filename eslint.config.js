@@ -1,3 +1,3 @@
-import { defineConfig } from '@witheslint/core'
+import { defineConfig } from 'witheslint'
 
 export default defineConfig()
