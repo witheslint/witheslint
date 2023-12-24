@@ -138,6 +138,27 @@ importers:
         specifier: workspace:^
         version: link:../../core
 
+  packages/witheslint:
+    dependencies:
+      '@witheslint/core':
+        specifier: workspace:^
+        version: link:../core
+      '@witheslint/preset-astro':
+        specifier: workspace:^
+        version: link:../preset/astro
+      '@witheslint/preset-react':
+        specifier: workspace:^
+        version: link:../preset/react
+      '@witheslint/preset-solid':
+        specifier: workspace:^
+        version: link:../preset/solid
+      '@witheslint/preset-svelte':
+        specifier: workspace:^
+        version: link:../preset/svelte
+      '@witheslint/preset-vue':
+        specifier: workspace:^
+        version: link:../preset/vue
+
 packages:
 
   /@aashutoshrathi/word-wrap@1.2.6:
