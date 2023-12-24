@@ -1,6 +1,6 @@
 {
   "name": "@witheslint/preset-astro",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "type": "module",
   "description": "ESLint config preset for astro.",
   "author": "Joie <leaps@live.com>",
