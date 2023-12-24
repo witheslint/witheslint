@@ -1,0 +1,33 @@
+#
+#   Refer for explanation to following link:
+#   https://github.com/evilmartians/lefthook/blob/master/docs/configuration.md
+#
+skip_output:
+  - meta
+  - skips
+  - execution
+
+pre-commit:
+  commands:
+    eslint:
+      glob: '*.{js,ts}'
+      run: pnpm eslint {staged_files} --fix
+
+commit-msg:
+  commands:
+    commitlint:
+      run: pnpm commitlint --edit {1}
+
+build:
+  commands:
+    build packages:
+      run: pnpm --recursive build
+
+release:
+  commands:
+    bump changes:
+      run: pnpm changeset add
+    bump versions:
+      run: pnpm changeset version
+    publish packages:
+      run: pnpm changeset publish

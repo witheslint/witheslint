@@ -1,0 +1,11 @@
+# dependencies
+node_modules
+
+# distribute
+dist
+
+# macOS-specific
+.DS_Store
+
+# IDE-specific
+.idea

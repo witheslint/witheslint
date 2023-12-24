@@ -1,0 +1,55 @@
+{
+  "name": "@witheslint/core",
+  "version": "0.0.0",
+  "type": "module",
+  "description": "Shareable eslint flat configs.",
+  "author": "Joie <leaps@live.com>",
+  "license": "MIT",
+  "homepage": "https://github.com/witheslint/witheslint",
+  "bugs": "https://github.com/witheslint/witheslint/issues",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/witheslint/witheslint.git",
+    "directory": "packages/core"
+  },
+  "keywords": [
+    "eslint-config",
+    "eslint-flat-config"
+  ],
+  "exports": {
+    ".": {
+      "import": "./dist/index.mjs",
+      "types": "./dist/index.d.ts"
+    },
+    "./modules": {
+      "import": "./dist/modules/index.mjs",
+      "types": "./dist/modules/index.d.ts"
+    }
+  },
+  "main": "./dist/index.mjs",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "unbuild"
+  },
+  "dependencies": {
+    "@stylistic/eslint-plugin": "^1.5.1",
+    "@typescript-eslint/eslint-plugin": "^6.15.0",
+    "@typescript-eslint/parser": "^6.15.0",
+    "eslint-define-config": "^2.0.0",
+    "eslint-plugin-i": "^2.29.1",
+    "eslint-plugin-perfectionist": "^2.5.0",
+    "eslint-plugin-unicorn": "^50.0.1",
+    "eslint-plugin-unused-imports": "^3.0.0",
+    "globals": "^13.24.0"
+  },
+  "devDependencies": {
+    "@types/eslint": "^8.56.0"
+  },
+  "peerDependencies": {
+    "eslint": ">=8.55.0"
+  }
+}
