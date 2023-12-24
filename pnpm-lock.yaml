@@ -27,7 +27,7 @@ importers:
         specifier: ^0.1.0
         version: 0.1.0
       eslint:
-        specifier: ^8.55.0
+        specifier: ^8.56.0
         version: 8.56.0
       lefthook:
         specifier: ^1.5.5
@@ -51,7 +51,7 @@ importers:
         specifier: ^6.15.0
         version: 6.15.0(eslint@8.56.0)(typescript@5.3.3)
       eslint:
-        specifier: '>=8.55.0'
+        specifier: '>=8.56.0'
         version: 8.56.0
       eslint-define-config:
         specifier: ^2.0.0
