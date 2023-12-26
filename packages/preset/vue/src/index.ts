@@ -4,11 +4,9 @@ import { parserVue, pluginVue } from './modules'
 
 export const presetVue = () => definePreset({
   name: 'preset:vue',
-
   setup: ({ features, styles }) => {
     const { typescript, stylistic } = features
     const { indent } = styles
-
     return [
       { plugins: { vue: pluginVue } },
       {

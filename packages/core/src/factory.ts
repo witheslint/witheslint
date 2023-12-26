@@ -1,6 +1,6 @@
 import type { Arrayable, ConfigItem, FeaturesConfig, Preset } from './types'
 import { imports, javascript, perfectionist, stylistic, typescript, unicorn } from './configs'
-import { createContext } from './context'
+import { useContext } from './context'
 import { GLOB_EXCLUDE } from './globs'
 import { arrayify } from './helper'
 
@@ -11,12 +11,8 @@ interface Options {
   extends?: Arrayable<ConfigItem>
 }
 
-export function definePreset(preset: Preset): Preset {
-  return preset
-}
-
 export function defineConfig(options: Options = {}): ConfigItem[] {
-  const context = createContext()
+  const context = useContext()
   context.features = {
     ...context.features,
     stylistic: typeof options.features?.stylistic === 'boolean'
@@ -48,8 +44,8 @@ export function defineConfig(options: Options = {}): ConfigItem[] {
   }
 
   if (options.presets) {
-    options.presets.forEach((item) => {
-      const preset = item.setup(context)
+    options.presets.forEach((child) => {
+      const preset = child.setup(context)
       config.push(arrayify(preset))
     })
   }
@@ -59,4 +55,8 @@ export function defineConfig(options: Options = {}): ConfigItem[] {
   }
 
   return config.flat()
+}
+
+export function definePreset(preset: Preset): Preset {
+  return preset
 }

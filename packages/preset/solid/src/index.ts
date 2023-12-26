@@ -4,14 +4,10 @@ import { pluginSolid } from './modules'
 
 export const presetSolid = () => definePreset({
   name: 'preset:solid',
-
   setup: ({ features }) => {
     const { typescript } = features
-
     return [
-      {
-        plugins: { solid: pluginSolid },
-      },
+      { plugins: { solid: pluginSolid } },
       {
         files: typescript ? [GLOB_JSX, GLOB_TSX] : [GLOB_JSX],
         languageOptions: {

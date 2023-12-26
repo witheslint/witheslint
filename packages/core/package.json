@@ -22,8 +22,8 @@
       "types": "./dist/index.d.ts"
     },
     "./modules": {
-      "import": "./dist/modules/index.mjs",
-      "types": "./dist/modules/index.d.ts"
+      "import": "./dist/modules.mjs",
+      "types": "./dist/modules.d.ts"
     }
   },
   "main": "./dist/index.mjs",

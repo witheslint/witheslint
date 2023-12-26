@@ -152,9 +152,6 @@ importers:
       '@witheslint/preset-solid':
         specifier: workspace:^
         version: link:../preset/solid
-      '@witheslint/preset-svelte':
-        specifier: workspace:^
-        version: link:../preset/svelte
       '@witheslint/preset-vue':
         specifier: workspace:^
         version: link:../preset/vue

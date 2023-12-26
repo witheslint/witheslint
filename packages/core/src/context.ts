@@ -1,6 +1,6 @@
 import type { Context } from './types'
 
-export function createContext(): Context {
+export function useContext(): Context {
   return {
     styles: {
       indent: 2,

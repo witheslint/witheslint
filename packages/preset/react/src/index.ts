@@ -4,10 +4,8 @@ import { pluginReact, pluginReactHooks } from './modules'
 
 export const presetReact = () => definePreset({
   name: 'preset:react',
-
   setup: ({ features }) => {
     const { typescript } = features
-
     return [
       {
         plugins: {

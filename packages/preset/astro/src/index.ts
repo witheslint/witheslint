@@ -4,14 +4,10 @@ import { parserAstro, pluginAstro } from './modules'
 
 export const presetAstro = () => definePreset({
   name: 'preset:astro',
-
   setup: ({ features }) => {
     const { typescript } = features
-
     return [
-      {
-        plugins: { astro: pluginAstro },
-      },
+      { plugins: { astro: pluginAstro } },
       {
         files: ['**/*.astro'],
         languageOptions: {

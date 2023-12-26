@@ -4,14 +4,10 @@ import { parserSvelte, pluginSvelte } from './modules'
 
 export const presetSvelte = () => definePreset({
   name: 'preset:svelte',
-
   setup: ({ features }) => {
     const { typescript } = features
-
     return [
-      {
-        plugins: { svelte: pluginSvelte },
-      },
+      { plugins: { svelte: pluginSvelte } },
       {
         files: ['**/*.svelte'],
         languageOptions: {
