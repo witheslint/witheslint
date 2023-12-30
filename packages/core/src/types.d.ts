@@ -30,6 +30,11 @@ export type RenamedRules = MergeIntersection<
   RenamePrefix<Rules, '@stylistic/', 'style/'>
 >
 
+export type ConfigItem = Omit<FlatESLintConfigItem, 'plugins' | 'rules'> & {
+  plugins?: Record<string, any>
+  rules?: Record<string, any> | RenamedRules
+}
+
 export interface StylisticConfig {
   indent?: 'tab' | number
   jsx?: boolean
@@ -47,12 +52,7 @@ export interface Context {
   features: FeaturesConfig
 }
 
-export type ConfigItem = Omit<FlatESLintConfigItem, 'plugins' | 'rules'> & {
-  plugins?: Record<string, any>
-  rules?: Record<string, any> | RenamedRules
-}
-
 export interface Preset {
   name: string
-  setup: (options: Context) => Awaitable<Arrayable<ConfigItem>>
+  setup: (options: Context) => Arrayable<ConfigItem>
 }
