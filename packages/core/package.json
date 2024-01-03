@@ -36,9 +36,9 @@
     "build": "unbuild"
   },
   "dependencies": {
-    "@stylistic/eslint-plugin": "^1.5.1",
-    "@typescript-eslint/eslint-plugin": "^6.16.0",
-    "@typescript-eslint/parser": "^6.16.0",
+    "@stylistic/eslint-plugin": "^1.5.3",
+    "@typescript-eslint/eslint-plugin": "^6.17.0",
+    "@typescript-eslint/parser": "^6.17.0",
     "eslint-define-config": "^2.1.0",
     "eslint-plugin-i": "^2.29.1",
     "eslint-plugin-perfectionist": "^2.5.0",

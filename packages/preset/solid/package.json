@@ -38,7 +38,7 @@
     "build": "unbuild"
   },
   "dependencies": {
-    "eslint-plugin-solid": "^0.13.0"
+    "eslint-plugin-solid": "^0.13.1"
   },
   "devDependencies": {
     "@witheslint/core": "workspace:^"
