@@ -44,10 +44,10 @@ export function defineConfig(options: Options = {}): ConfigItem[] {
   }
 
   if (options.presets) {
-    options.presets.forEach((child) => {
-      const preset = child.setup(context)
-      config.push(arrayify(preset))
-    })
+    for (const preset of options.presets) {
+      if (!preset.setup) continue
+      config.push(arrayify(preset.setup(context)))
+    }
   }
 
   if (options.extends) {
