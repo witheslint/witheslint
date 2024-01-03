@@ -7,6 +7,11 @@ export function useContext(): Context {
       jsx: true,
       quotes: 'single',
       semi: false,
+      arrowParens: false,
+      braceStyle: '1tbs',
+      blockSpacing: true,
+      quoteProps: 'consistent-as-needed',
+      commaDangle: 'always-multiline',
     },
     features: {
       stylistic: true,

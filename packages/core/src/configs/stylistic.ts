@@ -14,8 +14,7 @@ export const stylistic = (styles: StylisticConfig): ConfigItem[] => {
       rules: {
         ...config.rules,
 
-        'style/brace-style': ['error', '1tbs'],
-        'curly': ['error', 'multi-line', 'consistent'],
+        curly: ['error', 'multi-line', 'consistent'],
       },
     },
   ]

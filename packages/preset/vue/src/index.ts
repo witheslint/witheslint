@@ -6,7 +6,7 @@ export const presetVue = () => definePreset({
   name: 'preset:vue',
   setup: ({ features, styles }) => {
     const { typescript, stylistic } = features
-    const { indent } = styles
+    const { indent, blockSpacing, braceStyle, commaDangle, quoteProps } = styles
     return [
       { plugins: { vue: pluginVue } },
       {
@@ -66,10 +66,10 @@ export const presetVue = () => definePreset({
             ? {
                 'vue/array-bracket-spacing': ['error', 'never'],
                 'vue/arrow-spacing': ['error', { after: true, before: true }],
-                'vue/block-spacing': ['error', 'always'],
+                'vue/block-spacing': ['error', blockSpacing ? 'always' : 'never'],
                 'vue/block-tag-newline': ['error', { multiline: 'always', singleline: 'always' }],
-                'vue/brace-style': ['error', 'stroustrup', { allowSingleLine: true }],
-                'vue/comma-dangle': ['error', 'always-multiline'],
+                'vue/brace-style': ['error', braceStyle, { allowSingleLine: true }],
+                'vue/comma-dangle': ['error', commaDangle],
                 'vue/comma-spacing': ['error', { after: true, before: false }],
                 'vue/comma-style': ['error', 'last'],
                 'vue/html-comment-content-spacing': ['error', 'always', { exceptions: ['-'] }],
@@ -80,7 +80,7 @@ export const presetVue = () => definePreset({
                 'vue/object-property-newline': ['error', { allowMultiplePropertiesPerLine: true }],
                 'vue/operator-linebreak': ['error', 'before'],
                 'vue/padding-line-between-blocks': ['error', 'always'],
-                'vue/quote-props': ['error', 'consistent-as-needed'],
+                'vue/quote-props': ['error', quoteProps],
                 'vue/space-in-parens': ['error', 'never'],
                 'vue/template-curly-spacing': 'error',
               }
