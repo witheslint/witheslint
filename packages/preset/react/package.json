@@ -1,6 +1,6 @@
 {
   "name": "@witheslint/preset-react",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "type": "module",
   "description": "ESLint config preset for react.",
   "author": "Joie <leaps@live.com>",
