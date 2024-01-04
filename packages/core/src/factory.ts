@@ -2,7 +2,7 @@ import type { Arrayable, ConfigItem, FeaturesConfig, Preset } from './types'
 import { imports, javascript, perfectionist, stylistic, typescript, unicorn } from './configs'
 import { useContext } from './context'
 import { GLOB_EXCLUDE } from './globs'
-import { arrayify } from './helper'
+import { arrayify, uniqueBy } from './helper'
 
 interface Options {
   ignores?: string[]
@@ -43,10 +43,13 @@ export function defineConfig(options: Options = {}): ConfigItem[] {
     config.push(stylistic(styles), perfectionist())
   }
 
-  if (options.presets) {
-    for (const preset of options.presets) {
+  if (options.presets?.length) {
+    const rawPresets = uniqueBy(options.presets, (pre, cur) => pre.name === cur.name)
+    for (const preset of rawPresets) {
       if (!preset.setup) continue
-      config.push(arrayify(preset.setup(context)))
+      const rawPreset = preset.setup(context)
+      if (!rawPreset) continue
+      config.push(arrayify(rawPreset))
     }
   }
 
