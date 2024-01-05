@@ -1,5 +1,5 @@
+/* eslint-disable perfectionist/sort-imports */
 /* eslint-disable import/newline-after-import */
-
 import { interopDefault } from '@witheslint/core'
 
 // @ts-expect-error missing types

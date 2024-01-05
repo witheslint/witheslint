@@ -1,3 +1,4 @@
+/* eslint-disable perfectionist/sort-imports */
 /* eslint-disable import/newline-after-import */
 /* eslint-disable import/first */
 import { interopDefault } from '@witheslint/core'
