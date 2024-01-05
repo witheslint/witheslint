@@ -2,7 +2,7 @@ import type { Arrayable, ConfigItem, FeaturesConfig, Preset } from './types'
 import { imports, javascript, perfectionist, stylistic, typescript, unicorn } from './configs'
 import { useContext } from './context'
 import { GLOB_EXCLUDE } from './globs'
-import { arrayify, uniqueBy } from './helper'
+import { arrayify, isBoolean, isFunction, uniqueBy } from './helper'
 
 interface Options {
   ignores?: string[]
@@ -14,14 +14,16 @@ interface Options {
 export function defineConfig(options: Options = {}): ConfigItem[] {
   const context = useContext()
   context.features = {
-    ...context.features,
-    stylistic: typeof options.features?.stylistic === 'boolean'
+    typescript: isBoolean(options.features?.typescript)
+      ? options.features?.typescript
+      : context.features.typescript,
+    stylistic: isBoolean(options.features?.stylistic)
       ? options.features?.stylistic
       : context.features.stylistic,
   }
   context.styles = {
     ...context.styles,
-    ...typeof options.features?.stylistic === 'boolean'
+    ...isBoolean(options.features?.stylistic)
       ? {}
       : options.features?.stylistic,
   }
@@ -44,9 +46,9 @@ export function defineConfig(options: Options = {}): ConfigItem[] {
   }
 
   if (options.presets?.length) {
-    const rawPresets = uniqueBy(options.presets, (pre, cur) => pre.name === cur.name)
+    const rawPresets = uniqueBy(options.presets, (pre, current) => pre.name === current.name)
     for (const preset of rawPresets) {
-      if (!preset.setup) continue
+      if (!isFunction(preset.setup)) continue
       const rawPreset = preset.setup(context)
       if (!rawPreset) continue
       config.push(arrayify(rawPreset))

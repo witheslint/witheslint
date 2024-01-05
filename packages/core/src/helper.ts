@@ -1,3 +1,10 @@
+const typeOf = (value: unknown) => Object.prototype.toString.call(value).slice(8, -1).toLowerCase()
+export const isBoolean = (value: unknown): value is boolean => typeof value === 'boolean'
+export const isObject = (value: unknown): value is object => typeOf(value) === 'object'
+export const isFunction = <T extends Function> (value: unknown): value is T => typeof value === 'function'
+export const isArray = <T>(value: unknown): value is T[] => typeOf(value) === 'array'
+export const isKeyOf = <T extends object>(object: T, key: keyof any): key is keyof T => key in object
+
 export function arrayify<T>(value: T | T[]): T[] {
   return Array.isArray(value) ? value : [value]
 }
