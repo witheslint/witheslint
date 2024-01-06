@@ -17,6 +17,7 @@ export const imports = (): ConfigItem[] => {
         'import/no-mutable-exports': 'error',
         'import/no-named-default': 'error',
         'import/no-self-import': 'error',
+        'import/no-useless-path-segments': 'error',
         'import/no-webpack-loader-syntax': 'error',
 
         'unused-imports/no-unused-imports': 'warn',
