@@ -6,6 +6,7 @@ export const GLOB_ASTRO = '**/*.astro'
 
 export const presetAstro = () => definePreset({
   name: 'preset:astro',
+  extensions: ['astro'],
   setup: ({ features }) => {
     const { typescript } = features
     return [

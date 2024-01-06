@@ -104,10 +104,14 @@ export interface FeaturesConfig {
 
 export interface Context {
   styles: StylisticConfig
-  features: FeaturesConfig
+  features: {
+    stylistic: boolean
+    typescript: boolean
+  }
 }
 
 export interface Preset {
   name: string
+  extensions?: string[]
   setup: (options: Context) => Arrayable<ConfigItem>
 }

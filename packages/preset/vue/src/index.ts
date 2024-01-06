@@ -6,6 +6,7 @@ export const GLOB_VUE = '**/*.vue'
 
 export const presetVue = () => definePreset({
   name: 'preset:vue',
+  extensions: ['vue'],
   setup: ({ features, styles }) => {
     const { typescript, stylistic } = features
     const { indent, blockSpacing, braceStyle, commaDangle, quoteProps } = styles

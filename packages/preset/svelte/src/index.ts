@@ -6,6 +6,7 @@ export const GLOB_SVELTE = '**/*.svelte'
 
 export const presetSvelte = () => definePreset({
   name: 'preset:svelte',
+  extensions: ['svelte'],
   setup: ({ features }) => {
     const { typescript } = features
     return [

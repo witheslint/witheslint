@@ -3,14 +3,20 @@ import { GLOB_CJS, GLOB_DTS, GLOB_TS, GLOB_TSX } from '../globs'
 import { renameRules } from '../helper'
 import { parserTs, pluginTs } from '../modules'
 
-export const typescript = (): ConfigItem[] => {
+interface Options {
+  extraExtensions?: string[]
+}
+
+export const typescript = (options: Options = {}): ConfigItem[] => {
+  const { extraExtensions = [] } = options
   return [
     { plugins: { ts: pluginTs } },
     {
-      files: [GLOB_TS, GLOB_TSX],
+      files: [GLOB_TS, GLOB_TSX, ...extraExtensions.map(ext => `**/*.${ext}`)],
       languageOptions: {
         parser: parserTs,
         parserOptions: {
+          extraFileExtensions: extraExtensions.map(ext => `.${ext}`),
           sourceType: 'module',
         },
       },

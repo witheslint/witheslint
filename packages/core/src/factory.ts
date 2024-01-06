@@ -37,22 +37,31 @@ export function defineConfig(options: Options = {}): ConfigItem[] {
     config.unshift([{ ignores: GLOB_EXCLUDE }])
   }
 
-  if (features.typescript) {
-    config.push(typescript())
-  }
-
   if (features.stylistic) {
     config.push(stylistic(styles), perfectionist())
   }
 
   if (options.presets?.length) {
-    const rawPresets = uniqueBy(options.presets, (pre, current) => pre.name === current.name)
+    const rawPresets = uniqueBy(
+      options.presets,
+      (pre, current) => pre.name === current.name,
+    )
+    const extraExtensions = rawPresets
+      .flatMap(preset => preset.extensions)
+      .filter(Boolean) as string[]
+
+    if (features.typescript) {
+      config.push(typescript({ extraExtensions }))
+    }
+
     for (const preset of rawPresets) {
       if (!isFunction(preset.setup)) continue
       const rawPreset = preset.setup(context)
       if (!rawPreset) continue
       config.push(arrayify(rawPreset))
     }
+  } else if (features.typescript) {
+    config.push(typescript())
   }
 
   if (options.extends) {
