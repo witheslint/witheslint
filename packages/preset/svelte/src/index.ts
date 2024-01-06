@@ -2,6 +2,8 @@ import { definePreset } from '@witheslint/core'
 import { parserTs } from '@witheslint/core/modules'
 import { parserSvelte, pluginSvelte } from './modules'
 
+export const GLOB_SVELTE = '**/*.svelte'
+
 export const presetSvelte = () => definePreset({
   name: 'preset:svelte',
   setup: ({ features }) => {
@@ -9,7 +11,7 @@ export const presetSvelte = () => definePreset({
     return [
       { plugins: { svelte: pluginSvelte } },
       {
-        files: ['**/*.svelte'],
+        files: [GLOB_SVELTE],
         languageOptions: {
           parser: parserSvelte,
           parserOptions: {

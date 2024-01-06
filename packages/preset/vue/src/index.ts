@@ -2,6 +2,8 @@ import { definePreset } from '@witheslint/core'
 import { parserTs } from '@witheslint/core/modules'
 import { parserVue, pluginVue } from './modules'
 
+export const GLOB_VUE = '**/*.vue'
+
 export const presetVue = () => definePreset({
   name: 'preset:vue',
   setup: ({ features, styles }) => {
@@ -10,7 +12,7 @@ export const presetVue = () => definePreset({
     return [
       { plugins: { vue: pluginVue } },
       {
-        files: ['**/*.vue'],
+        files: [GLOB_VUE],
         languageOptions: {
           parser: parserVue,
           parserOptions: {

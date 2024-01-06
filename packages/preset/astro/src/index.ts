@@ -2,6 +2,8 @@ import { definePreset } from '@witheslint/core'
 import { parserTs } from '@witheslint/core/modules'
 import { parserAstro, pluginAstro } from './modules'
 
+export const GLOB_ASTRO = '**/*.astro'
+
 export const presetAstro = () => definePreset({
   name: 'preset:astro',
   setup: ({ features }) => {
@@ -9,7 +11,7 @@ export const presetAstro = () => definePreset({
     return [
       { plugins: { astro: pluginAstro } },
       {
-        files: ['**/*.astro'],
+        files: [GLOB_ASTRO],
         languageOptions: {
           parser: parserAstro,
           parserOptions: {
