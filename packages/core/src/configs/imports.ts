@@ -10,6 +10,7 @@ export const imports = (): ConfigItem[] => {
         'unused-imports': pluginUnusedImports,
       },
       rules: {
+        'import/export': 'error',
         'import/first': 'error',
         'import/newline-after-import': ['error', { considerComments: true, count: 1 }],
         'import/no-default-export': 'error',
