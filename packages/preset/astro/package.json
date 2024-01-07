@@ -35,7 +35,8 @@
     "dist"
   ],
   "scripts": {
-    "build": "unbuild"
+    "build": "unbuild",
+    "prepublishOnly": "unbuild"
   },
   "dependencies": {
     "astro-eslint-parser": "^0.16.0",
