@@ -20,6 +20,10 @@ type MergeIntersection<
   T extends Record<any, any>,
 > = { [K in keyof T]: T[K] }
 
+type ConvertAllFields<
+  T, Target,
+> = { [K in keyof T]: Target }
+
 export type Arrayable<T> = Array<T> | T
 
 export type Awaitable<T> = Promise<T> | T
@@ -104,10 +108,7 @@ export interface FeaturesConfig {
 
 export interface Context {
   styles: StylisticConfig
-  features: {
-    stylistic: boolean
-    typescript: boolean
-  }
+  features: ConvertAllFields<FeaturesConfig, boolean>
 }
 
 export interface Preset {
