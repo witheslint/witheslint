@@ -2,7 +2,7 @@ import type { Arrayable, ConfigItem, FeaturesConfig, Preset } from './types'
 import { imports, javascript, perfectionist, stylistic, typescript, unicorn } from './configs'
 import { useContext } from './context'
 import { GLOB_EXCLUDE } from './globs'
-import { arrayify, isBoolean, isFunction, uniqueBy } from './helper'
+import { arrayify, isFunction, uniqueBy } from './helper'
 
 interface Options {
   ignores?: string[]
@@ -12,21 +12,7 @@ interface Options {
 }
 
 export function defineConfig(options: Options = {}): ConfigItem[] {
-  const context = useContext()
-  context.features = {
-    typescript: isBoolean(options.features?.typescript)
-      ? options.features?.typescript
-      : context.features.typescript,
-    stylistic: isBoolean(options.features?.stylistic)
-      ? options.features?.stylistic
-      : context.features.stylistic,
-  }
-  context.styles = {
-    ...context.styles,
-    ...isBoolean(options.features?.stylistic)
-      ? {}
-      : options.features?.stylistic,
-  }
+  const context = useContext(options.features)
   const { features, styles } = context
 
   const config = [javascript(), imports(), unicorn()]
