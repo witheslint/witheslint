@@ -46,11 +46,12 @@ export function defineConfig(options: Options = {}): ConfigItem[] {
       options.presets,
       (pre, current) => pre.name === current.name,
     )
-    const extraExtensions = rawPresets
-      .flatMap(preset => preset.extensions)
-      .filter(Boolean) as string[]
 
     if (features.typescript) {
+      const extraExtensions = rawPresets
+        .flatMap(preset => preset.extensions)
+        .filter(Boolean) as string[]
+
       config.push(typescript({ extraExtensions }))
     }
 
