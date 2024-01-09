@@ -2,7 +2,7 @@
   "name": "@witheslint/preset-solid",
   "version": "0.6.0",
   "type": "module",
-  "description": "ESLint config preset for solid.",
+  "description": "Use solid eslint config preset in witheslint.",
   "author": "Joie <leaps@live.com>",
   "license": "MIT",
   "homepage": "https://github.com/witheslint/witheslint",

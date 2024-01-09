@@ -2,7 +2,7 @@
   "name": "witheslint",
   "version": "0.6.0",
   "type": "module",
-  "description": "Shareable eslint flat configs.",
+  "description": "Implementing a standardized ESLint configuration across all your projects.",
   "author": "Joie <leaps@live.com>",
   "license": "MIT",
   "homepage": "https://github.com/witheslint/witheslint",
