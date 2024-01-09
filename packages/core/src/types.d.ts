@@ -32,7 +32,7 @@ type ConvertAllFields<
   T, Target,
 > = { [K in keyof T]: Target }
 
-type ParserOptions = Omit< Linter.ParserOptions, 'parser'> & { parser?: ParserModule }
+type ParserOptions = Omit<Linter.ParserOptions, 'parser'> & { parser?: ParserModule }
 
 type LanguageOptions = Exclude<Linter.FlatConfig['languageOptions'], 'parser' | 'parserOptions'> & {
   parser?: ParserModule
@@ -76,7 +76,7 @@ export type FlatConfigItem = Omit<Linter.FlatConfig, 'languageOptions' | 'plugin
    * An object containing the configured rules. When files or ignores are specified,
    * these rule configurations are only available to the matching files.
   */
-  // Renamed some rules to make the overall scope more consistent and easier to write.
+  // Renamed some plugin to make the overall scope more consistent and easier to write.
   rules?: Linter.RulesRecord | Partial<RenamedRules>
 }
 
@@ -164,7 +164,7 @@ export interface Context {
 
 export interface Preset {
   /**
-   * Custom name of each preset item
+   * Custom name of each preset item.
    */
   name: string
   /**
