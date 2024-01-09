@@ -1,7 +1,7 @@
-import type { ConfigItem } from '../types'
+import type { FlatConfigItem } from '../types'
 import { pluginUnicorn } from '../modules'
 
-export const unicorn = (): ConfigItem[] => {
+export const unicorn = (): FlatConfigItem[] => {
   return [
     {
       plugins: { unicorn: pluginUnicorn },

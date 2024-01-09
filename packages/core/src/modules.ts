@@ -1,6 +1,7 @@
 /* eslint-disable perfectionist/sort-imports */
 /* eslint-disable import/first */
 /* eslint-disable import/newline-after-import */
+import type { ParserModule } from './types'
 import { interopDefault } from './helper'
 
 // @ts-expect-error missing types
@@ -26,4 +27,4 @@ import * as tsPlugin from '@typescript-eslint/eslint-plugin'
 export const pluginTs: typeof tsPlugin = interopDefault(tsPlugin)
 
 import * as tsParser from '@typescript-eslint/parser'
-export const parserTs = interopDefault(tsParser)
+export const parserTs = interopDefault<ParserModule>(tsParser)

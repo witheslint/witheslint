@@ -1,8 +1,8 @@
-import type { ConfigItem } from '../types'
+import type { FlatConfigItem } from '../types'
 import { GLOB_DTS } from '../globs'
 import { pluginImport, pluginUnusedImports } from '../modules'
 
-export const imports = (): ConfigItem[] => {
+export const imports = (): FlatConfigItem[] => {
   return [
     {
       plugins: {

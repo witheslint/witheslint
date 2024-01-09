@@ -1,10 +1,10 @@
-export const GLOB_JS = '**/*.?([cm])js' as const
-export const GLOB_CJS = '**/*.?(c)js' as const
-export const GLOB_JSX = '**/*.?([cm])jsx' as const
+export const GLOB_JS = '**/*.?([cm])js'
+export const GLOB_CJS = '**/*.?(c)js'
+export const GLOB_JSX = '**/*.?([cm])jsx'
 
-export const GLOB_TS = '**/*.?([cm])ts' as const
-export const GLOB_DTS = '**/*.d.?([cm])ts' as const
-export const GLOB_TSX = '**/*.?([cm])tsx' as const
+export const GLOB_TS = '**/*.?([cm])ts'
+export const GLOB_DTS = '**/*.d.?([cm])ts'
+export const GLOB_TSX = '**/*.?([cm])tsx'
 
 export const GLOB_EXCLUDE = [
   '**/node_modules',
@@ -35,4 +35,4 @@ export const GLOB_EXCLUDE = [
   '**/*.min.*',
   '**/LICENSE*',
   '**/__snapshots__',
-]
+] as const

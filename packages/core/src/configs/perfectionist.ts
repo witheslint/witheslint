@@ -1,7 +1,7 @@
-import type { ConfigItem } from '../types'
+import type { FlatConfigItem } from '../types'
 import { pluginPerfectionist } from '../modules'
 
-export const perfectionist = (): ConfigItem[] => {
+export const perfectionist = (): FlatConfigItem[] => {
   return [
     {
       plugins: { perfectionist: pluginPerfectionist },

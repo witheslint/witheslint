@@ -1,7 +1,7 @@
-import type { ConfigItem } from '../types'
+import type { FlatConfigItem } from '../types'
 import globals from 'globals'
 
-export const javascript = (): ConfigItem[] => {
+export const javascript = (): FlatConfigItem[] => {
   return [
     {
       languageOptions: {

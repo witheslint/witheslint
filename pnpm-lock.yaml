@@ -41,9 +41,21 @@ importers:
 
   packages/core:
     dependencies:
+      '@eslint-types/import':
+        specifier: ^2.29.1
+        version: 2.29.1
+      '@eslint-types/typescript-eslint':
+        specifier: ^6.17.0
+        version: 6.17.0
+      '@eslint-types/unicorn':
+        specifier: ^50.0.1
+        version: 50.0.1
       '@stylistic/eslint-plugin':
         specifier: ^1.5.3
         version: 1.5.3(eslint@8.56.0)(typescript@5.3.3)
+      '@types/eslint':
+        specifier: ^8.56.0
+        version: 8.56.0
       '@typescript-eslint/eslint-plugin':
         specifier: ^6.17.0
         version: 6.17.0(@typescript-eslint/parser@6.17.0)(eslint@8.56.0)(typescript@5.3.3)
@@ -53,9 +65,6 @@ importers:
       eslint:
         specifier: '>=8.56.0'
         version: 8.56.0
-      eslint-define-config:
-        specifier: ^2.1.0
-        version: 2.1.0
       eslint-plugin-i:
         specifier: ^2.29.1
         version: 2.29.1(@typescript-eslint/parser@6.17.0)(eslint@8.56.0)
@@ -71,10 +80,6 @@ importers:
       globals:
         specifier: ^13.24.0
         version: 13.24.0
-    devDependencies:
-      '@types/eslint':
-        specifier: ^8.56.0
-        version: 8.56.0
 
   packages/preset/astro:
     dependencies:
@@ -942,6 +947,18 @@ packages:
     resolution: {integrity: sha512-Cu96Sd2By9mCNTx2iyKOmq10v22jUVQv0lQnlGNy16oE9589yE+QADPbrMGCkA51cKZSg3Pu/aTJVTGfL/qjUA==}
     engines: {node: ^12.0.0 || ^14.0.0 || >=16.0.0}
 
+  /@eslint-types/import@2.29.1:
+    resolution: {integrity: sha512-22yG9mnWk/mC6rQwtgzEbE/in7H7eA36v1eBVrVdYDeapylP/N0Qw0WPq83YSlQ1kM0B72az9FCZvlMfmwQ+YA==}
+    dev: false
+
+  /@eslint-types/typescript-eslint@6.17.0:
+    resolution: {integrity: sha512-fPwdc27nXbsn69obhmOujFMxheimgs+Hf0iHCyq0s1w48iPpd0PgA/UvAs/PRUY/H9GYvrZDSvBTxtHLqnzb3A==}
+    dev: false
+
+  /@eslint-types/unicorn@50.0.1:
+    resolution: {integrity: sha512-nuJuipTNcg9f+oxZ+3QZw4tuDLmir4RJOPfM/oujgToiy1s+tePDZhwg5jUGc3q8OzTtPbVpsFSYX7QApjO3EA==}
+    dev: false
+
   /@eslint/eslintrc@2.1.4:
     resolution: {integrity: sha512-269Z39MS6wVJtsoUl10L60WdkhJVdPG24Q4eZTH3nnF6lpvSShEK3wQjDX9JRWAUPvPh7COouPpU9IrqaZFvtQ==}
     engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
@@ -1225,14 +1242,14 @@ packages:
     dependencies:
       '@types/estree': 1.0.5
       '@types/json-schema': 7.0.15
-    dev: true
+    dev: false
 
   /@types/estree@1.0.5:
     resolution: {integrity: sha512-/kYRxGDLWzHOB7q+wtSUQlFrtcdUccpfy+X+9iMBpHK8QLLhx2wIPYuS5DYtR9Wa/YlZAbIovy7qVdB1Aq6Lyw==}
-    dev: true
 
   /@types/json-schema@7.0.15:
     resolution: {integrity: sha512-5+fP8P8MFNC+AyZCDxrB2pkZFPGzqQWUzpSeuuVLvm8VMcorNYavBqoFcxK8bQz4Qsbn4oUEEem4wDLfcysGHA==}
+    dev: false
 
   /@types/minimist@1.2.5:
     resolution: {integrity: sha512-hov8bUuiLiyFPGyFPE1lwWhmzYbirOXQNNo40+y3zow8aFVTeyn3VWL0VFFfdNddA8S4Vf0Tc062rzyNr7Paag==}
@@ -2486,11 +2503,6 @@ packages:
       eslint: '>=6.0.0'
     dependencies:
       eslint: 8.56.0
-    dev: false
-
-  /eslint-define-config@2.1.0:
-    resolution: {integrity: sha512-QUp6pM9pjKEVannNAbSJNeRuYwW3LshejfyBBpjeMGaJjaDUpVps4C6KVR8R7dWZnD3i0synmrE36znjTkJvdQ==}
-    engines: {node: '>=18.0.0', npm: '>=9.0.0', pnpm: '>=8.6.0'}
     dev: false
 
   /eslint-import-resolver-node@0.3.9:

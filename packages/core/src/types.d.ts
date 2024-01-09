@@ -1,4 +1,8 @@
-import type { FlatESLintConfigItem, Rules } from 'eslint-define-config'
+import type { RuleOptions as ImportRules } from '@eslint-types/import/types'
+import type { RuleOptions as TypeScriptRules } from '@eslint-types/typescript-eslint/types'
+import type { RuleOptions as UnicornRules } from '@eslint-types/unicorn/types'
+import type { RuleOptions as StylisticRules } from '@stylistic/eslint-plugin'
+import type { ESLint, Linter } from 'eslint'
 
 type Prefix<
   T extends Record<string, any>,
@@ -20,23 +24,60 @@ type MergeIntersection<
   T extends Record<any, any>,
 > = { [K in keyof T]: T[K] }
 
+type WrapRuleConfig<
+  T extends { [key: string]: any },
+> = { [K in keyof T]: T[K] extends Linter.RuleEntry ? T[K] : Linter.RuleEntry<T[K]> }
+
 type ConvertAllFields<
   T, Target,
 > = { [K in keyof T]: Target }
+
+type ParserOptions = Omit< Linter.ParserOptions, 'parser'> & { parser?: ParserModule }
+
+type LanguageOptions = Exclude<Linter.FlatConfig['languageOptions'], 'parser' | 'parserOptions'> & {
+  parser?: ParserModule
+  parserOptions?: Linter.ParserOptions & ParserOptions
+}
+
+type RenamedRules = WrapRuleConfig<
+  MergeIntersection<
+    RenamePrefix<TypeScriptRules, '@typescript-eslint/', 'ts/'> &
+    RenamePrefix<StylisticRules, '@stylistic/', 'style/'> &
+    UnicornRules &
+    ImportRules
+  >
+>
+
+export type ParserModule =
+  & ESLint.ObjectMetaProperties
+  & (
+    | { parse(text: string, options?: any): any }
+    | { parseForESLint(text: string, options?: any): any }
+)
 
 export type Arrayable<T> = Array<T> | T
 
 export type Awaitable<T> = Promise<T> | T
 
-export type RenamedRules = MergeIntersection<
-  Rules &
-  RenamePrefix<Rules, '@typescript-eslint/', 'ts/'> &
-  RenamePrefix<Rules, '@stylistic/', 'style/'>
->
-
-export type ConfigItem = Omit<FlatESLintConfigItem, 'plugins' | 'rules'> & {
+export type FlatConfigItem = Omit<Linter.FlatConfig, 'languageOptions' | 'plugins' | 'rules'> & {
+  /**
+   * An object containing settings related to how JavaScript is configured for
+   * linting.
+  */
+  // Relax parser type limitation, as most of the parser did not have correct type info yet.
+  languageOptions?: LanguageOptions
+  /**
+   * An object containing a name-value mapping of plugin names to plugin objects.
+   * When files is specified, these plugins are only available to the matching files.
+  */
+  // Relax plugins type limitation, as most of the plugins did not have correct type info yet.
   plugins?: Record<string, any>
-  rules?: Record<string, any> | RenamedRules
+  /**
+   * An object containing the configured rules. When files or ignores are specified,
+   * these rule configurations are only available to the matching files.
+  */
+  // Renamed some rules to make the overall scope more consistent and easier to write.
+  rules?: Linter.RulesRecord | Partial<RenamedRules>
 }
 
 export interface StylisticConfig {
@@ -102,7 +143,17 @@ export interface StylisticConfig {
 }
 
 export interface FeaturesConfig {
+  /**
+   * Enable stylistic rules.
+   *
+   * @default true
+   */
   stylistic: boolean | StylisticConfig
+  /**
+   * Enable TypeScript support.
+   *
+   * @default true
+   */
   typescript: boolean
 }
 
@@ -112,7 +163,16 @@ export interface Context {
 }
 
 export interface Preset {
+  /**
+   * Custom name of each preset item
+   */
   name: string
+  /**
+   * Optional extensions for the preset to borrow rules from typescript.
+   */
   extensions?: string[]
-  setup: (options: Context) => Arrayable<ConfigItem>
+  /**
+   * Function to setup the preset.
+   */
+  setup: (options: Context) => Arrayable<FlatConfigItem>
 }

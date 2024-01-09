@@ -1,4 +1,4 @@
-import type { Arrayable, ConfigItem, FeaturesConfig, Preset } from './types'
+import type { Arrayable, FeaturesConfig, FlatConfigItem, Preset } from './types'
 import { imports, javascript, perfectionist, stylistic, typescript, unicorn } from './configs'
 import { useContext } from './context'
 import { GLOB_EXCLUDE } from './globs'
@@ -8,10 +8,10 @@ interface Options {
   ignores?: string[]
   features?: FeaturesConfig
   presets?: Preset[]
-  extends?: Arrayable<ConfigItem>
+  extends?: Arrayable<FlatConfigItem>
 }
 
-export function defineConfig(options: Options = {}): ConfigItem[] {
+export function defineConfig(options: Options = {}): FlatConfigItem[] {
   const context = useContext(options.features)
   const { features, styles } = context
 

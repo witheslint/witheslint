@@ -1,4 +1,4 @@
-import type { ConfigItem } from '../types'
+import type { FlatConfigItem } from '../types'
 import { GLOB_CJS, GLOB_DTS, GLOB_TS, GLOB_TSX } from '../globs'
 import { renameRules } from '../helper'
 import { parserTs, pluginTs } from '../modules'
@@ -7,7 +7,7 @@ interface Options {
   extraExtensions?: string[]
 }
 
-export const typescript = (options: Options = {}): ConfigItem[] => {
+export const typescript = (options: Options = {}): FlatConfigItem[] => {
   const { extraExtensions = [] } = options
   return [
     { plugins: { ts: pluginTs } },

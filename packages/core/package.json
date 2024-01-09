@@ -37,18 +37,18 @@
     "prepublishOnly": "unbuild"
   },
   "dependencies": {
+    "@eslint-types/import": "^2.29.1",
+    "@eslint-types/typescript-eslint": "^6.17.0",
+    "@eslint-types/unicorn": "^50.0.1",
     "@stylistic/eslint-plugin": "^1.5.3",
+    "@types/eslint": "^8.56.0",
     "@typescript-eslint/eslint-plugin": "^6.17.0",
     "@typescript-eslint/parser": "^6.17.0",
-    "eslint-define-config": "^2.1.0",
     "eslint-plugin-i": "^2.29.1",
     "eslint-plugin-perfectionist": "^2.5.0",
     "eslint-plugin-unicorn": "^50.0.1",
     "eslint-plugin-unused-imports": "^3.0.0",
     "globals": "^13.24.0"
-  },
-  "devDependencies": {
-    "@types/eslint": "^8.56.0"
   },
   "peerDependencies": {
     "eslint": ">=8.56.0"
