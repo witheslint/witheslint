@@ -10,7 +10,7 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/witheslint/witheslint.git",
-    "directory": "packages/preset/solid"
+    "directory": "packages/integrations/solid"
   },
   "keywords": [
     "eslint-config",

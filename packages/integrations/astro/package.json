@@ -10,7 +10,7 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/witheslint/witheslint.git",
-    "directory": "packages/preset/astro"
+    "directory": "packages/integrations/astro"
   },
   "keywords": [
     "eslint-config",
