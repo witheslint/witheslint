@@ -5,9 +5,21 @@ import { GLOB_EXCLUDE } from './globs'
 import { arrayify, isFunction, uniqueBy } from './helper'
 
 interface Options {
+  /**
+   * List of file patterns to ignore.
+   */
   ignores?: string[]
+  /**
+   * Configuration for various features.
+   */
   features?: FeaturesConfig
+  /**
+   * List of presets to apply to the configuration.
+   */
   presets?: Preset[]
+  /**
+   * Additional configurations to extend.
+   */
   extends?: Arrayable<FlatConfigItem>
 }
 
