@@ -20,7 +20,7 @@ export function defineConfig(options: Options = {}): FlatConfigItem[] {
   if (options.ignores) {
     config.unshift([{ ignores: options.ignores }])
   } else {
-    config.unshift([{ ignores: GLOB_EXCLUDE }])
+    config.unshift([{ ignores: [...GLOB_EXCLUDE] }])
   }
 
   if (features.stylistic) {

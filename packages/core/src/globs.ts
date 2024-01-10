@@ -9,30 +9,29 @@ export const GLOB_TSX = '**/*.?([cm])tsx'
 export const GLOB_EXCLUDE = [
   '**/node_modules',
   '**/dist',
-  '**/package-lock.json',
-  '**/yarn.lock',
-  '**/pnpm-lock.yaml',
-  '**/bun.lockb',
 
-  '**/output',
-  '**/coverage',
-  '**/temp',
-  '**/.temp',
-  '**/tmp',
-  '**/.tmp',
-  '**/.history',
-  '**/.vitepress/cache',
+  '**/bun.lockb',
+  '**/package-lock.json',
+  '**/pnpm-lock.yaml',
+  '**/yarn.lock',
+
+  '**/.astro',
   '**/.nuxt',
   '**/.next',
+  '**/.svelte-kit',
   '**/.vercel',
-  '**/.changeset',
-  '**/.idea',
+  '**/.vite-inspect',
+  '**/.vitepress/cache',
+
   '**/.cache',
   '**/.output',
-  '**/.vite-inspect',
+
+  '**/.changeset',
+  '**/.idea',
 
   '**/CHANGELOG*.md',
-  '**/*.min.*',
   '**/LICENSE*',
+
+  '**/*.min.*',
   '**/__snapshots__',
 ] as const
