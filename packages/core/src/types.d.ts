@@ -63,19 +63,19 @@ export type FlatConfigItem = Omit<Linter.FlatConfig, 'languageOptions' | 'plugin
   /**
    * An object containing settings related to how JavaScript is configured for
    * linting.
-  */
+   */
   // Relax parser type limitation, as most of the parser did not have correct type info yet.
   languageOptions?: LanguageOptions
   /**
    * An object containing a name-value mapping of plugin names to plugin objects.
    * When files is specified, these plugins are only available to the matching files.
-  */
+   */
   // Relax plugins type limitation, as most of the plugins did not have correct type info yet.
   plugins?: Record<string, any>
   /**
    * An object containing the configured rules. When files or ignores are specified,
    * these rule configurations are only available to the matching files.
-  */
+   */
   // Renamed some plugin to make the overall scope more consistent and easier to write.
   rules?: Linter.RulesRecord | Partial<RenamedRules>
 }

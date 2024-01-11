@@ -1,5 +1,5 @@
 import type { Arrayable, FeaturesConfig, FlatConfigItem, Preset } from './types'
-import { imports, javascript, perfectionist, stylistic, typescript, unicorn } from './configs'
+import { imports, javascript, jsdoc, perfectionist, stylistic, typescript, unicorn } from './configs'
 import { useContext } from './context'
 import { GLOB_EXCLUDE } from './globs'
 import { arrayify, isFunction, uniqueBy } from './helper'
@@ -27,7 +27,7 @@ export function defineConfig(options: Options = {}): FlatConfigItem[] {
   const context = useContext(options.features)
   const { features, styles } = context
 
-  const config = [javascript(), imports(), unicorn()]
+  const config = [javascript(), imports(), unicorn(), jsdoc()]
 
   if (options.ignores) {
     config.unshift([{ ignores: options.ignores }])

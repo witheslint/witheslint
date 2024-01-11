@@ -20,6 +20,9 @@ export const pluginUnicorn = interopDefault(unicornPlugin)
 import * as perfectionistPlugin from 'eslint-plugin-perfectionist'
 export const pluginPerfectionist = interopDefault(perfectionistPlugin)
 
+import * as jsdocPlugin from 'eslint-plugin-jsdoc'
+export const pluginJsdoc = interopDefault(jsdocPlugin)
+
 import * as stylisticPlugin from '@stylistic/eslint-plugin'
 export const pluginStylistic = interopDefault(stylisticPlugin)
 
