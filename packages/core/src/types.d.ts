@@ -1,6 +1,10 @@
-import type { RuleOptions as ImportRules } from '@eslint-types/import/types'
-import type { RuleOptions as TypeScriptRules } from '@eslint-types/typescript-eslint/types'
-import type { RuleOptions as UnicornRules } from '@eslint-types/unicorn/types'
+import type { RuleOptions as ImportRules } from '../dts/import'
+import type { RuleOptions as JavaScriptRules } from '../dts/js'
+import type { RuleOptions as JsdocRules } from '../dts/jsdoc'
+import type { RuleOptions as PerfectionistRules } from '../dts/perfectionist'
+import type { RuleOptions as TypeScriptRules } from '../dts/ts'
+import type { RuleOptions as UnicornRules } from '../dts/unicorn'
+import type { RuleOptions as UnusedImportsRules } from '../dts/unused-imports'
 import type { RuleOptions as StylisticRules } from '@stylistic/eslint-plugin'
 import type { ESLint, Linter } from 'eslint'
 
@@ -41,10 +45,14 @@ type LanguageOptions = Exclude<Linter.FlatConfig['languageOptions'], 'parser' | 
 
 type RenamedRules = WrapRuleConfig<
   MergeIntersection<
-    RenamePrefix<TypeScriptRules, '@typescript-eslint/', 'ts/'> &
-    RenamePrefix<StylisticRules, '@stylistic/', 'style/'> &
+    JavaScriptRules &
+    JsdocRules &
+    ImportRules &
     UnicornRules &
-    ImportRules
+    UnusedImportsRules &
+    PerfectionistRules &
+    TypeScriptRules &
+    RenamePrefix<StylisticRules, '@stylistic/', 'style/'>
   >
 >
 
