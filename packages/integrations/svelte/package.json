@@ -32,18 +32,22 @@
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
   "files": [
-    "dist"
+    "dist",
+    "dts"
   ],
   "scripts": {
     "build": "unbuild",
-    "prepublishOnly": "unbuild"
+    "prepublishOnly": "unbuild",
+    "dts": "esno ./scripts/generate-dts.ts && eslint ./dts --fix"
   },
   "dependencies": {
     "eslint-plugin-svelte": "^2.35.1",
     "svelte-eslint-parser": "^0.33.1"
   },
   "devDependencies": {
-    "@witheslint/core": "workspace:^"
+    "@witheslint/core": "workspace:^",
+    "@witheslint/generate-dts": "workspace:^",
+    "svelte": "^4.2.8"
   },
   "peerDependencies": {
     "@witheslint/core": ">=0.7.0"

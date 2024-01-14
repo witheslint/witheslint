@@ -30,11 +30,13 @@
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
   "files": [
-    "dist"
+    "dist",
+    "dts"
   ],
   "scripts": {
     "build": "unbuild",
-    "prepublishOnly": "unbuild"
+    "prepublishOnly": "unbuild",
+    "dts": "esno ./scripts/generate-dts.ts && eslint ./dts --fix"
   },
   "dependencies": {
     "@eslint-types/import": "^2.29.1",
@@ -50,6 +52,9 @@
     "eslint-plugin-unicorn": "^50.0.1",
     "eslint-plugin-unused-imports": "^3.0.0",
     "globals": "^13.24.0"
+  },
+  "devDependencies": {
+    "@witheslint/generate-dts": "workspace:^"
   },
   "peerDependencies": {
     "eslint": ">=8.56.0"

@@ -32,18 +32,21 @@
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
   "files": [
-    "dist"
+    "dist",
+    "dts"
   ],
   "scripts": {
     "build": "unbuild",
-    "prepublishOnly": "unbuild"
+    "prepublishOnly": "unbuild",
+    "dts": "esno ./scripts/generate-dts.ts && eslint ./dts --fix"
   },
   "dependencies": {
     "eslint-plugin-react": "^7.33.2",
     "eslint-plugin-react-hooks": "^4.6.0"
   },
   "devDependencies": {
-    "@witheslint/core": "workspace:^"
+    "@witheslint/core": "workspace:^",
+    "@witheslint/generate-dts": "workspace:^"
   },
   "peerDependencies": {
     "@witheslint/core": ">=0.7.0"
