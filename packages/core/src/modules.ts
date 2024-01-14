@@ -1,6 +1,3 @@
-/* eslint-disable perfectionist/sort-imports */
-/* eslint-disable import/first */
-/* eslint-disable import/newline-after-import */
 import type { ParserModule } from './types'
 import { interopDefault } from './helper'
 
