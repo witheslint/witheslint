@@ -50,9 +50,6 @@
     "eslint-plugin-unused-imports": "^3.0.0",
     "globals": "^13.24.0"
   },
-  "devDependencies": {
-    "@witheslint/generate-dts": "workspace:^"
-  },
   "peerDependencies": {
     "eslint": ">=8.56.0"
   }

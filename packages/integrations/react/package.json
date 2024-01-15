@@ -45,8 +45,7 @@
     "eslint-plugin-react-hooks": "^4.6.0"
   },
   "devDependencies": {
-    "@witheslint/core": "workspace:^",
-    "@witheslint/generate-dts": "workspace:^"
+    "@witheslint/core": "workspace:^"
   },
   "peerDependencies": {
     "@witheslint/core": ">=0.8.0"

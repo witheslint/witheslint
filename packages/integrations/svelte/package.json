@@ -46,7 +46,6 @@
   },
   "devDependencies": {
     "@witheslint/core": "workspace:^",
-    "@witheslint/generate-dts": "workspace:^",
     "svelte": "^4.2.8"
   },
   "peerDependencies": {

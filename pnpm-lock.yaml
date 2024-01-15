@@ -23,6 +23,9 @@ importers:
       '@types/node':
         specifier: '18'
         version: 18.19.3
+      '@witheslint/generate-dts':
+        specifier: workspace:^
+        version: link:packages/utilities/generate-dts
       changesets-commit:
         specifier: ^1.0.0
         version: 1.0.0
@@ -80,10 +83,6 @@ importers:
       globals:
         specifier: ^13.24.0
         version: 13.24.0
-    devDependencies:
-      '@witheslint/generate-dts':
-        specifier: workspace:^
-        version: link:../utilities/generate-dts
 
   packages/integrations/astro:
     dependencies:
@@ -97,9 +96,6 @@ importers:
       '@witheslint/core':
         specifier: workspace:^
         version: link:../../core
-      '@witheslint/generate-dts':
-        specifier: workspace:^
-        version: link:../../utilities/generate-dts
 
   packages/integrations/react:
     dependencies:
@@ -113,9 +109,6 @@ importers:
       '@witheslint/core':
         specifier: workspace:^
         version: link:../../core
-      '@witheslint/generate-dts':
-        specifier: workspace:^
-        version: link:../../utilities/generate-dts
 
   packages/integrations/solid:
     dependencies:
@@ -126,9 +119,6 @@ importers:
       '@witheslint/core':
         specifier: workspace:^
         version: link:../../core
-      '@witheslint/generate-dts':
-        specifier: workspace:^
-        version: link:../../utilities/generate-dts
 
   packages/integrations/svelte:
     dependencies:
@@ -142,9 +132,6 @@ importers:
       '@witheslint/core':
         specifier: workspace:^
         version: link:../../core
-      '@witheslint/generate-dts':
-        specifier: workspace:^
-        version: link:../../utilities/generate-dts
       svelte:
         specifier: ^4.2.8
         version: 4.2.8
@@ -161,9 +148,6 @@ importers:
       '@witheslint/core':
         specifier: workspace:^
         version: link:../../core
-      '@witheslint/generate-dts':
-        specifier: workspace:^
-        version: link:../../utilities/generate-dts
 
   packages/utilities/generate-dts:
     dependencies:

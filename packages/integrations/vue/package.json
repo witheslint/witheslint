@@ -45,8 +45,7 @@
     "vue-eslint-parser": "^9.3.2"
   },
   "devDependencies": {
-    "@witheslint/core": "workspace:^",
-    "@witheslint/generate-dts": "workspace:^"
+    "@witheslint/core": "workspace:^"
   },
   "peerDependencies": {
     "@witheslint/core": ">=0.8.0"
