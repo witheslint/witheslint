@@ -1,6 +1,6 @@
 {
   "name": "@witheslint/preset-svelte",
-  "version": "0.7.0",
+  "version": "0.8.0",
   "type": "module",
   "description": "Use svelte eslint config preset in witheslint.",
   "author": "Joie <leaps@live.com>",
@@ -50,6 +50,6 @@
     "svelte": "^4.2.8"
   },
   "peerDependencies": {
-    "@witheslint/core": ">=0.7.0"
+    "@witheslint/core": ">=0.8.0"
   }
 }

@@ -1,6 +1,6 @@
 {
   "name": "@witheslint/preset-astro",
-  "version": "0.7.0",
+  "version": "0.8.0",
   "type": "module",
   "description": "Use astro eslint config preset in witheslint.",
   "author": "Joie <leaps@live.com>",
@@ -49,6 +49,6 @@
     "@witheslint/generate-dts": "workspace:^"
   },
   "peerDependencies": {
-    "@witheslint/core": ">=0.7.0"
+    "@witheslint/core": ">=0.8.0"
   }
 }
