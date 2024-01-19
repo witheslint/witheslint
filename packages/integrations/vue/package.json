@@ -41,8 +41,8 @@
     "dts": "esno ./scripts/generate-dts.ts && eslint ./dts --fix"
   },
   "dependencies": {
-    "eslint-plugin-vue": "^9.19.2",
-    "vue-eslint-parser": "^9.3.2"
+    "eslint-plugin-vue": "^9.20.1",
+    "vue-eslint-parser": "^9.4.0"
   },
   "devDependencies": {
     "@witheslint/core": "workspace:^"
