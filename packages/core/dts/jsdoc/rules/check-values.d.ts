@@ -1,6 +1,6 @@
 interface Schema0 {
   allowedAuthors?: string[]
-  allowedLicenses?: (boolean | string[])
+  allowedLicenses?: (string[] | boolean)
   licensePattern?: string
   numericOnlyVariation?: boolean
 }

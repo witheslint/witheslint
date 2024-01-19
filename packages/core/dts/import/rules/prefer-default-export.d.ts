@@ -1,5 +1,5 @@
 interface Schema0 {
-  target?: ('any' | 'single')
+  target?: ('single' | 'any')
 }
 
 export type PreferDefaultExportRuleOptions = [Schema0]

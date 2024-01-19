@@ -1,6 +1,6 @@
-type Schema0 = ({
+type Schema0 = (boolean | {
   allowCall?: boolean
   grouping?: boolean
-} | boolean)
+})
 
 export type NoMixedRequiresRuleOptions = [Schema0]

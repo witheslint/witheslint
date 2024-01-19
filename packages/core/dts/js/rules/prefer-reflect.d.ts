@@ -1,5 +1,5 @@
 interface Schema0 {
-  exceptions?: ('apply' | 'call' | 'defineProperty' | 'delete' | 'getOwnPropertyDescriptor' | 'getOwnPropertyNames' | 'getPrototypeOf' | 'isExtensible' | 'preventExtensions' | 'setPrototypeOf')[]
+  exceptions?: ('apply' | 'call' | 'delete' | 'defineProperty' | 'getOwnPropertyDescriptor' | 'getPrototypeOf' | 'setPrototypeOf' | 'isExtensible' | 'getOwnPropertyNames' | 'preventExtensions')[]
 }
 
 export type PreferReflectRuleOptions = [Schema0]

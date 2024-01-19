@@ -3,7 +3,7 @@ interface Schema0 {
   number?: boolean
   string?: boolean
   disallowTemplateShorthand?: boolean
-  allow?: ('!!' | '*' | '+' | '~')[]
+  allow?: ('~' | '!!' | '+' | '*')[]
 }
 
 export type NoImplicitCoercionRuleOptions = [Schema0]

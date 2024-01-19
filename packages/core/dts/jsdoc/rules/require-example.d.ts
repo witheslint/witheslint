@@ -2,10 +2,10 @@ interface Schema0 {
   checkConstructors?: boolean
   checkGetters?: boolean
   checkSetters?: boolean
-  contexts?: ({
+  contexts?: (string | {
     comment?: string
     context?: string
-  } | string)[]
+  })[]
   enableFixer?: boolean
   exemptedBy?: string[]
   exemptNoArguments?: boolean

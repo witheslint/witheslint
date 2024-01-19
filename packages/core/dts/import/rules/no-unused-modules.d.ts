@@ -1,12 +1,12 @@
 type Schema0 = (({
   [k: string]: any
-  missingExports: true
-} | {
-  [k: string]: any
   src?: {
     [k: string]: any
   }
   unusedExports: true
+} | {
+  [k: string]: any
+  missingExports: true
 }) & {
   [k: string]: any
   /**

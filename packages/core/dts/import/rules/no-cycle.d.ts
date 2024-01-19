@@ -6,7 +6,7 @@ interface Schema0 {
    * @minItems 1
    */
   ignore?: [string, ...string[]]
-  maxDepth?: ('∞' | number)
+  maxDepth?: (number | '∞')
   /**
    * ignore external modules
    */

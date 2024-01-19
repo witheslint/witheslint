@@ -1,5 +1,5 @@
 interface Schema0 {
-  allowInGenericTypeArguments?: ([string, ...string[]] | boolean)
+  allowInGenericTypeArguments?: (boolean | [string, ...string[]])
   allowAsThisParameter?: boolean
 }
 

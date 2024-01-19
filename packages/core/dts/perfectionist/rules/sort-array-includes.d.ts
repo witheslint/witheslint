@@ -1,5 +1,5 @@
 interface Schema0 {
-  type?: ('alphabetical' | 'line-length' | 'natural')
+  type?: ('alphabetical' | 'natural' | 'line-length')
   order?: ('asc' | 'desc')
   'ignore-case'?: boolean
   'spread-last'?: boolean

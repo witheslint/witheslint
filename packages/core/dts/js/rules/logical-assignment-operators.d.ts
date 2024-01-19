@@ -1,5 +1,5 @@
-type Schema0 = ((['always', {
+type Schema0 = (([] | ['always'] | ['always', {
   enforceForIfStatements?: boolean
-}] | ['always'] | ['never'] | []) & any[])
+}] | ['never']) & any[])
 
 export type LogicalAssignmentOperatorsRuleOptions = Schema0

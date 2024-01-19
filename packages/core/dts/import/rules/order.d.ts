@@ -3,18 +3,18 @@ interface Schema0 {
   pathGroupsExcludedImportTypes?: any[]
   distinctGroup?: boolean
   pathGroups?: {
-    group: ('builtin' | 'external' | 'index' | 'internal' | 'object' | 'parent' | 'sibling' | 'type' | 'unknown')
+    group: ('builtin' | 'external' | 'internal' | 'unknown' | 'parent' | 'sibling' | 'index' | 'object' | 'type')
     pattern: string
     patternOptions?: {
       [k: string]: any
     }
     position?: ('after' | 'before')
   }[]
-  'newlines-between'?: ('always-and-inside-groups' | 'always' | 'ignore' | 'never')
+  'newlines-between'?: ('ignore' | 'always' | 'always-and-inside-groups' | 'never')
   alphabetize?: {
     caseInsensitive?: boolean
-    order?: ('asc' | 'desc' | 'ignore')
-    orderImportKind?: ('asc' | 'desc' | 'ignore')
+    order?: ('ignore' | 'asc' | 'desc')
+    orderImportKind?: ('ignore' | 'asc' | 'desc')
   }
   warnOnUnassignedImports?: boolean
 }

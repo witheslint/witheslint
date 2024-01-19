@@ -1,5 +1,5 @@
 interface Schema0 {
-  ignore?: ('DoWhileStatement' | 'ForInStatement' | 'ForOfStatement' | 'ForStatement' | 'WhileStatement')[]
+  ignore?: ('WhileStatement' | 'DoWhileStatement' | 'ForStatement' | 'ForInStatement' | 'ForOfStatement')[]
 }
 
 export type NoUnreachableLoopRuleOptions = [Schema0]

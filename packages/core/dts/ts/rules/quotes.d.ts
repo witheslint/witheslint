@@ -1,4 +1,4 @@
-type Schema0 = ('backtick' | 'double' | 'single')
+type Schema0 = ('single' | 'double' | 'backtick')
 
 type Schema1 = ('avoid-escape' | {
   allowTemplateLiterals?: boolean

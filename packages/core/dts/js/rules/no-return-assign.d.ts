@@ -1,3 +1,3 @@
-type Schema0 = ('always' | 'except-parens')
+type Schema0 = ('except-parens' | 'always')
 
 export type NoReturnAssignRuleOptions = [Schema0]

@@ -1,9 +1,9 @@
 interface Schema0 {
-  devDependencies?: (any[] | boolean)
-  optionalDependencies?: (any[] | boolean)
-  peerDependencies?: (any[] | boolean)
-  bundledDependencies?: (any[] | boolean)
-  packageDir?: (any[] | string)
+  devDependencies?: (boolean | any[])
+  optionalDependencies?: (boolean | any[])
+  peerDependencies?: (boolean | any[])
+  bundledDependencies?: (boolean | any[])
+  packageDir?: (string | any[])
   includeInternal?: boolean
   includeTypes?: boolean
 }

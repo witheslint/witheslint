@@ -6,7 +6,7 @@ type Schema0 = [] | [{
   extendDefaultStyles?: boolean
   styles?: ModuleStyles
 }]
-type Styles = (BooleanObject | false)
+type Styles = (false | BooleanObject)
 
 interface ModuleStyles {
   [k: string]: Styles

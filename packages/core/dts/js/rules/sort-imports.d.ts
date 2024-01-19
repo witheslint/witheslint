@@ -4,7 +4,7 @@ interface Schema0 {
    * @minItems 4
    * @maxItems 4
    */
-  memberSyntaxSortOrder?: [('all' | 'multiple' | 'none' | 'single'), ('all' | 'multiple' | 'none' | 'single'), ('all' | 'multiple' | 'none' | 'single'), ('all' | 'multiple' | 'none' | 'single')]
+  memberSyntaxSortOrder?: [('none' | 'all' | 'multiple' | 'single'), ('none' | 'all' | 'multiple' | 'single'), ('none' | 'all' | 'multiple' | 'single'), ('none' | 'all' | 'multiple' | 'single')]
   ignoreDeclarationSort?: boolean
   ignoreMemberSort?: boolean
   allowSeparatedGroups?: boolean

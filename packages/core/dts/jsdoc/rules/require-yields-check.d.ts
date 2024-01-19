@@ -1,9 +1,9 @@
 interface Schema0 {
   checkGeneratorsOnly?: boolean
-  contexts?: ({
+  contexts?: (string | {
     comment?: string
     context?: string
-  } | string)[]
+  })[]
   exemptedBy?: string[]
   next?: boolean
 }

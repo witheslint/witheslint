@@ -1,4 +1,4 @@
-type Schema0 = ('always' | 'any' | 'never')
+type Schema0 = ('always' | 'never' | 'any')
 
 interface Schema1 {
   tags?: {

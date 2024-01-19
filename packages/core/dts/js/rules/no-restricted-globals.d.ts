@@ -1,9 +1,9 @@
 /**
  * @minItems 0
  */
-type Schema0 = ({
+type Schema0 = (string | {
   message?: string
   name: string
-} | string)[]
+})[]
 
 export type NoRestrictedGlobalsRuleOptions = Schema0

@@ -1,4 +1,4 @@
-type Modifier = ('private readonly' | 'private' | 'protected readonly' | 'protected' | 'public readonly' | 'public' | 'readonly')
+type Modifier = ('readonly' | 'private' | 'protected' | 'public' | 'private readonly' | 'protected readonly' | 'public readonly')
 
 interface Schema0 {
   allow?: Modifier[]

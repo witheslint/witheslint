@@ -1,7 +1,7 @@
-type Schema0 = ({
+type Schema0 = (number | {
   max?: number
   maximum?: number
-} | number)
+})
 
 interface Schema1 {
   ignoreTopLevelFunctions?: boolean

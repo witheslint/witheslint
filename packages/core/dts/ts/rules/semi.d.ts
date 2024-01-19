@@ -1,8 +1,8 @@
-type Schema0 = (['always', {
+type Schema0 = ([] | ['never'] | ['never', {
+  beforeStatementContinuationChars?: ('always' | 'any' | 'never')
+}] | [] | ['always'] | ['always', {
   omitLastInOneLineBlock?: boolean
   omitLastInOneLineClassBody?: boolean
-}] | ['always'] | ['never', {
-  beforeStatementContinuationChars?: ('always' | 'any' | 'never')
-}] | ['never'] | [] | [])
+}])
 
 export type SemiRuleOptions = Schema0

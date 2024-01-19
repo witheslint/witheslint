@@ -2,7 +2,7 @@ interface Schema0 {
 /**
  * Whether to allow direct one-to-one type aliases.
  */
-  allowAliases?: ('always' | 'in-intersections' | 'in-unions-and-intersections' | 'in-unions' | 'never')
+  allowAliases?: ('always' | 'never' | 'in-unions' | 'in-intersections' | 'in-unions-and-intersections')
   /**
    * Whether to allow type aliases for callbacks.
    */
@@ -18,15 +18,15 @@ interface Schema0 {
   /**
    * Whether to allow type aliases with object literal types.
    */
-  allowLiterals?: ('always' | 'in-intersections' | 'in-unions-and-intersections' | 'in-unions' | 'never')
+  allowLiterals?: ('always' | 'never' | 'in-unions' | 'in-intersections' | 'in-unions-and-intersections')
   /**
    * Whether to allow type aliases with mapped types.
    */
-  allowMappedTypes?: ('always' | 'in-intersections' | 'in-unions-and-intersections' | 'in-unions' | 'never')
+  allowMappedTypes?: ('always' | 'never' | 'in-unions' | 'in-intersections' | 'in-unions-and-intersections')
   /**
    * Whether to allow type aliases with tuple types.
    */
-  allowTupleTypes?: ('always' | 'in-intersections' | 'in-unions-and-intersections' | 'in-unions' | 'never')
+  allowTupleTypes?: ('always' | 'never' | 'in-unions' | 'in-intersections' | 'in-unions-and-intersections')
   /**
    * Whether to allow type aliases with generic types.
    */

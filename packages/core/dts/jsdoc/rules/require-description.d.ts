@@ -2,11 +2,11 @@ interface Schema0 {
   checkConstructors?: boolean
   checkGetters?: boolean
   checkSetters?: boolean
-  contexts?: ({
+  contexts?: (string | {
     comment?: string
     context?: string
-  } | string)[]
-  descriptionStyle?: ('any' | 'body' | 'tag')
+  })[]
+  descriptionStyle?: ('body' | 'tag' | 'any')
   exemptedBy?: string[]
 }
 

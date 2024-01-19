@@ -1,5 +1,5 @@
-type Schema0 = (['as-needed', {
+type Schema0 = ([] | [('always' | 'never')] | [] | ['as-needed'] | ['as-needed', {
   requireReturnForObjectLiteral?: boolean
-}] | ['as-needed'] | [('always' | 'never')] | [] | [])
+}])
 
 export type ArrowBodyStyleRuleOptions = Schema0

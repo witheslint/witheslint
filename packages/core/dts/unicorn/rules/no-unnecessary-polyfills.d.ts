@@ -1,7 +1,7 @@
 interface Schema0 {
-  targets: ({
+  targets: (string | any[] | {
     [k: string]: any
-  } | any[] | string)
+  })
 }
 
 export type NoUnnecessaryPolyfillsRuleOptions = [Schema0]

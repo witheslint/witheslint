@@ -1,5 +1,5 @@
 interface Schema0 {
-  indent?: (number | string)
+  indent?: (string | number)
   tags?: string[]
   functions?: string[]
   selectors?: string[]

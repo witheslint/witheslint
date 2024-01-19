@@ -1,14 +1,14 @@
-type Schema0 = (({
+type Schema0 = ((string | {
   importNames?: string[]
   message?: string
   name: string
-} | string)[] | [] | [{
-  paths?: ({
+})[] | [] | [{
+  paths?: (string | {
     importNames?: string[]
     message?: string
     name: string
-  } | string)[]
-  patterns?: ({
+  })[]
+  patterns?: (string[] | {
     caseSensitive?: boolean
     /**
      * @minItems 1
@@ -20,7 +20,7 @@ type Schema0 = (({
      */
     importNames?: [string, ...string[]]
     message?: string
-  }[] | string[])
+  }[])
 }])
 
 export type NoRestrictedImportsRuleOptions = Schema0

@@ -7,10 +7,10 @@ interface Schema0 {
   checkRestProperty?: boolean
   checkSetters?: boolean
   checkTypesPattern?: string
-  contexts?: ({
+  contexts?: (string | {
     comment?: string
     context?: string
-  } | string)[]
+  })[]
   enableFixer?: boolean
   enableRestElementFixer?: boolean
   enableRootFixer?: boolean

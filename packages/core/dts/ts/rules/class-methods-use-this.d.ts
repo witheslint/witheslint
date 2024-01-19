@@ -14,7 +14,7 @@ interface Schema0 {
   /**
    * Ignore classes that specifically implement some interface
    */
-  ignoreClassesThatImplementAnInterface?: ('public-fields' | boolean)
+  ignoreClassesThatImplementAnInterface?: (boolean | 'public-fields')
 }
 
 export type ClassMethodsUseThisRuleOptions = [Schema0]

@@ -1,5 +1,5 @@
-type Schema0 = (['always'] | ['never', {
+type Schema0 = ([] | ['always'] | [] | ['never'] | ['never', {
   ignoreForLoopInit?: boolean
-}] | ['never'] | [] | [])
+}])
 
 export type InitDeclarationsRuleOptions = Schema0

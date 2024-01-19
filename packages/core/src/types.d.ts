@@ -2,10 +2,10 @@ import type { RuleOptions as ImportRules } from '../dts/import'
 import type { RuleOptions as JavaScriptRules } from '../dts/js'
 import type { RuleOptions as JsdocRules } from '../dts/jsdoc'
 import type { RuleOptions as PerfectionistRules } from '../dts/perfectionist'
+import type { RuleOptions as StylisticRules } from '../dts/style'
 import type { RuleOptions as TypeScriptRules } from '../dts/ts'
 import type { RuleOptions as UnicornRules } from '../dts/unicorn'
 import type { RuleOptions as UnusedImportsRules } from '../dts/unused-imports'
-import type { RuleOptions as StylisticRules } from '@stylistic/eslint-plugin'
 import type { ESLint, Linter } from 'eslint'
 
 type Prefix<
@@ -52,7 +52,7 @@ type RenamedRules = WrapRuleConfig<
     UnusedImportsRules &
     PerfectionistRules &
     TypeScriptRules &
-    RenamePrefix<StylisticRules, '@stylistic/', 'style/'>
+    StylisticRules
   >
 >
 

@@ -1,5 +1,5 @@
 interface Schema0 {
-  destructuring?: ('all' | 'any')
+  destructuring?: ('any' | 'all')
   ignoreReadBeforeAssign?: boolean
 }
 

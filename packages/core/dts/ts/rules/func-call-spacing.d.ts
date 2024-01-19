@@ -1,5 +1,5 @@
-type Schema0 = (['always', {
+type Schema0 = ([] | ['never'] | [] | ['always'] | ['always', {
   allowNewlines?: boolean
-}] | ['always'] | ['never'] | [] | [])
+}])
 
 export type FuncCallSpacingRuleOptions = Schema0

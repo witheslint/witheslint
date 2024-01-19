@@ -1,5 +1,5 @@
 interface Schema0 {
-  allow?: ('arrowFunctions' | 'asyncFunctions' | 'asyncMethods' | 'constructors' | 'functions' | 'generatorFunctions' | 'generatorMethods' | 'getters' | 'methods' | 'setters')[]
+  allow?: ('functions' | 'arrowFunctions' | 'generatorFunctions' | 'methods' | 'generatorMethods' | 'getters' | 'setters' | 'constructors' | 'asyncFunctions' | 'asyncMethods')[]
 }
 
 export type NoEmptyFunctionRuleOptions = [Schema0]

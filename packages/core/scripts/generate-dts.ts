@@ -8,8 +8,20 @@ await generateRulesDts({
       module: 'eslint',
     },
     {
+      name: 'ts',
+      module: '@typescript-eslint/eslint-plugin',
+    },
+    {
       name: 'import',
       module: 'eslint-plugin-i',
+    },
+    {
+      name: 'jsdoc',
+      module: 'eslint-plugin-jsdoc',
+    },
+    {
+      name: 'perfectionist',
+      module: 'eslint-plugin-perfectionist',
     },
     {
       name: 'unicorn',
@@ -20,16 +32,8 @@ await generateRulesDts({
       module: 'eslint-plugin-unused-imports',
     },
     {
-      name: 'ts',
-      module: '@typescript-eslint/eslint-plugin',
-    },
-    {
-      name: 'jsdoc',
-      module: 'eslint-plugin-jsdoc',
-    },
-    {
-      name: 'perfectionist',
-      module: 'eslint-plugin-perfectionist',
+      name: 'style',
+      module: '@stylistic/eslint-plugin',
     },
   ],
 }).catch((error) => {

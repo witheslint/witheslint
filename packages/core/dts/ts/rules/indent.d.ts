@@ -2,30 +2,30 @@ type Schema0 = ('tab' | number)
 
 interface Schema1 {
   SwitchCase?: number
-  VariableDeclarator?: ((('first' | 'off') | number) | {
-    const?: (('first' | 'off') | number)
-    let?: (('first' | 'off') | number)
-    var?: (('first' | 'off') | number)
+  VariableDeclarator?: ((number | ('first' | 'off')) | {
+    const?: (number | ('first' | 'off'))
+    let?: (number | ('first' | 'off'))
+    var?: (number | ('first' | 'off'))
   })
-  outerIIFEBody?: ('off' | number)
-  MemberExpression?: ('off' | number)
+  outerIIFEBody?: (number | 'off')
+  MemberExpression?: (number | 'off')
   FunctionDeclaration?: {
     body?: number
-    parameters?: (('first' | 'off') | number)
+    parameters?: (number | ('first' | 'off'))
   }
   FunctionExpression?: {
     body?: number
-    parameters?: (('first' | 'off') | number)
+    parameters?: (number | ('first' | 'off'))
   }
   StaticBlock?: {
     body?: number
   }
   CallExpression?: {
-    arguments?: (('first' | 'off') | number)
+    arguments?: (number | ('first' | 'off'))
   }
-  ArrayExpression?: (('first' | 'off') | number)
-  ObjectExpression?: (('first' | 'off') | number)
-  ImportDeclaration?: (('first' | 'off') | number)
+  ArrayExpression?: (number | ('first' | 'off'))
+  ObjectExpression?: (number | ('first' | 'off'))
+  ImportDeclaration?: (number | ('first' | 'off'))
   flatTernaryExpressions?: boolean
   offsetTernaryExpressions?: boolean
   ignoredNodes?: string[]

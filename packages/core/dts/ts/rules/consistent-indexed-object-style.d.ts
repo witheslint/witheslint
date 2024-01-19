@@ -1,3 +1,3 @@
-type Schema0 = ('index-signature' | 'record')
+type Schema0 = ('record' | 'index-signature')
 
 export type ConsistentIndexedObjectStyleRuleOptions = [Schema0]

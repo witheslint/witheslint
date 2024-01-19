@@ -1,4 +1,6 @@
 type Schema0 = ({
+  restrictedNamedExports?: string[]
+} | {
   restrictDefaultExports?: {
     defaultFrom?: boolean
     direct?: boolean
@@ -6,8 +8,6 @@ type Schema0 = ({
     namedFrom?: boolean
     namespaceFrom?: boolean
   }
-  restrictedNamedExports?: string[]
-} | {
   restrictedNamedExports?: string[]
 })
 

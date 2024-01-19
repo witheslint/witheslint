@@ -1,22 +1,22 @@
 interface Schema0 {
-  contexts?: ({
+  contexts?: (string | {
     comment?: string
     context?: string
-  } | string)[]
-  mainDescription?: ({
-    match?: (boolean | string)
+  })[]
+  mainDescription?: (string | boolean | {
+    match?: (string | boolean)
     message?: string
-  } | boolean | string)
+  })
   matchDescription?: string
   message?: string
   nonemptyTags?: boolean
   tags?: {
     /**
      */
-    [k: string]: ({
+    [k: string]: (string | true | {
       match?: (string | true)
       message?: string
-    } | string | true)
+    })
   }
 }
 

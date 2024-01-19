@@ -1,5 +1,5 @@
-type Schema0 = (['always', {
-  null?: ('always' | 'ignore' | 'never')
-}] | ['always'] | [('allow-null' | 'smart')] | [] | [])
+type Schema0 = ([] | ['always'] | ['always', {
+  null?: ('always' | 'never' | 'ignore')
+}] | [] | [('smart' | 'allow-null')])
 
 export type EqeqeqRuleOptions = Schema0

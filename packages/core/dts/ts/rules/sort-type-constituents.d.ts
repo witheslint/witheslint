@@ -10,7 +10,7 @@ interface Schema0 {
   /**
    * Ordering of the groups.
    */
-  groupOrder?: ('conditional' | 'function' | 'import' | 'intersection' | 'keyword' | 'literal' | 'named' | 'nullish' | 'object' | 'operator' | 'tuple' | 'union')[]
+  groupOrder?: ('conditional' | 'function' | 'import' | 'intersection' | 'keyword' | 'nullish' | 'literal' | 'named' | 'object' | 'operator' | 'tuple' | 'union')[]
 }
 
 export type SortTypeConstituentsRuleOptions = [Schema0]

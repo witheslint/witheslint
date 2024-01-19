@@ -1,3 +1,3 @@
-type Schema0 = ('constructor' | 'type-annotation')
+type Schema0 = ('type-annotation' | 'constructor')
 
 export type ConsistentGenericConstructorsRuleOptions = [Schema0]

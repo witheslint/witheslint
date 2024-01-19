@@ -1,12 +1,12 @@
 interface Schema0 {
   checksConditionals?: boolean
-  checksVoidReturn?: ({
+  checksVoidReturn?: (boolean | {
     arguments?: boolean
     attributes?: boolean
     properties?: boolean
     returns?: boolean
     variables?: boolean
-  } | boolean)
+  })
   checksSpreads?: boolean
 }
 

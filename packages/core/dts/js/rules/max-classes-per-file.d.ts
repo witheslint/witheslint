@@ -1,6 +1,6 @@
-type Schema0 = ({
+type Schema0 = (number | {
   ignoreExpressions?: boolean
   max?: number
-} | number)
+})
 
 export type MaxClassesPerFileRuleOptions = [Schema0]

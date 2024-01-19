@@ -1,11 +1,11 @@
-type Schema0 = (('always' | 'consecutive' | 'never') | {
-  const?: ('always' | 'consecutive' | 'never')
-  let?: ('always' | 'consecutive' | 'never')
+type Schema0 = (('always' | 'never' | 'consecutive') | {
+  const?: ('always' | 'never' | 'consecutive')
+  let?: ('always' | 'never' | 'consecutive')
   separateRequires?: boolean
-  var?: ('always' | 'consecutive' | 'never')
+  var?: ('always' | 'never' | 'consecutive')
 } | {
-  initialized?: ('always' | 'consecutive' | 'never')
-  uninitialized?: ('always' | 'consecutive' | 'never')
+  initialized?: ('always' | 'never' | 'consecutive')
+  uninitialized?: ('always' | 'never' | 'consecutive')
 })
 
 export type OneVarRuleOptions = [Schema0]

@@ -1,8 +1,8 @@
 interface Schema0 {
-  contexts?: ({
+  contexts?: (string | {
     comment?: string
     context?: string
-  } | string)[]
+  })[]
   exemptedBy?: string[]
   forceRequireNext?: boolean
   forceRequireYields?: boolean

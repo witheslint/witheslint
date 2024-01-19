@@ -1,7 +1,4 @@
 type Schema0 = ({
-  array?: boolean
-  object?: boolean
-} | {
   AssignmentExpression?: {
     array?: boolean
     object?: boolean
@@ -10,6 +7,9 @@ type Schema0 = ({
     array?: boolean
     object?: boolean
   }
+} | {
+  array?: boolean
+  object?: boolean
 })
 
 interface Schema1 {

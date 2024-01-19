@@ -1,6 +1,6 @@
-type DirectiveConfigSchema = ('allow-with-description' | {
+type DirectiveConfigSchema = (boolean | 'allow-with-description' | {
   descriptionFormat?: string
-} | boolean)
+})
 
 interface Schema0 {
   'ts-expect-error'?: DirectiveConfigSchema

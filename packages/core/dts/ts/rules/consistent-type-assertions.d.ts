@@ -1,8 +1,8 @@
 type Schema0 = ({
   assertionStyle: 'never'
 } | {
-  assertionStyle: ('angle-bracket' | 'as')
-  objectLiteralTypeAssertions?: ('allow-as-parameter' | 'allow' | 'never')
+  assertionStyle: ('as' | 'angle-bracket')
+  objectLiteralTypeAssertions?: ('allow' | 'allow-as-parameter' | 'never')
 })
 
 export type ConsistentTypeAssertionsRuleOptions = [Schema0]

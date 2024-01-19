@@ -1,17 +1,17 @@
-type Schema0 = (('always' | 'never') | {
+type Schema0 = ({
 /**
  * @minItems 1
  */
   enforce: [{
     blankLine: ('always' | 'never')
-    next: ('*' | 'field' | 'method')
-    prev: ('*' | 'field' | 'method')
+    next: ('method' | 'field' | '*')
+    prev: ('method' | 'field' | '*')
   }, ...({
     blankLine: ('always' | 'never')
-    next: ('*' | 'field' | 'method')
-    prev: ('*' | 'field' | 'method')
+    next: ('method' | 'field' | '*')
+    prev: ('method' | 'field' | '*')
   })[]]
-})
+} | ('always' | 'never'))
 
 interface Schema1 {
   exceptAfterSingleLine?: boolean

@@ -1,8 +1,8 @@
 interface Schema0 {
-  contexts?: ({
+  contexts?: (string | {
     comment?: string
     context?: string
-  } | string)[]
+  })[]
   defaultDestructuredRootType?: string
   setDefaultDestructuredRootType?: boolean
 }

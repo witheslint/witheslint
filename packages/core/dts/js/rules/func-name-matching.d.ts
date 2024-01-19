@@ -1,7 +1,7 @@
-type Schema0 = ([('always' | 'never'), {
+type Schema0 = ([] | [('always' | 'never')] | [('always' | 'never'), {
   considerPropertyDescriptor?: boolean
   includeCommonJSModuleExports?: boolean
-}] | [('always' | 'never')] | [] | [] | [{
+}] | [] | [{
   considerPropertyDescriptor?: boolean
   includeCommonJSModuleExports?: boolean
 }])

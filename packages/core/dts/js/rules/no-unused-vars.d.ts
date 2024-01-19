@@ -1,5 +1,5 @@
 type Schema0 = (('all' | 'local') | {
-  args?: ('after-used' | 'all' | 'none')
+  args?: ('all' | 'after-used' | 'none')
   argsIgnorePattern?: string
   caughtErrors?: ('all' | 'none')
   caughtErrorsIgnorePattern?: string

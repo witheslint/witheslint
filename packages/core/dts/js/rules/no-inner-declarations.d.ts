@@ -1,3 +1,3 @@
-type Schema0 = ('both' | 'functions')
+type Schema0 = ('functions' | 'both')
 
 export type NoInnerDeclarationsRuleOptions = [Schema0]

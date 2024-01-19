@@ -1,10 +1,10 @@
 interface Schema0 {
   patterns?: {
-    [k: string]: ({
+    [k: string]: (string | {
       fix?: boolean
       message?: string
       suggest: string
-    } | string)
+    })
   }
 }
 

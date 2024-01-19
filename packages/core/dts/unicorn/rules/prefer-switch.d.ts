@@ -1,6 +1,6 @@
 interface Schema0 {
   minimumCases?: number
-  emptyDefaultCase?: ('do-nothing-comment' | 'no-default-case' | 'no-default-comment')
+  emptyDefaultCase?: ('no-default-comment' | 'do-nothing-comment' | 'no-default-case')
 }
 
 export type PreferSwitchRuleOptions = [Schema0]

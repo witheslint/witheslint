@@ -11,7 +11,7 @@ type Schema0 = [] | [{
   ignore?: any[]
   replacements?: Abbreviations
 }]
-type Replacements = (BooleanObject | false)
+type Replacements = (false | BooleanObject)
 
 interface Abbreviations {
   [k: string]: Replacements

@@ -1,7 +1,7 @@
 interface Schema0 {
-  prefer?: ('no-type-imports' | 'type-imports')
+  prefer?: ('type-imports' | 'no-type-imports')
   disallowTypeAnnotations?: boolean
-  fixStyle?: ('inline-type-imports' | 'separate-type-imports')
+  fixStyle?: ('separate-type-imports' | 'inline-type-imports')
 }
 
 export type ConsistentTypeImportsRuleOptions = [Schema0]

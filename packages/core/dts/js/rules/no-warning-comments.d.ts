@@ -1,6 +1,6 @@
 interface Schema0 {
   terms?: string[]
-  location?: ('anywhere' | 'start')
+  location?: ('start' | 'anywhere')
   /**
    * @minItems 1
    */

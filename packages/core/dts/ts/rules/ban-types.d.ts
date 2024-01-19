@@ -1,4 +1,4 @@
-type BanConfig = ({
+type BanConfig = (null | false | true | string | {
 /**
  * Type to autofix replace with. Note that autofixers can be applied automatically - so you need to be careful with this option.
  */
@@ -11,7 +11,7 @@ type BanConfig = ({
    * Types to suggest replacing with.
    */
   suggest?: string[]
-} | false | null | string | true)
+})
 
 interface Schema0 {
   types?: {

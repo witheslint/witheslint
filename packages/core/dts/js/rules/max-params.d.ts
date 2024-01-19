@@ -1,6 +1,6 @@
-type Schema0 = ({
+type Schema0 = (number | {
   max?: number
   maximum?: number
-} | number)
+})
 
 export type MaxParamsRuleOptions = [Schema0]

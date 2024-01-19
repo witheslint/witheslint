@@ -11,9 +11,9 @@ type SortImports = (MaxLineLengthRequiresLineLengthType & {
   'ignore-case'?: boolean
   'internal-pattern'?: string[]
   'max-line-length'?: number
-  'newlines-between'?: ('always' | 'ignore' | 'never')
+  'newlines-between'?: ('ignore' | 'always' | 'never')
   order?: ('asc' | 'desc')
-  type?: ('alphabetical' | 'line-length' | 'natural')
+  type?: ('alphabetical' | 'natural' | 'line-length')
 })
 type MaxLineLengthRequiresLineLengthType = ({
   [k: string]: any

@@ -3,14 +3,14 @@ type Schema0 = ('always' | 'any' | 'never')
 interface Schema1 {
   applyToEndTag?: boolean
   count?: number
-  endLines?: (null | number)
-  startLines?: (null | number)
+  endLines?: (number | null)
+  startLines?: (number | null)
   tags?: {
     /**
      */
     [k: string]: {
       count?: number
-      lines?: ('always' | 'any' | 'never')
+      lines?: ('always' | 'never' | 'any')
     }
   }
 }

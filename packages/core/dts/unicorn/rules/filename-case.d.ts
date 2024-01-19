@@ -1,5 +1,5 @@
 type Schema0 = ({
-  case?: ('camelCase' | 'kebabCase' | 'pascalCase' | 'snakeCase')
+  case?: ('camelCase' | 'snakeCase' | 'kebabCase' | 'pascalCase')
   ignore?: any[]
 } | {
   cases?: {

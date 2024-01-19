@@ -1,3 +1,3 @@
-type Schema0 = ('function' | 'global' | 'never' | 'safe')
+type Schema0 = ('never' | 'global' | 'function' | 'safe')
 
 export type StrictRuleOptions = [Schema0]

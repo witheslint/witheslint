@@ -1,4 +1,4 @@
-type Schema0 = ('1tbs' | 'allman' | 'stroustrup')
+type Schema0 = ('1tbs' | 'stroustrup' | 'allman')
 
 interface Schema1 {
   allowSingleLine?: boolean

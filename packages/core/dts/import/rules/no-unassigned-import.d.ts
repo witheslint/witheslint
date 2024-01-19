@@ -1,7 +1,7 @@
 interface Schema0 {
-  devDependencies?: (any[] | boolean)
-  optionalDependencies?: (any[] | boolean)
-  peerDependencies?: (any[] | boolean)
+  devDependencies?: (boolean | any[])
+  optionalDependencies?: (boolean | any[])
+  peerDependencies?: (boolean | any[])
   allow?: string[]
 }
 

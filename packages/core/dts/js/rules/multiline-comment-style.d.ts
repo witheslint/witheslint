@@ -1,5 +1,5 @@
-type Schema0 = (['separate-lines', {
+type Schema0 = ([] | [('starred-block' | 'bare-block')] | [] | ['separate-lines'] | ['separate-lines', {
   checkJSDoc?: boolean
-}] | ['separate-lines'] | [('bare-block' | 'starred-block')] | [] | [])
+}])
 
 export type MultilineCommentStyleRuleOptions = Schema0

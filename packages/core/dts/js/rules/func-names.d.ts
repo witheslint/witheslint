@@ -1,6 +1,6 @@
-type Schema0 = [] | [Value, {
+type Schema0 = [] | [Value] | [Value, {
   generators?: Value
-}] | [Value]
+}]
 type Value = ('always' | 'as-needed' | 'never')
 
 export type FuncNamesRuleOptions = Schema0

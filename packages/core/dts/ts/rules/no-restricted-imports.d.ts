@@ -1,4 +1,4 @@
-type Schema0 = (({
+type Schema0 = ((string | {
   /**
    * Disallow value imports, but allow type-only imports.
    */
@@ -6,8 +6,8 @@ type Schema0 = (({
   importNames?: string[]
   message?: string
   name: string
-} | string)[] | [] | [{
-  paths?: ({
+})[] | [] | [{
+  paths?: (string | {
     /**
      * Disallow value imports, but allow type-only imports.
      */
@@ -15,8 +15,8 @@ type Schema0 = (({
     importNames?: string[]
     message?: string
     name: string
-  } | string)[]
-  patterns?: ({
+  })[]
+  patterns?: (string[] | {
     /**
      * Disallow value imports, but allow type-only imports.
      */
@@ -32,7 +32,7 @@ type Schema0 = (({
      */
     importNames?: [string, ...string[]]
     message?: string
-  }[] | string[])
+  }[])
 }])
 
 export type NoRestrictedImportsRuleOptions = Schema0
