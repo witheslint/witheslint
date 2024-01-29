@@ -1,7 +1,7 @@
 type Schema0 = [] | [{
+  checkImport?: boolean
   checkDynamicImport?: boolean
   checkExportFrom?: boolean
-  checkImport?: boolean
   checkRequire?: boolean
   extendDefaultStyles?: boolean
   styles?: ModuleStyles

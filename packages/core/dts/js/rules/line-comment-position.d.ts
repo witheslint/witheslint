@@ -1,8 +1,8 @@
 type Schema0 = (('above' | 'beside') | {
-  applyDefaultIgnorePatterns?: boolean
-  applyDefaultPatterns?: boolean
-  ignorePattern?: string
   position?: ('above' | 'beside')
+  ignorePattern?: string
+  applyDefaultPatterns?: boolean
+  applyDefaultIgnorePatterns?: boolean
 })
 
 export type LineCommentPositionRuleOptions = [Schema0]

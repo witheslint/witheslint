@@ -1,37 +1,37 @@
 type Schema0 = ((string | {
+  name: string
+  message?: string
+  importNames?: string[]
   /**
    * Disallow value imports, but allow type-only imports.
    */
   allowTypeImports?: boolean
-  importNames?: string[]
-  message?: string
-  name: string
 })[] | [] | [{
   paths?: (string | {
+    name: string
+    message?: string
+    importNames?: string[]
     /**
      * Disallow value imports, but allow type-only imports.
      */
     allowTypeImports?: boolean
-    importNames?: string[]
-    message?: string
-    name: string
   })[]
   patterns?: (string[] | {
     /**
-     * Disallow value imports, but allow type-only imports.
+     * @minItems 1
      */
-    allowTypeImports?: boolean
-    caseSensitive?: boolean
+    importNames?: [string, ...string[]]
     /**
      * @minItems 1
      */
     group: [string, ...string[]]
     importNamePattern?: string
-    /**
-     * @minItems 1
-     */
-    importNames?: [string, ...string[]]
     message?: string
+    caseSensitive?: boolean
+    /**
+     * Disallow value imports, but allow type-only imports.
+     */
+    allowTypeImports?: boolean
   }[])
 }])
 

@@ -1,17 +1,17 @@
 type Schema0 = (('before' | 'after' | 'both' | 'neither') | {
-  after?: boolean
-  anonymous?: (('before' | 'after' | 'both' | 'neither') | {
-    after?: boolean
-    before?: boolean
-  })
   before?: boolean
-  method?: (('before' | 'after' | 'both' | 'neither') | {
-    after?: boolean
-    before?: boolean
-  })
+  after?: boolean
   named?: (('before' | 'after' | 'both' | 'neither') | {
-    after?: boolean
     before?: boolean
+    after?: boolean
+  })
+  anonymous?: (('before' | 'after' | 'both' | 'neither') | {
+    before?: boolean
+    after?: boolean
+  })
+  method?: (('before' | 'after' | 'both' | 'neither') | {
+    before?: boolean
+    after?: boolean
   })
 })
 

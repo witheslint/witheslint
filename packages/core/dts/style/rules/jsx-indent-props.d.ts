@@ -1,7 +1,7 @@
 type Schema0 = (('tab' | 'first') | number | {
-  [k: string]: any
-  ignoreTernaryOperator?: boolean
   indentMode?: (('tab' | 'first') | number)
+  ignoreTernaryOperator?: boolean
+  [k: string]: any
 })
 
 export type JsxIndentPropsRuleOptions = [Schema0]

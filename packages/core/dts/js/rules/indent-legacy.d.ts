@@ -3,26 +3,26 @@ type Schema0 = ('tab' | number)
 interface Schema1 {
   SwitchCase?: number
   VariableDeclarator?: (number | {
-    [k: string]: any
-    const?: number
-    let?: number
     var?: number
+    let?: number
+    const?: number
+    [k: string]: any
   })
   outerIIFEBody?: number
   MemberExpression?: number
   FunctionDeclaration?: {
-    [k: string]: any
-    body?: number
     parameters?: (number | 'first')
+    body?: number
+    [k: string]: any
   }
   FunctionExpression?: {
-    [k: string]: any
-    body?: number
     parameters?: (number | 'first')
+    body?: number
+    [k: string]: any
   }
   CallExpression?: {
-    [k: string]: any
     parameters?: (number | 'first')
+    [k: string]: any
   }
   ArrayExpression?: (number | 'first')
   ObjectExpression?: (number | 'first')

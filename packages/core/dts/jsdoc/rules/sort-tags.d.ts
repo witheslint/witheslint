@@ -4,8 +4,8 @@ interface Schema0 {
   reportIntraTagGroupSpacing?: boolean
   reportTagGroupSpacing?: boolean
   tagSequence?: {
-    [k: string]: any
     tags?: string[]
+    [k: string]: any
   }[]
 }
 

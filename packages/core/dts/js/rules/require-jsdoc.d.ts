@@ -1,10 +1,10 @@
 interface Schema0 {
   require?: {
-    ArrowFunctionExpression?: boolean
     ClassDeclaration?: boolean
-    FunctionDeclaration?: boolean
-    FunctionExpression?: boolean
     MethodDefinition?: boolean
+    FunctionDeclaration?: boolean
+    ArrowFunctionExpression?: boolean
+    FunctionExpression?: boolean
   }
 }
 

@@ -3,8 +3,8 @@ type Schema0 = [] | [(BasicConfig | {
   ArrayPattern?: BasicConfig
 })]
 type BasicConfig = (('always' | 'never' | 'consistent') | {
-  minItems?: (number | null)
   multiline?: boolean
+  minItems?: (number | null)
 })
 
 export type ArrayElementNewlineRuleOptions = Schema0

@@ -4,12 +4,12 @@ type Schema0 = ({
  */
   enforce: [{
     blankLine: ('always' | 'never')
-    next: ('method' | 'field' | '*')
     prev: ('method' | 'field' | '*')
+    next: ('method' | 'field' | '*')
   }, ...({
     blankLine: ('always' | 'never')
-    next: ('method' | 'field' | '*')
     prev: ('method' | 'field' | '*')
+    next: ('method' | 'field' | '*')
   })[]]
 } | ('always' | 'never'))
 

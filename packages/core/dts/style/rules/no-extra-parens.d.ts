@@ -1,14 +1,14 @@
 type Schema0 = ([] | ['functions'] | [] | ['all'] | ['all', {
-  allowParensAfterCommentPattern?: string
   conditionalAssign?: boolean
-  enforceForArrowConditionals?: boolean
-  enforceForFunctionPrototypeMethods?: boolean
-  enforceForNewInMemberExpressions?: boolean
-  enforceForSequenceExpressions?: boolean
-  ignoreJSX?: ('none' | 'all' | 'single-line' | 'multi-line')
+  ternaryOperandBinaryExpressions?: boolean
   nestedBinaryExpressions?: boolean
   returnAssign?: boolean
-  ternaryOperandBinaryExpressions?: boolean
+  ignoreJSX?: ('none' | 'all' | 'single-line' | 'multi-line')
+  enforceForArrowConditionals?: boolean
+  enforceForSequenceExpressions?: boolean
+  enforceForNewInMemberExpressions?: boolean
+  enforceForFunctionPrototypeMethods?: boolean
+  allowParensAfterCommentPattern?: string
 }])
 
 export type NoExtraParensRuleOptions = Schema0

@@ -1,12 +1,12 @@
 interface Schema0 {
   match: {
-    [k: string]: any
     allowName?: string
     comment?: string
     context?: string
     disallowName?: string
     message?: string
     tags?: string[]
+    [k: string]: any
   }[]
 }
 

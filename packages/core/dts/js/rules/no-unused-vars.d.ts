@@ -1,12 +1,12 @@
 type Schema0 = (('all' | 'local') | {
+  vars?: ('all' | 'local')
+  varsIgnorePattern?: string
   args?: ('all' | 'after-used' | 'none')
+  ignoreRestSiblings?: boolean
   argsIgnorePattern?: string
   caughtErrors?: ('all' | 'none')
   caughtErrorsIgnorePattern?: string
   destructuredArrayIgnorePattern?: string
-  ignoreRestSiblings?: boolean
-  vars?: ('all' | 'local')
-  varsIgnorePattern?: string
 })
 
 export type NoUnusedVarsRuleOptions = [Schema0]

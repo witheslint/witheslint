@@ -1,6 +1,6 @@
 type Schema0 = (number | {
-  max?: number
   maximum?: number
+  max?: number
 })
 
 export type ComplexityRuleOptions = [Schema0]

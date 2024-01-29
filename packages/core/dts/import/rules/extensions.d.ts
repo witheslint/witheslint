@@ -1,19 +1,19 @@
 type Schema0 = ([] | [('always' | 'ignorePackages' | 'never')] | [] | [('always' | 'ignorePackages' | 'never')] | [('always' | 'ignorePackages' | 'never'), {
-  [k: string]: any
-  ignorePackages?: boolean
   pattern?: {
     /**
      */
     [k: string]: ('always' | 'ignorePackages' | 'never')
   }
+  ignorePackages?: boolean
+  [k: string]: any
 }] | [] | [{
-  [k: string]: any
-  ignorePackages?: boolean
   pattern?: {
     /**
      */
     [k: string]: ('always' | 'ignorePackages' | 'never')
   }
+  ignorePackages?: boolean
+  [k: string]: any
 }] | [] | [{
 /**
  */

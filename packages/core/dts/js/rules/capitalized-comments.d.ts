@@ -1,19 +1,19 @@
 type Schema0 = ('always' | 'never')
 
 type Schema1 = ({
-  ignoreConsecutiveComments?: boolean
-  ignoreInlineComments?: boolean
   ignorePattern?: string
+  ignoreInlineComments?: boolean
+  ignoreConsecutiveComments?: boolean
 } | {
-  block?: {
-    ignoreConsecutiveComments?: boolean
-    ignoreInlineComments?: boolean
-    ignorePattern?: string
-  }
   line?: {
-    ignoreConsecutiveComments?: boolean
-    ignoreInlineComments?: boolean
     ignorePattern?: string
+    ignoreInlineComments?: boolean
+    ignoreConsecutiveComments?: boolean
+  }
+  block?: {
+    ignorePattern?: string
+    ignoreInlineComments?: boolean
+    ignoreConsecutiveComments?: boolean
   }
 })
 

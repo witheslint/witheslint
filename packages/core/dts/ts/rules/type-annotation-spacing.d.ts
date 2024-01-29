@@ -2,12 +2,12 @@ interface Schema0 {
   before?: boolean
   after?: boolean
   overrides?: {
-    arrow?: SpacingConfig
     colon?: SpacingConfig
+    arrow?: SpacingConfig
+    variable?: SpacingConfig
     parameter?: SpacingConfig
     property?: SpacingConfig
     returnType?: SpacingConfig
-    variable?: SpacingConfig
   }
 }
 interface SpacingConfig {

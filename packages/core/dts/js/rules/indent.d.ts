@@ -3,19 +3,19 @@ type Schema0 = ('tab' | number)
 interface Schema1 {
   SwitchCase?: number
   VariableDeclarator?: ((number | ('first' | 'off')) | {
-    const?: (number | ('first' | 'off'))
-    let?: (number | ('first' | 'off'))
     var?: (number | ('first' | 'off'))
+    let?: (number | ('first' | 'off'))
+    const?: (number | ('first' | 'off'))
   })
   outerIIFEBody?: (number | 'off')
   MemberExpression?: (number | 'off')
   FunctionDeclaration?: {
-    body?: number
     parameters?: (number | ('first' | 'off'))
+    body?: number
   }
   FunctionExpression?: {
-    body?: number
     parameters?: (number | ('first' | 'off'))
+    body?: number
   }
   StaticBlock?: {
     body?: number

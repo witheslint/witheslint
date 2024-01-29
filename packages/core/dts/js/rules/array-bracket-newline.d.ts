@@ -1,6 +1,6 @@
 type Schema0 = (('always' | 'never' | 'consistent') | {
-  minItems?: (number | null)
   multiline?: boolean
+  minItems?: (number | null)
 })
 
 export type ArrayBracketNewlineRuleOptions = [Schema0]

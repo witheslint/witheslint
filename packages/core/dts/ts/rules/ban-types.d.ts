@@ -1,12 +1,12 @@
 type BanConfig = (null | false | true | string | {
 /**
- * Type to autofix replace with. Note that autofixers can be applied automatically - so you need to be careful with this option.
+ * Custom error message
  */
-  fixWith?: string
-  /**
-   * Custom error message
-   */
   message?: string
+  /**
+   * Type to autofix replace with. Note that autofixers can be applied automatically - so you need to be careful with this option.
+   */
+  fixWith?: string
   /**
    * Types to suggest replacing with.
    */

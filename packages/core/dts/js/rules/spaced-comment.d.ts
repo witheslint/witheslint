@@ -8,9 +8,9 @@ interface Schema1 {
     markers?: string[]
   }
   block?: {
-    balanced?: boolean
     exceptions?: string[]
     markers?: string[]
+    balanced?: boolean
   }
 }
 

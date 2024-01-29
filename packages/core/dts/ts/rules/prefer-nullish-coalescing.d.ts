@@ -3,11 +3,11 @@ interface Schema0 {
   ignoreConditionalTests?: boolean
   ignoreMixedLogicalExpressions?: boolean
   ignorePrimitives?: ({
-    [k: string]: any
     bigint?: boolean
     boolean?: boolean
     number?: boolean
     string?: boolean
+    [k: string]: any
   } | true)
   ignoreTernaryTests?: boolean
 }

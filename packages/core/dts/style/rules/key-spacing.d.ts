@@ -1,46 +1,46 @@
 type Schema0 = ({
-  afterColon?: boolean
   align?: (('colon' | 'value') | {
-    afterColon?: boolean
-    beforeColon?: boolean
     mode?: ('strict' | 'minimum')
     on?: ('colon' | 'value')
-  })
-  beforeColon?: boolean
-  mode?: ('strict' | 'minimum')
-} | {
-  multiLine?: {
+    beforeColon?: boolean
     afterColon?: boolean
+  })
+  mode?: ('strict' | 'minimum')
+  beforeColon?: boolean
+  afterColon?: boolean
+} | {
+  singleLine?: {
+    mode?: ('strict' | 'minimum')
+    beforeColon?: boolean
+    afterColon?: boolean
+  }
+  multiLine?: {
     align?: (('colon' | 'value') | {
-      afterColon?: boolean
-      beforeColon?: boolean
       mode?: ('strict' | 'minimum')
       on?: ('colon' | 'value')
+      beforeColon?: boolean
+      afterColon?: boolean
     })
-    beforeColon?: boolean
     mode?: ('strict' | 'minimum')
-  }
-  singleLine?: {
+    beforeColon?: boolean
     afterColon?: boolean
-    beforeColon?: boolean
-    mode?: ('strict' | 'minimum')
   }
 } | {
-  align?: {
-    afterColon?: boolean
-    beforeColon?: boolean
+  singleLine?: {
     mode?: ('strict' | 'minimum')
-    on?: ('colon' | 'value')
+    beforeColon?: boolean
+    afterColon?: boolean
   }
   multiLine?: {
-    afterColon?: boolean
-    beforeColon?: boolean
     mode?: ('strict' | 'minimum')
+    beforeColon?: boolean
+    afterColon?: boolean
   }
-  singleLine?: {
-    afterColon?: boolean
-    beforeColon?: boolean
+  align?: {
     mode?: ('strict' | 'minimum')
+    on?: ('colon' | 'value')
+    beforeColon?: boolean
+    afterColon?: boolean
   }
 })
 

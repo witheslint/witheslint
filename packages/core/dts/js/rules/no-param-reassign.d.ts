@@ -1,9 +1,9 @@
 type Schema0 = ({
   props?: false
 } | {
+  props?: true
   ignorePropertyModificationsFor?: string[]
   ignorePropertyModificationsForRegex?: string[]
-  props?: true
 })
 
 export type NoParamReassignRuleOptions = [Schema0]

@@ -1,10 +1,10 @@
 type Schema0 = ((string | {
-  message?: string
   name: string
+  message?: string
 })[] | {
   paths?: (string | {
-    message?: string
     name: string
+    message?: string
   })[]
   patterns?: string[]
 }[])

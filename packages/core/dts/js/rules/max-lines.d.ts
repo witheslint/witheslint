@@ -1,7 +1,7 @@
 type Schema0 = (number | {
   max?: number
-  skipBlankLines?: boolean
   skipComments?: boolean
+  skipBlankLines?: boolean
 })
 
 export type MaxLinesRuleOptions = [Schema0]

@@ -1,15 +1,15 @@
 type Schema0 = [] | [{
-  allowList?: BooleanObject
-  checkDefaultAndNamespaceImports?: (boolean | string)
-  checkFilenames?: boolean
   checkProperties?: boolean
+  checkVariables?: boolean
+  checkDefaultAndNamespaceImports?: (boolean | string)
   checkShorthandImports?: (boolean | string)
   checkShorthandProperties?: boolean
-  checkVariables?: boolean
-  extendDefaultAllowList?: boolean
+  checkFilenames?: boolean
   extendDefaultReplacements?: boolean
-  ignore?: any[]
   replacements?: Abbreviations
+  extendDefaultAllowList?: boolean
+  allowList?: BooleanObject
+  ignore?: any[]
 }]
 type Replacements = (false | BooleanObject)
 

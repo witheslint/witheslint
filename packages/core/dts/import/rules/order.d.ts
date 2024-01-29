@@ -3,11 +3,11 @@ interface Schema0 {
   pathGroupsExcludedImportTypes?: any[]
   distinctGroup?: boolean
   pathGroups?: {
-    group: ('builtin' | 'external' | 'internal' | 'unknown' | 'parent' | 'sibling' | 'index' | 'object' | 'type')
     pattern: string
     patternOptions?: {
       [k: string]: any
     }
+    group: ('builtin' | 'external' | 'internal' | 'unknown' | 'parent' | 'sibling' | 'index' | 'object' | 'type')
     position?: ('after' | 'before')
   }[]
   'newlines-between'?: ('ignore' | 'always' | 'always-and-inside-groups' | 'never')

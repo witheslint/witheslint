@@ -4,289 +4,289 @@ type UnderscoreOptions = ('forbid' | 'allow' | 'require' | 'requireDouble' | 'al
 type PrefixSuffixConfig = string[]
 type TypeModifiers = ('boolean' | 'string' | 'number' | 'function' | 'array')
 type Schema0 = ({
+  format: FormatOptionsConfig
   custom?: MatchRegexConfig
+  leadingUnderscore?: UnderscoreOptions
+  trailingUnderscore?: UnderscoreOptions
+  prefix?: PrefixSuffixConfig
+  suffix?: PrefixSuffixConfig
   failureMessage?: string
   filter?: (string | MatchRegexConfig)
-  format: FormatOptionsConfig
-  leadingUnderscore?: UnderscoreOptions
-  modifiers?: ('const' | 'readonly' | 'static' | 'public' | 'protected' | 'private' | '#private' | 'abstract' | 'destructured' | 'global' | 'exported' | 'unused' | 'requiresQuotes' | 'override' | 'async' | 'default' | 'namespace')[]
-  prefix?: PrefixSuffixConfig
   selector: ('default' | 'variableLike' | 'memberLike' | 'typeLike' | 'method' | 'property' | 'variable' | 'function' | 'parameter' | 'parameterProperty' | 'accessor' | 'enumMember' | 'classMethod' | 'objectLiteralMethod' | 'typeMethod' | 'classProperty' | 'objectLiteralProperty' | 'typeProperty' | 'class' | 'interface' | 'typeAlias' | 'enum' | 'typeParameter' | 'import')[]
-  suffix?: PrefixSuffixConfig
-  trailingUnderscore?: UnderscoreOptions
-  types?: TypeModifiers[]
-} | {
-  custom?: MatchRegexConfig
-  failureMessage?: string
-  filter?: (string | MatchRegexConfig)
-  format: FormatOptionsConfig
-  leadingUnderscore?: UnderscoreOptions
   modifiers?: ('const' | 'readonly' | 'static' | 'public' | 'protected' | 'private' | '#private' | 'abstract' | 'destructured' | 'global' | 'exported' | 'unused' | 'requiresQuotes' | 'override' | 'async' | 'default' | 'namespace')[]
+  types?: TypeModifiers[]
+} | {
+  format: FormatOptionsConfig
+  custom?: MatchRegexConfig
+  leadingUnderscore?: UnderscoreOptions
+  trailingUnderscore?: UnderscoreOptions
   prefix?: PrefixSuffixConfig
+  suffix?: PrefixSuffixConfig
+  failureMessage?: string
+  filter?: (string | MatchRegexConfig)
   selector: 'default'
-  suffix?: PrefixSuffixConfig
-  trailingUnderscore?: UnderscoreOptions
+  modifiers?: ('const' | 'readonly' | 'static' | 'public' | 'protected' | 'private' | '#private' | 'abstract' | 'destructured' | 'global' | 'exported' | 'unused' | 'requiresQuotes' | 'override' | 'async' | 'default' | 'namespace')[]
 } | {
+  format: FormatOptionsConfig
   custom?: MatchRegexConfig
+  leadingUnderscore?: UnderscoreOptions
+  trailingUnderscore?: UnderscoreOptions
+  prefix?: PrefixSuffixConfig
+  suffix?: PrefixSuffixConfig
   failureMessage?: string
   filter?: (string | MatchRegexConfig)
-  format: FormatOptionsConfig
-  leadingUnderscore?: UnderscoreOptions
-  modifiers?: ('unused' | 'async')[]
-  prefix?: PrefixSuffixConfig
   selector: 'variableLike'
-  suffix?: PrefixSuffixConfig
-  trailingUnderscore?: UnderscoreOptions
+  modifiers?: ('unused' | 'async')[]
 } | {
+  format: FormatOptionsConfig
   custom?: MatchRegexConfig
+  leadingUnderscore?: UnderscoreOptions
+  trailingUnderscore?: UnderscoreOptions
+  prefix?: PrefixSuffixConfig
+  suffix?: PrefixSuffixConfig
   failureMessage?: string
   filter?: (string | MatchRegexConfig)
-  format: FormatOptionsConfig
-  leadingUnderscore?: UnderscoreOptions
-  modifiers?: ('const' | 'destructured' | 'exported' | 'global' | 'unused' | 'async')[]
-  prefix?: PrefixSuffixConfig
   selector: 'variable'
-  suffix?: PrefixSuffixConfig
-  trailingUnderscore?: UnderscoreOptions
+  modifiers?: ('const' | 'destructured' | 'exported' | 'global' | 'unused' | 'async')[]
   types?: TypeModifiers[]
 } | {
+  format: FormatOptionsConfig
   custom?: MatchRegexConfig
+  leadingUnderscore?: UnderscoreOptions
+  trailingUnderscore?: UnderscoreOptions
+  prefix?: PrefixSuffixConfig
+  suffix?: PrefixSuffixConfig
   failureMessage?: string
   filter?: (string | MatchRegexConfig)
-  format: FormatOptionsConfig
-  leadingUnderscore?: UnderscoreOptions
-  modifiers?: ('exported' | 'global' | 'unused' | 'async')[]
-  prefix?: PrefixSuffixConfig
   selector: 'function'
-  suffix?: PrefixSuffixConfig
-  trailingUnderscore?: UnderscoreOptions
+  modifiers?: ('exported' | 'global' | 'unused' | 'async')[]
 } | {
+  format: FormatOptionsConfig
   custom?: MatchRegexConfig
+  leadingUnderscore?: UnderscoreOptions
+  trailingUnderscore?: UnderscoreOptions
+  prefix?: PrefixSuffixConfig
+  suffix?: PrefixSuffixConfig
   failureMessage?: string
   filter?: (string | MatchRegexConfig)
-  format: FormatOptionsConfig
-  leadingUnderscore?: UnderscoreOptions
-  modifiers?: ('destructured' | 'unused')[]
-  prefix?: PrefixSuffixConfig
   selector: 'parameter'
-  suffix?: PrefixSuffixConfig
-  trailingUnderscore?: UnderscoreOptions
+  modifiers?: ('destructured' | 'unused')[]
   types?: TypeModifiers[]
 } | {
+  format: FormatOptionsConfig
   custom?: MatchRegexConfig
+  leadingUnderscore?: UnderscoreOptions
+  trailingUnderscore?: UnderscoreOptions
+  prefix?: PrefixSuffixConfig
+  suffix?: PrefixSuffixConfig
   failureMessage?: string
   filter?: (string | MatchRegexConfig)
-  format: FormatOptionsConfig
-  leadingUnderscore?: UnderscoreOptions
-  modifiers?: ('abstract' | 'private' | '#private' | 'protected' | 'public' | 'readonly' | 'requiresQuotes' | 'static' | 'override' | 'async')[]
-  prefix?: PrefixSuffixConfig
   selector: 'memberLike'
-  suffix?: PrefixSuffixConfig
-  trailingUnderscore?: UnderscoreOptions
-} | {
-  custom?: MatchRegexConfig
-  failureMessage?: string
-  filter?: (string | MatchRegexConfig)
-  format: FormatOptionsConfig
-  leadingUnderscore?: UnderscoreOptions
-  modifiers?: ('abstract' | 'private' | '#private' | 'protected' | 'public' | 'readonly' | 'requiresQuotes' | 'static' | 'override')[]
-  prefix?: PrefixSuffixConfig
-  selector: 'classProperty'
-  suffix?: PrefixSuffixConfig
-  trailingUnderscore?: UnderscoreOptions
-  types?: TypeModifiers[]
-} | {
-  custom?: MatchRegexConfig
-  failureMessage?: string
-  filter?: (string | MatchRegexConfig)
-  format: FormatOptionsConfig
-  leadingUnderscore?: UnderscoreOptions
-  modifiers?: ('public' | 'requiresQuotes')[]
-  prefix?: PrefixSuffixConfig
-  selector: 'objectLiteralProperty'
-  suffix?: PrefixSuffixConfig
-  trailingUnderscore?: UnderscoreOptions
-  types?: TypeModifiers[]
-} | {
-  custom?: MatchRegexConfig
-  failureMessage?: string
-  filter?: (string | MatchRegexConfig)
-  format: FormatOptionsConfig
-  leadingUnderscore?: UnderscoreOptions
-  modifiers?: ('public' | 'readonly' | 'requiresQuotes')[]
-  prefix?: PrefixSuffixConfig
-  selector: 'typeProperty'
-  suffix?: PrefixSuffixConfig
-  trailingUnderscore?: UnderscoreOptions
-  types?: TypeModifiers[]
-} | {
-  custom?: MatchRegexConfig
-  failureMessage?: string
-  filter?: (string | MatchRegexConfig)
-  format: FormatOptionsConfig
-  leadingUnderscore?: UnderscoreOptions
-  modifiers?: ('private' | 'protected' | 'public' | 'readonly')[]
-  prefix?: PrefixSuffixConfig
-  selector: 'parameterProperty'
-  suffix?: PrefixSuffixConfig
-  trailingUnderscore?: UnderscoreOptions
-  types?: TypeModifiers[]
-} | {
-  custom?: MatchRegexConfig
-  failureMessage?: string
-  filter?: (string | MatchRegexConfig)
-  format: FormatOptionsConfig
-  leadingUnderscore?: UnderscoreOptions
   modifiers?: ('abstract' | 'private' | '#private' | 'protected' | 'public' | 'readonly' | 'requiresQuotes' | 'static' | 'override' | 'async')[]
-  prefix?: PrefixSuffixConfig
-  selector: 'property'
-  suffix?: PrefixSuffixConfig
+} | {
+  format: FormatOptionsConfig
+  custom?: MatchRegexConfig
+  leadingUnderscore?: UnderscoreOptions
   trailingUnderscore?: UnderscoreOptions
+  prefix?: PrefixSuffixConfig
+  suffix?: PrefixSuffixConfig
+  failureMessage?: string
+  filter?: (string | MatchRegexConfig)
+  selector: 'classProperty'
+  modifiers?: ('abstract' | 'private' | '#private' | 'protected' | 'public' | 'readonly' | 'requiresQuotes' | 'static' | 'override')[]
   types?: TypeModifiers[]
 } | {
-  custom?: MatchRegexConfig
-  failureMessage?: string
-  filter?: (string | MatchRegexConfig)
   format: FormatOptionsConfig
+  custom?: MatchRegexConfig
   leadingUnderscore?: UnderscoreOptions
-  modifiers?: ('abstract' | 'private' | '#private' | 'protected' | 'public' | 'requiresQuotes' | 'static' | 'override' | 'async')[]
-  prefix?: PrefixSuffixConfig
-  selector: 'classMethod'
-  suffix?: PrefixSuffixConfig
   trailingUnderscore?: UnderscoreOptions
-} | {
-  custom?: MatchRegexConfig
-  failureMessage?: string
-  filter?: (string | MatchRegexConfig)
-  format: FormatOptionsConfig
-  leadingUnderscore?: UnderscoreOptions
-  modifiers?: ('public' | 'requiresQuotes' | 'async')[]
   prefix?: PrefixSuffixConfig
-  selector: 'objectLiteralMethod'
   suffix?: PrefixSuffixConfig
-  trailingUnderscore?: UnderscoreOptions
-} | {
-  custom?: MatchRegexConfig
   failureMessage?: string
   filter?: (string | MatchRegexConfig)
-  format: FormatOptionsConfig
-  leadingUnderscore?: UnderscoreOptions
+  selector: 'objectLiteralProperty'
   modifiers?: ('public' | 'requiresQuotes')[]
-  prefix?: PrefixSuffixConfig
-  selector: 'typeMethod'
-  suffix?: PrefixSuffixConfig
-  trailingUnderscore?: UnderscoreOptions
-} | {
-  custom?: MatchRegexConfig
-  failureMessage?: string
-  filter?: (string | MatchRegexConfig)
-  format: FormatOptionsConfig
-  leadingUnderscore?: UnderscoreOptions
-  modifiers?: ('abstract' | 'private' | '#private' | 'protected' | 'public' | 'requiresQuotes' | 'static' | 'override' | 'async')[]
-  prefix?: PrefixSuffixConfig
-  selector: 'method'
-  suffix?: PrefixSuffixConfig
-  trailingUnderscore?: UnderscoreOptions
-} | {
-  custom?: MatchRegexConfig
-  failureMessage?: string
-  filter?: (string | MatchRegexConfig)
-  format: FormatOptionsConfig
-  leadingUnderscore?: UnderscoreOptions
-  modifiers?: ('abstract' | 'private' | 'protected' | 'public' | 'requiresQuotes' | 'static' | 'override')[]
-  prefix?: PrefixSuffixConfig
-  selector: 'accessor'
-  suffix?: PrefixSuffixConfig
-  trailingUnderscore?: UnderscoreOptions
   types?: TypeModifiers[]
 } | {
+  format: FormatOptionsConfig
   custom?: MatchRegexConfig
+  leadingUnderscore?: UnderscoreOptions
+  trailingUnderscore?: UnderscoreOptions
+  prefix?: PrefixSuffixConfig
+  suffix?: PrefixSuffixConfig
   failureMessage?: string
   filter?: (string | MatchRegexConfig)
+  selector: 'typeProperty'
+  modifiers?: ('public' | 'readonly' | 'requiresQuotes')[]
+  types?: TypeModifiers[]
+} | {
   format: FormatOptionsConfig
+  custom?: MatchRegexConfig
   leadingUnderscore?: UnderscoreOptions
-  modifiers?: ('requiresQuotes')[]
+  trailingUnderscore?: UnderscoreOptions
   prefix?: PrefixSuffixConfig
+  suffix?: PrefixSuffixConfig
+  failureMessage?: string
+  filter?: (string | MatchRegexConfig)
+  selector: 'parameterProperty'
+  modifiers?: ('private' | 'protected' | 'public' | 'readonly')[]
+  types?: TypeModifiers[]
+} | {
+  format: FormatOptionsConfig
+  custom?: MatchRegexConfig
+  leadingUnderscore?: UnderscoreOptions
+  trailingUnderscore?: UnderscoreOptions
+  prefix?: PrefixSuffixConfig
+  suffix?: PrefixSuffixConfig
+  failureMessage?: string
+  filter?: (string | MatchRegexConfig)
+  selector: 'property'
+  modifiers?: ('abstract' | 'private' | '#private' | 'protected' | 'public' | 'readonly' | 'requiresQuotes' | 'static' | 'override' | 'async')[]
+  types?: TypeModifiers[]
+} | {
+  format: FormatOptionsConfig
+  custom?: MatchRegexConfig
+  leadingUnderscore?: UnderscoreOptions
+  trailingUnderscore?: UnderscoreOptions
+  prefix?: PrefixSuffixConfig
+  suffix?: PrefixSuffixConfig
+  failureMessage?: string
+  filter?: (string | MatchRegexConfig)
+  selector: 'classMethod'
+  modifiers?: ('abstract' | 'private' | '#private' | 'protected' | 'public' | 'requiresQuotes' | 'static' | 'override' | 'async')[]
+} | {
+  format: FormatOptionsConfig
+  custom?: MatchRegexConfig
+  leadingUnderscore?: UnderscoreOptions
+  trailingUnderscore?: UnderscoreOptions
+  prefix?: PrefixSuffixConfig
+  suffix?: PrefixSuffixConfig
+  failureMessage?: string
+  filter?: (string | MatchRegexConfig)
+  selector: 'objectLiteralMethod'
+  modifiers?: ('public' | 'requiresQuotes' | 'async')[]
+} | {
+  format: FormatOptionsConfig
+  custom?: MatchRegexConfig
+  leadingUnderscore?: UnderscoreOptions
+  trailingUnderscore?: UnderscoreOptions
+  prefix?: PrefixSuffixConfig
+  suffix?: PrefixSuffixConfig
+  failureMessage?: string
+  filter?: (string | MatchRegexConfig)
+  selector: 'typeMethod'
+  modifiers?: ('public' | 'requiresQuotes')[]
+} | {
+  format: FormatOptionsConfig
+  custom?: MatchRegexConfig
+  leadingUnderscore?: UnderscoreOptions
+  trailingUnderscore?: UnderscoreOptions
+  prefix?: PrefixSuffixConfig
+  suffix?: PrefixSuffixConfig
+  failureMessage?: string
+  filter?: (string | MatchRegexConfig)
+  selector: 'method'
+  modifiers?: ('abstract' | 'private' | '#private' | 'protected' | 'public' | 'requiresQuotes' | 'static' | 'override' | 'async')[]
+} | {
+  format: FormatOptionsConfig
+  custom?: MatchRegexConfig
+  leadingUnderscore?: UnderscoreOptions
+  trailingUnderscore?: UnderscoreOptions
+  prefix?: PrefixSuffixConfig
+  suffix?: PrefixSuffixConfig
+  failureMessage?: string
+  filter?: (string | MatchRegexConfig)
+  selector: 'accessor'
+  modifiers?: ('abstract' | 'private' | 'protected' | 'public' | 'requiresQuotes' | 'static' | 'override')[]
+  types?: TypeModifiers[]
+} | {
+  format: FormatOptionsConfig
+  custom?: MatchRegexConfig
+  leadingUnderscore?: UnderscoreOptions
+  trailingUnderscore?: UnderscoreOptions
+  prefix?: PrefixSuffixConfig
+  suffix?: PrefixSuffixConfig
+  failureMessage?: string
+  filter?: (string | MatchRegexConfig)
   selector: 'enumMember'
-  suffix?: PrefixSuffixConfig
-  trailingUnderscore?: UnderscoreOptions
+  modifiers?: ('requiresQuotes')[]
 } | {
+  format: FormatOptionsConfig
   custom?: MatchRegexConfig
+  leadingUnderscore?: UnderscoreOptions
+  trailingUnderscore?: UnderscoreOptions
+  prefix?: PrefixSuffixConfig
+  suffix?: PrefixSuffixConfig
   failureMessage?: string
   filter?: (string | MatchRegexConfig)
-  format: FormatOptionsConfig
-  leadingUnderscore?: UnderscoreOptions
-  modifiers?: ('abstract' | 'exported' | 'unused')[]
-  prefix?: PrefixSuffixConfig
   selector: 'typeLike'
-  suffix?: PrefixSuffixConfig
-  trailingUnderscore?: UnderscoreOptions
-} | {
-  custom?: MatchRegexConfig
-  failureMessage?: string
-  filter?: (string | MatchRegexConfig)
-  format: FormatOptionsConfig
-  leadingUnderscore?: UnderscoreOptions
   modifiers?: ('abstract' | 'exported' | 'unused')[]
+} | {
+  format: FormatOptionsConfig
+  custom?: MatchRegexConfig
+  leadingUnderscore?: UnderscoreOptions
+  trailingUnderscore?: UnderscoreOptions
   prefix?: PrefixSuffixConfig
+  suffix?: PrefixSuffixConfig
+  failureMessage?: string
+  filter?: (string | MatchRegexConfig)
   selector: 'class'
-  suffix?: PrefixSuffixConfig
-  trailingUnderscore?: UnderscoreOptions
+  modifiers?: ('abstract' | 'exported' | 'unused')[]
 } | {
+  format: FormatOptionsConfig
   custom?: MatchRegexConfig
+  leadingUnderscore?: UnderscoreOptions
+  trailingUnderscore?: UnderscoreOptions
+  prefix?: PrefixSuffixConfig
+  suffix?: PrefixSuffixConfig
   failureMessage?: string
   filter?: (string | MatchRegexConfig)
-  format: FormatOptionsConfig
-  leadingUnderscore?: UnderscoreOptions
-  modifiers?: ('exported' | 'unused')[]
-  prefix?: PrefixSuffixConfig
   selector: 'interface'
-  suffix?: PrefixSuffixConfig
-  trailingUnderscore?: UnderscoreOptions
+  modifiers?: ('exported' | 'unused')[]
 } | {
+  format: FormatOptionsConfig
   custom?: MatchRegexConfig
+  leadingUnderscore?: UnderscoreOptions
+  trailingUnderscore?: UnderscoreOptions
+  prefix?: PrefixSuffixConfig
+  suffix?: PrefixSuffixConfig
   failureMessage?: string
   filter?: (string | MatchRegexConfig)
-  format: FormatOptionsConfig
-  leadingUnderscore?: UnderscoreOptions
-  modifiers?: ('exported' | 'unused')[]
-  prefix?: PrefixSuffixConfig
   selector: 'typeAlias'
-  suffix?: PrefixSuffixConfig
-  trailingUnderscore?: UnderscoreOptions
-} | {
-  custom?: MatchRegexConfig
-  failureMessage?: string
-  filter?: (string | MatchRegexConfig)
-  format: FormatOptionsConfig
-  leadingUnderscore?: UnderscoreOptions
   modifiers?: ('exported' | 'unused')[]
+} | {
+  format: FormatOptionsConfig
+  custom?: MatchRegexConfig
+  leadingUnderscore?: UnderscoreOptions
+  trailingUnderscore?: UnderscoreOptions
   prefix?: PrefixSuffixConfig
+  suffix?: PrefixSuffixConfig
+  failureMessage?: string
+  filter?: (string | MatchRegexConfig)
   selector: 'enum'
-  suffix?: PrefixSuffixConfig
-  trailingUnderscore?: UnderscoreOptions
+  modifiers?: ('exported' | 'unused')[]
 } | {
+  format: FormatOptionsConfig
   custom?: MatchRegexConfig
+  leadingUnderscore?: UnderscoreOptions
+  trailingUnderscore?: UnderscoreOptions
+  prefix?: PrefixSuffixConfig
+  suffix?: PrefixSuffixConfig
   failureMessage?: string
   filter?: (string | MatchRegexConfig)
-  format: FormatOptionsConfig
-  leadingUnderscore?: UnderscoreOptions
-  modifiers?: ('unused')[]
-  prefix?: PrefixSuffixConfig
   selector: 'typeParameter'
-  suffix?: PrefixSuffixConfig
-  trailingUnderscore?: UnderscoreOptions
+  modifiers?: ('unused')[]
 } | {
+  format: FormatOptionsConfig
   custom?: MatchRegexConfig
+  leadingUnderscore?: UnderscoreOptions
+  trailingUnderscore?: UnderscoreOptions
+  prefix?: PrefixSuffixConfig
+  suffix?: PrefixSuffixConfig
   failureMessage?: string
   filter?: (string | MatchRegexConfig)
-  format: FormatOptionsConfig
-  leadingUnderscore?: UnderscoreOptions
-  modifiers?: ('default' | 'namespace')[]
-  prefix?: PrefixSuffixConfig
   selector: 'import'
-  suffix?: PrefixSuffixConfig
-  trailingUnderscore?: UnderscoreOptions
+  modifiers?: ('default' | 'namespace')[]
 })[]
 
 interface MatchRegexConfig {

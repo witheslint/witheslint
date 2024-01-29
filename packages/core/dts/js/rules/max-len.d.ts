@@ -1,27 +1,27 @@
 type Schema0 = ({
   code?: number
   comments?: number
-  ignoreComments?: boolean
-  ignorePattern?: string
-  ignoreRegExpLiterals?: boolean
-  ignoreStrings?: boolean
-  ignoreTemplateLiterals?: boolean
-  ignoreTrailingComments?: boolean
-  ignoreUrls?: boolean
   tabWidth?: number
+  ignorePattern?: string
+  ignoreComments?: boolean
+  ignoreStrings?: boolean
+  ignoreUrls?: boolean
+  ignoreTemplateLiterals?: boolean
+  ignoreRegExpLiterals?: boolean
+  ignoreTrailingComments?: boolean
 } | number)
 
 type Schema1 = ({
   code?: number
   comments?: number
-  ignoreComments?: boolean
-  ignorePattern?: string
-  ignoreRegExpLiterals?: boolean
-  ignoreStrings?: boolean
-  ignoreTemplateLiterals?: boolean
-  ignoreTrailingComments?: boolean
-  ignoreUrls?: boolean
   tabWidth?: number
+  ignorePattern?: string
+  ignoreComments?: boolean
+  ignoreStrings?: boolean
+  ignoreUrls?: boolean
+  ignoreTemplateLiterals?: boolean
+  ignoreRegExpLiterals?: boolean
+  ignoreTrailingComments?: boolean
 } | number)
 
 interface Schema2 {

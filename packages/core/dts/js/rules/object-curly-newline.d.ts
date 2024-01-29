@@ -1,27 +1,27 @@
 type Schema0 = ((('always' | 'never') | {
-  consistent?: boolean
-  minProperties?: number
   multiline?: boolean
+  minProperties?: number
+  consistent?: boolean
 }) | {
-  ExportDeclaration?: (('always' | 'never') | {
-    consistent?: boolean
-    minProperties?: number
-    multiline?: boolean
-  })
-  ImportDeclaration?: (('always' | 'never') | {
-    consistent?: boolean
-    minProperties?: number
-    multiline?: boolean
-  })
   ObjectExpression?: (('always' | 'never') | {
-    consistent?: boolean
-    minProperties?: number
     multiline?: boolean
+    minProperties?: number
+    consistent?: boolean
   })
   ObjectPattern?: (('always' | 'never') | {
-    consistent?: boolean
-    minProperties?: number
     multiline?: boolean
+    minProperties?: number
+    consistent?: boolean
+  })
+  ImportDeclaration?: (('always' | 'never') | {
+    multiline?: boolean
+    minProperties?: number
+    consistent?: boolean
+  })
+  ExportDeclaration?: (('always' | 'never') | {
+    multiline?: boolean
+    minProperties?: number
+    consistent?: boolean
   })
 })
 

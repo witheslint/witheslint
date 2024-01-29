@@ -4,9 +4,9 @@ type Schema0 = ({
 } | {
   cases?: {
     camelCase?: boolean
+    snakeCase?: boolean
     kebabCase?: boolean
     pascalCase?: boolean
-    snakeCase?: boolean
   }
   ignore?: any[]
 })

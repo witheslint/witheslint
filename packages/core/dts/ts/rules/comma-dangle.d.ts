@@ -1,11 +1,11 @@
 type Schema0 = [] | [(Value | {
   arrays?: ValueWithIgnore
-  enums?: ValueWithIgnore
+  objects?: ValueWithIgnore
+  imports?: ValueWithIgnore
   exports?: ValueWithIgnore
   functions?: ValueWithIgnore
+  enums?: ValueWithIgnore
   generics?: ValueWithIgnore
-  imports?: ValueWithIgnore
-  objects?: ValueWithIgnore
   tuples?: ValueWithIgnore
 })]
 type Value = ('always-multiline' | 'always' | 'never' | 'only-multiline')

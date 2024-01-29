@@ -1,8 +1,8 @@
 type Schema0 = ({
   maximum?: {
-    [k: string]: any
-    multi?: number
     single?: number
+    multi?: number
+    [k: string]: any
   }
 } | {
   maximum?: number

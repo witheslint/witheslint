@@ -6,8 +6,8 @@ interface Schema0 {
     accessors?: AccessibilityLevel
     constructors?: AccessibilityLevel
     methods?: AccessibilityLevel
-    parameterProperties?: AccessibilityLevel
     properties?: AccessibilityLevel
+    parameterProperties?: AccessibilityLevel
   }
   ignoredMethodNames?: string[]
 }

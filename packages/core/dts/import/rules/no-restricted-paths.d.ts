@@ -3,15 +3,15 @@ interface Schema0 {
  * @minItems 1
  */
   zones?: [{
-    except?: string[]
-    from?: (string | string[])
-    message?: string
     target?: (string | string[])
+    from?: (string | string[])
+    except?: string[]
+    message?: string
   }, ...({
-    except?: string[]
-    from?: (string | string[])
-    message?: string
     target?: (string | string[])
+    from?: (string | string[])
+    except?: string[]
+    message?: string
   })[]]
   basePath?: string
 }

@@ -1,14 +1,17 @@
 type Schema0 = (({
-  [k: string]: any
+  unusedExports: true
   src?: {
     [k: string]: any
   }
-  unusedExports: true
+  [k: string]: any
 } | {
-  [k: string]: any
   missingExports: true
-}) & {
   [k: string]: any
+}) & {
+/**
+ * files/paths to be analyzed (only for unused exports)
+ */
+  src?: string[]
   /**
    * files/paths for which unused exports will not be reported (e.g module entry points)
    */
@@ -18,13 +21,10 @@ type Schema0 = (({
    */
   missingExports?: boolean
   /**
-   * files/paths to be analyzed (only for unused exports)
-   */
-  src?: string[]
-  /**
    * report exports without any usage
    */
   unusedExports?: boolean
+  [k: string]: any
 })
 
 export type NoUnusedModulesRuleOptions = [Schema0]

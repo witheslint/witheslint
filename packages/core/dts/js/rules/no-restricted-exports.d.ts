@@ -1,14 +1,14 @@
 type Schema0 = ({
   restrictedNamedExports?: string[]
 } | {
+  restrictedNamedExports?: string[]
   restrictDefaultExports?: {
-    defaultFrom?: boolean
     direct?: boolean
     named?: boolean
+    defaultFrom?: boolean
     namedFrom?: boolean
     namespaceFrom?: boolean
   }
-  restrictedNamedExports?: string[]
 })
 
 export type NoRestrictedExportsRuleOptions = [Schema0]

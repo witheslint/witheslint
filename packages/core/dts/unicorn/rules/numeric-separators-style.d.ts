@@ -1,23 +1,23 @@
 interface Schema0 {
   binary?: {
-    groupLength?: number
-    minimumDigits?: number
     onlyIfContainsSeparator?: boolean
+    minimumDigits?: number
+    groupLength?: number
   }
   octal?: {
-    groupLength?: number
-    minimumDigits?: number
     onlyIfContainsSeparator?: boolean
+    minimumDigits?: number
+    groupLength?: number
   }
   hexadecimal?: {
-    groupLength?: number
-    minimumDigits?: number
     onlyIfContainsSeparator?: boolean
+    minimumDigits?: number
+    groupLength?: number
   }
   number?: {
-    groupLength?: number
-    minimumDigits?: number
     onlyIfContainsSeparator?: boolean
+    minimumDigits?: number
+    groupLength?: number
   }
   onlyIfContainsSeparator?: boolean
 }

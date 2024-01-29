@@ -1,11 +1,11 @@
 type Schema0 = ('nofunc' | {
-  allowNamedExports?: boolean
+  functions?: boolean
   classes?: boolean
   enums?: boolean
-  functions?: boolean
-  ignoreTypeReferences?: boolean
-  typedefs?: boolean
   variables?: boolean
+  typedefs?: boolean
+  ignoreTypeReferences?: boolean
+  allowNamedExports?: boolean
 })
 
 export type NoUseBeforeDefineRuleOptions = [Schema0]

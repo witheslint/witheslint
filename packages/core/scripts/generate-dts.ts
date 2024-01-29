@@ -20,7 +20,7 @@ await generateRulesDts({
       module: 'eslint-plugin-jsdoc',
     },
     {
-      name: 'perfectionist',
+      name: 'sorter',
       module: 'eslint-plugin-perfectionist',
     },
     {

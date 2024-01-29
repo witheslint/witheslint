@@ -1,9 +1,9 @@
 type Schema0 = ({
-  AssignmentExpression?: {
+  VariableDeclarator?: {
     array?: boolean
     object?: boolean
   }
-  VariableDeclarator?: {
+  AssignmentExpression?: {
     array?: boolean
     object?: boolean
   }
