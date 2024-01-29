@@ -14,8 +14,8 @@ import * as unicornPlugin from 'eslint-plugin-unicorn'
 export const pluginUnicorn = interopDefault(unicornPlugin)
 
 // @ts-expect-error missing types
-import * as perfectionistPlugin from 'eslint-plugin-perfectionist'
-export const pluginPerfectionist = interopDefault(perfectionistPlugin)
+import * as sorterPlugin from 'eslint-plugin-perfectionist'
+export const pluginSorter = interopDefault(sorterPlugin)
 
 import * as jsdocPlugin from 'eslint-plugin-jsdoc'
 export const pluginJsdoc = interopDefault(jsdocPlugin)

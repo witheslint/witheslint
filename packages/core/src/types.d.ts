@@ -1,7 +1,7 @@
 import type { RuleOptions as ImportRules } from '../dts/import'
 import type { RuleOptions as JavaScriptRules } from '../dts/js'
 import type { RuleOptions as JsdocRules } from '../dts/jsdoc'
-import type { RuleOptions as PerfectionistRules } from '../dts/perfectionist'
+import type { RuleOptions as SorterRules } from '../dts/sorter'
 import type { RuleOptions as StylisticRules } from '../dts/style'
 import type { RuleOptions as TypeScriptRules } from '../dts/ts'
 import type { RuleOptions as UnicornRules } from '../dts/unicorn'
@@ -50,8 +50,8 @@ type RenamedRules = WrapRuleConfig<
     ImportRules &
     UnicornRules &
     UnusedImportsRules &
-    PerfectionistRules &
     TypeScriptRules &
+    SorterRules &
     StylisticRules
   >
 >
