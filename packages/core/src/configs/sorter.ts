@@ -1,9 +1,6 @@
 import type { FlatConfigItem } from '../types'
 import { pluginSorter } from '../modules'
 
-/**
- * @see [documentation](https://eslint-plugin-perfectionist.azat.io)
- */
 export const sorter = (): FlatConfigItem[] => {
   return [
     {

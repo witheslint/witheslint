@@ -2,6 +2,9 @@ import type { ParserModule } from '@witheslint/core'
 import { interopDefault } from '@witheslint/core'
 
 import * as sveltePlugin from 'eslint-plugin-svelte'
+/**
+ * @see [documentation](https://sveltejs.github.io/eslint-plugin-svelte)
+ */
 export const pluginSvelte = interopDefault(sveltePlugin)
 
 import * as svelteParser from 'svelte-eslint-parser'
