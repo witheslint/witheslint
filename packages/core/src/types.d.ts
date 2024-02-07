@@ -85,8 +85,10 @@ export type FlatConfigItem = Omit<Linter.FlatConfig, 'languageOptions' | 'plugin
    * these rule configurations are only available to the matching files.
    */
   // Renamed some plugin to make the overall scope more consistent and easier to write.
-  rules?: Linter.RulesRecord | Partial<RenamedRules>
+  rules?: Linter.RulesRecord | Partial<Rules>
 }
+
+export interface Rules extends RenamedRules {}
 
 export interface StylisticConfig {
   /**
