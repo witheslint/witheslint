@@ -7,10 +7,10 @@ type SortImports = (MaxLineLengthRequiresLineLengthType & {
       [k: string]: any
     }
   }
-  type?: ('alphabetical' | 'natural' | 'line-length')
-  order?: ('asc' | 'desc')
+  'type'?: ('alphabetical' | 'natural' | 'line-length')
+  'order'?: ('asc' | 'desc')
   'ignore-case'?: boolean
-  groups?: any[]
+  'groups'?: any[]
   'internal-pattern'?: string[]
   'newlines-between'?: ('ignore' | 'always' | 'never')
   'max-line-length'?: number

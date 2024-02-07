@@ -7,7 +7,7 @@ interface Schema0 {
   'ts-ignore'?: DirectiveConfigSchema
   'ts-nocheck'?: DirectiveConfigSchema
   'ts-check'?: DirectiveConfigSchema
-  minimumDescriptionLength?: number
+  'minimumDescriptionLength'?: number
 }
 
 export type BanTsCommentRuleOptions = [Schema0]

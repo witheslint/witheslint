@@ -1,5 +1,5 @@
 interface Schema0 {
-  considerQueryString?: boolean
+  'considerQueryString'?: boolean
   'prefer-inline'?: boolean
 }
 

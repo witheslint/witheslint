@@ -1,8 +1,8 @@
 interface Schema0 {
-  groups?: any[]
-  pathGroupsExcludedImportTypes?: any[]
-  distinctGroup?: boolean
-  pathGroups?: {
+  'groups'?: any[]
+  'pathGroupsExcludedImportTypes'?: any[]
+  'distinctGroup'?: boolean
+  'pathGroups'?: {
     pattern: string
     patternOptions?: {
       [k: string]: any
@@ -11,12 +11,12 @@ interface Schema0 {
     position?: ('after' | 'before')
   }[]
   'newlines-between'?: ('ignore' | 'always' | 'always-and-inside-groups' | 'never')
-  alphabetize?: {
+  'alphabetize'?: {
     caseInsensitive?: boolean
     order?: ('ignore' | 'asc' | 'desc')
     orderImportKind?: ('ignore' | 'asc' | 'desc')
   }
-  warnOnUnassignedImports?: boolean
+  'warnOnUnassignedImports'?: boolean
 }
 
 export type OrderRuleOptions = [Schema0]

@@ -5,11 +5,11 @@ interface Schema0 {
   'partition-by-comment'?: (boolean | string | any[])
   'partition-by-new-line'?: boolean
   'styled-components'?: boolean
-  type?: ('alphabetical' | 'natural' | 'line-length')
-  order?: ('asc' | 'desc')
+  'type'?: ('alphabetical' | 'natural' | 'line-length')
+  'order'?: ('asc' | 'desc')
   'ignore-case'?: boolean
   'ignore-pattern'?: string[]
-  groups?: any[]
+  'groups'?: any[]
 }
 
 export type SortObjectsRuleOptions = [Schema0]

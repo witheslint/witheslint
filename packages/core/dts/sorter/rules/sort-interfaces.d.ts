@@ -2,11 +2,11 @@ interface Schema0 {
   'custom-groups'?: {
     [k: string]: any
   }
-  type?: ('alphabetical' | 'natural' | 'line-length')
-  order?: ('asc' | 'desc')
+  'type'?: ('alphabetical' | 'natural' | 'line-length')
+  'order'?: ('asc' | 'desc')
   'ignore-case'?: boolean
   'ignore-pattern'?: string[]
-  groups?: any[]
+  'groups'?: any[]
   'partition-by-new-line'?: boolean
 }
 

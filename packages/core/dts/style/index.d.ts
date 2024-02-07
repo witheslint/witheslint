@@ -32,6 +32,7 @@ import type { JsxIndentPropsRuleOptions } from './rules/jsx-indent-props'
 import type { JsxMaxPropsPerLineRuleOptions } from './rules/jsx-max-props-per-line'
 import type { JsxNewlineRuleOptions } from './rules/jsx-newline'
 import type { JsxOneExpressionPerLineRuleOptions } from './rules/jsx-one-expression-per-line'
+import type { JsxPascalCaseRuleOptions } from './rules/jsx-pascal-case'
 import type { JsxPropsNoMultiSpacesRuleOptions } from './rules/jsx-props-no-multi-spaces'
 import type { JsxQuotesRuleOptions } from './rules/jsx-quotes'
 import type { JsxSelfClosingCompRuleOptions } from './rules/jsx-self-closing-comp'
@@ -442,9 +443,9 @@ export interface RuleOptions {
   'style/padding-line-between-statements': PaddingLineBetweenStatementsRuleOptions
 
   /**
-   * Require quotes around object literal property names
+   * Require quotes around object literal, type literal, interfaces and enums property names
    *
-   * @see [quote-props](https://eslint.style/rules/js/quote-props)
+   * @see [quote-props](https://eslint.style/rules/ts/quote-props)
    */
   'style/quote-props': QuotePropsRuleOptions
 
@@ -657,6 +658,13 @@ export interface RuleOptions {
    * @see [jsx-one-expression-per-line](https://eslint.style/rules/jsx/jsx-one-expression-per-line)
    */
   'style/jsx-one-expression-per-line': JsxOneExpressionPerLineRuleOptions
+
+  /**
+   * Enforce PascalCase for user-defined JSX components
+   *
+   * @see [jsx-pascal-case](https://eslint.style/rules/jsx/jsx-pascal-case)
+   */
+  'style/jsx-pascal-case': JsxPascalCaseRuleOptions
 
   /**
    * Disallow multiple spaces between inline JSX props

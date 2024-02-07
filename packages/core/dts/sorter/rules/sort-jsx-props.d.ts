@@ -2,9 +2,9 @@ interface Schema0 {
   'custom-groups'?: {
     [k: string]: any
   }
-  type?: ('alphabetical' | 'natural' | 'line-length')
-  order?: ('asc' | 'desc')
-  groups?: any[]
+  'type'?: ('alphabetical' | 'natural' | 'line-length')
+  'order'?: ('asc' | 'desc')
+  'groups'?: any[]
   'ignore-case'?: boolean
 }
 
