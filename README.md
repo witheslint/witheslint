@@ -10,3 +10,13 @@
 </p>
 
 <br>
+
+## Features
+
+- Auto fix for formatting
+- Single quotes, no semicolons
+- Sorted imports, dangling commas for cleaner commit diff
+- Designed to work with `JSX`, `TypeScript` out-of-box
+- Support also for `Astro`, `React`, `Svelte`, `Solid`, `Vue`
+- [ESLint Flat config](https://eslint.org/docs/latest/use/configure/configuration-files-new), compose easily!
+- Reasonable defaults, best practices, only one-line of config
