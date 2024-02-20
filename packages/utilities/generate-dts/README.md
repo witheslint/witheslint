@@ -10,9 +10,3 @@
 
 ✨ Generate typescript declaration files for ESLint rules. ✨
 
-## Documentation
-
-Please refer to the documentation.
-
-> [!IMPORTANT]
-> WIP

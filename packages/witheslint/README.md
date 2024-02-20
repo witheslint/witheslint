@@ -12,7 +12,5 @@
 
 ## Documentation
 
-Please refer to the documentation.
+Please refer to the [documentation](https://witheslint.github.io).
 
-> [!IMPORTANT]
-> WIP

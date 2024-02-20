@@ -12,7 +12,4 @@
 
 ## Documentation
 
-Please refer to the documentation.
-
-> [!IMPORTANT]
-> WIP
+Please refer to the [documentation](https://witheslint.github.io).
