@@ -6,7 +6,7 @@ import { arrayify, isFunction, uniqueBy } from './helper'
 
 interface Options {
   /**
-   * List of file patterns to ignore.
+   * `.eslintignore` is no longer supported in Flat config, use `ignores` instead.
    */
   ignores?: string[]
   /**
@@ -14,7 +14,7 @@ interface Options {
    */
   features?: FeaturesConfig
   /**
-   * List of presets to apply to the configuration.
+   * Predefined configurations for common use cases.
    */
   presets?: Preset[]
   /**
