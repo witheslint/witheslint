@@ -1,6 +1,6 @@
 {
   "name": "@witheslint/preset-solid",
-  "version": "0.9.0",
+  "version": "0.10.0",
   "type": "module",
   "description": "Use solid eslint config preset in witheslint.",
   "author": "Joie <leaps@live.com>",
@@ -47,6 +47,6 @@
     "@witheslint/core": "workspace:^"
   },
   "peerDependencies": {
-    "@witheslint/core": ">=0.9.0"
+    "@witheslint/core": ">=0.10.0"
   }
 }
