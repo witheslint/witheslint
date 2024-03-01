@@ -11,6 +11,7 @@ interface Schema1 {
   preserveMainDescriptionPostDelimiter?: boolean
   tags?: string[]
   wrapIndent?: string
+  disableWrapIndent?: boolean
 }
 
 export type CheckLineAlignmentRuleOptions = [Schema0, Schema1]
