@@ -36,7 +36,7 @@
   },
   "dependencies": {
     "@types/json-schema": "~7.0.15",
-    "change-case": "~5.4.2",
+    "change-case": "~5.4.3",
     "json-schema": "~0.4.0",
     "json-schema-to-typescript": "~13.1.2",
     "outdent": "^0.8.0",
