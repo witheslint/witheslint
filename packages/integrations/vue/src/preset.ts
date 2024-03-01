@@ -1,10 +1,11 @@
+import type { Preset } from '@witheslint/core'
 import { definePreset } from '@witheslint/core'
 import { parserTs } from '@witheslint/core/modules'
 import { parserVue, pluginVue } from './modules'
 
 export const GLOB_VUE = '**/*.vue'
 
-export const presetVue = () => definePreset({
+export const presetVue = (): Preset => definePreset({
   name: 'preset:vue',
   extensions: ['vue'],
   setup: ({ features, styles }) => {

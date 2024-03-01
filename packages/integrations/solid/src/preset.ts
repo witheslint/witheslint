@@ -1,8 +1,9 @@
+import type { Preset } from '@witheslint/core'
 import { definePreset, GLOB_JSX, GLOB_TSX } from '@witheslint/core'
 import { parserTs } from '@witheslint/core/modules'
 import { pluginSolid } from './modules'
 
-export const presetSolid = () => definePreset({
+export const presetSolid = (): Preset => definePreset({
   name: 'preset:solid',
   setup: ({ features }) => {
     const { typescript } = features

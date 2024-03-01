@@ -1,8 +1,9 @@
+import type { Preset } from '@witheslint/core'
 import { definePreset, GLOB_JSX, GLOB_TSX } from '@witheslint/core'
 import { parserTs } from '@witheslint/core/modules'
 import { pluginReact, pluginReactHooks } from './modules'
 
-export const presetReact = () => definePreset({
+export const presetReact = (): Preset => definePreset({
   name: 'preset:react',
   setup: ({ features }) => {
     const { typescript } = features

@@ -1,10 +1,11 @@
+import type { Preset } from '@witheslint/core'
 import { definePreset } from '@witheslint/core'
 import { parserTs } from '@witheslint/core/modules'
 import { parserSvelte, pluginSvelte } from './modules'
 
 export const GLOB_SVELTE = '**/*.svelte'
 
-export const presetSvelte = () => definePreset({
+export const presetSvelte = (): Preset => definePreset({
   name: 'preset:svelte',
   extensions: ['svelte'],
   setup: ({ features, styles }) => {
