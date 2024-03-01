@@ -1,6 +1,6 @@
 {
   "name": "@witheslint/preset-solid",
-  "version": "0.10.0",
+  "version": "0.10.1",
   "type": "module",
   "description": "Use solid eslint config preset in witheslint.",
   "author": "Joie <leaps@live.com>",
