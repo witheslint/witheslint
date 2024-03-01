@@ -1,6 +1,6 @@
 {
   "name": "@witheslint/preset-vue",
-  "version": "0.10.1",
+  "version": "0.10.2",
   "type": "module",
   "description": "Use vue eslint config preset in witheslint.",
   "author": "Joie <leaps@live.com>",
