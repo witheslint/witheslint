@@ -12,7 +12,7 @@ export const imports = (): FlatConfigItem[] => {
       rules: {
         'import/export': 'error',
         'import/first': 'error',
-        'import/newline-after-import': ['error', { considerComments: true, count: 1 }],
+        'import/newline-after-import': ['error', { count: 1 }],
         'import/no-default-export': 'error',
         'import/no-duplicates': 'error',
         'import/no-mutable-exports': 'error',
