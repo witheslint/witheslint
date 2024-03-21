@@ -1,5 +1,6 @@
 import type { BooleanPropNamingRuleOptions } from './rules/boolean-prop-naming'
 import type { ButtonHasTypeRuleOptions } from './rules/button-has-type'
+import type { CheckedRequiresOnchangeOrReadonlyRuleOptions } from './rules/checked-requires-onchange-or-readonly'
 import type { DefaultPropsMatchPropTypesRuleOptions } from './rules/default-props-match-prop-types'
 import type { DestructuringAssignmentRuleOptions } from './rules/destructuring-assignment'
 import type { DisplayNameRuleOptions } from './rules/display-name'
@@ -113,6 +114,13 @@ export interface RuleOptions {
    * @see [button-has-type](https://github.com/jsx-eslint/eslint-plugin-react/tree/master/docs/rules/button-has-type.md)
    */
   'react/button-has-type': ButtonHasTypeRuleOptions
+
+  /**
+   * Enforce using `onChange` or `readonly` attribute when `checked` is used
+   *
+   * @see [checked-requires-onchange-or-readonly](https://github.com/jsx-eslint/eslint-plugin-react/tree/master/docs/rules/checked-requires-onchange-or-readonly.md)
+   */
+  'react/checked-requires-onchange-or-readonly': CheckedRequiresOnchangeOrReadonlyRuleOptions
 
   /**
    * Enforce all defaultProps have a corresponding non-required PropType

@@ -1,3 +1,8 @@
 type Schema0 = ('always' | 'always-multiline' | 'never')
 
-export type MultilineTernaryRuleOptions = [Schema0]
+interface Schema1 {
+  ignoreJSX?: boolean
+  [k: string]: any
+}
+
+export type MultilineTernaryRuleOptions = [Schema0, Schema1]

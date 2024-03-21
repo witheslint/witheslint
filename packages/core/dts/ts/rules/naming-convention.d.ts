@@ -12,7 +12,7 @@ type Schema0 = ({
   suffix?: PrefixSuffixConfig
   failureMessage?: string
   filter?: (string | MatchRegexConfig)
-  selector: ('default' | 'variableLike' | 'memberLike' | 'typeLike' | 'method' | 'property' | 'variable' | 'function' | 'parameter' | 'parameterProperty' | 'accessor' | 'enumMember' | 'classMethod' | 'objectLiteralMethod' | 'typeMethod' | 'classProperty' | 'objectLiteralProperty' | 'typeProperty' | 'class' | 'interface' | 'typeAlias' | 'enum' | 'typeParameter' | 'import')[]
+  selector: ('default' | 'variableLike' | 'memberLike' | 'typeLike' | 'method' | 'property' | 'accessor' | 'variable' | 'function' | 'parameter' | 'parameterProperty' | 'classicAccessor' | 'enumMember' | 'classMethod' | 'objectLiteralMethod' | 'typeMethod' | 'classProperty' | 'objectLiteralProperty' | 'typeProperty' | 'autoAccessor' | 'class' | 'interface' | 'typeAlias' | 'enum' | 'typeParameter' | 'import')[]
   modifiers?: ('const' | 'readonly' | 'static' | 'public' | 'protected' | 'private' | '#private' | 'abstract' | 'destructured' | 'global' | 'exported' | 'unused' | 'requiresQuotes' | 'override' | 'async' | 'default' | 'namespace')[]
   types?: TypeModifiers[]
 } | {
@@ -187,6 +187,30 @@ type Schema0 = ({
   filter?: (string | MatchRegexConfig)
   selector: 'method'
   modifiers?: ('abstract' | 'private' | '#private' | 'protected' | 'public' | 'requiresQuotes' | 'static' | 'override' | 'async')[]
+} | {
+  format: FormatOptionsConfig
+  custom?: MatchRegexConfig
+  leadingUnderscore?: UnderscoreOptions
+  trailingUnderscore?: UnderscoreOptions
+  prefix?: PrefixSuffixConfig
+  suffix?: PrefixSuffixConfig
+  failureMessage?: string
+  filter?: (string | MatchRegexConfig)
+  selector: 'classicAccessor'
+  modifiers?: ('abstract' | 'private' | 'protected' | 'public' | 'requiresQuotes' | 'static' | 'override')[]
+  types?: TypeModifiers[]
+} | {
+  format: FormatOptionsConfig
+  custom?: MatchRegexConfig
+  leadingUnderscore?: UnderscoreOptions
+  trailingUnderscore?: UnderscoreOptions
+  prefix?: PrefixSuffixConfig
+  suffix?: PrefixSuffixConfig
+  failureMessage?: string
+  filter?: (string | MatchRegexConfig)
+  selector: 'autoAccessor'
+  modifiers?: ('abstract' | 'private' | 'protected' | 'public' | 'requiresQuotes' | 'static' | 'override')[]
+  types?: TypeModifiers[]
 } | {
   format: FormatOptionsConfig
   custom?: MatchRegexConfig

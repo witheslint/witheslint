@@ -12,6 +12,7 @@ import type { CommaDangleRuleOptions } from './rules/comma-dangle'
 import type { CommaSpacingRuleOptions } from './rules/comma-spacing'
 import type { ConsistentGenericConstructorsRuleOptions } from './rules/consistent-generic-constructors'
 import type { ConsistentIndexedObjectStyleRuleOptions } from './rules/consistent-indexed-object-style'
+import type { ConsistentReturnRuleOptions } from './rules/consistent-return'
 import type { ConsistentTypeAssertionsRuleOptions } from './rules/consistent-type-assertions'
 import type { ConsistentTypeDefinitionsRuleOptions } from './rules/consistent-type-definitions'
 import type { ConsistentTypeExportsRuleOptions } from './rules/consistent-type-exports'
@@ -138,6 +139,7 @@ import type { TypeAnnotationSpacingRuleOptions } from './rules/type-annotation-s
 import type { TypedefRuleOptions } from './rules/typedef'
 import type { UnboundMethodRuleOptions } from './rules/unbound-method'
 import type { UnifiedSignaturesRuleOptions } from './rules/unified-signatures'
+import type { UseUnknownInCatchCallbackVariableRuleOptions } from './rules/use-unknown-in-catch-callback-variable'
 
 export interface RuleOptions {
   /**
@@ -245,6 +247,13 @@ export interface RuleOptions {
    * @see [consistent-indexed-object-style](https://typescript-eslint.io/rules/consistent-indexed-object-style)
    */
   'ts/consistent-indexed-object-style': ConsistentIndexedObjectStyleRuleOptions
+
+  /**
+   * Require `return` statements to either always or never specify values
+   *
+   * @see [consistent-return](https://typescript-eslint.io/rules/consistent-return)
+   */
+  'ts/consistent-return': ConsistentReturnRuleOptions
 
   /**
    * Enforce consistent usage of type assertions
@@ -1163,5 +1172,12 @@ export interface RuleOptions {
    * @see [unified-signatures](https://typescript-eslint.io/rules/unified-signatures)
    */
   'ts/unified-signatures': UnifiedSignaturesRuleOptions
+
+  /**
+   * Enforce typing arguments in `.catch()` callbacks as `unknown`
+   *
+   * @see [use-unknown-in-catch-callback-variable](https://typescript-eslint.io/rules/use-unknown-in-catch-callback-variable)
+   */
+  'ts/use-unknown-in-catch-callback-variable': UseUnknownInCatchCallbackVariableRuleOptions
 
 }
