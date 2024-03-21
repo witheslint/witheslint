@@ -1,6 +1,6 @@
 {
   "name": "@witheslint/preset-react",
-  "version": "0.10.2",
+  "version": "0.11.0",
   "type": "module",
   "description": "Use react eslint config preset in witheslint.",
   "author": "Joie <leaps@live.com>",
