@@ -3,7 +3,7 @@
   "access": "public",
   "baseBranch": "main",
   "changelog": false,
-  "commit": ["changesets-commit", null],
+  "commit": ["changesets-helper", null],
   "updateInternalDependencies": "patch",
   "___experimentalUnsafeOptions_WILL_CHANGE_IN_PATCH": {
     "onlyUpdatePeerDependentsWhenOutOfRange": true

@@ -41,7 +41,7 @@
     "dts": "esno ./scripts/generate-dts.ts && eslint ./dts --fix"
   },
   "dependencies": {
-    "eslint-plugin-solid": "^0.13.1"
+    "eslint-plugin-solid": "^0.13.2"
   },
   "devDependencies": {
     "@witheslint/core": "workspace:^"
