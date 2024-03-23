@@ -6,8 +6,6 @@
 
 <p align="center">A tool that makes it easy to manage projects ESLint configurations.</p>
 
-
-
 <br>
 
 ## Features
