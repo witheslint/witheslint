@@ -1,12 +1,11 @@
 import type { ParserModule } from './types'
 import { interopDefault } from './helper'
 
-// @ts-expect-error missing types
-import * as importPlugin from 'eslint-plugin-i'
+import * as importPlugin from 'eslint-plugin-import-x'
 /**
- * @see [documentation](https://github.com/un-es/eslint-plugin-i)
+ * @see [documentation](https://github.com/un-es/eslint-plugin-import-x)
  */
-export const pluginImport = interopDefault(importPlugin)
+export const pluginImport: typeof importPlugin = interopDefault(importPlugin)
 
 // @ts-expect-error missing types
 import * as unusedImportsPlugin from 'eslint-plugin-unused-imports'

@@ -1,5 +1,6 @@
 interface Schema0 {
   importFunctions?: string[]
+  allowEmpty?: boolean
   webpackChunknameFormat?: string
   [k: string]: any
 }

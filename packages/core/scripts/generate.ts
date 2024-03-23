@@ -13,7 +13,7 @@ await generateRulesDts({
     },
     {
       name: 'import',
-      module: 'eslint-plugin-i',
+      module: 'eslint-plugin-import-x',
     },
     {
       name: 'jsdoc',
