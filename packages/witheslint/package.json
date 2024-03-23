@@ -1,6 +1,6 @@
 {
   "name": "witheslint",
-  "version": "0.11.0",
+  "version": "0.12.0",
   "type": "module",
   "description": "A tool that makes it easy to manage projects ESLint configurations.",
   "author": "Joie <leaps@live.com>",
