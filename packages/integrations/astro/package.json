@@ -33,12 +33,12 @@
   "types": "./dist/index.d.ts",
   "files": [
     "dist",
-    "dts"
+    "shims"
   ],
   "scripts": {
     "build": "unbuild",
     "prepublishOnly": "unbuild",
-    "dts": "esno ./scripts/generate-dts.ts && eslint ./dts --fix"
+    "generate": "esno ./scripts/generate.ts && eslint ./shims --fix"
   },
   "dependencies": {
     "astro-eslint-parser": "^0.16.3",

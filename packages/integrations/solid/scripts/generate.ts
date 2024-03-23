@@ -1,15 +1,11 @@
 import { generateRulesDts } from '@witheslint/generate-dts'
 
 await generateRulesDts({
-  outDir: 'dts',
+  outDir: 'shims',
   plugins: [
     {
-      name: 'react',
-      module: 'eslint-plugin-react',
-    },
-    {
-      name: 'react-hooks',
-      module: 'eslint-plugin-react-hooks',
+      name: 'solid',
+      module: 'eslint-plugin-solid',
     },
   ],
 }).catch((error) => {

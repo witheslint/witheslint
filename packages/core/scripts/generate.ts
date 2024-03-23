@@ -1,7 +1,7 @@
 import { generateRulesDts } from '@witheslint/generate-dts'
 
 await generateRulesDts({
-  outDir: 'dts',
+  outDir: 'shims',
   plugins: [
     {
       name: 'js',

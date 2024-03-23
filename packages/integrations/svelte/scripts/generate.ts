@@ -1,11 +1,11 @@
 import { generateRulesDts } from '@witheslint/generate-dts'
 
 await generateRulesDts({
-  outDir: 'dts',
+  outDir: 'shims',
   plugins: [
     {
-      name: 'solid',
-      module: 'eslint-plugin-solid',
+      name: 'svelte',
+      module: 'eslint-plugin-svelte',
     },
   ],
 }).catch((error) => {

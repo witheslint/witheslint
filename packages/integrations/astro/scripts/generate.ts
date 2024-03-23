@@ -1,11 +1,11 @@
 import { generateRulesDts } from '@witheslint/generate-dts'
 
 await generateRulesDts({
-  outDir: 'dts',
+  outDir: 'shims',
   plugins: [
     {
-      name: 'vue',
-      module: 'eslint-plugin-vue',
+      name: 'astro',
+      module: 'eslint-plugin-astro',
     },
   ],
 }).catch((error) => {
