@@ -37,7 +37,7 @@ export const presetVue = (): Preset => definePreset({
           'vue/component-name-in-template-casing': ['error', 'PascalCase'],
           'vue/component-options-name-casing': ['error', 'PascalCase'],
           'vue/custom-event-name-casing': ['error', 'camelCase'],
-          'vue/define-macros-order': ['error', { order: ['defineOptions', 'defineProps', 'defineEmits', 'defineSlots'] }],
+          'vue/define-macros-order': ['error', { order: ['defineOptions', 'defineProps', 'defineEmits', 'defineModel', 'defineSlots'], defineExposeLast: true }],
           'vue/dot-location': ['error', 'property'],
           'vue/dot-notation': ['error', { allowKeywords: true }],
           'vue/eqeqeq': ['error', 'smart'],
