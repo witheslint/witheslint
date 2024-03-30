@@ -1,6 +1,6 @@
 {
   "name": "@witheslint/preset-solid",
-  "version": "0.13.0",
+  "version": "0.13.1",
   "type": "module",
   "description": "The solid preset for witheslint.",
   "author": "Joie <leaps@live.com>",
@@ -47,6 +47,6 @@
     "@witheslint/core": "workspace:^"
   },
   "peerDependencies": {
-    "@witheslint/core": ">=0.13.0"
+    "@witheslint/core": ">0.13.0"
   }
 }
