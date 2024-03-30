@@ -54,7 +54,7 @@ export const javascript = (): FlatConfigItem[] => {
         'line-comment-position': 'off',
         'logical-assignment-operators': 'off',
         'max-classes-per-file': 'off',
-        'max-depth': ['error', 5],
+        'max-depth': ['error', { max: 5 }],
         'max-lines': 'off',
         'max-lines-per-function': 'off',
         'max-nested-callbacks': ['error', 3],
