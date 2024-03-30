@@ -16,7 +16,7 @@ export type FlatConfigItem = Omit<Linter.FlatConfig, 'rules'> & {
   /**
    * An object containing a name-value mapping of rules to use.
    */
-  rules?: ESLintRules & CustomRules & Linter.RulesRecord
+  rules?: Partial<ESLintRules> & CustomRules & Linter.RulesRecord
 }
 
 export interface StylisticConfig {
