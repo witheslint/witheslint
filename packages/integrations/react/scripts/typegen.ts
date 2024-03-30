@@ -5,6 +5,6 @@ import { pluginReact, pluginReactHooks } from '../src/modules'
 const dts = await pluginsToRulesDTS({
   'react': pluginReact,
   'react-hooks': pluginReactHooks,
-})
+}, { exportTypeName: 'RuleSetsReact' })
 
 await writeFile('src/rules.d.ts', dts)

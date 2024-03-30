@@ -1,4 +1,4 @@
-import type { RuleOptions as CustomRules } from './rules'
+import type { RuleSetsCore as CustomRules } from './rules'
 import type { ESLint, Linter } from 'eslint'
 
 type ConvertAllFields<T, Target> = { [K in keyof T]: Target }

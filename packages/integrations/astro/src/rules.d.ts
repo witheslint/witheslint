@@ -1,13 +1,14 @@
 /* eslint-disable */
 /* prettier-ignore */
 import type { Linter } from 'eslint'
+
 declare module 'eslint' {
   namespace Linter {
-    interface RulesRecord extends RuleOptions {}
+    interface RulesRecord extends RuleSetsAstro {}
   }
 }
 
-export interface RuleOptions {
+export interface RuleSetsAstro {
   /**
    * apply `jsx-a11y/alt-text` rule to Astro components
    * @see https://ota-meshi.github.io/eslint-plugin-astro/rules/jsx-a11y/alt-text/

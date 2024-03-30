@@ -4,11 +4,11 @@ import type { Linter } from 'eslint'
 
 declare module 'eslint' {
   namespace Linter {
-    interface RulesRecord extends RuleOptions {}
+    interface RulesRecord extends RuleSetsCore {}
   }
 }
 
-export interface RuleOptions {
+export interface RuleSetsCore {
   /**
    * Enforce getter and setter pairs in objects and classes
    * @see https://eslint.org/docs/latest/rules/accessor-pairs

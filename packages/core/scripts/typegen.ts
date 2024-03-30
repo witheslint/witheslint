@@ -20,6 +20,6 @@ const dts = await pluginsToRulesDTS({
   'style': pluginStylistic,
   'import': pluginImport,
   'unused-imports': pluginUnusedImports,
-})
+}, { exportTypeName: 'RuleSetsCore' })
 
 await writeFile('src/rules.d.ts', dts)

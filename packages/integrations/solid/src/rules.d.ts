@@ -1,13 +1,14 @@
 /* eslint-disable */
 /* prettier-ignore */
 import type { Linter } from 'eslint'
+
 declare module 'eslint' {
   namespace Linter {
-    interface RulesRecord extends RuleOptions {}
+    interface RulesRecord extends RuleSetsSolid {}
   }
 }
 
-export interface RuleOptions {
+export interface RuleSetsSolid {
   /**
    * Disallow early returns in components. Solid components only run once, and so conditionals should be inside JSX.
    * @see https://github.com/solidjs-community/eslint-plugin-solid/blob/main/docs/components-return-once.md

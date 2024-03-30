@@ -1,13 +1,14 @@
 /* eslint-disable */
 /* prettier-ignore */
 import type { Linter } from 'eslint'
+
 declare module 'eslint' {
   namespace Linter {
-    interface RulesRecord extends RuleOptions {}
+    interface RulesRecord extends RuleSetsSvelte {}
   }
 }
 
-export interface RuleOptions {
+export interface RuleSetsSvelte {
   /**
    * disallow conditionals where the type is always truthy or always falsy
    * @see https://sveltejs.github.io/eslint-plugin-svelte/rules/@typescript-eslint/no-unnecessary-condition/

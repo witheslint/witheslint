@@ -1,13 +1,14 @@
 /* eslint-disable */
 /* prettier-ignore */
 import type { Linter } from 'eslint'
+
 declare module 'eslint' {
   namespace Linter {
-    interface RulesRecord extends RuleOptions {}
+    interface RulesRecord extends RuleSetsVue {}
   }
 }
 
-export interface RuleOptions {
+export interface RuleSetsVue {
   /**
    * Enforce linebreaks after opening and before closing array brackets in `<template>`
    * @see https://eslint.vuejs.org/rules/array-bracket-newline.html

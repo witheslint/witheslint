@@ -4,6 +4,6 @@ import { pluginSolid } from '../src/modules'
 
 const dts = await pluginsToRulesDTS({
   solid: pluginSolid,
-})
+}, { exportTypeName: 'RuleSetsSolid' })
 
 await writeFile('src/rules.d.ts', dts)

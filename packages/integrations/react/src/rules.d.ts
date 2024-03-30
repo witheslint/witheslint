@@ -1,13 +1,14 @@
 /* eslint-disable */
 /* prettier-ignore */
 import type { Linter } from 'eslint'
+
 declare module 'eslint' {
   namespace Linter {
-    interface RulesRecord extends RuleOptions {}
+    interface RulesRecord extends RuleSetsReact {}
   }
 }
 
-export interface RuleOptions {
+export interface RuleSetsReact {
   /**
    * verifies the list of dependencies for Hooks like useEffect and similar
    * @see https://github.com/facebook/react/issues/14920
