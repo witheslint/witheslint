@@ -30,8 +30,8 @@ importers:
         specifier: ^8.57.0
         version: 8.57.0
       eslint-typegen:
-        specifier: ^0.1.6
-        version: 0.1.6
+        specifier: ^0.2.0
+        version: 0.2.0
       esno:
         specifier: ^4.7.0
         version: 4.7.0
@@ -3043,8 +3043,8 @@ packages:
       esrecurse: 4.3.0
       estraverse: 5.3.0
 
-  /eslint-typegen@0.1.6:
-    resolution: {integrity: sha512-M6a9l3ifdZvZIJahUQmf1c1gVxoNu9e8E1Uwzu3bg2jKH1dfSkO8KSViNio54vEQCvyVPfJky5U246hZf4j1RA==}
+  /eslint-typegen@0.2.0:
+    resolution: {integrity: sha512-zaAQemIb3RfMjxCMv+sgoXAAhrMZDlx8rZ35zaIUS7ebZHvj1QjjspQnHnZ8UA/7U00u9tI+Lv1pjX1A73HHPQ==}
     dependencies:
       '@types/eslint': 8.56.6
       json-schema-to-typescript-lite: 14.0.0

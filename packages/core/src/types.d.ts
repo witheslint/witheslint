@@ -1,6 +1,5 @@
 import type { RuleOptions as CustomRules } from './rules'
 import type { ESLint, Linter } from 'eslint'
-import type { ESLintRules } from 'eslint/rules'
 
 type ConvertAllFields<T, Target> = { [K in keyof T]: Target }
 
@@ -14,9 +13,10 @@ export type PluginModule = ESLint.Plugin
 
 export type FlatConfigItem = Omit<Linter.FlatConfig, 'rules'> & {
   /**
-   * An object containing a name-value mapping of rules to use.
+   * An object containing the configured rules. When files or ignores are specified,
+   * these rule configurations are only available to the matching files.
    */
-  rules?: Partial<ESLintRules> & CustomRules & Linter.RulesRecord
+  rules?: Linter.RulesRecord & CustomRules
 }
 
 export interface StylisticConfig {
