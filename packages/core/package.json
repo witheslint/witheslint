@@ -1,6 +1,6 @@
 {
   "name": "@witheslint/core",
-  "version": "0.13.2",
+  "version": "0.13.3",
   "type": "module",
   "description": "A tool that makes it easy to manage projects ESLint configurations.",
   "author": "Joie <leaps@live.com>",
