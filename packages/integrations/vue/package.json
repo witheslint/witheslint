@@ -1,6 +1,6 @@
 {
   "name": "@witheslint/preset-vue",
-  "version": "0.12.0",
+  "version": "0.13.0",
   "type": "module",
   "description": "The vue preset for witheslint.",
   "author": "Joie <leaps@live.com>",
@@ -13,10 +13,11 @@
     "directory": "packages/integrations/vue"
   },
   "keywords": [
+    "vue",
+    "eslint",
     "eslint-config",
     "eslint-flat-config",
-    "eslint-preset",
-    "vue"
+    "eslint-preset"
   ],
   "exports": {
     ".": {
@@ -47,6 +48,6 @@
     "@witheslint/core": "workspace:^"
   },
   "peerDependencies": {
-    "@witheslint/core": ">=0.10.0"
+    "@witheslint/core": ">=0.13.0"
   }
 }
