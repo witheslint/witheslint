@@ -37,8 +37,7 @@
   ],
   "scripts": {
     "build": "unbuild",
-    "prepublishOnly": "unbuild",
-    "generate": "esno ./scripts/generate.ts && eslint ./shims --fix"
+    "prepublishOnly": "unbuild"
   },
   "dependencies": {
     "eslint-plugin-svelte": "^2.35.1",

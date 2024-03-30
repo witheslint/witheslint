@@ -37,8 +37,7 @@
   ],
   "scripts": {
     "build": "unbuild",
-    "prepublishOnly": "unbuild",
-    "generate": "esno ./scripts/generate.ts && eslint ./shims --fix"
+    "prepublishOnly": "unbuild"
   },
   "dependencies": {
     "eslint-plugin-vue": "^9.23.0",
