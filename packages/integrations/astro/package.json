@@ -1,6 +1,6 @@
 {
   "name": "@witheslint/preset-astro",
-  "version": "0.13.1",
+  "version": "0.13.2",
   "type": "module",
   "description": "The astro preset for witheslint.",
   "author": "Joie <leaps@live.com>",
