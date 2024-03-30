@@ -1,4 +1,3 @@
-import type { RuleSetsCore as CustomRules } from './rules'
 import type { ESLint, Linter } from 'eslint'
 
 type ConvertAllFields<T, Target> = { [K in keyof T]: Target }
@@ -11,13 +10,7 @@ export type ParserModule = Linter.FlatConfigParserModule
 
 export type PluginModule = ESLint.Plugin
 
-export type FlatConfigItem = Omit<Linter.FlatConfig, 'rules'> & {
-  /**
-   * An object containing the configured rules. When files or ignores are specified,
-   * these rule configurations are only available to the matching files.
-   */
-  rules?: Linter.RulesRecord & CustomRules
-}
+export type FlatConfigItem = Linter.FlatConfig
 
 export interface StylisticConfig {
   /**
