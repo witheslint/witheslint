@@ -32,16 +32,16 @@
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
   "files": [
-    "dist",
-    "shims"
+    "dist"
   ],
   "scripts": {
-    "build": "unbuild",
-    "prepublishOnly": "unbuild"
+    "build": "pnpm typegen && unbuild",
+    "typegen": "esno scripts/typegen.ts",
+    "prepublishOnly": "pnpm build"
   },
   "dependencies": {
     "astro-eslint-parser": "^0.16.3",
-    "eslint-plugin-astro": "^0.32.0"
+    "eslint-plugin-astro": "^0.33.1"
   },
   "devDependencies": {
     "@witheslint/core": "workspace:^"

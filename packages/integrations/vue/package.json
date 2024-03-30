@@ -32,15 +32,15 @@
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
   "files": [
-    "dist",
-    "shims"
+    "dist"
   ],
   "scripts": {
-    "build": "unbuild",
-    "prepublishOnly": "unbuild"
+    "build": "pnpm typegen && unbuild",
+    "typegen": "esno scripts/typegen.ts",
+    "prepublishOnly": "pnpm build"
   },
   "dependencies": {
-    "eslint-plugin-vue": "^9.23.0",
+    "eslint-plugin-vue": "^9.24.0",
     "vue-eslint-parser": "^9.4.2"
   },
   "devDependencies": {

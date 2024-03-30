@@ -1,12 +1,15 @@
-import type { ParserModule } from '@witheslint/core'
+import type { ParserModule, PluginModule } from '@witheslint/core'
 import { interopDefault } from '@witheslint/core'
 
 // @ts-expect-error missing types
-import * as vuePlugin from 'eslint-plugin-vue'
+import * as _pluginVue from 'eslint-plugin-vue'
 /**
- * @see [documentation](https://eslint.vuejs.org)
+ * @see [eslint-plugin-vue](https://eslint.vuejs.org)
  */
-export const pluginVue = interopDefault(vuePlugin)
+export const pluginVue = interopDefault(_pluginVue as unknown as PluginModule)
 
-import * as vueParser from 'vue-eslint-parser'
-export const parserVue = interopDefault<ParserModule>(vueParser)
+import * as _parserVue from 'vue-eslint-parser'
+/**
+ * @see [vue-eslint-parser](https://github.com/vuejs/vue-eslint-parser)
+ */
+export const parserVue = interopDefault(_parserVue as unknown as ParserModule)

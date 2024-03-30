@@ -28,10 +28,10 @@ export const presetVue = (): Preset => definePreset({
         },
         processor: pluginVue.processors!['.vue'],
         rules: {
-          ...pluginVue.configs['base'].rules,
-          ...pluginVue.configs['vue3-essential'].rules,
-          ...pluginVue.configs['vue3-strongly-recommended'].rules,
-          ...pluginVue.configs['vue3-recommended'].rules,
+          ...(pluginVue as any).configs['base'].rules,
+          ...(pluginVue as any).configs['vue3-essential'].rules,
+          ...(pluginVue as any).configs['vue3-strongly-recommended'].rules,
+          ...(pluginVue as any).configs['vue3-recommended'].rules,
 
           'vue/block-order': ['error', { order: ['script', 'template', 'style'] }],
           'vue/component-name-in-template-casing': ['error', 'PascalCase'],

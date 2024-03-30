@@ -30,25 +30,24 @@
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
   "files": [
-    "dist",
-    "shims"
+    "dist"
   ],
   "scripts": {
-    "build": "unbuild",
-    "prepublishOnly": "unbuild",
-    "generate": "esno ./scripts/generate.ts && eslint ./shims --fix"
+    "build": "pnpm typegen && unbuild",
+    "prepublishOnly": "pnpm build",
+    "typegen": "esno scripts/typegen.ts"
   },
   "dependencies": {
     "@stylistic/eslint-plugin": "^1.7.0",
     "@types/eslint": "^8.56.6",
-    "@typescript-eslint/eslint-plugin": "^7.3.1",
-    "@typescript-eslint/parser": "^7.3.1",
-    "eslint-plugin-import-x": "^0.4.1",
-    "eslint-plugin-jsdoc": "^48.2.1",
+    "@typescript-eslint/eslint-plugin": "^7.4.0",
+    "@typescript-eslint/parser": "^7.4.0",
+    "eslint-plugin-import-x": "^0.4.4",
+    "eslint-plugin-jsdoc": "^48.2.2",
     "eslint-plugin-perfectionist": "^2.7.0",
     "eslint-plugin-unicorn": "^51.0.1",
     "eslint-plugin-unused-imports": "^3.1.0",
-    "globals": "^14.0.0"
+    "globals": "^15.0.0"
   },
   "peerDependencies": {
     "eslint": ">=8.56.0"

@@ -32,12 +32,12 @@
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
   "files": [
-    "dist",
-    "shims"
+    "dist"
   ],
   "scripts": {
-    "build": "unbuild",
-    "prepublishOnly": "unbuild"
+    "build": "pnpm typegen && unbuild",
+    "typegen": "esno scripts/typegen.ts",
+    "prepublishOnly": "pnpm build"
   },
   "dependencies": {
     "eslint-plugin-react": "^7.34.1",

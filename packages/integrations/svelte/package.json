@@ -16,7 +16,7 @@
     "eslint-config",
     "eslint-flat-config",
     "eslint-preset",
-    "astro"
+    "svelte"
   ],
   "exports": {
     ".": {
@@ -32,12 +32,12 @@
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
   "files": [
-    "dist",
-    "shims"
+    "dist"
   ],
   "scripts": {
-    "build": "unbuild",
-    "prepublishOnly": "unbuild"
+    "build": "pnpm typegen && unbuild",
+    "typegen": "esno scripts/typegen.ts",
+    "prepublishOnly": "pnpm build"
   },
   "dependencies": {
     "eslint-plugin-svelte": "^2.35.1",

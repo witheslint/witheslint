@@ -1,50 +1,53 @@
-import type { ParserModule } from './types'
+import type { ParserModule, PluginModule } from './types'
 import { interopDefault } from './helper'
 
-import * as importPlugin from 'eslint-plugin-import-x'
+import * as _pluginImport from 'eslint-plugin-import-x'
 /**
- * @see [documentation](https://github.com/un-es/eslint-plugin-import-x)
+ * @see [eslint-plugin-import-x](https://github.com/un-es/eslint-plugin-import-x)
  */
-export const pluginImport: typeof importPlugin = interopDefault(importPlugin)
+export const pluginImport = interopDefault(_pluginImport as unknown as PluginModule)
 
 // @ts-expect-error missing types
-import * as unusedImportsPlugin from 'eslint-plugin-unused-imports'
+import * as _pluginUnusedImports from 'eslint-plugin-unused-imports'
 /**
- * @see [documentation](https://github.com/sweepline/eslint-plugin-unused-imports)
+ * @see [eslint-plugin-unused-imports](https://github.com/sweepline/eslint-plugin-unused-imports)
  */
-export const pluginUnusedImports = interopDefault(unusedImportsPlugin)
+export const pluginUnusedImports = interopDefault(_pluginUnusedImports as unknown as PluginModule)
 
 // @ts-expect-error missing types
-import * as unicornPlugin from 'eslint-plugin-unicorn'
+import * as _pluginUnicorn from 'eslint-plugin-unicorn'
 /**
- * @see [documentation](https://github.com/sindresorhus/eslint-plugin-unicorn)
+ * @see [eslint-plugin-unicorn](https://github.com/sindresorhus/eslint-plugin-unicorn)
  */
-export const pluginUnicorn = interopDefault(unicornPlugin)
+export const pluginUnicorn = interopDefault(_pluginUnicorn as unknown as PluginModule)
 
 // @ts-expect-error missing types
-import * as sorterPlugin from 'eslint-plugin-perfectionist'
+import * as _pluginSorter from 'eslint-plugin-perfectionist'
 /**
- * @see [documentation](https://eslint-plugin-perfectionist.azat.io)
+ * @see [eslint-plugin-perfectionist](https://eslint-plugin-perfectionist.azat.io)
  */
-export const pluginSorter = interopDefault(sorterPlugin)
+export const pluginSorter = interopDefault(_pluginSorter as unknown as PluginModule)
 
-import * as jsdocPlugin from 'eslint-plugin-jsdoc'
+import * as _pluginJsdoc from 'eslint-plugin-jsdoc'
 /**
- * @see [documentation](https://github.com/gajus/eslint-plugin-jsdoc)
+ * @see [eslint-plugin-jsdoc](https://github.com/gajus/eslint-plugin-jsdoc)
  */
-export const pluginJsdoc = interopDefault(jsdocPlugin)
+export const pluginJsdoc = interopDefault(_pluginJsdoc as unknown as PluginModule)
 
-import * as stylisticPlugin from '@stylistic/eslint-plugin'
+import * as _pluginStylistic from '@stylistic/eslint-plugin'
 /**
- * @see [documentation](https://eslint.style)
+ * @see [@stylistic/eslint-plugin](https://eslint.style)
  */
-export const pluginStylistic = interopDefault(stylisticPlugin)
+export const pluginStylistic = interopDefault(_pluginStylistic as unknown as PluginModule)
 
-import * as tsPlugin from '@typescript-eslint/eslint-plugin'
+import * as _pluginTs from '@typescript-eslint/eslint-plugin'
 /**
- * @see [documentation](https://typescript-eslint.io)
+ * @see [@typescript-eslint/eslint-plugin](https://typescript-eslint.io)
  */
-export const pluginTs: typeof tsPlugin = interopDefault(tsPlugin)
+export const pluginTs = interopDefault(_pluginTs as unknown as PluginModule)
 
-import * as tsParser from '@typescript-eslint/parser'
-export const parserTs = interopDefault<ParserModule>(tsParser)
+import * as _parserTs from '@typescript-eslint/parser'
+/**
+ * @see [@typescript-eslint/parser](https://typescript-eslint.io/packages/parser/)
+ */
+export const parserTs = interopDefault(_parserTs as unknown as ParserModule)

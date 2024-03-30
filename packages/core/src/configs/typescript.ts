@@ -22,12 +22,12 @@ export const typescript = (options: Options = {}): FlatConfigItem[] => {
       },
       rules: {
         ...renameRules(
-          pluginTs.configs['eslint-recommended'].overrides![0].rules!,
+          (pluginTs.configs as any)['eslint-recommended'].overrides[0].rules,
           '@typescript-eslint/',
           'ts/',
         ),
         ...renameRules(
-          pluginTs.configs['strict'].rules!,
+          (pluginTs.configs as any)['strict'].rules,
           '@typescript-eslint/',
           'ts/',
         ),

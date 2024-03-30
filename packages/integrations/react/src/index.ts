@@ -1,2 +1,2 @@
-export type * from './types'
+export type * from './rules'
 export * from './preset'

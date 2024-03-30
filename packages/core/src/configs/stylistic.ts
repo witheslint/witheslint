@@ -2,7 +2,7 @@ import type { FlatConfigItem, StylisticConfig } from '../types'
 import { pluginStylistic } from '../modules'
 
 export const stylistic = (styles: StylisticConfig): FlatConfigItem[] => {
-  const config = pluginStylistic.configs.customize({
+  const config = (pluginStylistic.configs as any).customize({
     flat: true,
     pluginName: 'style',
     ...styles,
