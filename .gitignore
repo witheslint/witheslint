@@ -9,3 +9,6 @@ dist
 
 # IDE-specific
 .idea
+
+# genetated rules dts
+**/src/rules.d.ts
