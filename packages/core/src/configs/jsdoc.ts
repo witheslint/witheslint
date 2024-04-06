@@ -4,6 +4,7 @@ import { pluginJsdoc } from '../modules'
 export const jsdoc = (): FlatConfigItem[] => {
   return [
     {
+      name: 'witheslint:jsdoc:configs',
       plugins: { jsdoc: pluginJsdoc },
       rules: {
         'jsdoc/check-access': 'warn',

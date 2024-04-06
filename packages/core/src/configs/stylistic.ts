@@ -10,6 +10,7 @@ export const stylistic = (styles: StylisticConfig): FlatConfigItem[] => {
 
   return [
     {
+      name: 'witheslint:style:configs',
       plugins: { style: pluginStylistic },
       rules: {
         ...config.rules,

@@ -10,8 +10,12 @@ interface Options {
 export const typescript = (options: Options = {}): FlatConfigItem[] => {
   const { extraExtensions = [] } = options
   return [
-    { plugins: { ts: pluginTs } },
     {
+      name: 'witheslint:typescript:plugins',
+      plugins: { ts: pluginTs },
+    },
+    {
+      name: 'witheslint:typescript:configs',
       files: [GLOB_TS, GLOB_TSX, ...extraExtensions.map(ext => `**/*.${ext}`)],
       languageOptions: {
         parser: parserTs,
@@ -61,12 +65,14 @@ export const typescript = (options: Options = {}): FlatConfigItem[] => {
       },
     },
     {
+      name: 'witheslint:typescript:overrides',
       files: [GLOB_DTS],
       rules: {
         'no-restricted-syntax': 'off',
       },
     },
     {
+      name: 'witheslint:typescript:overrides',
       files: [GLOB_CJS],
       rules: {
         'ts/no-require-imports': 'off',

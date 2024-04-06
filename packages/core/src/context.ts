@@ -1,5 +1,10 @@
-import type { Context, FeaturesConfig } from './types'
+import type { ConvertAllFields, FeaturesConfig, StylisticConfig } from './types'
 import { isBoolean, isObject } from './helper'
+
+interface Context {
+  styles: StylisticConfig
+  features: ConvertAllFields<FeaturesConfig, boolean>
+}
 
 const context: Context = {
   styles: {

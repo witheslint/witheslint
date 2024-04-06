@@ -4,16 +4,22 @@ import { parserTs } from '@witheslint/core/modules'
 import { parserSvelte, pluginSvelte } from './modules'
 
 export const GLOB_SVELTE = '**/*.svelte'
+export const GLOB_SVELTE_EXCLUDES = ['**/.svelte-kit']
 
 export const presetSvelte = (): Preset => definePreset({
   name: 'preset:svelte',
   extensions: ['svelte'],
+  ignores: GLOB_SVELTE_EXCLUDES,
   setup: ({ features, styles }) => {
     const { typescript, stylistic } = features
     const { indent, quotes } = styles
     return [
-      { plugins: { svelte: pluginSvelte } },
       {
+        name: 'witheslint:svelte:plugins',
+        plugins: { svelte: pluginSvelte },
+      },
+      {
+        name: 'witheslint:svelte:configs',
         files: [GLOB_SVELTE],
         languageOptions: {
           parser: parserSvelte,

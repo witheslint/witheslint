@@ -4,16 +4,22 @@ import { parserTs } from '@witheslint/core/modules'
 import { parserVue, pluginVue } from './modules'
 
 export const GLOB_VUE = '**/*.vue'
+export const GLOB_VUE_EXCLUDES = ['**/.nuxt']
 
 export const presetVue = (): Preset => definePreset({
   name: 'preset:vue',
   extensions: ['vue'],
+  ignores: GLOB_VUE_EXCLUDES,
   setup: ({ features, styles }) => {
     const { typescript, stylistic } = features
     const { indent, blockSpacing, braceStyle, commaDangle, quoteProps } = styles
     return [
-      { plugins: { vue: pluginVue } },
       {
+        name: 'witheslint:vue:plugins',
+        plugins: { vue: pluginVue },
+      },
+      {
+        name: 'witheslint:vue:configs',
         files: [GLOB_VUE],
         languageOptions: {
           parser: parserVue,

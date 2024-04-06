@@ -6,6 +6,8 @@ export type Arrayable<T> = Array<T> | T
 
 export type Awaitable<T> = Promise<T> | T
 
+export type FileSpec = Linter.FlatConfigFileSpec
+
 export type ParserModule = Linter.FlatConfigParserModule
 
 export type PluginModule = ESLint.Plugin
@@ -89,11 +91,6 @@ export interface FeaturesConfig {
   typescript: boolean
 }
 
-export interface Context {
-  styles: StylisticConfig
-  features: ConvertAllFields<FeaturesConfig, boolean>
-}
-
 export interface Preset {
   /**
    * Custom name of each preset item.
@@ -103,6 +100,11 @@ export interface Preset {
    * Optional extensions for the preset to borrow rules from typescript.
    */
   extensions?: string[]
+  /**
+   * An array of glob patterns indicating the files that the configuration
+   * object should not apply to.
+   */
+  ignores?: FileSpec[]
   /**
    * Function to setup the preset.
    */

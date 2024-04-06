@@ -4,6 +4,7 @@ import globals from 'globals'
 export const javascript = (): FlatConfigItem[] => {
   return [
     {
+      name: 'witheslint:javascript:configs',
       languageOptions: {
         ecmaVersion: 'latest',
         globals: {
@@ -26,7 +27,7 @@ export const javascript = (): FlatConfigItem[] => {
         reportUnusedDisableDirectives: true,
       },
       rules: {
-        'accessor-pairs': ['error', { getWithoutSet: false, setWithoutGet: true }],
+        'accessor-pairs': ['error', { getWithoutSet: false, setWithoutGet: true, enforceForClassMembers: true }],
         'array-callback-return': 'error',
         'arrow-body-style': 'off',
         'block-scoped-var': 'error',
@@ -122,7 +123,6 @@ export const javascript = (): FlatConfigItem[] => {
         'no-loss-of-precision': 'error',
         'no-magic-numbers': 'off',
         'no-misleading-character-class': 'error',
-        'no-mixed-spaces-and-tabs': 'error',
         'no-multi-assign': 'off',
         'no-multi-str': 'error',
         'no-negated-condition': 'off',
@@ -130,7 +130,6 @@ export const javascript = (): FlatConfigItem[] => {
         'no-new': 'error',
         'no-new-func': 'error',
         'no-new-native-nonconstructor': 'error',
-        'no-new-object': 'error',
         'no-new-symbol': 'error',
         'no-new-wrappers': 'error',
         'no-nonoctal-decimal-escape': 'error',
@@ -152,7 +151,6 @@ export const javascript = (): FlatConfigItem[] => {
           'DebuggerStatement', 'LabeledStatement', 'WithStatement', 'TSEnumDeclaration[const=true]', 'TSExportAssignment',
         ],
         'no-return-assign': ['error', 'always'],
-        'no-return-await': 'off',
         'no-script-url': 'off',
         'no-self-assign': 'error',
         'no-self-compare': 'error',
@@ -219,8 +217,8 @@ export const javascript = (): FlatConfigItem[] => {
         'sort-vars': 'off',
         'strict': ['error', 'never'],
         'symbol-description': 'error',
-        'use-isnan': 'error',
-        'valid-typeof': 'error',
+        'use-isnan': ['error', { enforceForIndexOf: true, enforceForSwitchCase: true }],
+        'valid-typeof': ['error', { requireStringLiterals: true }],
         'vars-on-top': 'off',
         'yoda': ['error', 'never', { onlyEquality: true }],
       },

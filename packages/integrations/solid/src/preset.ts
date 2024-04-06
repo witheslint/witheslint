@@ -8,8 +8,12 @@ export const presetSolid = (): Preset => definePreset({
   setup: ({ features }) => {
     const { typescript } = features
     return [
-      { plugins: { solid: pluginSolid } },
       {
+        name: 'witheslint:solid:plugins',
+        plugins: { solid: pluginSolid },
+      },
+      {
+        name: 'witheslint:solid:configs',
         files: typescript ? [GLOB_JSX, GLOB_TSX] : [GLOB_JSX],
         languageOptions: {
           parser: typescript ? parserTs : undefined,
@@ -34,7 +38,6 @@ export const presetSolid = (): Preset => definePreset({
           'solid/no-proxy-apis': 'off',
           'solid/no-react-deps': 'warn',
           'solid/no-react-specific-props': 'error',
-          'solid/prefer-classlist': 'error',
           'solid/prefer-for': 'error',
           'solid/prefer-show': 'error',
           'solid/reactivity': 'error',

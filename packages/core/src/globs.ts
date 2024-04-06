@@ -10,28 +10,16 @@ export const GLOB_EXCLUDE = [
   '**/node_modules',
   '**/dist',
 
-  '**/bun.lockb',
-  '**/package-lock.json',
-  '**/pnpm-lock.yaml',
-  '**/yarn.lock',
-
-  '**/.astro',
-  '**/.nuxt',
-  '**/.next',
-  '**/.svelte-kit',
-  '**/.vercel',
-  '**/.vite-inspect',
-  '**/.vitepress/cache',
-
+  '**/.idea',
   '**/.cache',
   '**/.output',
 
-  '**/.changeset',
-  '**/.idea',
-
-  '**/CHANGELOG*.md',
-  '**/LICENSE*',
-
   '**/*.min.*',
-  '**/__snapshots__',
-] as const
+]
+
+export const GLOB_PACKAGE_LOCK = [
+  '**/package-lock.json',
+  '**/yarn.lock',
+  '**/pnpm-lock.yaml',
+  '**/bun.lockb',
+]

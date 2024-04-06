@@ -4,6 +4,7 @@ import { pluginUnicorn } from '../modules'
 export const unicorn = (): FlatConfigItem[] => {
   return [
     {
+      name: 'witheslint:unicorn:configs',
       plugins: { unicorn: pluginUnicorn },
       rules: {
         'unicorn/better-regex': 'error',

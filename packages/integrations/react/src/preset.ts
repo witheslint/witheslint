@@ -3,12 +3,16 @@ import { definePreset, GLOB_JSX, GLOB_TSX } from '@witheslint/core'
 import { parserTs } from '@witheslint/core/modules'
 import { pluginReact, pluginReactHooks } from './modules'
 
+export const GLOB_REACT_EXCLUDES = ['**/.next']
+
 export const presetReact = (): Preset => definePreset({
   name: 'preset:react',
+  ignores: GLOB_REACT_EXCLUDES,
   setup: ({ features }) => {
     const { typescript } = features
     return [
       {
+        name: 'witheslint:react:plugins',
         plugins: {
           'react': pluginReact,
           'react-hooks': pluginReactHooks,
@@ -20,6 +24,7 @@ export const presetReact = (): Preset => definePreset({
         },
       },
       {
+        name: 'witheslint:react:configs',
         files: typescript ? [GLOB_JSX, GLOB_TSX] : [GLOB_JSX],
         languageOptions: {
           parser: typescript ? parserTs : undefined,

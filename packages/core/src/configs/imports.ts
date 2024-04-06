@@ -5,6 +5,7 @@ import { pluginImport, pluginUnusedImports } from '../modules'
 export const imports = (): FlatConfigItem[] => {
   return [
     {
+      name: 'witheslint:import:configs',
       plugins: {
         'import': pluginImport,
         'unused-imports': pluginUnusedImports,
@@ -26,6 +27,7 @@ export const imports = (): FlatConfigItem[] => {
       },
     },
     {
+      name: 'witheslint:import:overrides',
       files: [GLOB_DTS],
       rules: {
         'import/no-default-export': 'off',
@@ -34,6 +36,7 @@ export const imports = (): FlatConfigItem[] => {
       },
     },
     {
+      name: 'witheslint:import:overrides',
       files: ['**/{*config,index}.?([cm])[jt]s'],
       rules: {
         'import/no-default-export': 'off',

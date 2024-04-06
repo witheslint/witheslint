@@ -4,6 +4,7 @@ import { pluginSorter } from '../modules'
 export const sorter = (): FlatConfigItem[] => {
   return [
     {
+      name: 'witheslint:sorter:configs',
       plugins: { sorter: pluginSorter },
       rules: {
         'sorter/sort-exports': 'error',
