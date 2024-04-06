@@ -21,6 +21,7 @@ export const unicorn = (): FlatConfigItem[] => {
           },
         ],
         'unicorn/new-for-builtins': 'error',
+        'unicorn/no-anonymous-default-export': 'error',
         'unicorn/no-array-callback-reference': 'error',
         'unicorn/no-array-for-each': 'off',
         'unicorn/no-array-method-this-argument': 'error',
