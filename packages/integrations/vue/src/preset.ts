@@ -1,5 +1,5 @@
 import type { Preset } from '@witheslint/core'
-import { definePreset } from '@witheslint/core'
+import { combineRules, definePreset } from '@witheslint/core'
 import { parserTs } from '@witheslint/core/modules'
 import { parserVue, pluginVue } from './modules'
 
@@ -34,10 +34,7 @@ export const presetVue = (): Preset => definePreset({
         },
         processor: pluginVue.processors!['.vue'],
         rules: {
-          ...(pluginVue as any).configs['base'].rules,
-          ...(pluginVue as any).configs['vue3-essential'].rules,
-          ...(pluginVue as any).configs['vue3-strongly-recommended'].rules,
-          ...(pluginVue as any).configs['vue3-recommended'].rules,
+          ...combineRules((pluginVue as any).configs['flat/recommended']),
 
           'vue/block-order': ['error', { order: ['script', 'template', 'style'] }],
           'vue/component-name-in-template-casing': ['error', 'PascalCase'],
