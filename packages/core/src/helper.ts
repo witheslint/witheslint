@@ -31,3 +31,12 @@ export function renameRules(rules: Record<string, any>, from: string, to: string
       }),
   )
 }
+
+interface Config { rules?: Record<string, any> }
+export function combineRules(configs: Config[]) {
+  return Object.fromEntries(
+    configs.flatMap(
+      obj => obj.rules
+        ? Object.entries(obj.rules)
+        : []))
+}
