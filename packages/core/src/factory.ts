@@ -7,8 +7,7 @@ import { arrayify, isFunction, uniqueBy } from './helper'
 interface Options {
   /**
    * An array of glob patterns indicating the files that the configuration
-   * object should not apply to. If not specified, the configuration object
-   * applies to all files matched by files
+   * object should not apply to.
    */
   ignores?: FileSpec[]
   /**

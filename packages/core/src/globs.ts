@@ -15,11 +15,11 @@ export const GLOB_EXCLUDE = [
   '**/.output',
 
   '**/*.min.*',
-]
+] as const
 
 export const GLOB_PACKAGE_LOCK = [
   '**/package-lock.json',
   '**/yarn.lock',
   '**/pnpm-lock.yaml',
   '**/bun.lockb',
-]
+] as const

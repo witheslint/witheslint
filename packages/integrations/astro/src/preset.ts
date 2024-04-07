@@ -4,12 +4,12 @@ import { parserTs } from '@witheslint/core/modules'
 import { parserAstro, pluginAstro } from './modules'
 
 export const GLOB_ASTRO = '**/*.astro'
-export const GLOB_ASTRO_EXCLUDES = ['**/.astro']
+export const GLOB_ASTRO_EXCLUDES = ['**/.astro'] as const
 
 export const presetAstro = (): Preset => definePreset({
   name: 'preset:astro',
   extensions: ['astro'],
-  ignores: GLOB_ASTRO_EXCLUDES,
+  ignores: [...GLOB_ASTRO_EXCLUDES],
   setup: ({ features }) => {
     const { typescript } = features
     return [
