@@ -7,19 +7,20 @@
     "pnpm": ">=8.0.0"
   },
   "scripts": {
+    "build": "pnpm --recursive build",
     "inspector": "eslint-config-inspector"
   },
   "devDependencies": {
     "@changesets/cli": "^2.27.1",
-    "@commitlint/cli": "^19.2.1",
-    "@commitlint/config-conventional": "^19.1.0",
-    "@eslint/config-inspector": "^0.4.1",
+    "@commitlint/cli": "^19.2.2",
+    "@commitlint/config-conventional": "^19.2.2",
+    "@eslint/config-inspector": "^0.4.6",
     "@types/node": "18",
     "changesets-helper": "^1.0.0",
     "eslint": "^8.57.0",
-    "eslint-typegen": "^0.2.0",
+    "eslint-typegen": "^0.2.2",
     "esno": "^4.7.0",
-    "lefthook": "^1.6.8",
+    "lefthook": "^1.6.10",
     "typescript": "5.3.3",
     "unbuild": "^2.0.0",
     "witheslint": "workspace:^"
