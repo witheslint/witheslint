@@ -8,7 +8,7 @@
 [![version][src-version]][href-npm]
 [![downloads][src-download]][href-npm]
 
-✨ A tool that makes it easy to manage projects ESLint configurations.
+✨ Implementing a standardized ESLint configuration across all your projects.
 
 ## Documentation
 

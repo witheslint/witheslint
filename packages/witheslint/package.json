@@ -2,7 +2,7 @@
   "name": "witheslint",
   "version": "0.16.0",
   "type": "module",
-  "description": "A tool that makes it easy to manage projects ESLint configurations.",
+  "description": "Implementing a standardized ESLint configuration across all your projects.",
   "author": "Joie <leaps@live.com>",
   "license": "MIT",
   "homepage": "https://github.com/witheslint/witheslint",

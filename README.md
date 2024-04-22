@@ -4,7 +4,7 @@
   <img src="https://github.com/witheslint/static/raw/main/icons/witheslint.svg" alt="witheslint" align="center" width="33%" height="33%" />
 </p>
 
-<p align="center">A tool that makes it easy to manage projects ESLint configurations.</p>
+<p align="center">Implementing a standardized ESLint configuration across all your projects.</p>
 
 <br>
 
