@@ -1,4 +1,4 @@
-import type { Arrayable, FeaturesConfig, FileSpec, FlatConfigItem, Preset } from './types'
+import type { Arrayable, FeaturesConfig, FlatConfigItem, Preset } from './types'
 import { imports, javascript, jsdoc, sorter, stylistic, typescript, unicorn } from './configs'
 import { useContext } from './context'
 import { GLOB_EXCLUDE } from './globs'
@@ -9,7 +9,7 @@ interface Options {
    * An array of glob patterns indicating the files that the configuration
    * object should not apply to.
    */
-  ignores?: FileSpec[]
+  ignores?: string[]
   /**
    * Configuration for various features.
    */

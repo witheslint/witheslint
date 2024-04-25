@@ -1,18 +1,16 @@
 import type { ESLint, Linter } from 'eslint'
 
-type ConvertAllFields<T, Target> = { [K in keyof T]: Target }
-
 export type Arrayable<T> = Array<T> | T
 
 export type Awaitable<T> = Promise<T> | T
 
-export type FileSpec = Linter.FlatConfigFileSpec
+export type ConvertAllFields<T, Target> = { [K in keyof T]: Target }
+
+export type FlatConfigItem = Linter.FlatConfig
 
 export type ParserModule = Linter.FlatConfigParserModule
 
 export type PluginModule = ESLint.Plugin
-
-export type FlatConfigItem = Linter.FlatConfig
 
 export interface StylisticConfig {
   /**
@@ -104,7 +102,7 @@ export interface Preset {
    * An array of glob patterns indicating the files that the configuration
    * object should not apply to.
    */
-  ignores?: FileSpec[]
+  ignores?: string[]
   /**
    * Function to setup the preset.
    */
