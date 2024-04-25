@@ -10,6 +10,6 @@
 
 ✨ The solid preset for [witheslint](https://github.com/witheslint/witheslint).
 
-## Documentation
+## Usage
 
-Please refer to the [documentation](https://witheslint.github.io/integrations/solid).
+> Please refer to the [documentation](https://witheslint.github.io/integrations/solid) for more details.

@@ -10,6 +10,6 @@
 
 ✨ The react preset for [witheslint](https://github.com/witheslint/witheslint).
 
-## Documentation
+## Usage
 
-Please refer to the [documentation](https://witheslint.github.io/integrations/react).
+> Please refer to the [documentation](https://witheslint.github.io/integrations/react) for more details.

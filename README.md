@@ -20,4 +20,4 @@
 
 ## Usage
 
-> Please refer to the [documentation](https://witheslint.github.io).
+> Please refer to the [documentation](https://witheslint.github.io) for more details.

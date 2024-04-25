@@ -10,6 +10,6 @@
 
 ✨ The svelte preset for [witheslint](https://github.com/witheslint/witheslint).
 
-## Documentation
+## Usage
 
-Please refer to the [documentation](https://witheslint.github.io/integrations/svelte).
+> Please refer to the [documentation](https://witheslint.github.io/integrations/svelte) for more details.

@@ -10,6 +10,6 @@
 
 ✨ The vue preset for [witheslint](https://github.com/witheslint/witheslint).
 
-## Documentation
+## Usage
 
-Please refer to the [documentation](https://witheslint.github.io/integrations/vue).
+> Please refer to the [documentation](https://witheslint.github.io/integrations/vue) for more details.

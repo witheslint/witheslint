@@ -10,6 +10,6 @@
 
 ✨ Implementing a standardized ESLint configuration across all your projects.
 
-## Documentation
+## Usage
 
-Please refer to the [documentation](https://witheslint.github.io).
+> Please refer to the [documentation](https://witheslint.github.io) for more details.
