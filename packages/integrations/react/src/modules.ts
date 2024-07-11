@@ -1,10 +1,9 @@
 import type { PluginModule } from '@witheslint/core'
 import { interopDefault } from '@witheslint/core'
 
-// @ts-expect-error missing types
-import * as _pluginReact from 'eslint-plugin-react'
+import * as _pluginReact from '@eslint-react/eslint-plugin'
 /**
- * @see [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react)
+ * @see [@eslint-react/eslint-plugin](https://github.com/Rel1cx/eslint-react)
  */
 export const pluginReact = interopDefault(_pluginReact as unknown as PluginModule)
 
