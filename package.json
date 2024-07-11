@@ -4,24 +4,24 @@
   "license": "MIT",
   "engines": {
     "node": ">=18.0.0",
-    "pnpm": ">=8.0.0"
+    "pnpm": ">=9.0.0"
   },
   "scripts": {
     "build": "pnpm --recursive build",
     "inspector": "eslint-config-inspector"
   },
   "devDependencies": {
-    "@changesets/cli": "^2.27.1",
+    "@changesets/cli": "^2.27.7",
     "@commitlint/cli": "^19.2.2",
     "@commitlint/config-conventional": "^19.2.2",
-    "@eslint/config-inspector": "^0.4.6",
+    "@eslint/config-inspector": "^0.5.1",
     "@types/node": "18",
     "changesets-helper": "^1.0.0",
     "eslint": "^8.57.0",
-    "eslint-typegen": "^0.2.2",
+    "eslint-typegen": "^0.2.4",
     "esno": "^4.7.0",
-    "lefthook": "^1.6.10",
-    "typescript": "5.3.3",
+    "lefthook": "^1.7.2",
+    "typescript": "5.5.3",
     "unbuild": "^2.0.0",
     "witheslint": "workspace:^"
   }
