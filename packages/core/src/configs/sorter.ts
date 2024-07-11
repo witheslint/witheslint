@@ -7,10 +7,9 @@ export const sorter = (): FlatConfigItem[] => {
       name: 'witheslint:sorter:configs',
       plugins: { sorter: pluginSorter },
       rules: {
-        'sorter/sort-exports': 'error',
+        'sorter/sort-exports': ['error', { type: 'natural' }],
         'sorter/sort-imports': ['error', {
           'type': 'natural',
-          'order': 'asc',
           'internal-pattern': ['~/**', '@/**'],
           'newlines-between': 'never',
           'groups': [

@@ -9,7 +9,7 @@ export const unicorn = (): FlatConfigItem[] => {
       rules: {
         ...(pluginUnicorn as any).configs['flat/recommended'].rules,
 
-        'unicorn/consistent-function-scoping': 'warn',
+        'unicorn/consistent-function-scoping': 'off',
         'unicorn/filename-case': [
           'error',
           {
@@ -19,6 +19,7 @@ export const unicorn = (): FlatConfigItem[] => {
         ],
         'unicorn/no-abusive-eslint-disable': 'off',
         'unicorn/no-array-reduce': 'off',
+        'unicorn/prefer-top-level-await': 'off', // top level await is not supported in all environments
         'unicorn/prevent-abbreviations': 'off',
       },
     },

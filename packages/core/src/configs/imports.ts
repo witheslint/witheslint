@@ -23,7 +23,15 @@ export const imports = (): FlatConfigItem[] => {
         'import/no-webpack-loader-syntax': 'error',
 
         'unused-imports/no-unused-imports': 'warn',
-        'unused-imports/no-unused-vars': ['warn', { args: 'after-used', ignoreRestSiblings: true }],
+        'unused-imports/no-unused-vars': [
+          'warn',
+          {
+            args: 'after-used',
+            argsIgnorePattern: '^_',
+            ignoreRestSiblings: true,
+            vars: 'all',
+            varsIgnorePattern: '^_',
+          }],
       },
     },
     {
