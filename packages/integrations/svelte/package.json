@@ -1,6 +1,6 @@
 {
   "name": "@witheslint/preset-svelte",
-  "version": "0.17.0",
+  "version": "0.18.0",
   "type": "module",
   "description": "The svelte preset for witheslint.",
   "author": "Joie <leaps@live.com>",
@@ -49,6 +49,6 @@
     "svelte": "^4.2.18"
   },
   "peerDependencies": {
-    "@witheslint/core": "workspace:^"
+    "@witheslint/core": ">=0.18.0"
   }
 }

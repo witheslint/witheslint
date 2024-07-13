@@ -1,6 +1,6 @@
 {
   "name": "@witheslint/preset-react",
-  "version": "0.17.0",
+  "version": "0.18.0",
   "type": "module",
   "description": "The react preset for witheslint.",
   "author": "Joie <leaps@live.com>",
@@ -48,6 +48,6 @@
     "@witheslint/core": "workspace:^"
   },
   "peerDependencies": {
-    "@witheslint/core": "workspace:^"
+    "@witheslint/core": ">=0.18.0"
   }
 }
