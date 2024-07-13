@@ -39,15 +39,15 @@
     "typegen": "esno scripts/typegen.ts"
   },
   "dependencies": {
-    "@stylistic/eslint-plugin": "^1.8.1",
+    "@stylistic/eslint-plugin": "^2.3.0",
     "@types/eslint": "^8.56.10",
     "@typescript-eslint/eslint-plugin": "^7.16.0",
     "@typescript-eslint/parser": "^7.16.0",
-    "eslint-plugin-import-x": "^0.5.3",
-    "eslint-plugin-jsdoc": "^48.2.3",
-    "eslint-plugin-perfectionist": "^2.9.0",
-    "eslint-plugin-unicorn": "^52.0.0",
-    "eslint-plugin-unused-imports": "^3.1.0",
+    "eslint-plugin-import-x": "^3.0.1",
+    "eslint-plugin-jsdoc": "^48.7.0",
+    "eslint-plugin-perfectionist": "^2.11.0",
+    "eslint-plugin-unicorn": "^54.0.0",
+    "eslint-plugin-unused-imports": "^3.2.0",
     "globals": "^15.8.0"
   },
   "peerDependencies": {

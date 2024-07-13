@@ -41,7 +41,7 @@
     "prepublishOnly": "pnpm build"
   },
   "dependencies": {
-    "eslint-plugin-solid": "^0.13.2"
+    "eslint-plugin-solid": "^0.14.1"
   },
   "devDependencies": {
     "@witheslint/core": "workspace:^"
