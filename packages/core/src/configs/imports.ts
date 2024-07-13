@@ -41,6 +41,7 @@ export const imports = (): FlatConfigItem[] => {
         'import/no-default-export': 'off',
         'import/no-duplicates': 'off',
         'unused-imports/no-unused-vars': 'off',
+        'unused-imports/no-unused-imports': 'off',
       },
     },
     {
