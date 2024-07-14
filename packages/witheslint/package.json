@@ -19,12 +19,12 @@
   ],
   "exports": {
     ".": {
-      "import": "./dist/index.mjs",
-      "types": "./dist/index.d.ts"
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.mjs"
     },
     "./modules": {
-      "import": "./dist/modules.mjs",
-      "types": "./dist/modules.d.ts"
+      "types": "./dist/modules.d.ts",
+      "import": "./dist/modules.mjs"
     }
   },
   "main": "./dist/index.mjs",
