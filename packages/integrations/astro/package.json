@@ -1,6 +1,6 @@
 {
   "name": "@witheslint/preset-astro",
-  "version": "0.18.0",
+  "version": "1.0.0",
   "type": "module",
   "description": "The astro preset for witheslint.",
   "author": "Joie <leaps@live.com>",
@@ -47,6 +47,6 @@
     "@witheslint/core": "workspace:^"
   },
   "peerDependencies": {
-    "@witheslint/core": ">=0.18.0"
+    "@witheslint/core": "^1.0.0"
   }
 }
