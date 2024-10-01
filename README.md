@@ -20,4 +20,32 @@
 
 ## Usage
 
+#### install deps
+
+```zsh
+pnpm i -D eslint witheslint
+```
+
+#### create `eslint.config.mjs` in your project root
+
+```js
+import { defineConfig } from 'witheslint'
+
+export default defineConfig()
+```
+
 > Please refer to the [documentation](https://witheslint.github.io) for more details.
+
+
+## Contribution
+
+<details>
+  <summary>Local development</summary>
+
+- Clone this repository
+- Install the latest LTS version of [Node.js](https://nodejs.org/en/)
+- Enable [Corepack](https://github.com/nodejs/corepack) using `corepack enable`
+- Install dependencies using `pnpm install`
+
+</details>
+

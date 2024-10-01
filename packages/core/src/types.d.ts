@@ -6,9 +6,9 @@ export type Awaitable<T> = Promise<T> | T
 
 export type ConvertAllFields<T, Target> = { [K in keyof T]: Target }
 
-export type FlatConfigItem = Linter.FlatConfig
+export type ConfigModule = Linter.Config
 
-export type ParserModule = Linter.FlatConfigParserModule
+export type ParserModule = Linter.Parser
 
 export type PluginModule = ESLint.Plugin
 
@@ -74,19 +74,27 @@ export interface StylisticConfig {
   commaDangle?: 'always-multiline' | 'always' | 'never' | 'only-multiline'
 }
 
+export interface TypescriptConfig {
+  extensions: string[]
+}
+
 export interface FeaturesConfig {
   /**
    * Enable stylistic rules.
    *
    * @default true
    */
-  stylistic: boolean | StylisticConfig
+  stylistic?: boolean | StylisticConfig
   /**
-   * Enable TypeScript support.
+   * Enable sorting rules.
    *
    * @default true
    */
-  typescript: boolean
+  sorting?: boolean
+  /**
+   * Enable TypeScript support.
+   */
+  typescript?: boolean
 }
 
 export interface Preset {
@@ -95,16 +103,7 @@ export interface Preset {
    */
   name: string
   /**
-   * Optional extensions for the preset to borrow rules from typescript.
-   */
-  extensions?: string[]
-  /**
-   * An array of glob patterns indicating the files that the configuration
-   * object should not apply to.
-   */
-  ignores?: string[]
-  /**
    * Function to setup the preset.
    */
-  setup: (options: Context) => Arrayable<FlatConfigItem>
+  setup: (options: Context) => Arrayable<ConfigModule>
 }

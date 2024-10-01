@@ -1,41 +1,57 @@
-import type { ConvertAllFields, FeaturesConfig, StylisticConfig } from './types'
-import { isBoolean, isObject } from './helper'
+import type { ConvertAllFields, FeaturesConfig, StylisticConfig, TypescriptConfig } from './types'
+import { isPackageExists } from 'local-pkg'
+import { isBoolean, isInEditorEnv, isObject } from './helper'
 
-interface Context {
-  styles: StylisticConfig
+export class Context {
   features: ConvertAllFields<FeaturesConfig, boolean>
-}
+  ignores: string[]
+  optionsStylistic: StylisticConfig
+  optionsTypescript: TypescriptConfig
+  isInEditor: boolean
 
-const context: Context = {
-  styles: {
-    indent: 2,
-    jsx: true,
-    quotes: 'single',
-    semi: false,
-    arrowParens: false,
-    braceStyle: '1tbs',
-    blockSpacing: true,
-    quoteProps: 'consistent-as-needed',
-    commaDangle: 'always-multiline',
-  },
-  features: {
-    stylistic: true,
-    typescript: true,
-  },
-}
+  constructor(options: Partial<FeaturesConfig> = {}, ignores: string[] = []) {
+    const hasTs = isPackageExists('typescript')
 
-export function useContext(options: Partial<FeaturesConfig> = {}): Context {
-  if (Object.keys(options).length === 0) return context
-  if (isBoolean(options.typescript)) {
-    context.features.typescript = options.typescript
+    this.features = {
+      stylistic: true,
+      sorting: true,
+      typescript: hasTs,
+    }
+    this.ignores = ignores
+    this.optionsStylistic = {
+      indent: 2,
+      jsx: true,
+      quotes: 'single',
+      semi: false,
+      arrowParens: false,
+      braceStyle: '1tbs',
+      blockSpacing: true,
+      quoteProps: 'consistent-as-needed',
+      commaDangle: 'always-multiline',
+    }
+    this.optionsTypescript = {
+      extensions: [],
+    }
+    this.isInEditor = isInEditorEnv()
+    this.applyFeatures(options)
   }
-  if (isBoolean(options.stylistic)) {
-    context.features.stylistic = options.stylistic
-  } else if (isObject(options.stylistic)) {
-    context.styles = {
-      ...context.styles,
-      ...options.stylistic,
+
+  private applyFeatures(features: Partial<FeaturesConfig> = {}) {
+    const { stylistic, sorting, typescript } = features
+
+    if (isBoolean(sorting)) {
+      this.features.sorting = sorting
+    }
+    if (isBoolean(typescript)) {
+      this.features.typescript = typescript
+    }
+    if (isBoolean(stylistic)) {
+      this.features.stylistic = stylistic
+    } else if (isObject(stylistic)) {
+      this.optionsStylistic = {
+        ...this.optionsStylistic,
+        ...stylistic,
+      }
     }
   }
-  return context
 }

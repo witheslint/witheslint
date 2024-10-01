@@ -1,27 +1,27 @@
 {
   "private": true,
   "type": "module",
-  "license": "MIT",
+  "packageManager": "pnpm@9.11.0",
   "engines": {
-    "node": ">=18.0.0",
-    "pnpm": ">=9.0.0"
+    "node": "^20.9.0 || >=21.0.0"
   },
   "scripts": {
     "build": "pnpm --recursive build",
-    "inspector": "eslint-config-inspector"
+    "inspector": "eslint-config-inspector",
+    "prepare": "lefthook install && pnpm build"
   },
   "devDependencies": {
-    "@changesets/cli": "^2.27.7",
-    "@commitlint/cli": "^19.2.2",
-    "@commitlint/config-conventional": "^19.2.2",
-    "@eslint/config-inspector": "^0.5.1",
-    "@types/node": "18",
+    "@changesets/cli": "^2.27.8",
+    "@commitlint/cli": "^19.5.0",
+    "@commitlint/config-conventional": "^19.5.0",
+    "@eslint/config-inspector": "^0.5.4",
+    "@types/node": "^20.16.10",
     "changesets-helper": "^1.0.0",
-    "eslint": "^8.57.0",
-    "eslint-typegen": "^0.2.4",
-    "esno": "^4.7.0",
-    "lefthook": "^1.7.2",
-    "typescript": "5.5.3",
+    "eslint": "^9.11.1",
+    "eslint-typegen": "^0.3.2",
+    "lefthook": "^1.7.18",
+    "tsx": "^4.19.1",
+    "typescript": "~5.5.4",
     "unbuild": "^2.0.0",
     "witheslint": "workspace:^"
   }

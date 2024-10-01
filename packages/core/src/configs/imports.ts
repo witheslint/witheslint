@@ -1,8 +1,9 @@
-import type { FlatConfigItem } from '../types'
-import { GLOB_DTS } from '../globs'
+import type { Context } from '../context'
+import type { ConfigModule } from '../types'
 import { pluginImport, pluginUnusedImports } from '../modules'
 
-export const imports = (): FlatConfigItem[] => {
+export function imports(context: Context): ConfigModule[] {
+  const { isInEditor } = context
   return [
     {
       name: 'witheslint:import:configs',
@@ -14,7 +15,6 @@ export const imports = (): FlatConfigItem[] => {
         'import/export': 'error',
         'import/first': 'error',
         'import/newline-after-import': ['error', { count: 1 }],
-        'import/no-default-export': 'error',
         'import/no-duplicates': 'error',
         'import/no-mutable-exports': 'error',
         'import/no-named-default': 'error',
@@ -22,7 +22,7 @@ export const imports = (): FlatConfigItem[] => {
         'import/no-useless-path-segments': 'error',
         'import/no-webpack-loader-syntax': 'error',
 
-        'unused-imports/no-unused-imports': 'warn',
+        'unused-imports/no-unused-imports': isInEditor ? 'off' : 'warn',
         'unused-imports/no-unused-vars': [
           'warn',
           {
@@ -32,23 +32,6 @@ export const imports = (): FlatConfigItem[] => {
             vars: 'all',
             varsIgnorePattern: '^_',
           }],
-      },
-    },
-    {
-      name: 'witheslint:import:overrides',
-      files: [GLOB_DTS],
-      rules: {
-        'import/no-default-export': 'off',
-        'import/no-duplicates': 'off',
-        'unused-imports/no-unused-vars': 'off',
-        'unused-imports/no-unused-imports': 'off',
-      },
-    },
-    {
-      name: 'witheslint:import:overrides',
-      files: ['**/{*config,index}.?([cm])[jt]s'],
-      rules: {
-        'import/no-default-export': 'off',
       },
     },
   ]

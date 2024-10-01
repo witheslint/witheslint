@@ -1,21 +1,36 @@
-import type { FlatConfigItem, StylisticConfig } from '../types'
-import { pluginStylistic } from '../modules'
+import type { Context } from '../context'
+import type { ConfigModule } from '../types'
+import { pluginAntfu, pluginStylistic } from '../modules'
 
-export const stylistic = (styles: StylisticConfig): FlatConfigItem[] => {
-  const config = (pluginStylistic as any).configs.customize({
-    flat: true,
-    pluginName: 'style',
-    ...styles,
-  })
+export function stylistic(context: Context): ConfigModule[] {
+  const { optionsStylistic, features } = context
+  const { stylistic } = features
 
   return [
     {
-      name: 'witheslint:style:configs',
-      plugins: { style: pluginStylistic },
+      name: 'witheslint:stylistic:configs',
+      plugins: {
+        antfu: pluginAntfu,
+        ...stylistic ? { style: pluginStylistic } : {},
+      },
       rules: {
-        ...config.rules,
+        'antfu/consistent-chaining': 'error',
+        'antfu/top-level-function': 'error',
 
-        curly: ['error', 'multi-line', 'consistent'],
+        ...stylistic
+          ? {
+              ...(pluginStylistic as any).configs.customize({
+                flat: true,
+                pluginName: 'style',
+                ...optionsStylistic,
+              }).rules,
+
+              curly: ['error', 'multi-line', 'consistent'],
+            }
+          : {
+              'curly': 'off',
+              'no-unexpected-multiline': 'off',
+            },
       },
     },
   ]

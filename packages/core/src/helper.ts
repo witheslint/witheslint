@@ -1,7 +1,7 @@
 const typeOf = (value: unknown) => Object.prototype.toString.call(value).slice(8, -1).toLowerCase()
 export const isBoolean = (value: unknown): value is boolean => typeof value === 'boolean'
 export const isArray = <T>(value: unknown): value is T[] => typeOf(value) === 'array'
-export const isFunction = <T extends Function> (value: unknown): value is T => typeof value === 'function'
+export const isFunction = <T extends (...args: unknown[]) => unknown>(value: unknown): value is T => typeof value === 'function'
 export const isObject = <T extends object>(value: unknown): value is T => typeOf(value) === 'object'
 export const isKeyOf = <T extends object>(object: T, key: keyof any): key is keyof T => key in object
 
@@ -39,4 +39,22 @@ export function combineRules(configs: Config[]) {
       obj => obj.rules
         ? Object.entries(obj.rules)
         : []))
+}
+
+export function isInEditorEnv(): boolean {
+  if (process.env.CI) return false
+  if (isInGitHooks()) return false
+  return !!(
+    process.env.VSCODE_PID
+    || process.env.VSCODE_CWD
+    || process.env.JETBRAINS_IDE
+    || process.env.VIM
+    || process.env.NVIM
+  )
+}
+
+export function isInGitHooks(): boolean {
+  return !!(
+    process.env.GIT_PARAMS || process.env.VSCODE_GIT_COMMAND
+  )
 }

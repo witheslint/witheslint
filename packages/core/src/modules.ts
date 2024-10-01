@@ -1,32 +1,35 @@
 import type { ParserModule, PluginModule } from './types'
 import { interopDefault } from './helper'
 
+import * as _pluginAntfu from 'eslint-plugin-antfu'
+/**
+ * @see [eslint-plugin-antfu](https://github.com/antfu/eslint-plugin-antfu)
+ */
+export const pluginAntfu = interopDefault(_pluginAntfu as unknown as PluginModule)
+
 import * as _pluginImport from 'eslint-plugin-import-x'
 /**
- * @see [eslint-plugin-import-x](https://github.com/un-es/eslint-plugin-import-x)
+ * @see [eslint-plugin-import-x](https://github.com/un-ts/eslint-plugin-import-x)
  */
 export const pluginImport = interopDefault(_pluginImport as unknown as PluginModule)
 
-// @ts-expect-error missing types
 import * as _pluginUnusedImports from 'eslint-plugin-unused-imports'
 /**
  * @see [eslint-plugin-unused-imports](https://github.com/sweepline/eslint-plugin-unused-imports)
  */
 export const pluginUnusedImports = interopDefault(_pluginUnusedImports as unknown as PluginModule)
 
-// @ts-expect-error missing types
 import * as _pluginUnicorn from 'eslint-plugin-unicorn'
 /**
  * @see [eslint-plugin-unicorn](https://github.com/sindresorhus/eslint-plugin-unicorn)
  */
 export const pluginUnicorn = interopDefault(_pluginUnicorn as unknown as PluginModule)
 
-// @ts-expect-error missing types
-import * as _pluginSorter from 'eslint-plugin-perfectionist'
+import * as _pluginSorting from 'eslint-plugin-perfectionist'
 /**
- * @see [eslint-plugin-perfectionist](https://eslint-plugin-perfectionist.azat.io)
+ * @see [eslint-plugin-perfectionist](https://perfectionist.dev)
  */
-export const pluginSorter = interopDefault(_pluginSorter as unknown as PluginModule)
+export const pluginSorting = interopDefault(_pluginSorting as unknown as PluginModule)
 
 import * as _pluginJsdoc from 'eslint-plugin-jsdoc'
 /**

@@ -1,7 +1,7 @@
-import type { FlatConfigItem } from '../types'
+import type { ConfigModule } from '../types'
 import globals from 'globals'
 
-export const javascript = (): FlatConfigItem[] => {
+export function javascript(): ConfigModule[] {
   return [
     {
       name: 'witheslint:javascript:configs',
@@ -52,7 +52,6 @@ export const javascript = (): FlatConfigItem[] => {
         'id-length': 'off',
         'id-match': 'off',
         'init-declarations': 'off',
-        'line-comment-position': 'off',
         'logical-assignment-operators': 'off',
         'max-classes-per-file': 'off',
         'max-depth': ['error', { max: 5 }],
@@ -61,7 +60,6 @@ export const javascript = (): FlatConfigItem[] => {
         'max-nested-callbacks': ['error', 3],
         'max-params': ['error', 3],
         'max-statements': 'off',
-        'multiline-comment-style': 'off',
         'new-cap': ['error', { capIsNew: false, newIsCap: true, properties: true }],
         'no-alert': 'warn',
         'no-array-constructor': 'error',
@@ -130,7 +128,6 @@ export const javascript = (): FlatConfigItem[] => {
         'no-new': 'error',
         'no-new-func': 'error',
         'no-new-native-nonconstructor': 'error',
-        'no-new-symbol': 'error',
         'no-new-wrappers': 'error',
         'no-nonoctal-decimal-escape': 'error',
         'no-obj-calls': 'error',
@@ -148,9 +145,6 @@ export const javascript = (): FlatConfigItem[] => {
         'no-restricted-properties': 'off',
         'no-restricted-syntax': [
           'error',
-          'DebuggerStatement',
-          'LabeledStatement',
-          'WithStatement',
           'TSEnumDeclaration[const=true]',
           'TSExportAssignment',
         ],

@@ -1,7 +1,7 @@
-import type { FlatConfigItem } from '../types'
+import type { ConfigModule } from '../types'
 import { pluginJsdoc } from '../modules'
 
-export const jsdoc = (): FlatConfigItem[] => {
+export function jsdoc(): ConfigModule[] {
   return [
     {
       name: 'witheslint:jsdoc:configs',

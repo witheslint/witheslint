@@ -1,5 +1,7 @@
 export * from '@witheslint/core'
 export * from '@witheslint/preset-astro'
+export * from '@witheslint/preset-prettier'
 export * from '@witheslint/preset-react'
 export * from '@witheslint/preset-solid'
+export * from '@witheslint/preset-svelte'
 export * from '@witheslint/preset-vue'

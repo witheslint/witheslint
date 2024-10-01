@@ -16,7 +16,6 @@
     "svelte",
     "eslint",
     "eslint-config",
-    "eslint-flat-config",
     "eslint-preset"
   ],
   "exports": {
@@ -37,18 +36,23 @@
   ],
   "scripts": {
     "build": "pnpm typegen && unbuild",
-    "typegen": "esno scripts/typegen.ts",
+    "typegen": "tsx scripts/typegen.ts",
     "prepublishOnly": "pnpm build"
   },
   "dependencies": {
-    "eslint-plugin-svelte": "^2.42.0",
-    "svelte-eslint-parser": "^0.40.0"
+    "eslint-plugin-svelte": "^2.44.1",
+    "svelte-eslint-parser": "^0.41.1"
   },
   "devDependencies": {
-    "@witheslint/core": "workspace:^",
-    "svelte": "^4.2.18"
+    "@witheslint/core": "workspace:^"
   },
   "peerDependencies": {
-    "@witheslint/core": ">=0.18.0"
+    "@witheslint/core": ">=0.18.0",
+    "svelte": "^3.37.0 || ^4.0.0 || ^5.0.0-next.191"
+  },
+  "peerDependenciesMeta": {
+    "svelte": {
+      "optional": true
+    }
   }
 }

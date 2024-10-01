@@ -1,7 +1,6 @@
-import type { Arrayable, FeaturesConfig, FlatConfigItem, Preset } from './types'
-import { imports, javascript, jsdoc, sorter, stylistic, typescript, unicorn } from './configs'
-import { useContext } from './context'
-import { GLOB_EXCLUDE } from './globs'
+import type { Arrayable, ConfigModule, FeaturesConfig, Preset } from './types'
+import { disables, ignores, imports, javascript, jsdoc, sorting, stylistic, typescript, unicorn } from './configs'
+import { Context } from './context'
 import { arrayify, isFunction, uniqueBy } from './helper'
 
 interface Options {
@@ -21,54 +20,44 @@ interface Options {
   /**
    * Additional configurations to extend.
    */
-  extends?: Arrayable<FlatConfigItem>
+  extends?: Arrayable<ConfigModule>
 }
 
-export function defineConfig(options: Options = {}): FlatConfigItem[] {
-  const context = useContext(options.features)
-  const { features, styles } = context
+export function defineConfig(options: Options = {}): ConfigModule[] {
+  const context = new Context(options.features, options.ignores)
 
-  const ignores = [...GLOB_EXCLUDE, ...options.ignores || []]
-  const configs = [javascript(), imports(), unicorn(), jsdoc()]
+  const configs = []
+  const presets = uniqueBy(options.presets || [], (pre, current) => pre.name === current.name)
 
-  if (features.stylistic) {
-    configs.push(stylistic(styles), sorter())
-  }
-
-  if (options.presets?.length) {
-    const presets = uniqueBy(
-      options.presets,
-      (pre, current) => pre.name === current.name,
-    )
-
-    if (features.typescript) {
-      const extraExtensions = presets
-        .flatMap(preset => preset.extensions)
-        .filter(Boolean) as string[]
-
-      configs.push(typescript({ extraExtensions }))
-    }
-
-    for (const preset of presets) {
-      if (!isFunction(preset.setup)) continue
+  for (const preset of presets) {
+    if (isFunction(preset.setup)) {
       const rawPreset = preset.setup(context)
       if (!rawPreset) continue
-      ignores.push(...(preset?.ignores || []))
       configs.push(arrayify(rawPreset))
     }
-  } else if (features.typescript) {
-    configs.push(typescript())
   }
 
   if (options.extends) {
-    configs.push(arrayify(options.extends))
+    const customize = arrayify(options.extends)
+      .map(({ name = 'witheslint:customize', ...i }) => ({ ...i, name }))
+    configs.push(customize)
   }
 
-  configs.unshift([{ ignores: ignores.filter(Boolean) }])
+  configs.unshift(
+    ignores(context),
+    javascript(),
+    jsdoc(),
+    unicorn(context),
+    imports(context),
+    sorting(context),
+    stylistic(context),
+    typescript(context),
+    disables(context),
+  )
 
-  return configs.flat()
+  return configs.flat().filter(Boolean)
 }
 
-export function definePreset<T extends Preset>(preset: T): T {
+export function definePreset<T extends Preset = Preset>(preset: T): T {
   return preset
 }

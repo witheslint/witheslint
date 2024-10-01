@@ -14,8 +14,7 @@
   },
   "keywords": [
     "eslint",
-    "eslint-config",
-    "eslint-flat-config"
+    "eslint-config"
   ],
   "exports": {
     ".": {
@@ -40,8 +39,10 @@
   "dependencies": {
     "@witheslint/core": "workspace:^",
     "@witheslint/preset-astro": "workspace:^",
+    "@witheslint/preset-prettier": "workspace:^",
     "@witheslint/preset-react": "workspace:^",
     "@witheslint/preset-solid": "workspace:^",
+    "@witheslint/preset-svelte": "workspace:^",
     "@witheslint/preset-vue": "workspace:^"
   }
 }

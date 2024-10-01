@@ -1,10 +1,10 @@
 import { writeFile } from 'node:fs/promises'
-import { Linter } from 'eslint'
+import { builtinRules } from 'eslint/use-at-your-own-risk'
 import { pluginsToRulesDTS } from 'eslint-typegen/core'
 import {
   pluginImport,
   pluginJsdoc,
-  pluginSorter,
+  pluginSorting,
   pluginStylistic,
   pluginTs,
   pluginUnicorn,
@@ -12,11 +12,11 @@ import {
 } from '../src/modules'
 
 const dts = await pluginsToRulesDTS({
-  '': { rules: Object.fromEntries(new Linter().getRules().entries()) },
+  '': { rules: Object.fromEntries(builtinRules.entries()) },
   'unicorn': pluginUnicorn,
   'ts': pluginTs,
   'jsdoc': pluginJsdoc,
-  'sorter': pluginSorter,
+  'sorting': pluginSorting,
   'style': pluginStylistic,
   'import': pluginImport,
   'unused-imports': pluginUnusedImports,

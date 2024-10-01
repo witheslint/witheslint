@@ -16,7 +16,6 @@
     "vue",
     "eslint",
     "eslint-config",
-    "eslint-flat-config",
     "eslint-preset"
   ],
   "exports": {
@@ -37,11 +36,11 @@
   ],
   "scripts": {
     "build": "pnpm typegen && unbuild",
-    "typegen": "esno scripts/typegen.ts",
+    "typegen": "tsx scripts/typegen.ts",
     "prepublishOnly": "pnpm build"
   },
   "dependencies": {
-    "eslint-plugin-vue": "^9.27.0",
+    "eslint-plugin-vue": "^9.28.0",
     "vue-eslint-parser": "^9.4.3"
   },
   "devDependencies": {

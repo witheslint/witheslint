@@ -1,8 +1,8 @@
 {
-  "name": "@witheslint/preset-solid",
+  "name": "@witheslint/preset-prettier",
   "version": "0.18.0",
   "type": "module",
-  "description": "The solid preset for witheslint.",
+  "description": "The prettier preset for witheslint.",
   "author": "Joie <leaps@live.com>",
   "license": "MIT",
   "homepage": "https://github.com/witheslint/witheslint",
@@ -10,13 +10,13 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/witheslint/witheslint.git",
-    "directory": "packages/integrations/solid"
+    "directory": "packages/integrations/prettier"
   },
   "keywords": [
-    "solid",
     "eslint",
     "eslint-config",
-    "eslint-preset"
+    "eslint-preset",
+    "prettier"
   ],
   "exports": {
     ".": {
@@ -40,12 +40,18 @@
     "prepublishOnly": "pnpm build"
   },
   "dependencies": {
-    "eslint-plugin-solid": "^0.14.3"
+    "eslint-plugin-prettier": "^5.2.1"
   },
   "devDependencies": {
     "@witheslint/core": "workspace:^"
   },
   "peerDependencies": {
-    "@witheslint/core": ">=0.18.0"
+    "@witheslint/core": ">=0.18.0",
+    "prettier": "^3.0.0"
+  },
+  "peerDependenciesMeta": {
+    "prettier": {
+      "optional": true
+    }
   }
 }

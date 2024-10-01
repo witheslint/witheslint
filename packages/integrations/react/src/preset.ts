@@ -5,42 +5,45 @@ import { pluginReact, pluginReactHooks } from './modules'
 
 export const GLOB_REACT_EXCLUDES = ['**/.next'] as const
 
-export const presetReact = (): Preset => definePreset({
-  name: 'preset:react',
-  ignores: [...GLOB_REACT_EXCLUDES],
-  setup: ({ features }) => {
-    const { typescript } = features
+export function presetReact(): Preset {
+  return definePreset({
+    name: 'preset:react',
+    setup: ({ features, ignores }) => {
+      const { typescript } = features
 
-    return [
-      {
-        name: 'witheslint:react:plugins',
-        plugins: {
-          'react': pluginReact,
-          'react-hooks': pluginReactHooks,
-        },
-      },
-      {
-        name: 'witheslint:react:configs',
-        files: typescript ? [GLOB_JSX, GLOB_TSX] : [GLOB_JSX],
-        languageOptions: {
-          parser: typescript ? parserTs : undefined,
-          parserOptions: {
-            ecmaFeatures: {
-              jsx: true,
-            },
+      ignores.push(GLOB_REACT_EXCLUDES)
+
+      return [
+        {
+          name: 'witheslint:react:plugins',
+          plugins: {
+            'react': pluginReact,
+            'react-hooks': pluginReactHooks,
           },
         },
-        rules: {
+        {
+          name: 'witheslint:react:configs',
+          files: typescript ? [GLOB_JSX, GLOB_TSX] : [GLOB_JSX],
+          languageOptions: {
+            parser: typescript ? parserTs : undefined,
+            parserOptions: {
+              ecmaFeatures: {
+                jsx: true,
+              },
+            },
+          },
+          rules: {
           // recommended rules react
-          ...typescript
-            ? renameRules((pluginReact as any).configs['recommended-type-checked'].rules, '@eslint-react/', 'react/')
-            : renameRules((pluginReact as any).configs['recommended'].rules, '@eslint-react/', 'react/'),
+            ...typescript
+              ? renameRules((pluginReact as any).configs['recommended-type-checked'].rules, '@eslint-react/', 'react/')
+              : renameRules((pluginReact as any).configs['recommended'].rules, '@eslint-react/', 'react/'),
 
-          // recommended rules react-hooks
-          'react-hooks/exhaustive-deps': 'warn',
-          'react-hooks/rules-of-hooks': 'error',
+            // recommended rules react-hooks
+            'react-hooks/exhaustive-deps': 'warn',
+            'react-hooks/rules-of-hooks': 'error',
+          },
         },
-      },
-    ]
-  },
-})
+      ]
+    },
+  })
+}

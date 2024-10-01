@@ -1,7 +1,10 @@
-import type { FlatConfigItem } from '../types'
+import type { Context } from '../context'
+import type { ConfigModule } from '../types'
 import { pluginUnicorn } from '../modules'
 
-export const unicorn = (): FlatConfigItem[] => {
+export function unicorn(context: Context): ConfigModule[] {
+  const { features } = context
+  const { stylistic } = features
   return [
     {
       name: 'witheslint:unicorn:configs',
@@ -21,6 +24,15 @@ export const unicorn = (): FlatConfigItem[] => {
         'unicorn/no-array-reduce': 'off',
         'unicorn/prefer-top-level-await': 'off', // top level await is not supported in all environments
         'unicorn/prevent-abbreviations': 'off',
+
+        ...stylistic
+          ? {}
+          : {
+              'unicorn/template-indent': 'off',
+              'unicorn/empty-brace-spaces': 'off',
+              'unicorn/no-nested-ternary': 'off',
+              'unicorn/number-literal-case': 'off',
+            },
       },
     },
   ]

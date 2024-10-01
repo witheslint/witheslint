@@ -16,7 +16,6 @@
     "astro",
     "eslint",
     "eslint-config",
-    "eslint-flat-config",
     "eslint-preset"
   ],
   "exports": {
@@ -37,12 +36,12 @@
   ],
   "scripts": {
     "build": "pnpm typegen && unbuild",
-    "typegen": "esno scripts/typegen.ts",
+    "typegen": "tsx scripts/typegen.ts",
     "prepublishOnly": "pnpm build"
   },
   "dependencies": {
-    "astro-eslint-parser": "^1.0.2",
-    "eslint-plugin-astro": "^1.2.3"
+    "astro-eslint-parser": "^1.0.3",
+    "eslint-plugin-astro": "^1.2.4"
   },
   "devDependencies": {
     "@witheslint/core": "workspace:^"
