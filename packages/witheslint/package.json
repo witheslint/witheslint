@@ -52,9 +52,6 @@
   "peerDependenciesMeta": {
     "prettier": {
       "optional": true
-    },
-    "svelte": {
-      "optional": true
     }
   }
 }
