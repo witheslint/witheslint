@@ -1,6 +1,6 @@
 {
   "name": "witheslint",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "type": "module",
   "description": "Implementing a standardized ESLint configuration across all your projects.",
   "author": "Joie <leaps@live.com>",
