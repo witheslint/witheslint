@@ -39,13 +39,20 @@ export default defineConfig()
 
 ## Contribution
 
-<details>
-  <summary>Local development</summary>
+Any contribution to the project is welome.  
+Run into a problem? Open an [issue](https://github.com/witheslint/witheslint/issues/new/choose).  
+Want to add some feature? PRs are welcome!  
 
-- Clone this repository
-- Install the latest LTS version of [Node.js](https://nodejs.org/en/)
-- Enable [Corepack](https://github.com/nodejs/corepack) using `corepack enable`
-- Install dependencies using `pnpm install`
+> <details>
+>   <summary>Local development</summary>
+> 
+> - Clone this repository
+> - Install the latest LTS version of [Node.js](https://nodejs.org/en/)  
+> - Enable [Corepack](https://github.com/nodejs/corepack) using `corepack enable`
+> - Install dependencies using `pnpm install`
+> 
+> </details>
 
-</details>
+<br>
 
+<p align="right">Enjoy!</p>
