@@ -10,12 +10,12 @@ export const GLOB_SVELTE_EXCLUDES = ['**/.svelte-kit'] as const
 export function presetSvelte(): Preset {
   return definePreset({
     name: 'preset:svelte',
-    setup: ({ features, ignores, optionsStylistic, optionsTypescript }) => {
+    setup: ({ features, settings }) => {
       const { typescript, stylistic } = features
-      const { indent, quotes } = optionsStylistic
+      const { indent, quotes } = settings.stylistic
 
-      ignores.push(GLOB_SVELTE_EXCLUDES)
-      optionsTypescript.extensions.push(GLOB_SVELTE_EXT)
+      settings.ignores.push(...GLOB_SVELTE_EXCLUDES)
+      settings.typescript.extensions.push(GLOB_SVELTE_EXT)
 
       return [
         {

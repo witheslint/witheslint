@@ -3,7 +3,7 @@ import type { ConfigModule } from '../types'
 import { pluginAntfu, pluginStylistic } from '../modules'
 
 export function stylistic(context: Context): ConfigModule[] {
-  const { optionsStylistic, features } = context
+  const { settings, features } = context
   const { stylistic } = features
 
   return [
@@ -22,7 +22,7 @@ export function stylistic(context: Context): ConfigModule[] {
               ...(pluginStylistic as any).configs.customize({
                 flat: true,
                 pluginName: 'style',
-                ...optionsStylistic,
+                ...settings.stylistic,
               }).rules,
 
               curly: ['error', 'multi-line', 'consistent'],

@@ -5,8 +5,9 @@ import { renameRules } from '../helper'
 import { parserTs, pluginTs } from '../modules'
 
 export function typescript(context: Context): ConfigModule[] {
-  const { optionsTypescript, features } = context
+  const { settings, features } = context
   const { typescript } = features
+  const { extensions } = settings.typescript
 
   return typescript
     ? [
@@ -16,11 +17,11 @@ export function typescript(context: Context): ConfigModule[] {
         },
         {
           name: 'witheslint:typescript:configs',
-          files: [GLOB_TS, GLOB_TSX, ...optionsTypescript.extensions.map(ext => `**/*${ext}`)],
+          files: [GLOB_TS, GLOB_TSX, ...extensions.map(ext => `**/*${ext}`)],
           languageOptions: {
             parser: parserTs,
             parserOptions: {
-              extraFileExtensions: optionsTypescript.extensions,
+              extraFileExtensions: extensions,
               sourceType: 'module',
             },
           },

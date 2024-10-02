@@ -1,4 +1,4 @@
-import type { Arrayable, ConfigModule, FeaturesConfig, Preset } from './types'
+import type { Arrayable, ConfigModule, Features, Preset } from './types'
 import { disables, ignores, imports, javascript, jsdoc, sorting, stylistic, typescript, unicorn } from './configs'
 import { Context } from './context'
 import { arrayify, isFunction, uniqueBy } from './helper'
@@ -12,7 +12,7 @@ interface Options {
   /**
    * Configuration for various features.
    */
-  features?: FeaturesConfig
+  features?: Features
   /**
    * Predefined configurations for common use cases.
    */
@@ -25,7 +25,6 @@ interface Options {
 
 export function defineConfig(options: Options = {}): ConfigModule[] {
   const context = new Context(options.features, options.ignores)
-
   const configs = []
   const presets = uniqueBy(options.presets || [], (pre, current) => pre.name === current.name)
 

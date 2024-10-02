@@ -8,10 +8,10 @@ export const GLOB_REACT_EXCLUDES = ['**/.next'] as const
 export function presetReact(): Preset {
   return definePreset({
     name: 'preset:react',
-    setup: ({ features, ignores }) => {
+    setup: ({ features, settings }) => {
       const { typescript } = features
 
-      ignores.push(GLOB_REACT_EXCLUDES)
+      settings.ignores.push(...GLOB_REACT_EXCLUDES)
 
       return [
         {

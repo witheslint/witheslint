@@ -1,57 +1,63 @@
-import type { ConvertAllFields, FeaturesConfig, StylisticConfig, TypescriptConfig } from './types'
+import type { ConvertAllFields, Features, StylisticConfig, TypescriptConfig } from './types'
 import { isPackageExists } from 'local-pkg'
 import { isBoolean, isInEditorEnv, isObject } from './helper'
 
-export class Context {
-  features: ConvertAllFields<FeaturesConfig, boolean>
+interface ContextSettings {
   ignores: string[]
-  optionsStylistic: StylisticConfig
-  optionsTypescript: TypescriptConfig
-  isInEditor: boolean
+  stylistic: Required<StylisticConfig>
+  typescript: Required<TypescriptConfig>
+  [key: string]: any
+}
 
-  constructor(options: Partial<FeaturesConfig> = {}, ignores: string[] = []) {
-    const hasTs = isPackageExists('typescript')
+type ContextFeatures = ConvertAllFields<Features, boolean>
 
-    this.features = {
-      stylistic: true,
-      sorting: true,
-      typescript: hasTs,
-    }
-    this.ignores = ignores
-    this.optionsStylistic = {
-      indent: 2,
-      jsx: true,
-      quotes: 'single',
-      semi: false,
-      arrowParens: false,
-      braceStyle: '1tbs',
-      blockSpacing: true,
-      quoteProps: 'consistent-as-needed',
-      commaDangle: 'always-multiline',
-    }
-    this.optionsTypescript = {
-      extensions: [],
-    }
-    this.isInEditor = isInEditorEnv()
-    this.applyFeatures(options)
+const DEFAULT_SETTINGS: Omit<ContextSettings, 'ignores'> = Object.freeze({
+  stylistic: {
+    indent: 2,
+    jsx: true,
+    quotes: 'single',
+    semi: false,
+    arrowParens: false,
+    braceStyle: '1tbs',
+    blockSpacing: true,
+    quoteProps: 'consistent-as-needed',
+    commaDangle: 'always-multiline',
+  },
+  typescript: {
+    extensions: [],
+  },
+})
+
+export class Context {
+  features: ContextFeatures
+  settings: ContextSettings
+
+  constructor(options: Partial<Features> = {}, ignores: string[] = []) {
+    this.features = this.initializeFeatures(options)
+    this.settings = this.initializeSettings(options, ignores)
   }
 
-  private applyFeatures(features: Partial<FeaturesConfig> = {}) {
-    const { stylistic, sorting, typescript } = features
+  get isInEditor(): boolean {
+    return isInEditorEnv()
+  }
 
-    if (isBoolean(sorting)) {
-      this.features.sorting = sorting
+  private initializeFeatures(options: Partial<Features>): ContextFeatures {
+    return {
+      stylistic: isBoolean(options.stylistic) ? options.stylistic : true,
+      sorting: isBoolean(options.sorting) ? options.sorting : true,
+      typescript: isBoolean(options.typescript) ? options.typescript : isPackageExists('typescript'),
     }
-    if (isBoolean(typescript)) {
-      this.features.typescript = typescript
-    }
-    if (isBoolean(stylistic)) {
-      this.features.stylistic = stylistic
-    } else if (isObject(stylistic)) {
-      this.optionsStylistic = {
-        ...this.optionsStylistic,
-        ...stylistic,
-      }
+  }
+
+  private initializeSettings(options: Partial<Features>, ignores: string[]): ContextSettings {
+    const finalStylistic = isObject(options.stylistic)
+      ? { ...DEFAULT_SETTINGS.stylistic, ...options.stylistic }
+      : { ...DEFAULT_SETTINGS.stylistic }
+
+    return {
+      ignores,
+      stylistic: finalStylistic,
+      typescript: { ...DEFAULT_SETTINGS.typescript },
     }
   }
 }

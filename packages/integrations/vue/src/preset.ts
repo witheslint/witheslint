@@ -12,12 +12,12 @@ export function presetVue(): Preset {
     name: 'preset:vue',
     extensions: ['vue'],
     ignores: [...GLOB_VUE_EXCLUDES],
-    setup: ({ features, ignores, optionsStylistic, optionsTypescript }) => {
+    setup: ({ features, settings }) => {
       const { typescript, stylistic } = features
-      const { indent, blockSpacing, braceStyle, commaDangle, quoteProps } = optionsStylistic
+      const { indent, blockSpacing, braceStyle, commaDangle, quoteProps } = settings.stylistic
 
-      ignores.push(GLOB_VUE_EXCLUDES)
-      optionsTypescript.extensions.push(GLOB_VUE_EXT)
+      settings.ignores.push(...GLOB_VUE_EXCLUDES)
+      settings.typescript.extensions.push(GLOB_VUE_EXT)
 
       return [
         {

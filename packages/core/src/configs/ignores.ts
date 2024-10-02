@@ -3,12 +3,12 @@ import type { ConfigModule } from '../types'
 import { GLOB_EXCLUDE } from '../globs'
 
 export function ignores(context: Context): ConfigModule[] {
-  const { ignores } = context
+  const { settings } = context
 
   return [
     {
       name: 'witheslint:ignores',
-      ignores: [...ignores, ...GLOB_EXCLUDE].filter(Boolean).flat(),
+      ignores: [...new Set([...settings.ignores, ...GLOB_EXCLUDE].filter(Boolean))],
     },
   ]
 }

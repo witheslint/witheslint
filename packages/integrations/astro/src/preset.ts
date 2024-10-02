@@ -10,11 +10,11 @@ export const GLOB_ASTRO_EXCLUDES = ['**/.astro'] as const
 export function presetAstro(): Preset {
   return definePreset({
     name: 'preset:astro',
-    setup: ({ features, ignores, optionsTypescript }) => {
+    setup: ({ features, settings }) => {
       const { typescript, stylistic } = features
 
-      ignores.push(GLOB_ASTRO_EXCLUDES)
-      optionsTypescript.extensions.push(GLOB_ASTRO_EXT)
+      settings.ignores.push(...GLOB_ASTRO_EXCLUDES)
+      settings.typescript.extensions.push(GLOB_ASTRO_EXT)
 
       return [
         {
