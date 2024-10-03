@@ -23,17 +23,16 @@ interface Options {
   extends?: Arrayable<ConfigModule>
 }
 
-export function defineConfig(options: Options = {}): ConfigModule[] {
+export async function defineConfig(options: Options = {}): Promise<ConfigModule[]> {
   const context = new Context(pick(options, ['features', 'ignores']))
   const configs = []
   const presets = uniqueBy(options.presets || [], (pre, current) => pre.name === current.name)
 
   for (const preset of presets) {
-    if (isFunction(preset.setup)) {
-      const rawPreset = preset.setup(context)
-      if (!rawPreset) continue
-      configs.push(arrayify(rawPreset))
-    }
+    if (!isFunction(preset.setup)) continue
+    const rawPreset = await preset.setup(context)
+    if (!rawPreset) continue
+    configs.push(arrayify(rawPreset))
   }
 
   if (options.extends) {

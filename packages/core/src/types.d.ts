@@ -109,5 +109,5 @@ export interface Preset {
   /**
    * Function to setup the preset.
    */
-  setup: (options: Context) => Arrayable<ConfigModule>
+  setup: (options: Context) => Awaitable<Arrayable<ConfigModule>>
 }
