@@ -20,6 +20,7 @@ export function unicorn(context: Context): ConfigModule[] {
             ignore: [/^[A-Z]+\..*$/],
           },
         ],
+        'unicorn/import-style': 'off',
         'unicorn/no-abusive-eslint-disable': 'off',
         'unicorn/no-array-reduce': 'off',
         'unicorn/prefer-top-level-await': 'off', // top level await is not supported in all environments
