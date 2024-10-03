@@ -2,6 +2,11 @@ import type { ConvertAllFields, Features, StylisticConfig, TypescriptConfig } fr
 import { isPackageExists } from 'local-pkg'
 import { isBoolean, isInEditorEnv, isObject } from './helper'
 
+interface ContextOptions {
+  ignores?: string[]
+  features?: Partial<Features>
+}
+
 interface ContextSettings {
   ignores: string[]
   stylistic: Required<StylisticConfig>
@@ -32,26 +37,27 @@ export class Context {
   features: ContextFeatures
   settings: ContextSettings
 
-  constructor(options: Partial<Features> = {}, ignores: string[] = []) {
-    this.features = this.initializeFeatures(options)
-    this.settings = this.initializeSettings(options, ignores)
+  constructor(options: ContextOptions) {
+    this.features = this.initializeFeatures(options.features)
+    this.settings = this.initializeSettings(options)
   }
 
   get isInEditor(): boolean {
     return isInEditorEnv()
   }
 
-  private initializeFeatures(options: Partial<Features>): ContextFeatures {
+  private initializeFeatures(features: Partial<Features> = {}): ContextFeatures {
     return {
-      stylistic: isBoolean(options.stylistic) ? options.stylistic : true,
-      sorting: isBoolean(options.sorting) ? options.sorting : true,
-      typescript: isBoolean(options.typescript) ? options.typescript : isPackageExists('typescript'),
+      stylistic: isBoolean(features.stylistic) ? features.stylistic : true,
+      sorting: isBoolean(features.sorting) ? features.sorting : true,
+      typescript: isBoolean(features.typescript) ? features.typescript : isPackageExists('typescript'),
     }
   }
 
-  private initializeSettings(options: Partial<Features>, ignores: string[]): ContextSettings {
-    const finalStylistic = isObject(options.stylistic)
-      ? { ...DEFAULT_SETTINGS.stylistic, ...options.stylistic }
+  private initializeSettings(options: ContextOptions): ContextSettings {
+    const { features = {}, ignores = [] } = options
+    const finalStylistic = isObject(features.stylistic)
+      ? { ...DEFAULT_SETTINGS.stylistic, ...features.stylistic }
       : { ...DEFAULT_SETTINGS.stylistic }
 
     return {

@@ -9,6 +9,14 @@ export function arrayify<T>(value: T | T[]): T[] {
   return Array.isArray(value) ? value : [value]
 }
 
+export function pick<T extends object, TKeys extends keyof T>(obj: T, keys: TKeys[]): Pick<T, TKeys> {
+  if (!obj) return {} as Pick<T, TKeys>
+  return keys.reduce((acc, key) => {
+    if (Object.prototype.hasOwnProperty.call(obj, key)) acc[key] = obj[key]
+    return acc
+  }, {} as Pick<T, TKeys>)
+}
+
 export function uniqueBy<T>(array: readonly T[], equalFn: (a: T, b: T) => boolean): T[] {
   return array.reduce((acc: T[], cur: T) => {
     const index = acc.findIndex((item: T) => equalFn(cur, item))
@@ -41,6 +49,12 @@ export function combineRules(configs: Config[]) {
         : []))
 }
 
+function isInGitHooks(): boolean {
+  return !!(
+    process.env.GIT_PARAMS || process.env.VSCODE_GIT_COMMAND
+  )
+}
+
 export function isInEditorEnv(): boolean {
   if (process.env.CI) return false
   if (isInGitHooks()) return false
@@ -50,11 +64,5 @@ export function isInEditorEnv(): boolean {
     || process.env.JETBRAINS_IDE
     || process.env.VIM
     || process.env.NVIM
-  )
-}
-
-export function isInGitHooks(): boolean {
-  return !!(
-    process.env.GIT_PARAMS || process.env.VSCODE_GIT_COMMAND
   )
 }

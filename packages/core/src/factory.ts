@@ -1,7 +1,7 @@
 import type { Arrayable, ConfigModule, Features, Preset } from './types'
 import { disables, ignores, imports, javascript, jsdoc, sorting, stylistic, typescript, unicorn } from './configs'
 import { Context } from './context'
-import { arrayify, isFunction, uniqueBy } from './helper'
+import { arrayify, isFunction, pick, uniqueBy } from './helper'
 
 interface Options {
   /**
@@ -24,7 +24,7 @@ interface Options {
 }
 
 export function defineConfig(options: Options = {}): ConfigModule[] {
-  const context = new Context(options.features, options.ignores)
+  const context = new Context(pick(options, ['features', 'ignores']))
   const configs = []
   const presets = uniqueBy(options.presets || [], (pre, current) => pre.name === current.name)
 
