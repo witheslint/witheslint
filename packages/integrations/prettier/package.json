@@ -1,6 +1,6 @@
 {
   "name": "@witheslint/preset-prettier",
-  "version": "1.0.2",
+  "version": "1.1.0",
   "type": "module",
   "description": "The prettier preset for witheslint.",
   "author": "Joie <leaps@live.com>",
@@ -46,7 +46,7 @@
     "@witheslint/core": "workspace:^"
   },
   "peerDependencies": {
-    "@witheslint/core": "^1.0.0",
+    "@witheslint/core": "^1.1.0",
     "prettier": "^3.0.0"
   },
   "peerDependenciesMeta": {
