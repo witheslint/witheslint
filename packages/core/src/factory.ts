@@ -25,23 +25,8 @@ interface Options {
 
 export async function defineConfig(options: Options = {}): Promise<ConfigModule[]> {
   const context = new Context(pick(options, ['features', 'ignores']))
-  const configs = []
-  const presets = uniqueBy(options.presets || [], (pre, current) => pre.name === current.name)
-
-  for (const preset of presets) {
-    if (!isFunction(preset.setup)) continue
-    const rawPreset = await preset.setup(context)
-    if (!rawPreset) continue
-    configs.push(arrayify(rawPreset))
-  }
-
-  if (options.extends) {
-    const customize = arrayify(options.extends)
-      .map(({ name = 'witheslint:customize', ...i }) => ({ ...i, name }))
-    configs.push(customize)
-  }
-
-  configs.unshift(
+  const presets = await processPresets(options.presets, context)
+  const configs = [
     ignores(context),
     javascript(),
     jsdoc(),
@@ -51,11 +36,24 @@ export async function defineConfig(options: Options = {}): Promise<ConfigModule[
     stylistic(context),
     typescript(context),
     disables(context),
-  )
+    presets,
+  ]
+
+  if (options.extends) {
+    configs.push(arrayify(options.extends).map(({ name = 'witheslint:customize', ...i }) => ({ ...i, name })))
+  }
 
   return configs.flat().filter(Boolean)
 }
 
 export function definePreset<T extends Preset = Preset>(preset: T): T {
   return preset
+}
+
+async function processPresets(presets: Preset[] = [], context: Context): Promise<ConfigModule[]> {
+  const validPresets = uniqueBy(presets, (pre, current) => pre.name === current.name)
+    .filter(preset => isFunction(preset.setup))
+  const configs = await Promise.all(validPresets.map(preset => preset.setup(context)))
+
+  return configs.flat().filter(Boolean)
 }

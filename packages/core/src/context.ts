@@ -54,8 +54,7 @@ export class Context {
     }
   }
 
-  private initializeSettings(options: ContextOptions): ContextSettings {
-    const { features = {}, ignores = [] } = options
+  private initializeSettings({ features = {}, ignores = [] }: ContextOptions): ContextSettings {
     const finalStylistic = isObject(features.stylistic)
       ? { ...DEFAULT_SETTINGS.stylistic, ...features.stylistic }
       : { ...DEFAULT_SETTINGS.stylistic }
