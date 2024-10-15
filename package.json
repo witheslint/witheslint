@@ -11,13 +11,13 @@
     "prepare": "lefthook install && pnpm build"
   },
   "devDependencies": {
-    "@changesets/cli": "^2.27.8",
+    "@changesets/cli": "^2.27.9",
     "@commitlint/cli": "^19.5.0",
     "@commitlint/config-conventional": "^19.5.0",
     "@eslint/config-inspector": "^0.5.4",
-    "@types/node": "^20.16.10",
+    "@types/node": "^20.16.11",
     "changesets-helper": "^1.0.0",
-    "eslint": "^9.11.1",
+    "eslint": "^9.12.0",
     "eslint-typegen": "^0.3.2",
     "lefthook": "^1.7.18",
     "tsx": "^4.19.1",
