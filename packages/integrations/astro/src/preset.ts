@@ -25,6 +25,7 @@ export function presetAstro(): Preset {
           name: 'witheslint:astro:configs',
           files: [GLOB_ASTRO],
           languageOptions: {
+            globals: (pluginAstro as any).environments.astro.globals,
             parser: parserAstro,
             parserOptions: {
               extraFileExtensions: ['.astro'],

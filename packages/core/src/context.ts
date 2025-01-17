@@ -34,8 +34,8 @@ const DEFAULT_SETTINGS: Omit<ContextSettings, 'ignores'> = Object.freeze({
 })
 
 export class Context {
-  features: ContextFeatures
-  settings: ContextSettings
+  public features: ContextFeatures
+  public settings: ContextSettings
 
   constructor(options: ContextOptions) {
     this.features = this.initializeFeatures(options.features)
@@ -47,10 +47,15 @@ export class Context {
   }
 
   private initializeFeatures(features: Partial<Features> = {}): ContextFeatures {
+    const { stylistic = true, typescript = true, sorting = true } = features
+    const isPrettierMode = stylistic === 'prettier'
+    const hasTypescript = isPackageExists('typescript')
+
     return {
-      stylistic: isBoolean(features.stylistic) ? features.stylistic : true,
-      sorting: isBoolean(features.sorting) ? features.sorting : true,
-      typescript: isBoolean(features.typescript) ? features.typescript : isPackageExists('typescript'),
+      prettier: isPrettierMode,
+      sorting: isBoolean(sorting) ? sorting : false,
+      stylistic: !isPrettierMode && (isBoolean(stylistic) || isObject(stylistic)) ? Boolean(stylistic) : false,
+      typescript: hasTypescript && isBoolean(typescript) ? typescript : false,
     }
   }
 

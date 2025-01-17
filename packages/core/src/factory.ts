@@ -1,7 +1,17 @@
 import type { Arrayable, ConfigModule, Features, Preset } from './types'
-import { disables, ignores, imports, javascript, jsdoc, sorting, stylistic, typescript, unicorn } from './configs'
 import { Context } from './context'
 import { arrayify, isFunction, pick, uniqueBy } from './helper'
+import {
+  presetDisables,
+  presetIgnores,
+  presetImports,
+  presetJavascript,
+  presetJsdoc,
+  presetSorting,
+  presetStylistic,
+  presetTypescript,
+  presetUnicorn,
+} from './presets'
 
 interface Options {
   /**
@@ -23,37 +33,45 @@ interface Options {
   extends?: Arrayable<ConfigModule>
 }
 
+const builtinPresets: Preset[] = [
+  presetIgnores(),
+  presetDisables(),
+  presetJavascript(),
+  presetJsdoc(),
+  presetUnicorn(),
+  presetImports(),
+  presetSorting(),
+  presetStylistic(),
+  presetTypescript(),
+]
+
 export async function defineConfig(options: Options = {}): Promise<ConfigModule[]> {
   const context = new Context(pick(options, ['features', 'ignores']))
-  const presets = await processPresets(options.presets, context)
-  const configs = [
-    ignores(context),
-    javascript(),
-    jsdoc(),
-    unicorn(context),
-    imports(context),
-    sorting(context),
-    stylistic(context),
-    typescript(context),
-    disables(context),
-    presets,
-  ]
 
-  if (options.extends) {
-    configs.push(arrayify(options.extends).map(({ name = 'witheslint:customize', ...i }) => ({ ...i, name })))
-  }
+  const resolved = await normalizePresets(options.presets, context)
+  const builtins = await normalizePresets(builtinPresets, context)
+  const customize = options.extends ? normalizeExtends(arrayify(options.extends)) : []
 
-  return configs.flat().filter(Boolean)
+  return [...builtins, ...resolved, ...customize].filter(Boolean)
 }
 
 export function definePreset<T extends Preset = Preset>(preset: T): T {
   return preset
 }
 
-async function processPresets(presets: Preset[] = [], context: Context): Promise<ConfigModule[]> {
+async function normalizePresets(presets: Preset[] = [], context: Context): Promise<ConfigModule[]> {
+  if (presets.length === 0) return []
+
   const validPresets = uniqueBy(presets, (pre, current) => pre.name === current.name)
     .filter(preset => isFunction(preset.setup))
   const configs = await Promise.all(validPresets.map(preset => preset.setup(context)))
 
   return configs.flat().filter(Boolean)
+}
+
+function normalizeExtends<T extends ConfigModule>(options: T[]): T[] {
+  return options.map(({ name = 'witheslint:customize', ...rest }) => ({
+    ...rest,
+    name,
+  })) as T[]
 }

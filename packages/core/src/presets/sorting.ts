@@ -1,13 +1,14 @@
-import type { Context } from '../context'
-import type { ConfigModule } from '../types'
+import type { Preset } from '../types'
+import { definePreset } from '../factory'
 import { pluginSorting } from '../modules'
 
-export function sorting(context: Context): ConfigModule[] {
-  const { features } = context
-  const { sorting } = features
+export function presetSorting(): Preset {
+  return definePreset({
+    name: 'preset:sorting',
+    setup: ({ features }) => {
+      if (!features.sorting) return []
 
-  return sorting
-    ? [
+      return [
         {
           name: 'witheslint:sorting:configs',
           plugins: { sorting: pluginSorting },
@@ -17,7 +18,7 @@ export function sorting(context: Context): ConfigModule[] {
               'error',
               {
                 type: 'natural',
-                internalPattern: ['~/**', '@/**'],
+                internalPattern: ['^~/.*', '^@/.*'],
                 newlinesBetween: 'never',
                 groups: [
                   ['type', 'internal-type', 'parent-type', 'sibling-type', 'index-type'],
@@ -32,8 +33,6 @@ export function sorting(context: Context): ConfigModule[] {
                   'object',
                   'unknown',
                 ],
-                customGroups: { type: {}, value: {} },
-                environment: 'node',
               },
             ],
             'sorting/sort-named-exports': ['error', { type: 'natural', groupKind: 'types-first' }],
@@ -41,5 +40,6 @@ export function sorting(context: Context): ConfigModule[] {
           },
         },
       ]
-    : []
+    },
+  })
 }

@@ -88,7 +88,7 @@ export interface Features {
    *
    * @default true
    */
-  stylistic?: boolean | StylisticConfig
+  stylistic?: boolean | StylisticConfig | 'prettier'
   /**
    * Enable sorting rules.
    *
@@ -99,6 +99,12 @@ export interface Features {
    * Enable TypeScript support.
    */
   typescript?: boolean
+  /**
+   * Enable prettier
+   *
+   * @default false
+   */
+  prettier?: boolean
 }
 
 export interface Preset {

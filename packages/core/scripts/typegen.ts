@@ -1,9 +1,11 @@
 import { writeFile } from 'node:fs/promises'
-import { builtinRules } from 'eslint/use-at-your-own-risk'
 import { pluginsToRulesDTS } from 'eslint-typegen/core'
+import { builtinRules } from 'eslint/use-at-your-own-risk'
 import {
+  pluginAntfu,
   pluginImport,
   pluginJsdoc,
+  pluginPrettier,
   pluginSorting,
   pluginStylistic,
   pluginTs,
@@ -17,7 +19,9 @@ const dts = await pluginsToRulesDTS({
   'ts': pluginTs,
   'jsdoc': pluginJsdoc,
   'sorting': pluginSorting,
+  'antfu': pluginAntfu,
   'style': pluginStylistic,
+  'prettier': pluginPrettier,
   'import': pluginImport,
   'unused-imports': pluginUnusedImports,
 }, { exportTypeName: 'RuleSetsCore' })

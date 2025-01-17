@@ -39,7 +39,6 @@
   "dependencies": {
     "@witheslint/core": "workspace:^",
     "@witheslint/preset-astro": "workspace:^",
-    "@witheslint/preset-prettier": "workspace:^",
     "@witheslint/preset-react": "workspace:^",
     "@witheslint/preset-solid": "workspace:^",
     "@witheslint/preset-svelte": "workspace:^",
@@ -47,7 +46,7 @@
   },
   "peerDependencies": {
     "prettier": "^3.0.0",
-    "svelte": "^3.37.0 || ^4.0.0 || ^5.0.0-next.191"
+    "svelte": "^3.37.0 || ^4.0.0 || ^5.0.0"
   },
   "peerDependenciesMeta": {
     "prettier": {

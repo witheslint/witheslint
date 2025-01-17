@@ -54,3 +54,9 @@ import * as _parserTs from '@typescript-eslint/parser'
  * @see [@typescript-eslint/parser](https://typescript-eslint.io/packages/parser/)
  */
 export const parserTs = interopDefault(_parserTs as unknown as ParserModule)
+
+import * as _pluginPrettier from 'eslint-plugin-prettier'
+/**
+ * @see [eslint-plugin-prettier](https://github.com/prettier/eslint-plugin-prettier)
+ */
+export const pluginPrettier = interopDefault(_pluginPrettier as unknown as PluginModule)
