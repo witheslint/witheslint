@@ -1,0 +1,15 @@
+{
+  "ignorePaths": [
+    "node_modules",
+    "dist"
+  ],
+  "words": [
+    "Arrayable",
+    "arrayify",
+    "commitlint",
+    "lefthook",
+    "nuxt",
+    "NVIM",
+    "witheslint"
+  ]
+}

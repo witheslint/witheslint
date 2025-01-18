@@ -39,7 +39,7 @@ export default defineConfig()
 
 ## Contribution
 
-Any contribution to the project is welome.  
+Any contribution to the project is welcome.  
 Run into a problem? Open an [issue](https://github.com/witheslint/witheslint/issues/new/choose).  
 Want to add some feature? PRs are welcome!  
 

@@ -1,7 +1,6 @@
 import type { ParserModule, PluginModule } from '@witheslint/core'
 import { interopDefault } from '@witheslint/core'
 
-// @ts-expect-error missing types
 import * as _pluginVue from 'eslint-plugin-vue'
 /**
  * @see [eslint-plugin-vue](https://eslint.vuejs.org)
