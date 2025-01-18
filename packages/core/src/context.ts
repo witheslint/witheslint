@@ -1,10 +1,16 @@
-import type { ConvertAllFields, Features, StylisticConfig, TypescriptConfig } from './types'
+import type { Features, StylisticConfig, TypescriptConfig, Unified } from './types'
 import { isPackageExists } from 'local-pkg'
 import { isBoolean, isInEditorEnv, isObject } from './helper'
+
+type FeaturesFlag = Unified<Features, boolean>
 
 interface ContextOptions {
   ignores?: string[]
   features?: Partial<Features>
+}
+
+interface ContextFeatures extends Required<FeaturesFlag> {
+  [key: string]: boolean
 }
 
 interface ContextSettings {
@@ -13,8 +19,6 @@ interface ContextSettings {
   typescript: Required<TypescriptConfig>
   [key: string]: any
 }
-
-type ContextFeatures = ConvertAllFields<Features, boolean>
 
 const defaultSettings: ContextSettings = Object.freeze({
   stylistic: {
@@ -43,7 +47,7 @@ export class Context {
   public settings: ContextSettings
 
   constructor(options: ContextOptions) {
-    this.features = Object.freeze(this.initializeFeatures(options.features))
+    this.features = this.initializeFeatures(options.features)
     this.settings = this.initializeSettings(options)
   }
 

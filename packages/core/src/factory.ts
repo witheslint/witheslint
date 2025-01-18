@@ -62,12 +62,12 @@ export function definePreset<T extends Preset = Preset>(preset: T): T {
 async function normalizePresets(presets: Preset[] = [], context: Context): Promise<ConfigModule[]> {
   if (presets.length === 0) return []
 
-  const dedupe = uniqueBy(presets, (pre, current) => pre.name === current.name)
-  const needPrepare = dedupe.filter(preset => isFunction(preset.prepare))
-  const needInstall = dedupe.filter(preset => isFunction(preset.install))
+  const deduped = uniqueBy(presets, (pre, current) => pre.name === current.name)
+  const shouldPrepare = deduped.filter(preset => isFunction(preset.prepare))
+  const shouldInstall = deduped.filter(preset => isFunction(preset.install))
 
-  await Promise.all(needPrepare.map(preset => preset.prepare!(context)))
-  const configs = await Promise.all(needInstall.map(preset => preset.install(Object.freeze(context))))
+  await Promise.all(shouldPrepare.map(preset => preset.prepare!(context)))
+  const configs = await Promise.all(shouldInstall.map(preset => preset.install!(Object.freeze(context))))
 
   return configs.flat().filter(Boolean)
 }
