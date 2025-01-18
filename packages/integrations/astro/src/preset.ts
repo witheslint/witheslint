@@ -1,5 +1,4 @@
 import type { Preset } from '@witheslint/core'
-import { definePreset } from '@witheslint/core'
 import { parserTs } from '@witheslint/core/modules'
 import { parserAstro, pluginAstro } from './modules'
 
@@ -8,13 +7,14 @@ export const GLOB_ASTRO_EXT = '.astro' as const
 export const GLOB_ASTRO_EXCLUDES = ['**/.astro'] as const
 
 export function presetAstro(): Preset {
-  return definePreset({
+  return {
     name: 'preset:astro',
-    setup: ({ features, settings }) => {
-      const { typescript, stylistic } = features
-
+    prepare: ({ settings }) => {
       settings.ignores.push(...GLOB_ASTRO_EXCLUDES)
       settings.typescript.extensions.push(GLOB_ASTRO_EXT)
+    },
+    install: ({ features }) => {
+      const { typescript, stylistic } = features
 
       return [
         {
@@ -63,5 +63,5 @@ export function presetAstro(): Preset {
         },
       ]
     },
-  })
+  }
 }

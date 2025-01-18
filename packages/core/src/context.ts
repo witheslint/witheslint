@@ -16,7 +16,7 @@ interface ContextSettings {
 
 type ContextFeatures = ConvertAllFields<Features, boolean>
 
-const DEFAULT_SETTINGS: Omit<ContextSettings, 'ignores'> = Object.freeze({
+const defaultSettings: ContextSettings = Object.freeze({
   stylistic: {
     indent: 2,
     jsx: true,
@@ -31,28 +31,32 @@ const DEFAULT_SETTINGS: Omit<ContextSettings, 'ignores'> = Object.freeze({
   typescript: {
     extensions: [],
   },
+  ignores: [],
 })
+
+const hasPrettier = isPackageExists('prettier')
+const hasTypescript = isPackageExists('typescript')
+const isInEditor = isInEditorEnv()
 
 export class Context {
   public features: ContextFeatures
   public settings: ContextSettings
 
   constructor(options: ContextOptions) {
-    this.features = this.initializeFeatures(options.features)
+    this.features = Object.freeze(this.initializeFeatures(options.features))
     this.settings = this.initializeSettings(options)
   }
 
   get isInEditor(): boolean {
-    return isInEditorEnv()
+    return isInEditor
   }
 
   private initializeFeatures(features: Partial<Features> = {}): ContextFeatures {
     const { stylistic = true, typescript = true, sorting = true } = features
     const isPrettierMode = stylistic === 'prettier'
-    const hasTypescript = isPackageExists('typescript')
 
     return {
-      prettier: isPrettierMode,
+      prettier: hasPrettier && isPrettierMode,
       sorting: isBoolean(sorting) ? sorting : false,
       stylistic: !isPrettierMode && (isBoolean(stylistic) || isObject(stylistic)) ? Boolean(stylistic) : false,
       typescript: hasTypescript && isBoolean(typescript) ? typescript : false,
@@ -61,13 +65,15 @@ export class Context {
 
   private initializeSettings({ features = {}, ignores = [] }: ContextOptions): ContextSettings {
     const finalStylistic = isObject(features.stylistic)
-      ? { ...DEFAULT_SETTINGS.stylistic, ...features.stylistic }
-      : { ...DEFAULT_SETTINGS.stylistic }
+      ? { ...defaultSettings.stylistic, ...features.stylistic }
+      : { ...defaultSettings.stylistic }
+    const finalIgnores = [...new Set([...ignores, ...defaultSettings.ignores])]
+    const finalTypescript = { ...defaultSettings.typescript }
 
     return {
-      ignores,
+      ignores: finalIgnores,
       stylistic: finalStylistic,
-      typescript: { ...DEFAULT_SETTINGS.typescript },
+      typescript: finalTypescript,
     }
   }
 }

@@ -1,11 +1,10 @@
 import type { Preset } from '../types'
-import { definePreset } from '../factory'
 import { pluginJsdoc } from '../modules'
 
 export function presetJsdoc(): Preset {
-  return definePreset({
+  return {
     name: 'preset:jsdoc',
-    setup: () => {
+    install: () => {
       return [
         {
           name: 'witheslint:jsdoc:configs',
@@ -32,5 +31,5 @@ export function presetJsdoc(): Preset {
         },
       ]
     },
-  })
+  }
 }

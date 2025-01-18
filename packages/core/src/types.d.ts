@@ -108,12 +108,10 @@ export interface Features {
 }
 
 export interface Preset {
-  /**
-   * Custom name of each preset item.
-   */
+  /** Custom name of each preset item. */
   name: string
-  /**
-   * Function to setup the preset.
-   */
-  setup: (options: Context) => Awaitable<Arrayable<ConfigModule>>
+  /** Function to update context configs. */
+  prepare?: (context: Context) => Awaitable<void>
+  /** Function to setup the preset. */
+  install: (context: Readonly<Context>) => Awaitable<Arrayable<ConfigModule>>
 }

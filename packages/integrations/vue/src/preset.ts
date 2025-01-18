@@ -1,5 +1,5 @@
 import type { Preset } from '@witheslint/core'
-import { combineRules, definePreset } from '@witheslint/core'
+import { combineRules } from '@witheslint/core'
 import { parserTs } from '@witheslint/core/modules'
 import { parserVue, pluginVue } from './modules'
 
@@ -8,16 +8,15 @@ export const GLOB_VUE_EXT = '.vue' as const
 export const GLOB_VUE_EXCLUDES = ['**/.nuxt'] as const
 
 export function presetVue(): Preset {
-  return definePreset({
+  return {
     name: 'preset:vue',
-    extensions: ['vue'],
-    ignores: [...GLOB_VUE_EXCLUDES],
-    setup: ({ features, settings }) => {
-      const { typescript, stylistic } = features
-      const { indent, blockSpacing, braceStyle, commaDangle, quoteProps } = settings.stylistic
-
+    prepare: ({ settings }) => {
       settings.ignores.push(...GLOB_VUE_EXCLUDES)
       settings.typescript.extensions.push(GLOB_VUE_EXT)
+    },
+    install: ({ features, settings }) => {
+      const { typescript, stylistic } = features
+      const { indent, blockSpacing, braceStyle, commaDangle, quoteProps } = settings.stylistic
 
       return [
         {
@@ -143,5 +142,5 @@ export function presetVue(): Preset {
         },
       ]
     },
-  })
+  }
 }

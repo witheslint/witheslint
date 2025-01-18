@@ -1,11 +1,10 @@
 import type { Preset } from '../types'
 import globals from 'globals'
-import { definePreset } from '../factory'
 
 export function presetJavascript(): Preset {
-  return definePreset({
+  return {
     name: 'preset:javascript',
-    setup: () => {
+    install: () => {
       return [
         {
           name: 'witheslint:javascript:configs',
@@ -227,5 +226,5 @@ export function presetJavascript(): Preset {
         },
       ]
     },
-  })
+  }
 }

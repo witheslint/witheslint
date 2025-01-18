@@ -1,17 +1,18 @@
 import type { Preset } from '../types'
-import { definePreset } from '../factory'
-import { GLOB_EXCLUDE } from '../globs'
+import { GLOB_EXCLUDE, GLOB_PACKAGE_LOCK } from '../globs'
 
 export function presetIgnores(): Preset {
-  return definePreset({
+  return {
     name: 'preset:ignores',
-    setup: ({ settings }) => {
+    install: ({ settings }) => {
       return [
         {
           name: 'witheslint:ignores',
-          ignores: [...new Set([...settings.ignores, ...GLOB_EXCLUDE].filter(Boolean))],
+          ignores: [
+            ...new Set([...settings.ignores, ...GLOB_EXCLUDE, ...GLOB_PACKAGE_LOCK]),
+          ].filter(Boolean),
         },
       ]
     },
-  })
+  }
 }

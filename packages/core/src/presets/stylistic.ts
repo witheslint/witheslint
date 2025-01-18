@@ -1,11 +1,10 @@
 import type { Preset } from '../types'
-import { definePreset } from '../factory'
 import { pluginAntfu, pluginPrettier, pluginStylistic } from '../modules'
 
 export function presetStylistic(): Preset {
-  return definePreset({
+  return {
     name: 'preset:stylistic',
-    setup: ({ settings, features }) => {
+    install: ({ settings, features }) => {
       return [
         {
           name: 'witheslint:stylistic:configs',
@@ -46,5 +45,5 @@ export function presetStylistic(): Preset {
         },
       ]
     },
-  })
+  }
 }

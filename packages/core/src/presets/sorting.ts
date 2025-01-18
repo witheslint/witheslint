@@ -1,11 +1,10 @@
 import type { Preset } from '../types'
-import { definePreset } from '../factory'
 import { pluginSorting } from '../modules'
 
 export function presetSorting(): Preset {
-  return definePreset({
+  return {
     name: 'preset:sorting',
-    setup: ({ features }) => {
+    install: ({ features }) => {
       if (!features.sorting) return []
 
       return [
@@ -41,5 +40,5 @@ export function presetSorting(): Preset {
         },
       ]
     },
-  })
+  }
 }

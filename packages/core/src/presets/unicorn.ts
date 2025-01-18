@@ -1,11 +1,10 @@
 import type { Preset } from '../types'
-import { definePreset } from '../factory'
 import { pluginUnicorn } from '../modules'
 
 export function presetUnicorn(): Preset {
-  return definePreset({
+  return {
     name: 'preset:unicorn',
-    setup: ({ features }) => {
+    install: ({ features }) => {
       return [
         {
           name: 'witheslint:unicorn:configs',
@@ -39,5 +38,5 @@ export function presetUnicorn(): Preset {
         },
       ]
     },
-  })
+  }
 }

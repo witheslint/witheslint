@@ -1,11 +1,10 @@
 import type { Preset } from '../types'
-import { definePreset } from '../factory'
 import { pluginImport, pluginUnusedImports } from '../modules'
 
 export function presetImports(): Preset {
-  return definePreset({
+  return {
     name: 'preset:imports',
-    setup: ({ isInEditor }) => {
+    install: ({ isInEditor }) => {
       return [
         {
           name: 'witheslint:import:configs',
@@ -38,5 +37,5 @@ export function presetImports(): Preset {
         },
       ]
     },
-  })
+  }
 }

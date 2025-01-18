@@ -1,11 +1,10 @@
 import type { Preset } from '../types'
-import { definePreset } from '../factory'
 import { GLOB_CJS, GLOB_DTS, GLOB_JS, GLOB_TS } from '../globs'
 
 export function presetDisables(): Preset {
-  return definePreset({
+  return {
     name: 'preset:disables',
-    setup: ({ features }) => {
+    install: ({ features }) => {
       return [
         {
           name: 'witheslint:disables:dts',
@@ -36,5 +35,5 @@ export function presetDisables(): Preset {
         },
       ]
     },
-  })
+  }
 }

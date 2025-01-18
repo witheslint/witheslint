@@ -48,11 +48,11 @@ const builtinPresets: Preset[] = [
 export async function defineConfig(options: Options = {}): Promise<ConfigModule[]> {
   const context = new Context(pick(options, ['features', 'ignores']))
 
-  const resolved = await normalizePresets(options.presets, context)
-  const builtins = await normalizePresets(builtinPresets, context)
+  const presets = [...builtinPresets, ...options.presets || []].filter(Boolean)
+  const results = await normalizePresets(presets, context)
   const customize = options.extends ? normalizeExtends(arrayify(options.extends)) : []
 
-  return [...builtins, ...resolved, ...customize].filter(Boolean)
+  return [...results, ...customize].filter(Boolean)
 }
 
 export function definePreset<T extends Preset = Preset>(preset: T): T {
@@ -62,9 +62,12 @@ export function definePreset<T extends Preset = Preset>(preset: T): T {
 async function normalizePresets(presets: Preset[] = [], context: Context): Promise<ConfigModule[]> {
   if (presets.length === 0) return []
 
-  const validPresets = uniqueBy(presets, (pre, current) => pre.name === current.name)
-    .filter(preset => isFunction(preset.setup))
-  const configs = await Promise.all(validPresets.map(preset => preset.setup(context)))
+  const dedupe = uniqueBy(presets, (pre, current) => pre.name === current.name)
+  const needPrepare = dedupe.filter(preset => isFunction(preset.prepare))
+  const needInstall = dedupe.filter(preset => isFunction(preset.install))
+
+  await Promise.all(needPrepare.map(preset => preset.prepare!(context)))
+  const configs = await Promise.all(needInstall.map(preset => preset.install(Object.freeze(context))))
 
   return configs.flat().filter(Boolean)
 }
