@@ -1,15 +1,38 @@
-<!-- Badges -->
-[src-version]: https://img.shields.io/npm/v/witheslint?style=flat&color=444&label=version
-[src-download]: https://img.shields.io/npm/dm/witheslint?style=flat&color=444&label=download
-[href-npm]: https://npmjs.com/package/witheslint
+<br>
 
-<img src="https://github.com/witheslint/static/raw/main/icons/witheslint.svg" alt="witheslint" align="right" width="140" height="140">
+<p align="center">
+  <img src="https://github.com/witheslint/static/raw/main/icons/witheslint.svg" alt="witheslint" align="center" width="33%" height="33%" />
+</p>
 
-[![version][src-version]][href-npm]
-[![downloads][src-download]][href-npm]
+<p align="center">Implementing a standardized ESLint configuration across all your projects.</p>
 
-✨ Implementing a standardized ESLint configuration across all your projects.
+<br>
+
+## Features
+
+- Auto fix for formatting
+- Single quotes, no semicolons
+- Sorted imports, dangling commas for cleaner commit diff
+- Designed to work with `JSX`, `TypeScript` out-of-box
+- Support also for `Astro`, `React`, `Svelte`, `Solid`, `Vue`
+- [ESLint Flat config](https://eslint.org/docs/latest/use/configure/configuration-files-new), compose easily!
+- Reasonable defaults, best practices, only one-line of config
 
 ## Usage
 
+#### install deps
+
+```zsh
+pnpm i -D eslint witheslint
+```
+
+#### create `eslint.config.mjs` in your project root
+
+```js
+import { defineConfig } from 'witheslint'
+
+export default defineConfig()
+```
+
 > Please refer to the [documentation](https://witheslint.github.io) for more details.
+
