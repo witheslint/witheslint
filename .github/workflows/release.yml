@@ -1,0 +1,40 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    permissions:
+      id-token: write
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          registry-url: 'https://registry.npmjs.org'
+
+      - run: corepack enable
+
+      - name: Install dependencies
+        run: pnpm install
+
+      - name: Publish to NPM
+        run: pnpm -r publish --access public --no-git-checks
+        env:
+          NODE_AUTH_TOKEN: ${{secrets.TOKEN_NPM}}
+          NPM_CONFIG_PROVENANCE: true
+
+      - name: Generate changelog
+        if: ${{ success() }}
+        run: npx changelogithub
+        env:
+          GITHUB_TOKEN: ${{secrets.TOKEN_GITHUB}}
