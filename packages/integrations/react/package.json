@@ -1,6 +1,6 @@
 {
   "name": "@witheslint/preset-react",
-  "version": "1.5.0",
+  "version": "1.10.0",
   "type": "module",
   "description": "The react preset for witheslint.",
   "author": "Joie <leaps@live.com>",
