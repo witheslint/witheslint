@@ -46,6 +46,6 @@
     "@witheslint/core": "workspace:^"
   },
   "peerDependencies": {
-    "@witheslint/core": "^1.4.1"
+    "@witheslint/core": "workspace:^"
   }
 }
