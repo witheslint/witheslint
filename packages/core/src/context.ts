@@ -10,6 +10,7 @@ interface ContextOptions {
 }
 
 interface ContextFeatures extends Required<FeaturesFlag> {
+  prettier: boolean
   [key: string]: boolean
 }
 

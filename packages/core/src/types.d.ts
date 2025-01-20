@@ -101,12 +101,6 @@ export interface Features {
    * Enable TypeScript support.
    */
   typescript?: boolean
-  /**
-   * Enable prettier
-   *
-   * @default false
-   */
-  prettier?: boolean
 }
 
 export interface Preset {
