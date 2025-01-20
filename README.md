@@ -37,22 +37,6 @@ export default defineConfig()
 > Please refer to the [documentation](https://witheslint.github.io) for more details.
 
 
-## Contribution
+## License
 
-Any contribution to the project is welcome.  
-Run into a problem? Open an [issue](https://github.com/witheslint/witheslint/issues/new/choose).  
-Want to add some feature? PRs are welcome!  
-
-> <details>
->   <summary>Local development</summary>
-> 
-> - Clone this repository
-> - Install the latest LTS version of [Node.js](https://nodejs.org/en/)  
-> - Enable [Corepack](https://github.com/nodejs/corepack) using `corepack enable`
-> - Install dependencies using `pnpm install`
-> 
-> </details>
-
-<br>
-
-<p align="right">Enjoy!</p>
+Made with 💖 Published under [MIT License](./LICENSE).
