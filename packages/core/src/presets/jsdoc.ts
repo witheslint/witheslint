@@ -4,11 +4,16 @@ import { pluginJsdoc } from '../modules'
 export function presetJsdoc(): Preset {
   return {
     name: 'preset:jsdoc',
-    install: () => {
+    install: ({ features }) => {
       return [
         {
           name: 'witheslint:jsdoc:configs',
           plugins: { jsdoc: pluginJsdoc },
+          settings: {
+            jsdoc: {
+              mode: features.typescript ? 'typescript' : 'jsdoc',
+            },
+          },
           rules: {
             'jsdoc/check-access': 'warn',
             'jsdoc/check-alignment': 'warn',
