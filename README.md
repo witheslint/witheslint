@@ -10,13 +10,13 @@
 
 ## Features
 
-- Auto fix for formatting
-- Single quotes, no semicolons
-- Sorted imports, dangling commas for cleaner commit diff
-- Designed to work with `JSX`, `TypeScript` out-of-box
-- Support also for `Astro`, `React`, `Svelte`, `Solid`, `Vue`
-- [ESLint Flat config](https://eslint.org/docs/latest/use/configure/configuration-files-new), compose easily!
-- Reasonable defaults, best practices, only one-line of config
+- One-line configuration reusable across projects.
+- Designed to work with `JSX`, `TypeScript` out-of-box.
+- Reasonable defaults: best practices, with better code quality.
+- Opinionated defaults: single quotes, no semicolons, sorted imports.
+- Auto-fix formatting for consistent code style.
+- Utilizes ESLint's new flat config format for easy composition.
+- Support also for `Astro`, `React`, `Svelte`, `Solid`, `Vue`.
 
 ## Usage
 
