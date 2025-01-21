@@ -14,7 +14,7 @@ export function presetAstro(): Preset {
       settings.typescript.extensions.push(GLOB_ASTRO_EXT)
     },
     install: ({ features }) => {
-      const { typescript, stylistic } = features
+      const { typescript } = features
 
       return [
         {
@@ -48,17 +48,8 @@ export function presetAstro(): Preset {
             'astro/prefer-object-class-list': 'error',
             'astro/prefer-split-class-list': 'error',
             'astro/semi': 'off',
+            'astro/sort-attributes': 'error',
             'astro/valid-compile': 'error',
-
-            ...stylistic
-              ? {
-                  'style/indent': 'off',
-                  'style/jsx-closing-tag-location': 'off',
-                  'style/jsx-indent': 'off',
-                  'style/jsx-one-expression-per-line': 'off',
-                  'style/no-multiple-empty-lines': 'off',
-                }
-              : {},
           },
         },
       ]
