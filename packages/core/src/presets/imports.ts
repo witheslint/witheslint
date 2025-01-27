@@ -33,7 +33,8 @@ export function presetImports(): Preset {
                 ignoreRestSiblings: true,
                 vars: 'all',
                 varsIgnorePattern: '^_',
-              }],
+              },
+            ],
           },
         },
       ]

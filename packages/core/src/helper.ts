@@ -46,7 +46,9 @@ export function combineRules(configs: Config[]) {
     configs.flatMap(
       obj => obj.rules
         ? Object.entries(obj.rules)
-        : []))
+        : [],
+    ),
+  )
 }
 
 function isInGitHooks(): boolean {
