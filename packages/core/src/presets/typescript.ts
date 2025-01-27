@@ -45,7 +45,7 @@ export function presetTypescript(): Preset {
 
             'ts/ban-ts-comment': ['error', { 'ts-ignore': 'allow-with-description' }],
             'ts/consistent-type-definitions': ['error', 'interface'],
-            'ts/consistent-type-imports': ['error', { disallowTypeAnnotations: false, prefer: 'type-imports' }],
+            'ts/consistent-type-imports': ['error', { disallowTypeAnnotations: false, fixStyle: 'separate-type-imports', prefer: 'type-imports' }],
             'ts/method-signature-style': ['error', 'property'],
             'ts/no-dupe-class-members': 'error',
             'ts/no-dynamic-delete': 'off',

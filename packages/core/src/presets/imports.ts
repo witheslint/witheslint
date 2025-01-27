@@ -13,6 +13,7 @@ export function presetImports(): Preset {
             'unused-imports': pluginUnusedImports,
           },
           rules: {
+            'import/consistent-type-specifier-style': ['error', 'prefer-top-level'],
             'import/export': 'error',
             'import/first': 'error',
             'import/newline-after-import': ['error', { count: 1 }],
