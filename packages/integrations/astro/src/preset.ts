@@ -14,7 +14,7 @@ export function presetAstro(): Preset {
       settings.typescript.extensions.push(GLOB_ASTRO_EXT)
     },
     install: ({ features }) => {
-      const { typescript } = features
+      const { typescript, stylistic } = features
 
       return [
         {
@@ -50,6 +50,12 @@ export function presetAstro(): Preset {
             'astro/semi': 'off',
             'astro/sort-attributes': 'error',
             'astro/valid-compile': 'error',
+
+            ...stylistic
+              ? {
+                  'style/jsx-one-expression-per-line': 'off',
+                }
+              : {},
           },
         },
       ]
