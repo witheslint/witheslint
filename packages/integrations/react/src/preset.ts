@@ -34,7 +34,7 @@ export function presetReact(): Preset {
             },
           },
           rules: {
-          // recommended rules react
+            // recommended rules react
             ...typescript
               ? renameRules((pluginReact as any).configs['recommended-type-checked'].rules, '@eslint-react/', 'react/')
               : renameRules((pluginReact as any).configs['recommended'].rules, '@eslint-react/', 'react/'),
