@@ -14,15 +14,13 @@ export function presetStylistic(): Preset {
             ...features.stylistic ? { style: pluginStylistic } : {},
           },
           rules: {
+            'antfu/curly': 'error',
             'antfu/consistent-chaining': 'error',
+            'antfu/consistent-list-newline': 'error',
             'antfu/top-level-function': 'error',
 
             ...features.prettier
               ? {
-                  'arrow-body-style': 'off',
-                  'curly': 'off',
-                  'no-unexpected-multiline': 'off',
-                  'prefer-arrow-callback': 'off',
                   'prettier/prettier': 'error',
                 }
               : {},
@@ -34,12 +32,14 @@ export function presetStylistic(): Preset {
                     pluginName: 'style',
                     ...settings.stylistic,
                   }).rules,
-
-                  curly: ['error', 'multi-line', 'consistent'],
                 }
               : {
+                  'antfu/curly': 'off',
+
+                  'arrow-body-style': 'off',
                   'curly': 'off',
                   'no-unexpected-multiline': 'off',
+                  'prefer-arrow-callback': 'off',
                 },
           },
         },
