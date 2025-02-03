@@ -5,6 +5,10 @@ on:
     tags:
       - 'v*'
 
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   release:
     runs-on: ubuntu-latest
@@ -15,11 +19,6 @@ jobs:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0
-
-      - name: Configure Git
-        run: |
-          git config --global user.name 'github-actions[bot]'
-          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
 
       - name: Set up Node.js
         uses: actions/setup-node@v4
@@ -35,11 +34,11 @@ jobs:
       - name: Publish to NPM
         run: pnpm -r publish --access public --no-git-checks
         env:
-          NODE_AUTH_TOKEN: ${{secrets.TOKEN_NPM}}
+          NODE_AUTH_TOKEN: ${{ secrets.TOKEN_NPM }}
           NPM_CONFIG_PROVENANCE: true
 
       - name: Generate changelog
         if: ${{ success() }}
         run: npx changelogithub
         env:
-          GITHUB_TOKEN: ${{secrets.TOKEN_GITHUB}}
+          GITHUB_TOKEN: ${{ secrets.TOKEN_GITHUB }}
