@@ -3,7 +3,7 @@
   "type": "module",
   "packageManager": "pnpm@10.6.5",
   "engines": {
-    "node": "^20.9.0 || >=21.0.0"
+    "node": "^20.9.0 || >=21.1.0"
   },
   "scripts": {
     "build": "pnpm --recursive build",
@@ -11,18 +11,18 @@
     "release": "bumpp"
   },
   "devDependencies": {
-    "@commitlint/cli": "^19.6.1",
-    "@commitlint/config-conventional": "^19.6.0",
-    "@eslint/config-inspector": "^1.0.0",
-    "@types/node": "^20.17.14",
-    "bumpp": "^9.10.1",
-    "eslint": "^9.18.0",
-    "eslint-typegen": "^1.0.0",
+    "@commitlint/cli": "^19.8.0",
+    "@commitlint/config-conventional": "^19.8.0",
+    "@eslint/config-inspector": "^1.0.2",
+    "@types/node": "^20.17.24",
+    "bumpp": "^10.1.0",
+    "eslint": "^9.22.0",
+    "eslint-typegen": "^2.1.0",
     "jiti": "^2.4.2",
-    "lefthook": "^1.10.10",
-    "tsx": "^4.19.2",
+    "lefthook": "^1.11.3",
+    "tsx": "^4.19.3",
     "typescript": "~5.7.3",
-    "unbuild": "^3.3.1",
+    "unbuild": "^3.5.0",
     "witheslint": "workspace:^"
   },
   "changelogithub": {

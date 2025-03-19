@@ -21,11 +21,11 @@
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
-      "import": "./dist/index.mjs"
+      "default": "./dist/index.mjs"
     },
     "./modules": {
       "types": "./dist/modules.d.ts",
-      "import": "./dist/modules.mjs"
+      "default": "./dist/modules.mjs"
     }
   },
   "main": "./dist/index.mjs",
@@ -40,8 +40,8 @@
     "prepublishOnly": "pnpm build"
   },
   "dependencies": {
-    "eslint-plugin-svelte": "^2.46.1",
-    "svelte-eslint-parser": "^0.43.0"
+    "eslint-plugin-svelte": "^3.3.2",
+    "svelte-eslint-parser": "^1.1.0"
   },
   "devDependencies": {
     "@witheslint/core": "workspace:^"
