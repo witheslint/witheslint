@@ -28,7 +28,6 @@ export function presetStylistic(): Preset {
             ...features.stylistic
               ? {
                   ...(pluginStylistic as any).configs.customize({
-                    flat: true,
                     pluginName: 'style',
                     ...settings.stylistic,
                   }).rules,
