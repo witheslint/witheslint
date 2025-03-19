@@ -9,6 +9,7 @@
     "bumpp",
     "changelogithub",
     "commitlint",
+    "esbuild",
     "lefthook",
     "nuxt",
     "NVIM",
