@@ -40,7 +40,7 @@
     "prepublishOnly": "pnpm build"
   },
   "dependencies": {
-    "eslint-plugin-svelte": "^3.3.2",
+    "eslint-plugin-svelte": "^3.3.3",
     "svelte-eslint-parser": "^1.1.0"
   },
   "devDependencies": {

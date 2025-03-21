@@ -14,7 +14,7 @@
     "@commitlint/cli": "^19.8.0",
     "@commitlint/config-conventional": "^19.8.0",
     "@eslint/config-inspector": "^1.0.2",
-    "@types/node": "^20.17.24",
+    "@types/node": "^20.17.25",
     "bumpp": "^10.1.0",
     "eslint": "^9.22.0",
     "eslint-typegen": "^2.1.0",
