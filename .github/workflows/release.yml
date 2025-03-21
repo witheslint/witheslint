@@ -32,7 +32,7 @@ jobs:
         run: pnpm install
 
       - name: Publish to NPM
-        run: pnpm -r publish --access public --no-git-checks
+        run: pnpm --recursive publish --access public --no-git-checks
         env:
           NODE_AUTH_TOKEN: ${{ secrets.TOKEN_NPM }}
           NPM_CONFIG_PROVENANCE: true
