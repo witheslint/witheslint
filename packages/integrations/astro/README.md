@@ -12,4 +12,4 @@
 
 ## Usage
 
-> Please refer to the [documentation](https://witheslint.github.io/integrations/astro) for more details.
+> Please refer to the [documentation](https://witheslint.github.io/guides/getting-started) for more details.
