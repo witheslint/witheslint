@@ -1,27 +1,81 @@
-import type { Features, StylisticConfig, TypescriptConfig, Unified } from './types'
+import type { Unified } from './types'
+import type { StylisticCustomizeOptions } from '@stylistic/eslint-plugin'
 import { isBoolean, isObject } from 'radashi'
 import { isInEditorEnv, isPackageExists } from './helper'
+
+interface StylisticConfig extends Omit<StylisticCustomizeOptions, 'pluginName'> {
+  quotes?: 'single' | 'double'
+}
+
+interface TypescriptConfig {
+  /**
+   * Additional file extensions to be treated as TypeScript files
+   * @example ['.vue', '.svelte']
+   * @default []
+   */
+  extensions?: string[]
+}
+
+export interface Features {
+  /**
+   * Enable stylistic rules configuration
+   *
+   * - `true`: Enable with default settings
+   * - `false`: Disable stylistic rules
+   * - `'prettier'`: Use Prettier-compatible mode
+   * - `StylisticConfig`: Custom configuration object
+   *
+   * @default true
+   */
+  stylistic?: boolean | StylisticConfig | 'prettier'
+  /**
+   * Enable sorting rules
+   *
+   * @default true
+   */
+  sorting?: boolean
+  /**
+   * Enable TypeScript support and rules
+   * Automatically detected based on TypeScript package presence
+   *
+   * @default Auto-detected
+   */
+  typescript?: boolean
+}
 
 type FeaturesFlag = Unified<Features, boolean>
 
 interface ContextOptions {
+  /**
+   * Glob patterns for files/directories to ignore
+   * @example ['**\/*.test.ts', 'dist/**']
+   */
   ignores?: string[]
+  /**
+   * Partial feature configuration overrides
+   */
   features?: Partial<Features>
 }
 
 interface ContextFeatures extends Required<FeaturesFlag> {
+  /** Whether Prettier integration is active */
   prettier: boolean
+  /** Index signature for extensibility */
   [key: string]: boolean
 }
 
 interface ContextSettings {
+  /** Final list of ignore patterns */
   ignores: string[]
+  /** Complete stylistic configuration with all required properties */
   stylistic: Required<StylisticConfig>
+  /** Complete TypeScript configuration with all required properties */
   typescript: Required<TypescriptConfig>
+  /** Index signature for extensibility */
   [key: string]: any
 }
 
-const defaultSettings: ContextSettings = Object.freeze({
+const defaultSettings = Object.freeze({
   stylistic: {
     indent: 2,
     jsx: true,
@@ -37,7 +91,7 @@ const defaultSettings: ContextSettings = Object.freeze({
     extensions: [],
   },
   ignores: [],
-})
+}) satisfies ContextSettings
 
 const hasPrettier = isPackageExists('prettier')
 const hasTypescript = isPackageExists('typescript')

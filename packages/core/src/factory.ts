@@ -1,4 +1,5 @@
-import type { Arrayable, ConfigModule, Features, Preset } from './types'
+import type { Features } from './context'
+import type { Arrayable, ConfigModule, Preset } from './types'
 import { castArray, isFunction, pick, unique } from 'radashi'
 import { Context } from './context'
 import {
