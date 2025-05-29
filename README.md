@@ -6,6 +6,10 @@
 
 <p align="center">Implementing a standardized ESLint configuration across all your projects.</p>
 
+<p align="center">
+  <a href="https://deepwiki.com/witheslint/witheslint"><img src="https://deepwiki.com/badge.svg" alt="Ask DeepWiki"></a>
+</p>
+
 <br>
 
 ## Features
