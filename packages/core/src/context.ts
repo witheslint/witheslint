@@ -1,6 +1,6 @@
 import type { Features, StylisticConfig, TypescriptConfig, Unified } from './types'
-import { isPackageExists } from 'local-pkg'
-import { isBoolean, isInEditorEnv, isObject } from './helper'
+import { isBoolean, isObject } from 'radashi'
+import { isInEditorEnv, isPackageExists } from './helper'
 
 type FeaturesFlag = Unified<Features, boolean>
 

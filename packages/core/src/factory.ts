@@ -1,6 +1,6 @@
 import type { Arrayable, ConfigModule, Features, Preset } from './types'
+import { castArray, isFunction, pick, unique } from 'radashi'
 import { Context } from './context'
-import { arrayify, isFunction, pick, uniqueBy } from './helper'
 import {
   presetDisables,
   presetIgnores,
@@ -35,7 +35,6 @@ interface Options {
 
 const builtinPresets: Preset[] = [
   presetIgnores(),
-  presetDisables(),
   presetJavascript(),
   presetJsdoc(),
   presetUnicorn(),
@@ -43,6 +42,7 @@ const builtinPresets: Preset[] = [
   presetSorting(),
   presetStylistic(),
   presetTypescript(),
+  presetDisables(),
 ]
 
 export async function defineConfig(options: Options = {}): Promise<ConfigModule[]> {
@@ -50,7 +50,7 @@ export async function defineConfig(options: Options = {}): Promise<ConfigModule[
 
   const presets = [...builtinPresets, ...options.presets || []].filter(Boolean)
   const results = await normalizePresets(presets, context)
-  const customize = options.extends ? normalizeExtends(arrayify(options.extends)) : []
+  const customize = options.extends ? normalizeExtends(castArray(options.extends)) : []
 
   return [...results, ...customize].filter(Boolean)
 }
@@ -62,7 +62,7 @@ export function definePreset<T extends Preset = Preset>(preset: T): T {
 async function normalizePresets(presets: Preset[] = [], context: Context): Promise<ConfigModule[]> {
   if (presets.length === 0) return []
 
-  const deduped = uniqueBy(presets, (pre, current) => pre.name === current.name)
+  const deduped = unique(presets, i => i.name)
   const shouldPrepare = deduped.filter(preset => isFunction(preset.prepare))
   const shouldInstall = deduped.filter(preset => isFunction(preset.install))
 

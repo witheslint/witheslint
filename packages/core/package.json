@@ -52,7 +52,8 @@
     "eslint-plugin-unicorn": "^59.0.0",
     "eslint-plugin-unused-imports": "^4.1.4",
     "globals": "^16.0.0",
-    "local-pkg": "^1.1.1"
+    "local-pkg": "^1.1.1",
+    "radashi": "^12.5.1"
   },
   "peerDependencies": {
     "eslint": "^9.20.0",
