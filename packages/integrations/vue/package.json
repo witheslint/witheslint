@@ -1,6 +1,6 @@
 {
   "name": "@witheslint/preset-vue",
-  "version": "1.15.0",
+  "version": "1.16.0",
   "type": "module",
   "description": "The vue preset for witheslint.",
   "author": "Joie <leaps@live.com>",
