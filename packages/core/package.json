@@ -19,26 +19,21 @@
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
-      "default": "./dist/index.mjs"
+      "default": "./dist/index.js"
     },
-    "./modules": {
-      "types": "./dist/modules.d.ts",
-      "default": "./dist/modules.mjs"
-    }
+    "./package.json": "./package.json"
   },
-  "main": "./dist/index.mjs",
-  "module": "./dist/index.mjs",
-  "types": "./dist/index.d.ts",
   "files": [
     "dist"
   ],
   "engines": {
-    "node": "^18.18.0 || ^20.9.0 || >=21.1.0"
+    "node": "^18.20.0 || ^20.9.0 || >=21.1.0"
   },
   "scripts": {
-    "build": "pnpm typegen && unbuild",
-    "prepublishOnly": "pnpm build",
-    "typegen": "tsx scripts/typegen.ts"
+    "build": "pnpm typegen && tsdown",
+    "watch": "tsdown --watch",
+    "typegen": "tsx scripts/typegen.ts",
+    "prepublishOnly": "pnpm build"
   },
   "dependencies": {
     "@stylistic/eslint-plugin": "^4.4.0",

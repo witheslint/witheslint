@@ -21,21 +21,16 @@
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
-      "default": "./dist/index.mjs"
+      "default": "./dist/index.js"
     },
-    "./modules": {
-      "types": "./dist/modules.d.ts",
-      "default": "./dist/modules.mjs"
-    }
+    "./package.json": "./package.json"
   },
-  "main": "./dist/index.mjs",
-  "module": "./dist/index.mjs",
-  "types": "./dist/index.d.ts",
   "files": [
     "dist"
   ],
   "scripts": {
-    "build": "pnpm typegen && unbuild",
+    "build": "pnpm typegen && tsdown",
+    "watch": "tsdown --watch",
     "typegen": "tsx scripts/typegen.ts",
     "prepublishOnly": "pnpm build"
   },

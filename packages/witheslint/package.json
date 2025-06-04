@@ -19,22 +19,16 @@
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
-      "default": "./dist/index.mjs"
+      "default": "./dist/index.js"
     },
-    "./modules": {
-      "types": "./dist/modules.d.ts",
-      "default": "./dist/modules.mjs"
-    }
+    "./package.json": "./package.json"
   },
-  "main": "./dist/index.mjs",
-  "module": "./dist/index.mjs",
-  "types": "./dist/index.d.ts",
   "files": [
     "dist"
   ],
   "scripts": {
-    "build": "unbuild",
-    "prepublishOnly": "unbuild"
+    "build": "tsdown",
+    "prepublishOnly": "tsdown"
   },
   "dependencies": {
     "@witheslint/core": "workspace:^",
@@ -45,8 +39,7 @@
     "@witheslint/preset-vue": "workspace:^"
   },
   "peerDependencies": {
-    "prettier": "^3.0.0",
-    "svelte": "^3.37.0 || ^4.0.0 || ^5.0.0"
+    "prettier": "^3.0.0"
   },
   "peerDependenciesMeta": {
     "prettier": {
