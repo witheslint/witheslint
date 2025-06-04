@@ -41,4 +41,4 @@ jobs:
         if: ${{ success() }}
         run: npx changelogithub
         env:
-          GITHUB_TOKEN: ${{ secrets.TOKEN_GITHUB }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
