@@ -1,0 +1,31 @@
+name: Preview
+
+on:
+  push:
+    branches:
+      - 'edge'
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  preview:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - run: corepack enable
+
+      - run: pnpm install
+
+      - run: pnpm build
+
+      - run: pnpm dlx pkg-pr-new publish --compact './packages/**/*'
