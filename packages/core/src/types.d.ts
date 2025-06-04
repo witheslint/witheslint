@@ -16,10 +16,39 @@ export type ParserModule = Linter.Parser
 export type PluginModule = ESLint.Plugin
 
 export interface Preset {
-  /** Custom name of each preset item. */
+  /**
+   * A unique identifier for the preset.
+   *
+   * @description This name is used for debugging, logging, and identifying the preset
+   * in configuration chains. It should follow the format 'preset:category'
+   * for consistency (e.g., 'preset:typescript', 'preset:vue').
+   */
   name: string
-  /** Function to prepare the context. */
+
+  /**
+   * Optional preparation hook that runs before the preset installation.
+   *
+   * @description This function is called during the configuration setup phase and allows
+   * the preset to perform any necessary initialization tasks, such as:
+   * - Setting up default configurations
+   * - Preparing shared resources
+   *
+   * The context is mutable during this phase, allowing modifications
+   * to settings, features, or other configuration aspects.
+   */
   prepare?: (context: Context) => Awaitable<void>
-  /** Function to install the preset. */
+
+  /**
+   * Main installation function that generates ESLint configuration modules.
+   *
+   * @description This is the core function of the preset, responsible for:
+   * - Loading and configuring ESLint plugins
+   * - Defining rules based on the current context
+   * - Creating configuration objects for different file patterns
+   * - Applying conditional logic based on detected features
+   *
+   * The context is read-only during this phase to ensure configuration
+   * consistency across all presets in the chain.
+   */
   install: (context: DeepReadonly<Context>) => Awaitable<Arrayable<ConfigModule>>
 }
