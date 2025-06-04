@@ -1,9 +1,11 @@
 import { writeFile } from 'node:fs/promises'
+import { interopDefault } from '@witheslint/core'
 import { pluginsToRulesDTS } from 'eslint-typegen/core'
-import { pluginSolid } from '../src/modules'
+
+const pluginSolid = await interopDefault(import('eslint-plugin-solid'))
 
 const dts = await pluginsToRulesDTS({
-  solid: pluginSolid,
+  solid: pluginSolid as any,
 }, { exportTypeName: 'RuleSetsSolid' })
 
 await writeFile('src/rules.d.ts', dts)

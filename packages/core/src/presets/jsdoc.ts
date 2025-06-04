@@ -1,14 +1,14 @@
 import type { Preset } from '../types'
-import { pluginJsdoc } from '../modules'
+import { interopDefault } from '../helper'
 
 export function presetJsdoc(): Preset {
   return {
     name: 'preset:jsdoc',
-    install: ({ features }) => {
+    install: async ({ features }) => {
       return [
         {
           name: 'witheslint:jsdoc:configs',
-          plugins: { jsdoc: pluginJsdoc },
+          plugins: { jsdoc: await interopDefault(import('eslint-plugin-jsdoc')) },
           settings: {
             jsdoc: {
               mode: features.typescript ? 'typescript' : 'jsdoc',

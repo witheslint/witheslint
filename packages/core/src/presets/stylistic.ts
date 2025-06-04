@@ -1,20 +1,26 @@
 import type { Preset } from '../types'
-import { pluginAntfu, pluginPrettier, pluginStylistic } from '../modules'
+import { interopDefault } from '../helper'
 
 export function presetStylistic(): Preset {
   return {
     name: 'preset:stylistic',
-    install: ({ settings, features }) => {
+    install: async ({ settings, features }) => {
+      const plugins: Record<string, any> = {
+        antfu: await interopDefault(import('eslint-plugin-antfu')),
+      }
+
+      if (features.prettier) {
+        plugins.prettier = await interopDefault(import('eslint-plugin-prettier'))
+      }
+      if (features.stylistic) {
+        plugins.style = await interopDefault(import('@stylistic/eslint-plugin'))
+      }
+
       return [
         {
           name: 'witheslint:stylistic:configs',
-          plugins: {
-            antfu: pluginAntfu,
-            ...features.prettier ? { prettier: pluginPrettier } : {},
-            ...features.stylistic ? { style: pluginStylistic } : {},
-          },
+          plugins,
           rules: {
-            'antfu/curly': 'error',
             'antfu/consistent-chaining': 'error',
             'antfu/consistent-list-newline': 'error',
             'antfu/top-level-function': 'error',
@@ -27,7 +33,9 @@ export function presetStylistic(): Preset {
 
             ...features.stylistic
               ? {
-                  ...(pluginStylistic as any).configs.customize({
+                  'antfu/curly': 'error',
+
+                  ...plugins.style.configs.customize({
                     pluginName: 'style',
                     ...settings.stylistic,
                   }).rules,

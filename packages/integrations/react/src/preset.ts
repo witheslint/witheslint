@@ -1,7 +1,5 @@
 import type { Preset } from '@witheslint/core'
-import { GLOB_JSX, GLOB_TSX, renameRules } from '@witheslint/core'
-import { parserTs } from '@witheslint/core/modules'
-import { pluginReact, pluginReactHooks } from './modules'
+import { GLOB_JSX, GLOB_TSX, interopDefault, renameRules } from '@witheslint/core'
 
 export const GLOB_REACT_EXCLUDES = ['**/.next'] as const
 
@@ -11,14 +9,19 @@ export function presetReact(): Preset {
     prepare: ({ settings }) => {
       settings.ignores.push(...GLOB_REACT_EXCLUDES)
     },
-    install: ({ features }) => {
+    install: async ({ features, settings }) => {
       const { typescript } = features
+      const parserTs = settings.typescript.parser
+      const [pluginReact, pluginReactHooks] = await Promise.all([
+        interopDefault(import('@eslint-react/eslint-plugin')),
+        interopDefault(import('eslint-plugin-react-hooks')),
+      ] as const)
 
       return [
         {
           name: 'witheslint:react:plugins',
           plugins: {
-            'react': pluginReact,
+            'react': pluginReact as any,
             'react-hooks': pluginReactHooks,
           },
         },
@@ -36,8 +39,8 @@ export function presetReact(): Preset {
           rules: {
             // recommended rules react
             ...typescript
-              ? renameRules((pluginReact as any).configs['recommended-type-checked'].rules, '@eslint-react/', 'react/')
-              : renameRules((pluginReact as any).configs['recommended'].rules, '@eslint-react/', 'react/'),
+              ? renameRules(pluginReact.configs['recommended-type-checked'].rules, '@eslint-react/', 'react/')
+              : renameRules(pluginReact.configs['recommended'].rules, '@eslint-react/', 'react/'),
 
             // recommended rules react-hooks
             'react-hooks/exhaustive-deps': 'warn',

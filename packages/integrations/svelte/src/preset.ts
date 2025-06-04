@@ -1,6 +1,5 @@
 import type { Preset } from '@witheslint/core'
-import { parserTs } from '@witheslint/core/modules'
-import { parserSvelte, pluginSvelte } from './modules'
+import { interopDefault } from '@witheslint/core'
 
 export const GLOB_SVELTE = '**/*.svelte' as const
 export const GLOB_SVELTE_EXT = '.svelte' as const
@@ -13,9 +12,14 @@ export function presetSvelte(): Preset {
       settings.ignores.push(...GLOB_SVELTE_EXCLUDES)
       settings.typescript.extensions.push(GLOB_SVELTE_EXT)
     },
-    install: ({ features, settings }) => {
+    install: async ({ features, settings }) => {
       const { typescript, stylistic } = features
       const { indent, quotes } = settings.stylistic
+      const parserTs = settings.typescript.parser
+      const [parserSvelte, pluginSvelte] = await Promise.all([
+        interopDefault(import('svelte-eslint-parser')),
+        interopDefault(import('eslint-plugin-svelte')),
+      ] as const)
 
       return [
         {

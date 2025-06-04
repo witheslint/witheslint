@@ -1,10 +1,15 @@
 export { isPackageExists } from 'local-pkg'
 
-export function interopDefault<T>(module: T): T extends { default: infer U } ? U : T {
-  return (module as any).default || module
+export async function interopDefault<T>(module: T | Promise<T>): Promise<T extends { default: infer U } ? U : T> {
+  const resolved = await module
+  return (resolved as any).default || resolved
 }
 
-export function renameRules(rules: Record<string, any>, from: string, to: string) {
+export function renameRules(
+  rules: Record<string, any>,
+  from: string,
+  to: string,
+): Record<string, any> {
   return Object.fromEntries(
     Object.entries(rules)
       .map(([key, value]) => {
@@ -14,31 +19,12 @@ export function renameRules(rules: Record<string, any>, from: string, to: string
   )
 }
 
-export function combineRules(configs: { rules?: Record<string, any> }[]) {
+export function combineRules(configs: { rules?: Record<string, any> }[]): Record<string, any> {
   return Object.fromEntries(
     configs.flatMap(
       obj => obj.rules
         ? Object.entries(obj.rules)
         : [],
     ),
-  )
-}
-
-function isInGitHooks(): boolean {
-  return !!(
-    process.env.GIT_PARAMS
-    || process.env.VSCODE_GIT_COMMAND
-  )
-}
-
-export function isInEditorEnv(): boolean {
-  if (process.env.CI) return false
-  if (isInGitHooks()) return false
-  return !!(
-    process.env.VSCODE_PID
-    || process.env.VSCODE_CWD
-    || process.env.JETBRAINS_IDE
-    || process.env.VIM
-    || process.env.NVIM
   )
 }

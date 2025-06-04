@@ -1,9 +1,14 @@
 import { writeFile } from 'node:fs/promises'
+import { interopDefault } from '@witheslint/core'
 import { pluginsToRulesDTS } from 'eslint-typegen/core'
-import { pluginReact, pluginReactHooks } from '../src/modules'
+
+const [pluginReact, pluginReactHooks] = await Promise.all([
+  interopDefault(import('@eslint-react/eslint-plugin')),
+  interopDefault(import('eslint-plugin-react-hooks')),
+])
 
 const dts = await pluginsToRulesDTS({
-  'react': pluginReact,
+  'react': pluginReact as any,
   'react-hooks': pluginReactHooks,
 }, { exportTypeName: 'RuleSetsReact' })
 

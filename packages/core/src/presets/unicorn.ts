@@ -1,16 +1,18 @@
 import type { Preset } from '../types'
-import { pluginUnicorn } from '../modules'
+import { interopDefault } from '../helper'
 
 export function presetUnicorn(): Preset {
   return {
     name: 'preset:unicorn',
-    install: ({ features }) => {
+    install: async ({ features }) => {
+      const pluginUnicorn = await interopDefault(import('eslint-plugin-unicorn'))
+
       return [
         {
           name: 'witheslint:unicorn:configs',
           plugins: { unicorn: pluginUnicorn },
           rules: {
-            ...(pluginUnicorn as any).configs['flat/recommended'].rules,
+            ...pluginUnicorn.configs['recommended'].rules,
 
             'unicorn/consistent-function-scoping': 'off',
             'unicorn/filename-case': [

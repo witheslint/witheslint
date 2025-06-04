@@ -1,6 +1,8 @@
 import { writeFile } from 'node:fs/promises'
+import { interopDefault } from '@witheslint/core'
 import { pluginsToRulesDTS } from 'eslint-typegen/core'
-import { pluginVue } from '../src/modules'
+
+const pluginVue = await interopDefault(import('eslint-plugin-vue'))
 
 const dts = await pluginsToRulesDTS({
   vue: pluginVue,

@@ -1,20 +1,21 @@
 import type { Preset } from '../types'
 import { GLOB_TS, GLOB_TSX } from '../globs'
-import { renameRules } from '../helper'
-import { parserTs, pluginTs } from '../modules'
+import { interopDefault, renameRules } from '../helper'
 
 export function presetTypescript(): Preset {
   return {
     name: 'preset:typescript',
-    install: ({ settings, features }) => {
-      if (!features.typescript) return []
-
-      const { extensions } = settings.typescript
+    prepare: async ({ settings }) => {
+      settings.typescript.parser = (await interopDefault(import('@typescript-eslint/parser')))
+    },
+    install: async ({ settings }) => {
+      const { extensions, parser: parserTs } = settings.typescript
+      const pluginTs = await interopDefault(import('@typescript-eslint/eslint-plugin'))
 
       return [
         {
           name: 'witheslint:typescript:plugins',
-          plugins: { ts: pluginTs },
+          plugins: { ts: pluginTs as any },
         },
         {
           name: 'witheslint:typescript:configs',
@@ -28,12 +29,12 @@ export function presetTypescript(): Preset {
           },
           rules: {
             ...renameRules(
-              (pluginTs as any).configs['eslint-recommended'].overrides[0].rules,
+              pluginTs.configs['eslint-recommended'].overrides![0].rules!,
               '@typescript-eslint/',
               'ts/',
             ),
             ...renameRules(
-              (pluginTs as any).configs['strict'].rules,
+              (pluginTs.configs)['strict'].rules!,
               '@typescript-eslint/',
               'ts/',
             ),

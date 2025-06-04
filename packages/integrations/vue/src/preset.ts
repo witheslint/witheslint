@@ -1,7 +1,5 @@
 import type { Preset } from '@witheslint/core'
-import { combineRules } from '@witheslint/core'
-import { parserTs } from '@witheslint/core/modules'
-import { parserVue, pluginVue } from './modules'
+import { combineRules, interopDefault } from '@witheslint/core'
 
 export const GLOB_VUE = '**/*.vue' as const
 export const GLOB_VUE_EXT = '.vue' as const
@@ -14,9 +12,14 @@ export function presetVue(): Preset {
       settings.ignores.push(...GLOB_VUE_EXCLUDES)
       settings.typescript.extensions.push(GLOB_VUE_EXT)
     },
-    install: ({ features, settings }) => {
+    install: async ({ features, settings }) => {
       const { typescript, stylistic } = features
       const { indent, blockSpacing, braceStyle, commaDangle, quoteProps } = settings.stylistic
+      const parserTs = settings.typescript.parser
+      const [parserVue, pluginVue] = await Promise.all([
+        interopDefault(import('vue-eslint-parser')),
+        interopDefault(import('eslint-plugin-vue')),
+      ] as const)
 
       return [
         {
@@ -39,7 +42,7 @@ export function presetVue(): Preset {
           },
           processor: pluginVue.processors!['.vue'],
           rules: {
-            ...combineRules((pluginVue as any).configs['flat/recommended']),
+            ...combineRules(pluginVue.configs['flat/recommended']),
 
             'vue/block-order': ['error', { order: ['script', 'template', 'style'] }],
             'vue/component-name-in-template-casing': ['error', 'PascalCase'],

@@ -1,18 +1,18 @@
 import type { Preset } from '@witheslint/core'
-import { GLOB_JSX, GLOB_TSX } from '@witheslint/core'
-import { parserTs } from '@witheslint/core/modules'
-import { pluginSolid } from './modules'
+import { GLOB_JSX, GLOB_TSX, interopDefault } from '@witheslint/core'
 
 export function presetSolid(): Preset {
   return {
     name: 'preset:solid',
-    install: ({ features }) => {
+    install: async ({ features, settings }) => {
       const { typescript } = features
+      const parserTs = settings.typescript.parser
+      const pluginSolid = await interopDefault(import('eslint-plugin-solid'))
 
       return [
         {
           name: 'witheslint:solid:plugins',
-          plugins: { solid: pluginSolid },
+          plugins: { solid: pluginSolid as any },
         },
         {
           name: 'witheslint:solid:configs',

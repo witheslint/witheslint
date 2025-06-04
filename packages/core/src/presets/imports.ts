@@ -1,15 +1,20 @@
 import type { Preset } from '../types'
-import { pluginImport, pluginUnusedImports } from '../modules'
+import { interopDefault } from '../helper'
 
 export function presetImports(): Preset {
   return {
     name: 'preset:imports',
-    install: ({ isInEditor }) => {
+    install: async () => {
+      const [pluginImport, pluginUnusedImports] = await Promise.all([
+        interopDefault(import('eslint-plugin-import-x')),
+        interopDefault(import('eslint-plugin-unused-imports')),
+      ])
+
       return [
         {
           name: 'witheslint:import:configs',
           plugins: {
-            'import': pluginImport,
+            'import': pluginImport as any,
             'unused-imports': pluginUnusedImports,
           },
           rules: {
@@ -24,7 +29,7 @@ export function presetImports(): Preset {
             'import/no-useless-path-segments': 'error',
             'import/no-webpack-loader-syntax': 'error',
 
-            'unused-imports/no-unused-imports': isInEditor ? 'off' : 'warn',
+            'unused-imports/no-unused-imports': 'warn',
             'unused-imports/no-unused-vars': [
               'warn',
               {

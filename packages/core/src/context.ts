@@ -1,9 +1,9 @@
-import type { Unified } from './types'
+import type { ParserModule, Unified } from './types'
 import type { StylisticCustomizeOptions } from '@stylistic/eslint-plugin'
 import { isBoolean, isObject } from 'radashi'
-import { isInEditorEnv, isPackageExists } from './helper'
+import { isPackageExists } from './helper'
 
-interface StylisticConfig extends Omit<StylisticCustomizeOptions, 'pluginName'> {
+interface StylisticConfig extends Omit<StylisticCustomizeOptions, 'pluginName' | 'severity'> {
   quotes?: 'single' | 'double'
 }
 
@@ -14,11 +14,15 @@ interface TypescriptConfig {
    * @default []
    */
   extensions?: string[]
+  /**
+   * Specify the parser to be used for TypeScript files
+   */
+  parser?: ParserModule
 }
 
 export interface Features {
   /**
-   * Enable stylistic rules configuration
+   * Enable stylistic support
    *
    * - `true`: Enable with default settings
    * - `false`: Disable stylistic rules
@@ -29,13 +33,13 @@ export interface Features {
    */
   stylistic?: boolean | StylisticConfig | 'prettier'
   /**
-   * Enable sorting rules
+   * Enable sorting support
    *
    * @default true
    */
   sorting?: boolean
   /**
-   * Enable TypeScript support and rules
+   * Enable TypeScript support
    * Automatically detected based on TypeScript package presence
    *
    * @default Auto-detected
@@ -89,13 +93,13 @@ const defaultSettings = Object.freeze({
   },
   typescript: {
     extensions: [],
+    parser: undefined as any,
   },
   ignores: [],
 }) satisfies ContextSettings
 
 const hasPrettier = isPackageExists('prettier')
 const hasTypescript = isPackageExists('typescript')
-const isInEditor = isInEditorEnv()
 
 export class Context {
   public features: ContextFeatures
@@ -104,10 +108,6 @@ export class Context {
   constructor(options: ContextOptions) {
     this.features = this.initializeFeatures(options.features)
     this.settings = this.initializeSettings(options)
-  }
-
-  get isInEditor(): boolean {
-    return isInEditor
   }
 
   private initializeFeatures(features: Partial<Features> = {}): ContextFeatures {
@@ -123,16 +123,15 @@ export class Context {
   }
 
   private initializeSettings({ features = {}, ignores = [] }: ContextOptions): ContextSettings {
-    const finalStylistic = isObject(features.stylistic)
+    const isPrettierMode = features.stylistic === 'prettier'
+    const stylistic = !isPrettierMode && isObject(features.stylistic)
       ? { ...defaultSettings.stylistic, ...features.stylistic }
       : { ...defaultSettings.stylistic }
-    const finalIgnores = [...new Set([...ignores, ...defaultSettings.ignores])]
-    const finalTypescript = { ...defaultSettings.typescript }
 
     return {
-      ignores: finalIgnores,
-      stylistic: finalStylistic,
-      typescript: finalTypescript,
+      ignores: [...new Set([...ignores, ...defaultSettings.ignores])],
+      stylistic,
+      typescript: { ...defaultSettings.typescript },
     }
   }
 }

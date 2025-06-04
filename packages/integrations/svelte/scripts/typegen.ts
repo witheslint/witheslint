@@ -1,6 +1,8 @@
 import { writeFile } from 'node:fs/promises'
+import { interopDefault } from '@witheslint/core'
 import { pluginsToRulesDTS } from 'eslint-typegen/core'
-import { pluginSvelte } from '../src/modules'
+
+const pluginSvelte = await interopDefault(import('eslint-plugin-svelte'))
 
 const dts = await pluginsToRulesDTS({
   svelte: pluginSvelte,

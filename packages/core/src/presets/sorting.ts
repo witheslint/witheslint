@@ -1,16 +1,14 @@
 import type { Preset } from '../types'
-import { pluginSorting } from '../modules'
+import { interopDefault } from '../helper'
 
 export function presetSorting(): Preset {
   return {
     name: 'preset:sorting',
-    install: ({ features }) => {
-      if (!features.sorting) return []
-
+    install: async () => {
       return [
         {
           name: 'witheslint:sorting:configs',
-          plugins: { sorting: pluginSorting },
+          plugins: { sorting: await interopDefault(import('eslint-plugin-perfectionist')) },
           rules: {
             'sorting/sort-exports': ['error', { type: 'natural', groupKind: 'types-first' }],
             'sorting/sort-imports': [

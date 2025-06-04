@@ -1,6 +1,8 @@
 import { writeFile } from 'node:fs/promises'
+import { interopDefault } from '@witheslint/core'
 import { pluginsToRulesDTS } from 'eslint-typegen/core'
-import { pluginAstro } from '../src/modules'
+
+const pluginAstro = await interopDefault(import('eslint-plugin-astro'))
 
 const dts = await pluginsToRulesDTS({
   astro: pluginAstro,

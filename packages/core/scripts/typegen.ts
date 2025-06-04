@@ -1,7 +1,9 @@
 import { writeFile } from 'node:fs/promises'
 import { pluginsToRulesDTS } from 'eslint-typegen/core'
 import { builtinRules } from 'eslint/use-at-your-own-risk'
-import {
+import { interopDefault } from '../src/helper'
+
+const [
   pluginAntfu,
   pluginImport,
   pluginJsdoc,
@@ -11,18 +13,28 @@ import {
   pluginTs,
   pluginUnicorn,
   pluginUnusedImports,
-} from '../src/modules'
+] = await Promise.all([
+  interopDefault(import('eslint-plugin-antfu')),
+  interopDefault(import('eslint-plugin-import-x')),
+  interopDefault(import('eslint-plugin-jsdoc')),
+  interopDefault(import('eslint-plugin-prettier')),
+  interopDefault(import('eslint-plugin-perfectionist')),
+  interopDefault(import('@stylistic/eslint-plugin')),
+  interopDefault(import('@typescript-eslint/eslint-plugin')),
+  interopDefault(import('eslint-plugin-unicorn')),
+  interopDefault(import('eslint-plugin-unused-imports')),
+] as const)
 
 const dts = await pluginsToRulesDTS({
   '': { rules: Object.fromEntries(builtinRules.entries()) },
   'unicorn': pluginUnicorn,
-  'ts': pluginTs,
+  'ts': pluginTs as any,
   'jsdoc': pluginJsdoc,
   'sorting': pluginSorting,
   'antfu': pluginAntfu,
   'style': pluginStylistic,
   'prettier': pluginPrettier,
-  'import': pluginImport,
+  'import': pluginImport as any,
   'unused-imports': pluginUnusedImports,
 }, { exportTypeName: 'RuleSetsCore' })
 

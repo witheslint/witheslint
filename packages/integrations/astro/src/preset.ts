@@ -1,6 +1,5 @@
 import type { Preset } from '@witheslint/core'
-import { parserTs } from '@witheslint/core/modules'
-import { parserAstro, pluginAstro } from './modules'
+import { interopDefault } from '@witheslint/core'
 
 export const GLOB_ASTRO = '**/*.astro' as const
 export const GLOB_ASTRO_EXT = '.astro' as const
@@ -13,8 +12,13 @@ export function presetAstro(): Preset {
       settings.ignores.push(...GLOB_ASTRO_EXCLUDES)
       settings.typescript.extensions.push(GLOB_ASTRO_EXT)
     },
-    install: ({ features }) => {
+    install: async ({ features, settings }) => {
       const { typescript, stylistic } = features
+      const parserTs = settings.typescript.parser
+      const [pluginAstro, parserAstro] = await Promise.all([
+        interopDefault(import('eslint-plugin-astro')),
+        interopDefault(import('astro-eslint-parser')),
+      ] as const)
 
       return [
         {
@@ -25,7 +29,7 @@ export function presetAstro(): Preset {
           name: 'witheslint:astro:configs',
           files: [GLOB_ASTRO],
           languageOptions: {
-            globals: (pluginAstro as any).environments.astro.globals,
+            globals: pluginAstro.environments.astro.globals,
             parser: parserAstro,
             parserOptions: {
               extraFileExtensions: ['.astro'],
