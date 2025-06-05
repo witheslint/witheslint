@@ -12,6 +12,9 @@ pre-commit:
     lint commit codes:
       glob: '*.{js,ts}'
       run: pnpm eslint {staged_files} --fix
+      stage_fixed: true
+    type checking:
+      run: pnpm typecheck
 
 commit-msg:
   commands:

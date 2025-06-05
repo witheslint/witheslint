@@ -7,6 +7,8 @@
   },
   "scripts": {
     "build": "pnpm --recursive build",
+    "watch": "pnpm --recursive watch",
+    "typecheck": "tsc --noEmit",
     "inspector": "eslint-config-inspector",
     "release": "bumpp"
   },
