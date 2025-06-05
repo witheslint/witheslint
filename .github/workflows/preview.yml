@@ -10,7 +10,7 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  preview:
+  continuous-releases:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -24,8 +24,16 @@ jobs:
 
       - run: corepack enable
 
-      - run: pnpm install
+      - name: Install dependencies
+        run: pnpm install
 
-      - run: pnpm build
+      - name: Build packages
+        run: pnpm build
 
-      - run: pnpm dlx pkg-pr-new publish --compact './packages/**/*'
+      - name: Publish packages
+        run: |
+          pnpm dlx pkg-pr-new publish \
+            --compact \
+            --pnpm \
+            './packages/*' \
+            './packages/integrations/*'
