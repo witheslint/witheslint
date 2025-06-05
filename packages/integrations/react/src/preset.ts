@@ -1,12 +1,11 @@
 import type { Preset } from '@witheslint/core'
 import { GLOB_JSX, GLOB_TSX, interopDefault, renameRules } from '@witheslint/core'
 
-export const GLOB_REACT_EXCLUDES = ['**/.next'] as const
-
 export function presetReact(): Preset {
   return {
     name: 'preset:react',
     prepare: ({ settings }) => {
+      const GLOB_REACT_EXCLUDES = ['**/.next']
       settings.ignores.push(...GLOB_REACT_EXCLUDES)
     },
     install: async ({ features, settings }) => {

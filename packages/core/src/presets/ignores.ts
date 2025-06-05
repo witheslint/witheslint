@@ -1,5 +1,4 @@
 import type { Preset } from '../types'
-import { GLOB_EXCLUDE, GLOB_PACKAGE_LOCK } from '../globs'
 
 export function presetIgnores(): Preset {
   return {
@@ -9,7 +8,7 @@ export function presetIgnores(): Preset {
         {
           name: 'witheslint:ignores',
           ignores: [
-            ...new Set([...settings.ignores, ...GLOB_EXCLUDE, ...GLOB_PACKAGE_LOCK]),
+            ...new Set(settings.ignores),
           ].filter(Boolean),
         },
       ]

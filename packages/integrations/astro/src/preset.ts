@@ -3,12 +3,12 @@ import { interopDefault } from '@witheslint/core'
 
 export const GLOB_ASTRO = '**/*.astro' as const
 export const GLOB_ASTRO_EXT = '.astro' as const
-export const GLOB_ASTRO_EXCLUDES = ['**/.astro'] as const
 
 export function presetAstro(): Preset {
   return {
     name: 'preset:astro',
     prepare: ({ settings }) => {
+      const GLOB_ASTRO_EXCLUDES = ['**/.astro']
       settings.ignores.push(...GLOB_ASTRO_EXCLUDES)
       settings.typescript.extensions.push(GLOB_ASTRO_EXT)
     },

@@ -3,23 +3,6 @@ import type { StylisticCustomizeOptions } from '@stylistic/eslint-plugin'
 import { isBoolean, isObject } from 'radashi'
 import { isPackageExists } from './helper'
 
-interface StylisticConfig extends Omit<StylisticCustomizeOptions, 'pluginName' | 'severity'> {
-  quotes?: 'single' | 'double'
-}
-
-interface TypescriptConfig {
-  /**
-   * Additional file extensions to be treated as TypeScript files
-   * @example ['.vue', '.svelte']
-   * @default []
-   */
-  extensions?: string[]
-  /**
-   * Specify the parser to be used for TypeScript files
-   */
-  parser?: ParserModule
-}
-
 export interface Features {
   /**
    * Enable stylistic support
@@ -48,6 +31,23 @@ export interface Features {
 }
 
 type FeaturesFlag = Unified<Features, boolean>
+
+interface StylisticConfig extends Omit<StylisticCustomizeOptions, 'pluginName' | 'severity'> {
+  quotes?: 'single' | 'double'
+}
+
+interface TypescriptConfig {
+  /**
+   * Additional file extensions to be treated as TypeScript files
+   * @example ['.vue', '.svelte']
+   * @default []
+   */
+  extensions?: string[]
+  /**
+   * Specify the parser to be used for TypeScript files
+   */
+  parser?: ParserModule
+}
 
 interface ContextOptions {
   /**
@@ -95,7 +95,12 @@ const defaultSettings = Object.freeze({
     extensions: [],
     parser: undefined as any,
   },
-  ignores: [],
+  ignores: [
+    '**/node_modules',
+    '**/dist',
+    '**/.output',
+    '**/.cache',
+  ],
 }) satisfies ContextSettings
 
 const hasPrettier = isPackageExists('prettier')

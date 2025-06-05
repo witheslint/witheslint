@@ -3,12 +3,12 @@ import { interopDefault } from '@witheslint/core'
 
 export const GLOB_SVELTE = '**/*.svelte' as const
 export const GLOB_SVELTE_EXT = '.svelte' as const
-export const GLOB_SVELTE_EXCLUDES = ['**/.svelte-kit'] as const
 
 export function presetSvelte(): Preset {
   return {
     name: 'preset:svelte',
     prepare: ({ settings }) => {
+      const GLOB_SVELTE_EXCLUDES = ['**/.svelte-kit']
       settings.ignores.push(...GLOB_SVELTE_EXCLUDES)
       settings.typescript.extensions.push(GLOB_SVELTE_EXT)
     },

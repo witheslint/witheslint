@@ -3,12 +3,12 @@ import { combineRules, interopDefault } from '@witheslint/core'
 
 export const GLOB_VUE = '**/*.vue' as const
 export const GLOB_VUE_EXT = '.vue' as const
-export const GLOB_VUE_EXCLUDES = ['**/.nuxt'] as const
 
 export function presetVue(): Preset {
   return {
     name: 'preset:vue',
     prepare: ({ settings }) => {
+      const GLOB_VUE_EXCLUDES = ['**/.nuxt']
       settings.ignores.push(...GLOB_VUE_EXCLUDES)
       settings.typescript.extensions.push(GLOB_VUE_EXT)
     },
