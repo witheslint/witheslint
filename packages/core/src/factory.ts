@@ -64,7 +64,7 @@ export async function defineConfig(options: Options = {}): Promise<ConfigModule[
     (context.features.stylistic || context.features.prettier) && presetStylistic(),
     context.features.typescript && presetTypescript(),
     presetDisables(),
-  ].filter(Boolean)
+  ]
 
   const presets = [...builtinPresets, ...(options.presets || [])].filter(Boolean) as Preset[]
   const configs = await normalizePresets(presets, context)

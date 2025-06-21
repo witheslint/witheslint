@@ -25,7 +25,7 @@ export interface Features {
    * Enable TypeScript support
    * Automatically detected based on TypeScript package presence
    *
-   * @default Auto-detected
+   * @default auto-detected
    */
   typescript?: boolean
 }
@@ -40,7 +40,6 @@ interface TypescriptConfig {
   /**
    * Additional file extensions to be treated as TypeScript files
    * @example ['.vue', '.svelte']
-   * @default []
    */
   extensions?: string[]
   /**
