@@ -1,12 +1,12 @@
-name: Preview
+name: Continuous Releases
 
 on:
-  push:
-    branches:
-      - 'edge'
+  pull_request:
+    types: [opened, synchronize]
+  workflow_dispatch: {}
 
 concurrency:
-  group: ${{ github.workflow }}-${{ github.ref }}
+  group: ${{ github.workflow }}-${{ github.event.number }}
   cancel-in-progress: true
 
 jobs:
