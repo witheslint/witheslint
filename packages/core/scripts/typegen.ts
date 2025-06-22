@@ -12,7 +12,6 @@ const [
   pluginStylistic,
   pluginTs,
   pluginUnicorn,
-  pluginUnusedImports,
 ] = await Promise.all([
   interopDefault(import('eslint-plugin-antfu')),
   interopDefault(import('eslint-plugin-import-x')),
@@ -22,7 +21,6 @@ const [
   interopDefault(import('@stylistic/eslint-plugin')),
   interopDefault(import('@typescript-eslint/eslint-plugin')),
   interopDefault(import('eslint-plugin-unicorn')),
-  interopDefault(import('eslint-plugin-unused-imports')),
 ] as const)
 
 const dts = await pluginsToRulesDTS({
@@ -35,7 +33,6 @@ const dts = await pluginsToRulesDTS({
   'style': pluginStylistic,
   'prettier': pluginPrettier,
   'import': pluginImport as any,
-  'unused-imports': pluginUnusedImports,
 }, { exportTypeName: 'RuleSetsCore' })
 
 await writeFile('src/rules.d.ts', dts)

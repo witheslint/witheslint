@@ -41,6 +41,7 @@ export function presetTypescript(): Preset {
 
             'no-dupe-class-members': 'off',
             'no-redeclare': 'off',
+            'no-unused-vars': 'off',
             'no-use-before-define': 'off',
             'no-useless-constructor': 'off',
 
@@ -58,7 +59,7 @@ export function presetTypescript(): Preset {
             'ts/no-non-null-assertion': 'off',
             'ts/no-redeclare': 'error',
             'ts/no-require-imports': 'error',
-            'ts/no-unused-vars': 'off',
+            'ts/no-unused-vars': ['warn', { args: 'after-used', argsIgnorePattern: '^_', ignoreRestSiblings: true, vars: 'all', varsIgnorePattern: '^_' }],
             'ts/no-use-before-define': ['error', { classes: false, functions: false, variables: true }],
             'ts/no-useless-constructor': 'off',
             'ts/no-wrapper-object-types': 'error',

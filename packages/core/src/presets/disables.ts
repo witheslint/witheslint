@@ -12,7 +12,6 @@ export function presetDisables(): Preset {
           rules: {
             'no-restricted-syntax': 'off',
             'import/no-duplicates': 'off',
-            'unused-imports/no-unused-vars': 'off',
           },
         },
         {
