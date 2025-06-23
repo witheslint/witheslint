@@ -26,6 +26,9 @@
   "files": [
     "dist"
   ],
+  "engines": {
+    "node": "^18.20.0 || ^20.9.0 || >=21.1.0"
+  },
   "scripts": {
     "build": "tsdown",
     "prepublishOnly": "tsdown"
@@ -39,6 +42,7 @@
     "@witheslint/preset-vue": "workspace:^"
   },
   "peerDependencies": {
+    "eslint": "^9.20.0",
     "prettier": "^3.0.0"
   },
   "peerDependenciesMeta": {
