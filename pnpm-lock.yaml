@@ -175,6 +175,9 @@ importers:
       '@witheslint/preset-vue':
         specifier: workspace:^
         version: link:../integrations/vue
+      eslint:
+        specifier: ^9.20.0
+        version: 9.28.0(jiti@2.4.2)
       prettier:
         specifier: ^3.0.0
         version: 3.5.3

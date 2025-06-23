@@ -1,4 +1,4 @@
-import type { Preset } from '../types'
+import type { Preset } from '../factory'
 import globals from 'globals'
 
 export function presetJavascript(): Preset {

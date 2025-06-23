@@ -1,4 +1,4 @@
-import type { Preset } from '../types'
+import type { Preset } from '../factory'
 import { interopDefault } from '../helper'
 
 export function presetJsdoc(): Preset {

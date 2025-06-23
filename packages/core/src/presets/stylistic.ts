@@ -1,43 +1,45 @@
-import type { Preset } from '../types'
+import type { Preset } from '../factory'
 import { interopDefault } from '../helper'
 
 export function presetStylistic(): Preset {
   return {
     name: 'preset:stylistic',
     install: async ({ settings, features }) => {
-      const plugins: Record<string, any> = {
-        antfu: await interopDefault(import('eslint-plugin-antfu')),
-      }
+      const isPrettierEnabled = settings.stylistic.mode === 'prettier'
+      const isStylisticEnabled = features.stylistic
 
-      if (features.prettier) {
-        plugins.prettier = await interopDefault(import('eslint-plugin-prettier'))
-      }
-      if (features.stylistic) {
-        plugins.style = await interopDefault(import('@stylistic/eslint-plugin'))
-      }
+      const [pluginAntfu, pluginPrettier, pluginStyle] = await Promise.all([
+        interopDefault(import('eslint-plugin-antfu')),
+        isPrettierEnabled ? interopDefault(import('eslint-plugin-prettier')) : undefined,
+        isStylisticEnabled ? interopDefault(import('@stylistic/eslint-plugin')) : undefined,
+      ] as const)
 
       return [
         {
           name: 'witheslint:stylistic:configs',
-          plugins,
+          plugins: {
+            antfu: pluginAntfu,
+            ...(isPrettierEnabled ? { prettier: pluginPrettier } : {}),
+            ...(isStylisticEnabled ? { style: pluginStyle } : {}),
+          },
           rules: {
             'antfu/consistent-chaining': 'error',
             'antfu/consistent-list-newline': 'error',
             'antfu/top-level-function': 'error',
 
-            ...features.prettier
+            ...isPrettierEnabled
               ? {
                   'prettier/prettier': 'error',
                 }
               : {},
 
-            ...features.stylistic
+            ...isStylisticEnabled
               ? {
                   'antfu/curly': 'error',
 
-                  ...plugins.style.configs.customize({
+                  ...pluginStyle!.configs.customize({
                     pluginName: 'style',
-                    ...settings.stylistic,
+                    ...settings.stylistic.config,
                   }).rules,
                 }
               : {

@@ -1,6 +1,6 @@
 {
-  "include": ["**/src/**/*.ts"],
-  "exclude": ["node_modules", "dist"],
+  "include": ["**/*.ts"],
+  "exclude": ["node_modules", "dist", "**/*.config.ts"],
   "compilerOptions": {
     "target": "esnext",
     "lib": ["es2022"],
@@ -10,6 +10,7 @@
     "resolveJsonModule": true,
     "types": ["node"],
     "strict": true,
+    "noEmit": true,
     "noUnusedLocals": true,
     "declaration": true,
     "isolatedDeclarations": true,

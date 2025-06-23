@@ -14,7 +14,7 @@ export function presetSvelte(): Preset {
     },
     install: async ({ features, settings }) => {
       const { typescript, stylistic } = features
-      const { indent, quotes } = settings.stylistic
+      const { indent, quotes } = settings.stylistic.config
       const parserTs = settings.typescript.parser
       const [parserSvelte, pluginSvelte] = await Promise.all([
         interopDefault(import('svelte-eslint-parser')),

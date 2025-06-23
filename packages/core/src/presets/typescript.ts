@@ -1,4 +1,4 @@
-import type { Preset } from '../types'
+import type { Preset } from '../factory'
 import { GLOB_TS, GLOB_TSX } from '../globs'
 import { interopDefault, renameRules } from '../helper'
 
@@ -6,7 +6,7 @@ export function presetTypescript(): Preset {
   return {
     name: 'preset:typescript',
     prepare: async ({ settings }) => {
-      settings.typescript.parser = (await interopDefault(import('@typescript-eslint/parser')))
+      settings.typescript.parser = await interopDefault(import('@typescript-eslint/parser'))
     },
     install: async ({ settings }) => {
       const { extensions, parser: parserTs } = settings.typescript

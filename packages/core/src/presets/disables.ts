@@ -1,4 +1,4 @@
-import type { Preset } from '../types'
+import type { Preset } from '../factory'
 import { GLOB_CJS, GLOB_DTS, GLOB_JS, GLOB_TS } from '../globs'
 
 export function presetDisables(): Preset {

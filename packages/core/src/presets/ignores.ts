@@ -1,4 +1,4 @@
-import type { Preset } from '../types'
+import type { Preset } from '../factory'
 
 export function presetIgnores(): Preset {
   return {

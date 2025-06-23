@@ -14,7 +14,7 @@ export function presetVue(): Preset {
     },
     install: async ({ features, settings }) => {
       const { typescript, stylistic } = features
-      const { indent, blockSpacing, braceStyle, commaDangle, quoteProps } = settings.stylistic
+      const { indent, blockSpacing, braceStyle, commaDangle, quoteProps } = settings.stylistic.config
       const parserTs = settings.typescript.parser
       const [parserVue, pluginVue] = await Promise.all([
         interopDefault(import('vue-eslint-parser')),

@@ -1,7 +1,7 @@
-import type { Features } from './context'
-import type { Arrayable, ConfigModule, Preset } from './types'
-import { castArray, isFunction, pick, unique } from 'radashi'
-import { Context } from './context'
+import type { Arrayable, Awaitable, ConfigModule, DeepReadonly, ParserModule, Unified } from './types'
+import type { StylisticCustomizeOptions } from '@stylistic/eslint-plugin'
+import { assign, castArray, isFunction, isObject, omit, unique } from 'radashi'
+import { isPackageExists } from './helper'
 import {
   presetDisables,
   presetIgnores,
@@ -13,6 +13,8 @@ import {
   presetTypescript,
   presetUnicorn,
 } from './presets'
+
+// ================== Core =================
 
 interface Options {
   /**
@@ -52,47 +54,253 @@ interface Options {
   extends?: Arrayable<ConfigModule>
 }
 
-export async function defineConfig(options: Options = {}): Promise<ConfigModule[]> {
-  const context = new Context(pick(options, ['features', 'ignores']))
-  const builtinPresets = [
+export async function defineConfig(
+  options: Options = {},
+): Promise<ConfigModule[]> {
+  const configs = await processPresets(omit(options, ['extends']))
+  const customize = processExtends(castArray(options.extends || []))
+
+  return [...configs, ...customize].filter(Boolean)
+}
+
+export interface Preset {
+  /**
+   * A unique identifier for the preset.
+   *
+   * @description This name is used for debugging, logging, and identifying the preset
+   * in configuration chains. It should follow the format 'preset:category'
+   * for consistency (e.g., 'preset:typescript', 'preset:vue').
+   */
+  name: string
+
+  /**
+   * Optional preparation hook that runs before the preset installation.
+   *
+   * @description This function is called during the configuration setup phase and allows
+   * the preset to perform any necessary initialization tasks, such as:
+   * - Setting up default configurations
+   * - Preparing shared resources
+   *
+   * The context is mutable during this phase, allowing modifications
+   * to settings, features, or other configuration aspects.
+   */
+  prepare?: (context: Context) => Awaitable<void>
+
+  /**
+   * Main installation function that generates ESLint configuration modules.
+   *
+   * @description This is the core function of the preset, responsible for:
+   * - Loading and configuring ESLint plugins
+   * - Defining rules based on the current context
+   * - Creating configuration objects for different file patterns
+   * - Applying conditional logic based on detected features
+   *
+   * The context is read-only during this phase to ensure configuration
+   * consistency across all presets in the chain.
+   */
+  install: (context: DeepReadonly<Context>) => Awaitable<Arrayable<ConfigModule>>
+}
+
+export function definePreset<T extends Preset = Preset>(
+  preset: T,
+): T {
+  return preset
+}
+
+// ================== Utilities =================
+
+export function createContext({
+  features = {},
+  ignores = [],
+}: Pick<Options, 'features' | 'ignores'> = {}): Context {
+  const { stylistic, typescript, sorting } = assign(
+    {
+      stylistic: true,
+      sorting: true,
+      typescript: isPackageExists('typescript'),
+    },
+    features,
+  )
+  const enablePrettier = stylistic === 'prettier'
+
+  return {
+    features: {
+      sorting: !!sorting,
+      stylistic: !enablePrettier && (stylistic === true || isObject(stylistic)),
+      typescript: !!typescript,
+    },
+    settings: {
+      ignores: [
+        '**/node_modules',
+        '**/dist',
+        '**/.output',
+        '**/.cache',
+        ...ignores,
+      ],
+      stylistic: {
+        config: assign(
+          {
+            indent: 2,
+            jsx: true,
+            quotes: 'single',
+            semi: false,
+            arrowParens: false,
+            braceStyle: '1tbs',
+            blockSpacing: true,
+            quoteProps: 'consistent-as-needed',
+            commaDangle: 'always-multiline',
+          },
+          isObject(stylistic) ? stylistic : {},
+        ),
+        mode: enablePrettier ? 'prettier' : 'raw',
+      } as Required<StylisticSetting>,
+      typescript: {
+        extensions: [],
+        parser: undefined as unknown as ParserModule,
+      } as Required<TypescriptSetting>,
+    },
+  }
+}
+
+async function processPresets({
+  presets = [],
+  ignores,
+  features,
+}: Omit<Options, 'extends'>): Promise<ConfigModule[]> {
+  const context = createContext({ features, ignores })
+  const { sorting, typescript } = context.features
+
+  const allPresets = [
     presetIgnores(),
     presetJavascript(),
     presetJsdoc(),
     presetUnicorn(),
     presetImports(),
-    context.features.sorting && presetSorting(),
-    (context.features.stylistic || context.features.prettier) && presetStylistic(),
-    context.features.typescript && presetTypescript(),
+    presetStylistic(),
+    sorting && presetSorting(),
+    typescript && presetTypescript(),
     presetDisables(),
-  ]
+    ...presets,
+  ].filter(Boolean) as Preset[]
 
-  const presets = [...builtinPresets, ...(options.presets || [])].filter(Boolean) as Preset[]
-  const configs = await normalizePresets(presets, context)
-  const customize = options.extends ? normalizeExtends(castArray(options.extends)) : []
+  const deduped = unique(allPresets, i => i.name)
+  const { prepareable, installable } = deduped.reduce(
+    (acc, preset) => {
+      if (isFunction(preset.prepare)) acc.prepareable.push(preset)
+      if (isFunction(preset.install)) acc.installable.push(preset)
+      return acc
+    },
+    { prepareable: [] as Preset[], installable: [] as Preset[] },
+  )
 
-  return [...configs, ...customize].filter(Boolean)
-}
-
-export function definePreset<T extends Preset = Preset>(preset: T): T {
-  return preset
-}
-
-async function normalizePresets(presets: Preset[] = [], context: Context): Promise<ConfigModule[]> {
-  if (presets.length === 0) return []
-
-  const deduped = unique(presets, i => i.name)
-  const shouldPrepare = deduped.filter(preset => isFunction(preset.prepare))
-  const shouldInstall = deduped.filter(preset => isFunction(preset.install))
-
-  await Promise.all(shouldPrepare.map(preset => preset.prepare!(context)))
-  const configs = await Promise.all(shouldInstall.map(preset => preset.install!(Object.freeze(context))))
+  await Promise.all(prepareable.map(preset => preset.prepare!(context)))
+  const configs = await Promise.all(
+    installable.map(preset => preset.install!(Object.freeze(context))),
+  )
 
   return configs.flat().filter(Boolean)
 }
 
-function normalizeExtends<T extends ConfigModule>(options: T[]): T[] {
+function processExtends<T extends ConfigModule = ConfigModule>(
+  options: T[] = [],
+): T[] {
   return options.map(({ name = 'witheslint:customize', ...rest }) => ({
     ...rest,
     name,
   })) as T[]
+}
+
+// ================== Types =================
+
+interface Context {
+  /**
+   * Resolved features configuration
+   */
+  features: Unified<Features, boolean>
+
+  /**
+   * Resolved settings configurations
+   */
+  settings: Settings
+}
+
+interface Features {
+  /**
+   * Enable stylistic support
+   *
+   * - `true`: Enable with default settings
+   * - `false`: Disable stylistic rules
+   * - `'prettier'`: Use Prettier-compatible mode
+   * - `StylisticConfig`: Custom configuration object
+   *
+   * @default true
+   */
+  stylistic?: boolean | StylisticSetting['config'] | 'prettier'
+
+  /**
+   * Enable sorting support
+   *
+   * @default true
+   */
+  sorting?: boolean
+
+  /**
+   * Enable TypeScript support
+   * Automatically detected based on TypeScript package presence
+   *
+   * @default auto-detected
+   */
+  typescript?: boolean
+}
+
+interface Settings {
+  /**
+   * Final list of ignore patterns
+   */
+  ignores: string[]
+
+  /**
+   * Complete stylistic configuration with all required properties
+   */
+  stylistic: Required<StylisticSetting>
+
+  /**
+   * Complete TypeScript configuration with all required properties
+   */
+  typescript: Required<TypescriptSetting>
+}
+
+interface StylisticSetting {
+  /**
+   * The mode in which stylistic rules should be applied
+   *
+   * - `'raw'`: Use raw stylistic rules
+   * - `'prettier'`: Use Prettier-compatible rules
+   *
+   * @default 'raw'
+   */
+  mode?: 'raw' | 'prettier'
+
+  /**
+   * The configuration object for stylistic rules
+   *
+   * @description This object contains all stylistic rule settings.
+   * It is used to customize the behavior of stylistic rules.
+   */
+  config?: Omit<StylisticCustomizeOptions, 'pluginName' | 'severity'> & {
+    quotes?: 'single' | 'double'
+  }
+}
+
+interface TypescriptSetting {
+  /**
+   * Additional file extensions to be treated as TypeScript files
+   * @example ['.vue', '.svelte']
+   */
+  extensions?: string[]
+
+  /**
+   * Specify the parser to be used for TypeScript files
+   */
+  parser?: ParserModule
 }
