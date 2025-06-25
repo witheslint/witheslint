@@ -1,9 +1,9 @@
 {
   "private": true,
   "type": "module",
-  "packageManager": "pnpm@10.11.0",
+  "packageManager": "pnpm@10.12.3",
   "engines": {
-    "node": "^20.10.0 || >=21.1.0"
+    "node": "^20.19.0 || >=21.1.0"
   },
   "scripts": {
     "build": "pnpm --recursive build",
@@ -15,15 +15,14 @@
   "devDependencies": {
     "@commitlint/cli": "^19.8.1",
     "@commitlint/config-conventional": "^19.8.1",
-    "@eslint/config-inspector": "^1.0.2",
-    "@types/node": "^22.15.29",
-    "bumpp": "^10.1.1",
-    "eslint": "^9.28.0",
+    "@eslint/config-inspector": "^1.1.0",
+    "@types/node": "^22.15.33",
+    "bumpp": "^10.2.0",
+    "eslint": "^9.29.0",
     "eslint-typegen": "^2.2.0",
-    "jiti": "^2.4.2",
-    "lefthook": "^1.11.13",
-    "tsdown": "^0.12.6",
-    "tsx": "^4.19.4",
+    "lefthook": "^1.11.14",
+    "tsdown": "^0.12.9",
+    "tsx": "^4.20.3",
     "typescript": "~5.8.3",
     "witheslint": "workspace:^"
   },
