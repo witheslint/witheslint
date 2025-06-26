@@ -34,7 +34,7 @@ export function presetTypescript(): Preset {
               'ts/',
             ),
             ...renameRules(
-              (pluginTs.configs)['strict'].rules!,
+              pluginTs.configs['strict'].rules!,
               '@typescript-eslint/',
               'ts/',
             ),

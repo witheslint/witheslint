@@ -1,6 +1,8 @@
 export { isPackageExists } from 'local-pkg'
 
-export async function interopDefault<T>(module: T | Promise<T>): Promise<T extends { default: infer U } ? U : T> {
+export async function interopDefault<T>(
+  module: T | Promise<T>,
+): Promise<T extends { default: infer U } ? U : T> {
   const resolved = await module
   return (resolved as any).default || resolved
 }
@@ -19,7 +21,9 @@ export function renameRules(
   )
 }
 
-export function combineRules(configs: { rules?: Record<string, any> }[]): Record<string, any> {
+export function combineRules(
+  configs: { rules?: Record<string, any> }[],
+): Record<string, any> {
   return Object.fromEntries(
     configs.flatMap(
       obj => obj.rules
