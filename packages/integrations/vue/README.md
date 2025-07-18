@@ -12,4 +12,44 @@
 
 ## Usage
 
-> Please refer to the [documentation](https://witheslint.github.io/guides/getting-started) for more details.
+1. install the preset along with the core package:
+
+```zsh
+pnpm i -D eslint @witheslint/core @witheslint/preset-vue
+```
+
+2. create `eslint.config.mjs` in your project root:
+
+```js
+import { defineConfig } from '@witheslint/core'
+import { presetVue } from '@witheslint/preset-vue'
+
+export default defineConfig({
+  presets: [presetVue()]
+})
+```
+
+> [!TIP]
+> Or use with the main **witheslint** package:
+> ```zsh
+> pnpm i -D eslint witheslint
+> ```
+> ```js
+> import { defineConfig, presetVue } from 'witheslint'
+>
+> export default defineConfig({
+>   presets: [presetVue()]
+> })
+> ```
+
+## Support
+
+- 🐛 [Report Issues](https://github.com/witheslint/witheslint/issues)
+- 💬 [Ask Questions](https://deepwiki.com/witheslint/witheslint)
+
+## Included Plugins
+
+| Prefix        | Plugin & Parser                                                  | Description                    |
+|---------------|------------------------------------------------------------------|--------------------------------|
+| `vue/*`       | [eslint-plugin-vue](https://github.com/vuejs/eslint-plugin-vue)  | Core Vue linting rules         |
+| `-`           | [vue-eslint-parser](https://github.com/vuejs/vue-eslint-parser)  | Parser for `.vue` files        |

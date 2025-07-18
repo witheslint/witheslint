@@ -12,4 +12,46 @@
 
 ## Usage
 
-> Please refer to the [documentation](https://witheslint.github.io/guides/getting-started) for more details.
+1. install the preset along with the core package:
+
+```zsh
+pnpm i -D eslint @witheslint/core @witheslint/preset-react
+```
+
+2. create `eslint.config.mjs` in your project root:
+
+```js
+import { defineConfig } from '@witheslint/core'
+import { presetReact } from '@witheslint/preset-react'
+
+export default defineConfig({
+  presets: [presetReact()]
+})
+```
+
+> [!TIP]
+> Or use with the main **witheslint** package:
+> ```zsh
+> pnpm i -D eslint witheslint
+> ```
+> ```js
+> import { defineConfig, presetReact } from 'witheslint'
+>
+> export default defineConfig({
+>   presets: [presetReact()]
+> })
+> ```
+
+## Support
+
+- 🐛 [Report Issues](https://github.com/witheslint/witheslint/issues)
+- 💬 [Ask Questions](https://deepwiki.com/witheslint/witheslint)
+
+## Included Plugins
+
+| Prefix          | Plugin & Parser                                                                      | Description                   |
+|-----------------|--------------------------------------------------------------------------------------|-------------------------------|
+| `react/*`       | [@eslint-react/eslint-plugin](https://eslint-react.xyz/)                             | Modern React linting rules    |
+| `react-hooks/*` | [eslint-plugin-react-hooks](https://www.npmjs.com/package/eslint-plugin-react-hooks) | React Hooks specific rules    |
+
+

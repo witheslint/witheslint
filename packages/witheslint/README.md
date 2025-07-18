@@ -1,12 +1,14 @@
-<br>
+<!-- Badges -->
+[src-version]: https://img.shields.io/npm/v/witheslint?style=flat&color=444&label=version
+[src-download]: https://img.shields.io/npm/dm/witheslint?style=flat&color=444&label=download
+[href-npm]: https://npmjs.com/package/witheslint
 
-<p align="center">
-  <img src="https://github.com/witheslint/static/raw/main/icons/witheslint.svg" alt="witheslint" align="center" width="33%" height="33%" />
-</p>
+<img src="https://github.com/witheslint/static/raw/main/icons/witheslint.svg" alt="witheslint" align="right" width="140" height="140">
 
-<p align="center">Implementing a standardized ESLint configuration across all your projects.</p>
+[![version][src-version]][href-npm]
+[![downloads][src-download]][href-npm]
 
-<br>
+✨ Implementing a standardized ESLint configuration across all your projects.
 
 ## Features
 
@@ -20,13 +22,13 @@
 
 ## Usage
 
-#### install deps
+1. install deps:
 
 ```zsh
 pnpm i -D eslint witheslint
 ```
 
-#### create `eslint.config.mjs` in your project root
+2. create `eslint.config.mjs` in your project root:
 
 ```js
 import { defineConfig } from 'witheslint'
@@ -34,5 +36,68 @@ import { defineConfig } from 'witheslint'
 export default defineConfig()
 ```
 
-> Please refer to the [documentation](https://witheslint.github.io) for more details.
+That's it! This single line provides a complete ESLint configuration
 
+## Configuration
+
+```js
+import { defineConfig, presetAstro } from 'witheslint'
+
+export default defineConfig({
+  // Specify file patterns to exclude from linting
+  ignores: [
+    'custom-dist/**', 
+    'generated/**'
+  ],
+  // Controls which feature modules are enabled
+  features: {
+    // typescript: false,      // Disable TypeScript even if detected
+    // stylistic: 'prettier',  // Use Prettier mode
+    // sorting: false          // Disable sorting rules
+  },
+  // Add custom presets
+  presets: [
+    presetAstro(),
+    // You can add more presets like:
+    // presetReact(),
+    // presetSolid(),
+    // presetSvelte(),
+    // presetVue()
+  ],
+  // Extend with custom rules
+  extends: [
+    {
+      name: 'custom-rules',
+      rules: {
+        'no-console': 'error',
+        'prefer-const': 'warn'
+      }
+    }
+  ]
+})
+```
+
+## Support
+
+- 🐛 [Report Issues](https://github.com/witheslint/witheslint/issues)
+- 💬 [Ask Questions](https://deepwiki.com/witheslint/witheslint)
+
+## Architecture
+
+This package serves as a unified interface to the entire witheslint ecosystem:
+
+```zsh
+witheslint
+  ├── @witheslint/core          (Core ESLint configuration foundation)
+  ├── @witheslint/preset-astro  (Astro framework rules)
+  ├── @witheslint/preset-react  (React framework rules)
+  ├── @witheslint/preset-solid  (Solid framework rules)
+  ├── @witheslint/preset-svelte (Svelte framework rules)
+  └── @witheslint/preset-vue    (Vue framework rules)
+```
+
+When to use which package:
+
+- **`witheslint`** - Use this for most projects. It includes all presets and is the easiest to get started with.
+- **`@witheslint/core`** - Use this if you want to build your own configuration or only need specific presets.
+- **`@witheslint/preset-*`** - Use these directly with `@witheslint/core` for more granular control.
