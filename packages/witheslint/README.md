@@ -77,11 +77,6 @@ export default defineConfig({
 })
 ```
 
-## Support
-
-- 🐛 [Report Issues](https://github.com/witheslint/witheslint/issues)
-- 💬 [Ask Questions](https://deepwiki.com/witheslint/witheslint)
-
 ## Architecture
 
 This package serves as a unified interface to the entire witheslint ecosystem:

@@ -8,44 +8,11 @@
 [![version][src-version]][href-npm]
 [![downloads][src-download]][href-npm]
 
-✨ The vue preset for [witheslint](https://github.com/witheslint/witheslint).
+✨ The vue preset for `witheslint`.
 
 ## Usage
 
-1. install the preset along with the core package:
-
-```zsh
-pnpm i -D eslint @witheslint/core @witheslint/preset-vue
-```
-
-2. create `eslint.config.mjs` in your project root:
-
-```js
-import { defineConfig } from '@witheslint/core'
-import { presetVue } from '@witheslint/preset-vue'
-
-export default defineConfig({
-  presets: [presetVue()]
-})
-```
-
-> [!TIP]
-> Or use with the main **witheslint** package:
-> ```zsh
-> pnpm i -D eslint witheslint
-> ```
-> ```js
-> import { defineConfig, presetVue } from 'witheslint'
->
-> export default defineConfig({
->   presets: [presetVue()]
-> })
-> ```
-
-## Support
-
-- 🐛 [Report Issues](https://github.com/witheslint/witheslint/issues)
-- 💬 [Ask Questions](https://deepwiki.com/witheslint/witheslint)
+> We recommend using the main [`witheslint`](../../witheslint) package, which is easier to configure and get started with.
 
 ## Included Plugins
 
