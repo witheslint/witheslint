@@ -1,6 +1,6 @@
 {
   "name": "@witheslint/core",
-  "version": "1.18.0",
+  "version": "1.19.0",
   "type": "module",
   "description": "Core ESLint configuration foundation for witheslint",
   "author": "Joie <leaps@live.com>",
