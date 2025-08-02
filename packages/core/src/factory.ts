@@ -109,7 +109,7 @@ export function definePreset<T extends Preset = Preset>(
 
 // ================== Utilities =================
 
-export function createContext({
+function createContext({
   features = {},
   ignores = [],
 }: Pick<Options, 'features' | 'ignores'> = {}): Context {
