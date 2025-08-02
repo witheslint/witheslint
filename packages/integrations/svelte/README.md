@@ -8,44 +8,13 @@
 [![version][src-version]][href-npm]
 [![downloads][src-download]][href-npm]
 
-✨ The svelte preset for [witheslint](https://github.com/witheslint/witheslint).
+✨ The svelte preset for `witheslint`.
 
 ## Usage
 
-1. install the preset along with the core package:
+We recommend using the main [`witheslint`](../../witheslint) package, which is easier to configure and get started with.
 
-```zsh
-pnpm i -D eslint @witheslint/core @witheslint/preset-svelte
-```
-
-2. create `eslint.config.mjs` in your project root:
-
-```js
-import { defineConfig } from '@witheslint/core'
-import { presetSvelte } from '@witheslint/preset-svelte'
-
-export default defineConfig({
-  presets: [presetSvelte()]
-})
-```
-
-> [!TIP]
-> Or use with the main **witheslint** package:
-> ```zsh
-> pnpm i -D eslint witheslint
-> ```
-> ```js
-> import { defineConfig, presetSvelte } from 'witheslint'
->
-> export default defineConfig({
->   presets: [presetSvelte()]
-> })
-> ```
-
-## Support
-
-- 🐛 [Report Issues](https://github.com/witheslint/witheslint/issues)
-- 💬 [Ask Questions](https://deepwiki.com/witheslint/witheslint)
+> Please refer to the [`wiki`](https://deepwiki.com/witheslint/witheslint) for more details.
 
 ## Included Plugins
 
