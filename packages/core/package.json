@@ -36,14 +36,14 @@
     "prepublishOnly": "pnpm build"
   },
   "dependencies": {
-    "@stylistic/eslint-plugin": "^5.2.0",
-    "@typescript-eslint/eslint-plugin": "^8.37.0",
-    "@typescript-eslint/parser": "^8.37.0",
+    "@stylistic/eslint-plugin": "^5.2.2",
+    "@typescript-eslint/eslint-plugin": "^8.38.0",
+    "@typescript-eslint/parser": "^8.38.0",
     "eslint-plugin-antfu": "^3.1.1",
     "eslint-plugin-import-x": "^4.16.1",
     "eslint-plugin-jsdoc": "^50.8.0",
     "eslint-plugin-perfectionist": "^4.15.0",
-    "eslint-plugin-prettier": "^5.5.1",
+    "eslint-plugin-prettier": "^5.5.3",
     "eslint-plugin-unicorn": "^59.0.1",
     "globals": "^16.3.0",
     "local-pkg": "^1.1.1",
