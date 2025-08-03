@@ -11,7 +11,8 @@
 </p>
 
 <samp>
-  <a href="https://deepwiki.com/witheslint/witheslint">wiki</a> .
+  <a href="./packages/witheslint/README.md">documentation</a> .
   <a href="./.github/CONTRIBUTING.md">contributing</a> .
-  <a href="https://github.com/witheslint/witheslint/issues">reporting</a>
+  <a href="https://github.com/witheslint/witheslint/issues">reporting</a> .
+  <a href="https://deepwiki.com/witheslint/witheslint">wiki</a>
 </samp>
