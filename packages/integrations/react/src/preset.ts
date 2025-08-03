@@ -5,8 +5,8 @@ export function presetReact(): Preset {
   return {
     name: 'preset:react',
     prepare: ({ settings }) => {
-      const GLOB_REACT_EXCLUDES = ['**/.next']
-      settings.ignores.push(...GLOB_REACT_EXCLUDES)
+      const excludes = ['**/.next']
+      settings.ignores.push(...excludes)
     },
     install: async ({ features, settings }) => {
       const { typescript } = features

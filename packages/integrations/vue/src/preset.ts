@@ -1,16 +1,16 @@
 import type { Preset } from '@witheslint/core'
 import { combineRules, interopDefault } from '@witheslint/core'
 
-export const GLOB_VUE = '**/*.vue' as const
-export const GLOB_VUE_EXT = '.vue' as const
+export const GLOB_VUE = '**/*.vue'
+export const EXTENSION_VUE = '.vue'
 
 export function presetVue(): Preset {
   return {
     name: 'preset:vue',
     prepare: ({ settings }) => {
-      const GLOB_VUE_EXCLUDES = ['**/.nuxt']
-      settings.ignores.push(...GLOB_VUE_EXCLUDES)
-      settings.typescript.extensions.push(GLOB_VUE_EXT)
+      const excludes = ['**/.nuxt']
+      settings.ignores.push(...excludes)
+      settings.typescript.extensions.push(EXTENSION_VUE)
     },
     install: async ({ features, settings }) => {
       const { typescript, stylistic } = features
@@ -35,12 +35,12 @@ export function presetVue(): Preset {
               ecmaFeatures: {
                 jsx: true,
               },
-              extraFileExtensions: ['.vue'],
+              extraFileExtensions: [EXTENSION_VUE],
               parser: typescript ? parserTs : undefined,
               sourceType: 'module',
             },
           },
-          processor: pluginVue.processors!['.vue'],
+          processor: pluginVue.processors![EXTENSION_VUE],
           rules: {
             ...combineRules(pluginVue.configs['flat/recommended']),
 

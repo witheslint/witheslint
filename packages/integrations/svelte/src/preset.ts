@@ -1,16 +1,16 @@
 import type { Preset } from '@witheslint/core'
 import { interopDefault } from '@witheslint/core'
 
-export const GLOB_SVELTE = '**/*.svelte' as const
-export const GLOB_SVELTE_EXT = '.svelte' as const
+export const GLOB_SVELTE = '**/*.svelte'
+export const EXTENSION_SVELTE = '.svelte'
 
 export function presetSvelte(): Preset {
   return {
     name: 'preset:svelte',
     prepare: ({ settings }) => {
-      const GLOB_SVELTE_EXCLUDES = ['**/.svelte-kit']
-      settings.ignores.push(...GLOB_SVELTE_EXCLUDES)
-      settings.typescript.extensions.push(GLOB_SVELTE_EXT)
+      const excludes = ['**/.svelte-kit']
+      settings.ignores.push(...excludes)
+      settings.typescript.extensions.push(EXTENSION_SVELTE)
     },
     install: async ({ features, settings }) => {
       const { typescript, stylistic } = features
@@ -32,12 +32,12 @@ export function presetSvelte(): Preset {
           languageOptions: {
             parser: parserSvelte,
             parserOptions: {
-              extraFileExtensions: ['.svelte'],
+              extraFileExtensions: [EXTENSION_SVELTE],
               parser: typescript ? parserTs : undefined,
               sourceType: 'module',
             },
           },
-          processor: pluginSvelte.processors!['.svelte'],
+          processor: pluginSvelte.processors![EXTENSION_SVELTE],
           rules: {
             'svelte/comment-directive': 'error',
             'svelte/no-at-debug-tags': 'warn',

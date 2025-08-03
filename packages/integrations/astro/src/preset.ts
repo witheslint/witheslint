@@ -1,16 +1,16 @@
 import type { Preset } from '@witheslint/core'
 import { interopDefault } from '@witheslint/core'
 
-export const GLOB_ASTRO = '**/*.astro' as const
-export const GLOB_ASTRO_EXT = '.astro' as const
+export const GLOB_ASTRO = '**/*.astro'
+export const EXTENSION_ASTRO = '.astro'
 
 export function presetAstro(): Preset {
   return {
     name: 'preset:astro',
     prepare: ({ settings }) => {
-      const GLOB_ASTRO_EXCLUDES = ['**/.astro']
-      settings.ignores.push(...GLOB_ASTRO_EXCLUDES)
-      settings.typescript.extensions.push(GLOB_ASTRO_EXT)
+      const excludes = ['**/.astro']
+      settings.ignores.push(...excludes)
+      settings.typescript.extensions.push(EXTENSION_ASTRO)
     },
     install: async ({ features, settings }) => {
       const { typescript, stylistic } = features
@@ -32,12 +32,12 @@ export function presetAstro(): Preset {
             globals: pluginAstro.environments.astro.globals,
             parser: parserAstro,
             parserOptions: {
-              extraFileExtensions: ['.astro'],
+              extraFileExtensions: [EXTENSION_ASTRO],
               parser: typescript ? parserTs : undefined,
               sourceType: 'module',
             },
           },
-          processor: pluginAstro.processors!['.astro'],
+          processor: pluginAstro.processors![EXTENSION_ASTRO],
           rules: {
             'astro/missing-client-only-directive-value': 'error',
             'astro/no-conflict-set-directives': 'error',
