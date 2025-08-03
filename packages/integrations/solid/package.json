@@ -1,6 +1,6 @@
 {
   "name": "@witheslint/preset-solid",
-  "version": "1.19.0",
+  "version": "1.20.0",
   "type": "module",
   "description": "The solid preset for witheslint.",
   "author": "Joie <leaps@live.com>",
