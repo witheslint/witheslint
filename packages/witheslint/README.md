@@ -107,6 +107,84 @@ That's it! You can now run ESLint in your project!
 pnpm eslint .
 ```
 
+## Supports
+
+### IDE Integration
+
+Needs IDE support? Let's configure your editor:
+
+<details>
+<summary><em>VS Code</em></summary>
+
+1. Install [*VS Code ESLint extension*](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint)  
+
+2. Add the following settings to your project setting:
+```json
+{
+  "prettier.enable": false,
+  "editor.formatOnSave": false,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "explicit",
+    "source.organizeImports": "never"
+  },
+  "eslint.runtime": "node",
+  "eslint.validate": [
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "typescriptreact",
+    // "astro",
+    // "svelte",
+    // "vue",
+  ]
+}
+```
+
+</details>
+
+<details>
+<summary><em>JetBrains IDEs</em></summary>
+
+1. Open the Settings dialog
+
+2. Go to `Languages & Frameworks -> JavaScript -> Code Quality Tools -> ESLint`
+
+3. Select the `Run eslint --fix on save` checkbox.
+
+</details>
+
+### Git Hooks
+
+Format and lint the staged files before committing or pushing:
+
+<details>
+<summary><em>Lefthook</em></summary>
+<br>
+
+*[Lefthook](https://github.com/evilmartians/lefthook) provides a fast, cross-platform, and dependency-free hook manager.*
+
+1. Install `lefthook` as a dev dependency:
+```zsh
+pnpm add -D lefthook
+```
+
+2. Create a `lefthook.yaml` file in your project root with the following content:
+```yaml
+pre-commit:
+  commands:
+    eslint:
+      glob: '*.{js,ts}'
+      run: pnpm eslint --fix {staged_files}
+      stage_fixed: true
+```
+
+3. Once configured, run the following command to to set up the hooks:
+```zsh
+pnpm lefthook install
+```
+
+</details>
+
 ## Visualizing
 
 Launch a visual inspector for your ESLint setup and see all active rules in action: 
