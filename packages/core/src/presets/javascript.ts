@@ -1,5 +1,5 @@
 import type { Preset } from '../factory'
-import globals from 'globals'
+import { globals } from '../helper'
 
 export function presetJavascript(): Preset {
   return {
@@ -11,12 +11,9 @@ export function presetJavascript(): Preset {
           languageOptions: {
             ecmaVersion: 'latest',
             globals: {
+              ...globals.es2026,
               ...globals.browser,
-              ...globals.es2021,
               ...globals.node,
-              document: 'readonly',
-              navigator: 'readonly',
-              window: 'readonly',
             },
             parserOptions: {
               ecmaFeatures: {

@@ -1,3 +1,4 @@
+export { default as globals } from 'globals'
 export { isPackageExists } from 'local-pkg'
 
 export async function interopDefault<T>(
