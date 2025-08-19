@@ -40,7 +40,7 @@
   },
   "devDependencies": {
     "@witheslint/core": "workspace:^",
-    "svelte": "^5.37.2"
+    "svelte": "^5.38.2"
   },
   "peerDependencies": {
     "@witheslint/core": "workspace:^"
