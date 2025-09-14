@@ -39,6 +39,6 @@ jobs:
 
       - name: Generate changelog
         if: ${{ success() }}
-        run: npx changelogithub
+        run: npx changelogithub --capitalize false
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
