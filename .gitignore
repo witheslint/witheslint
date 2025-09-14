@@ -1,14 +1,24 @@
-# dependencies
+# -----------------------------
+# dependencies & build
+# -----------------------------
+.cache
 node_modules
-
-# distribute
 dist
 
-# macOS-specific
+# -----------------------------
+# system files
+# -----------------------------
 .DS_Store
+Thumbs.db
 
-# IDE-specific
+# -----------------------------
+# IDE / Editor
+# -----------------------------
 .idea
 
-# generated rules dts
+# -----------------------------
+# logs & local files
+# -----------------------------
+*.log
+*.local
 **/src/rules.d.ts

@@ -11,14 +11,15 @@
     "watch": "pnpm --recursive watch",
     "typecheck": "tsc --noEmit",
     "inspector": "eslint-config-inspector",
-    "release": "bumpp"
+    "release": "lerna version"
   },
   "devDependencies": {
     "@commitlint/cli": "^19.8.1",
     "@commitlint/config-conventional": "^19.8.1",
+    "@lerna-lite/cli": "^4.7.3",
+    "@lerna-lite/version": "^4.7.3",
     "@eslint/config-inspector": "^1.2.0",
     "@types/node": "^22.18.3",
-    "bumpp": "^10.2.3",
     "eslint": "^9.35.0",
     "eslint-typegen": "^2.3.0",
     "jiti": "^2.5.1",
