@@ -21,7 +21,7 @@ export function presetReact(): Preset {
           name: 'witheslint:react:plugins',
           plugins: {
             'react': pluginReact as any,
-            'react-hooks': pluginReactHooks,
+            'react-hooks': pluginReactHooks as any,
           },
         },
         {
@@ -42,8 +42,7 @@ export function presetReact(): Preset {
               : renameRules(pluginReact.configs['recommended'].rules, '@eslint-react/', 'react/'),
 
             // recommended rules react-hooks
-            'react-hooks/exhaustive-deps': 'warn',
-            'react-hooks/rules-of-hooks': 'error',
+            ...pluginReactHooks.configs.recommended.rules,
           },
         },
       ]

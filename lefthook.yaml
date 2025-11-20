@@ -2,9 +2,10 @@
 #   Refer for explanation to following link:
 #   https://lefthook.dev/configuration
 #
-skip_output:
-  - meta
-  - skips
+output:
+  - summary
+  - success
+  - failure
   - execution
 
 pre-commit:

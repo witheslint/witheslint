@@ -9,7 +9,7 @@ const [pluginReact, pluginReactHooks] = await Promise.all([
 
 const dts = await pluginsToRulesDTS({
   'react': pluginReact as any,
-  'react-hooks': pluginReactHooks,
+  'react-hooks': pluginReactHooks as any,
 }, { exportTypeName: 'RuleSetsReact' })
 
 await writeFile('src/rules.d.ts', dts)
