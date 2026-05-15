@@ -17,4 +17,3 @@ For the easiest setup experience, we recommend using the main [`witheslint`](../
 | Prefix        | Plugin & Parser                                                                  | Description                    |
 |---------------|----------------------------------------------------------------------------------|--------------------------------|
 | `solid/*`     | [eslint-plugin-solid](https://github.com/solidjs-community/eslint-plugin-solid)  | Solid-specific linting rules   |
-

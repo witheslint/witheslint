@@ -12,6 +12,24 @@
 
 For the easiest setup experience, we recommend using the main [`witheslint`](../witheslint) package.
 
+## Built-in Presets
+
+`defineConfig` loads the following presets in order. The first six are always on; the last three are gated by `features` or applied to specific file globs.
+
+| Preset                | Always on | Description                                                           |
+|-----------------------|-----------|-----------------------------------------------------------------------|
+| `presetIgnores`       | yes       | Common ignore patterns (`node_modules`, `dist`, etc.) plus user-supplied paths |
+| `presetJavascript`    | yes       | Built-in ESLint rules and language options (es2026, browser, node globals) |
+| `presetJsdoc`         | yes       | JSDoc comment rules, auto-switched to TypeScript mode when detected   |
+| `presetUnicorn`       | yes       | `eslint-plugin-unicorn` recommended set plus opinionated tweaks       |
+| `presetImports`       | yes       | Import/export consistency rules                                       |
+| `presetStylistic`     | yes       | Stylistic rules; mode follows `features.stylistic` (`true` / `false` / `'prettier'`) |
+| `presetSorting`       | gated     | Sorted imports/exports; toggled by `features.sorting`                 |
+| `presetTypescript`    | gated     | TypeScript parser, plugin, and rules; auto-enabled when TypeScript is detected, override via `features.typescript` |
+| `presetDisables`      | yes       | Targeted overrides for `.d.ts`, `.cjs`, and `scripts/**` files        |
+
+Use `definePreset()` to author your own preset and pass it via `defineConfig({ presets: [...] })`.
+
 ## Included Plugins
 
 Some plugins have been renamed to provide a more unified naming convention and a better developer experience.

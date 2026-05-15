@@ -18,5 +18,3 @@ For the easiest setup experience, we recommend using the main [`witheslint`](../
 |---------------|---------------------------------------------------------------------------|--------------------------------|
 | `svelte/*`    | [eslint-plugin-svelte](https://github.com/sveltejs/eslint-plugin-svelte)  | Core Svelte linting rules      |
 | `-`           | [svelte-eslint-parser](https://github.com/sveltejs/svelte-eslint-parser)  | Parser for `.svelte` files     |
-
-

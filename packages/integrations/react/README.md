@@ -16,7 +16,5 @@ For the easiest setup experience, we recommend using the main [`witheslint`](../
 
 | Prefix          | Plugin & Parser                                                                      | Description                   |
 |-----------------|--------------------------------------------------------------------------------------|-------------------------------|
-| `react/*`       | [@eslint-react/eslint-plugin](https://eslint-react.xyz/)                             | Modern React linting rules    |
+| `react/*`       | [@eslint-react/eslint-plugin](https://eslint-react.xyz/) *(renamed from `@eslint-react/*`)* | Modern React linting rules    |
 | `react-hooks/*` | [eslint-plugin-react-hooks](https://www.npmjs.com/package/eslint-plugin-react-hooks) | React Hooks specific rules    |
-
-

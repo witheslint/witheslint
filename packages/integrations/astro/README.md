@@ -17,4 +17,4 @@ For the easiest setup experience, we recommend using the main [`witheslint`](../
 | Prefix        | Plugin & Parser                                                          | Description                    |
 |---------------|--------------------------------------------------------------------------|--------------------------------|
 | `astro/*`     | [eslint-plugin-astro](https://github.com/ota-meshi/eslint-plugin-astro)  | Core Astro linting rules       |
-| `–`           | [astro-eslint-parser](https://github.com/ota-meshi/astro-eslint-parser)  | Parser for `.astro` files      |
+| `-`           | [astro-eslint-parser](https://github.com/ota-meshi/astro-eslint-parser)  | Parser for `.astro` files      |
