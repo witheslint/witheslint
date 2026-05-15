@@ -35,12 +35,12 @@
     "prepublishOnly": "pnpm build"
   },
   "dependencies": {
-    "eslint-plugin-svelte": "^3.13.0",
-    "svelte-eslint-parser": "^1.4.0"
+    "eslint-plugin-svelte": "^3.17.1",
+    "svelte-eslint-parser": "^1.6.1"
   },
   "devDependencies": {
     "@witheslint/core": "workspace:^",
-    "svelte": "^5.43.12"
+    "svelte": "^5.55.7"
   },
   "peerDependencies": {
     "@witheslint/core": "workspace:^"

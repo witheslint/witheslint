@@ -35,8 +35,8 @@
     "prepublishOnly": "pnpm build"
   },
   "dependencies": {
-    "eslint-plugin-vue": "^10.5.1",
-    "vue-eslint-parser": "^10.2.0"
+    "eslint-plugin-vue": "^10.9.1",
+    "vue-eslint-parser": "^10.4.0"
   },
   "devDependencies": {
     "@witheslint/core": "workspace:^"

@@ -36,18 +36,18 @@
     "prepublishOnly": "pnpm build"
   },
   "dependencies": {
-    "@stylistic/eslint-plugin": "^5.6.1",
-    "@typescript-eslint/eslint-plugin": "^8.47.0",
-    "@typescript-eslint/parser": "^8.47.0",
-    "eslint-plugin-antfu": "^3.1.1",
-    "eslint-plugin-import-x": "^4.16.1",
-    "eslint-plugin-jsdoc": "^50.8.0",
-    "eslint-plugin-perfectionist": "^4.15.1",
-    "eslint-plugin-prettier": "^5.5.4",
-    "eslint-plugin-unicorn": "^59.0.1",
-    "globals": "^16.5.0",
+    "@stylistic/eslint-plugin": "^5.10.0",
+    "@typescript-eslint/eslint-plugin": "^8.59.3",
+    "@typescript-eslint/parser": "^8.59.3",
+    "eslint-plugin-antfu": "^3.2.3",
+    "eslint-plugin-import-x": "^4.16.2",
+    "eslint-plugin-jsdoc": "^62.9.0",
+    "eslint-plugin-perfectionist": "^5.9.0",
+    "eslint-plugin-prettier": "^5.5.5",
+    "eslint-plugin-unicorn": "^64.0.0",
+    "globals": "^17.6.0",
     "local-pkg": "^1.1.2",
-    "radashi": "^12.7.1"
+    "radashi": "^12.9.1"
   },
   "peerDependencies": {
     "eslint": "^9.20.0",
