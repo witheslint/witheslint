@@ -38,8 +38,8 @@ export function presetReact(): Preset {
           rules: {
             // recommended rules react
             ...typescript
-              ? renameRules(pluginReact.configs['recommended-type-checked'].rules, '@eslint-react/', 'react/')
-              : renameRules(pluginReact.configs['recommended'].rules, '@eslint-react/', 'react/'),
+              ? renameRules(pluginReact.configs['recommended-type-checked'].rules ?? {}, '@eslint-react/', 'react/')
+              : renameRules(pluginReact.configs['recommended'].rules ?? {}, '@eslint-react/', 'react/'),
 
             // recommended rules react-hooks
             ...pluginReactHooks.configs.recommended.rules,

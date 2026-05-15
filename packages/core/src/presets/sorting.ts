@@ -10,15 +10,15 @@ export function presetSorting(): Preset {
           name: 'witheslint:sorting:configs',
           plugins: { sorting: await interopDefault(import('eslint-plugin-perfectionist')) },
           rules: {
-            'sorting/sort-exports': ['error', { type: 'natural', groupKind: 'types-first' }],
+            'sorting/sort-exports': ['error', { type: 'natural', groups: ['type-export', 'value-export'] }],
             'sorting/sort-imports': [
               'error',
               {
                 type: 'natural',
                 internalPattern: ['^~/.*', '^@/.*'],
-                newlinesBetween: 'never',
+                newlinesBetween: 0,
                 groups: [
-                  ['type', 'internal-type', 'parent-type', 'sibling-type', 'index-type'],
+                  'type',
                   'builtin',
                   'external',
                   'internal',
@@ -27,13 +27,12 @@ export function presetSorting(): Preset {
                   'index',
                   'side-effect',
                   'style',
-                  'object',
                   'unknown',
                 ],
               },
             ],
-            'sorting/sort-named-exports': ['error', { type: 'natural', groupKind: 'types-first' }],
-            'sorting/sort-named-imports': ['error', { type: 'natural', groupKind: 'types-first' }],
+            'sorting/sort-named-exports': ['error', { type: 'natural', groups: ['type-export', 'value-export'] }],
+            'sorting/sort-named-imports': ['error', { type: 'natural', groups: ['type-import', 'value-import'] }],
           },
         },
       ]
