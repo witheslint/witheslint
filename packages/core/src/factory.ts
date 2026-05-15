@@ -149,17 +149,24 @@ function createContext({
             blockSpacing: true,
             quoteProps: 'consistent-as-needed',
             commaDangle: 'always-multiline',
-          },
+          } satisfies StylisticSetting['config'],
           isObject(stylistic) ? stylistic : {},
-        ),
+        ) as StylisticSetting['config'],
         mode: enablePrettier ? 'prettier' : 'raw',
-      } as Required<StylisticSetting>,
+      },
       typescript: {
         extensions: [],
-        parser: undefined as unknown as ParserModule,
-      } as Required<TypescriptSetting>,
+      },
     },
   }
+}
+
+function deepFreeze<T>(value: T): DeepReadonly<T> {
+  if (value && typeof value === 'object' && !Object.isFrozen(value)) {
+    Object.freeze(value)
+    for (const key of Object.keys(value)) deepFreeze((value as Record<string, unknown>)[key])
+  }
+  return value as DeepReadonly<T>
 }
 
 async function processPresets({
@@ -194,8 +201,9 @@ async function processPresets({
   )
 
   await Promise.all(prepareable.map(preset => preset.prepare!(context)))
+  const frozen = deepFreeze(context)
   const configs = await Promise.all(
-    installable.map(preset => preset.install!(Object.freeze(context))),
+    installable.map(preset => preset.install!(frozen)),
   )
 
   return configs.flat().filter(Boolean)
@@ -260,14 +268,14 @@ interface Settings {
   ignores: string[]
 
   /**
-   * Complete stylistic configuration with all required properties
+   * Resolved stylistic configuration
    */
-  stylistic: Required<StylisticSetting>
+  stylistic: StylisticSetting
 
   /**
-   * Complete TypeScript configuration with all required properties
+   * Resolved TypeScript configuration
    */
-  typescript: Required<TypescriptSetting>
+  typescript: TypescriptSetting
 }
 
 interface StylisticSetting {
@@ -279,7 +287,7 @@ interface StylisticSetting {
    *
    * @default 'raw'
    */
-  mode?: 'raw' | 'prettier'
+  mode: 'raw' | 'prettier'
 
   /**
    * The configuration object for stylistic rules
@@ -287,7 +295,7 @@ interface StylisticSetting {
    * @description This object contains all stylistic rule settings.
    * It is used to customize the behavior of stylistic rules.
    */
-  config?: Omit<StylisticCustomizeOptions, 'pluginName' | 'severity'> & {
+  config: Omit<StylisticCustomizeOptions, 'pluginName' | 'severity'> & {
     quotes?: 'single' | 'double'
   }
 }
@@ -297,10 +305,13 @@ interface TypescriptSetting {
    * Additional file extensions to be treated as TypeScript files
    * @example ['.vue', '.svelte']
    */
-  extensions?: string[]
+  extensions: string[]
 
   /**
-   * Specify the parser to be used for TypeScript files
+   * Parser used for TypeScript files
+   *
+   * @description Populated by {@link presetTypescript} during the `prepare`
+   * phase. Remains `undefined` when the TypeScript feature is disabled.
    */
   parser?: ParserModule
 }
