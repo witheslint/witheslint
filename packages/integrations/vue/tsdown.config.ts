@@ -4,5 +4,6 @@ export default defineConfig({
   entry: 'src/index.ts',
   clean: true,
   dts: true,
-  target: 'node18.20',
+  deps: { skipNodeModulesBundle: true },
+  target: 'node20.20',
 })
