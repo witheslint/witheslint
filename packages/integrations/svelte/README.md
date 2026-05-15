@@ -10,11 +10,24 @@
 
 ## Usage
 
-For the easiest setup experience, we recommend using the main [`witheslint`](../../witheslint) package.
+For the easiest setup experience, we recommend using the main [`witheslint`](../../witheslint) package. Alternatively, compose with `@witheslint/core` directly:
+
+```ts
+import { defineConfig } from '@witheslint/core'
+import { presetSvelte } from '@witheslint/preset-svelte'
+
+export default defineConfig({ presets: [presetSvelte()] })
+```
 
 ## Included Plugins
 
 | Prefix        | Plugin & Parser                                                           | Description                    |
 |---------------|---------------------------------------------------------------------------|--------------------------------|
-| `svelte/*`    | [eslint-plugin-svelte](https://github.com/sveltejs/eslint-plugin-svelte)  | Core Svelte linting rules      |
+| `svelte/*`    | [eslint-plugin-svelte](https://github.com/sveltejs/eslint-plugin-svelte)  | Svelte-specific linting rules  |
 | `-`           | [svelte-eslint-parser](https://github.com/sveltejs/svelte-eslint-parser)  | Parser for `.svelte` files     |
+
+## Exports
+
+- `presetSvelte()` — preset factory
+- `GLOB_SVELTE` — `'**/*.svelte'`
+- `EXTENSION_SVELTE` — `'.svelte'`

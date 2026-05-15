@@ -10,11 +10,24 @@
 
 ## Usage
 
-For the easiest setup experience, we recommend using the main [`witheslint`](../../witheslint) package.
+For the easiest setup experience, we recommend using the main [`witheslint`](../../witheslint) package. Alternatively, compose with `@witheslint/core` directly:
+
+```ts
+import { defineConfig } from '@witheslint/core'
+import { presetReact } from '@witheslint/preset-react'
+
+export default defineConfig({ presets: [presetReact()] })
+```
 
 ## Included Plugins
 
 | Prefix          | Plugin & Parser                                                                      | Description                   |
 |-----------------|--------------------------------------------------------------------------------------|-------------------------------|
-| `react/*`       | [@eslint-react/eslint-plugin](https://eslint-react.xyz/) *(renamed from `@eslint-react/*`)* | Modern React linting rules    |
-| `react-hooks/*` | [eslint-plugin-react-hooks](https://www.npmjs.com/package/eslint-plugin-react-hooks) | React Hooks specific rules    |
+| `react/*`       | [@eslint-react/eslint-plugin](https://eslint-react.xyz/) *(renamed from `@eslint-react/*`)* | React-specific linting rules  |
+| `react-hooks/*` | [eslint-plugin-react-hooks](https://www.npmjs.com/package/eslint-plugin-react-hooks) | React Hooks linting rules |
+
+## Exports
+
+- `presetReact()` — preset factory
+
+Targets JSX/TSX files via `GLOB_JSX` / `GLOB_TSX` re-exported from `@witheslint/core`.

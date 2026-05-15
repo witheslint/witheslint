@@ -32,7 +32,7 @@ Use `definePreset()` to author your own preset and pass it via `defineConfig({ p
 
 ## Included Plugins
 
-Some plugins have been renamed to provide a more unified naming convention and a better developer experience.
+Plugin prefixes are normalized for shorter, conflict-free rule names. Some are renamed (`style`, `ts`, `sorting`, `import`); the rest match the upstream package without the `eslint-plugin-` prefix.
 
 | Prefix      | Plugin & Parser                                                                | Description                                    |
 |-------------|--------------------------------------------------------------------------------|------------------------------------------------|

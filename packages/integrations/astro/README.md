@@ -10,11 +10,24 @@
 
 ## Usage
 
-For the easiest setup experience, we recommend using the main [`witheslint`](../../witheslint) package.
+For the easiest setup experience, we recommend using the main [`witheslint`](../../witheslint) package. Alternatively, compose with `@witheslint/core` directly:
+
+```ts
+import { defineConfig } from '@witheslint/core'
+import { presetAstro } from '@witheslint/preset-astro'
+
+export default defineConfig({ presets: [presetAstro()] })
+```
 
 ## Included Plugins
 
 | Prefix        | Plugin & Parser                                                          | Description                    |
 |---------------|--------------------------------------------------------------------------|--------------------------------|
-| `astro/*`     | [eslint-plugin-astro](https://github.com/ota-meshi/eslint-plugin-astro)  | Core Astro linting rules       |
+| `astro/*`     | [eslint-plugin-astro](https://github.com/ota-meshi/eslint-plugin-astro)  | Astro-specific linting rules   |
 | `-`           | [astro-eslint-parser](https://github.com/ota-meshi/astro-eslint-parser)  | Parser for `.astro` files      |
+
+## Exports
+
+- `presetAstro()` — preset factory
+- `GLOB_ASTRO` — `'**/*.astro'`
+- `EXTENSION_ASTRO` — `'.astro'`

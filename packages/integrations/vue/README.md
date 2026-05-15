@@ -10,11 +10,24 @@
 
 ## Usage
 
-For the easiest setup experience, we recommend using the main [`witheslint`](../../witheslint) package.
+For the easiest setup experience, we recommend using the main [`witheslint`](../../witheslint) package. Alternatively, compose with `@witheslint/core` directly:
+
+```ts
+import { defineConfig } from '@witheslint/core'
+import { presetVue } from '@witheslint/preset-vue'
+
+export default defineConfig({ presets: [presetVue()] })
+```
 
 ## Included Plugins
 
 | Prefix        | Plugin & Parser                                                  | Description                    |
 |---------------|------------------------------------------------------------------|--------------------------------|
-| `vue/*`       | [eslint-plugin-vue](https://github.com/vuejs/eslint-plugin-vue)  | Core Vue linting rules         |
+| `vue/*`       | [eslint-plugin-vue](https://github.com/vuejs/eslint-plugin-vue)  | Vue-specific linting rules     |
 | `-`           | [vue-eslint-parser](https://github.com/vuejs/vue-eslint-parser)  | Parser for `.vue` files        |
+
+## Exports
+
+- `presetVue()` — preset factory
+- `GLOB_VUE` — `'**/*.vue'`
+- `EXTENSION_VUE` — `'.vue'`

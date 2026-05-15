@@ -6,7 +6,7 @@
   <a href="https://github.com/witheslint/witheslint/blob/main/LICENSE"><img src="https://img.shields.io/github/license/witheslint/witheslint.svg?style=flat&colorA=0B0B0B&colorB=1FA669&label=license" alt="License"></a>
 </p>
 
-✨ Implementing a standardized ESLint configuration across all your projects.
+✨ A standardized ESLint configuration that works across all your projects.
 
 ## Features
 
@@ -19,17 +19,21 @@
 - Support also for `Astro`, `React`, `Svelte`, `Solid`, `Vue`.
 - Auto-completion and type-checking for ESLint rules configuration.
 
-![](https://github.com/witheslint/static/raw/main/images/type-checking.png)
+![Inline type completion for ESLint rule names in editor](https://github.com/witheslint/static/raw/main/images/type-checking.png)
 
 ## Usage
 
+> **Requires:** Node.js ≥ 20.19 and ESLint ≥ 10.
+
 To get started with **WithESLint**, first install the package in your project:
 
-```zsh
+```bash
 pnpm i -D eslint witheslint
 ```
 
-Next, in your project root, create a file named `eslint.config.js` or `eslint.config.ts`  *— that's where you'll define your ESLint settings go!*
+Next, in your project root, create a file named `eslint.config.js` or `eslint.config.ts` *— that's where you'll define your ESLint settings go!*
+
+> If you use `eslint.config.ts`, also install `jiti` (`pnpm add -D jiti`) so ESLint can load the TypeScript config file.
 
 Depending on your project’s complexity, **WithESLint** can be used in several ways:
 
@@ -61,7 +65,7 @@ export default defineConfig({
 })
 ```
 
-Other available presets include: `presetReact`, `presetSvelte`, `presetVue`, `presetSolid`, etc.
+The remaining presets are: `presetReact`, `presetSolid`, `presetSvelte`, `presetVue`.
 
 ### Advanced
 
@@ -103,8 +107,8 @@ export default defineConfig({
 
 That's it! You can now run ESLint in your project!
 
-```zsh
-pnpm eslint .
+```bash
+npx eslint .
 ```
 
 ## Supports
@@ -119,12 +123,13 @@ Needs IDE support? Let's configure your editor:
 1. Install [*VS Code ESLint extension*](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint)  
 
 2. Add the following settings to your project setting:
-```json
+```jsonc
 {
   "prettier.enable": false,
   "editor.formatOnSave": false,
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": "explicit",
+    // Let eslint-plugin-perfectionist own import sorting instead of TS' organize-imports
     "source.organizeImports": "never"
   },
   "eslint.runtime": "node",
@@ -133,6 +138,7 @@ Needs IDE support? Let's configure your editor:
     "javascriptreact",
     "typescript",
     "typescriptreact",
+    // Uncomment the ones you use:
     // "astro",
     // "svelte",
     // "vue",
@@ -164,7 +170,7 @@ Format and lint the staged files before committing or pushing:
 *[Lefthook](https://github.com/evilmartians/lefthook) provides a fast, cross-platform, and dependency-free hook manager.*
 
 1. Install `lefthook` as a dev dependency:
-```zsh
+```bash
 pnpm add -D lefthook
 ```
 
@@ -173,13 +179,13 @@ pnpm add -D lefthook
 pre-commit:
   commands:
     eslint:
-      glob: '*.{js,ts}'
+      glob: '*.{js,jsx,ts,tsx,vue,svelte,astro}'
       run: pnpm eslint --fix {staged_files}
       stage_fixed: true
 ```
 
-3. Once configured, run the following command to to set up the hooks:
-```zsh
+3. Once configured, run the following command to set up the hooks:
+```bash
 pnpm lefthook install
 ```
 
@@ -187,14 +193,14 @@ pnpm lefthook install
 
 ## Visualizing
 
-Launch a visual inspector for your ESLint setup and see all active rules in action: 
+Launch a visual inspector for your ESLint setup and see all active rules in action:
 
-```zsh
+```bash
 npx @eslint/config-inspector@latest
 ```
 
 Visit http://localhost:7777 to view and play with your ESLint config. Changes to the config file will be updated automatically.
 
-![](https://github.com/witheslint/static/raw/main/images/config-inspect.png)
+![Browser-based config inspector showing all active ESLint rules](https://github.com/witheslint/static/raw/main/images/config-inspect.png)
 
 That's it *— a quick way to explore your ESLint config visually*.

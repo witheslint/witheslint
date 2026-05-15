@@ -10,10 +10,23 @@
 
 ## Usage
 
-For the easiest setup experience, we recommend using the main [`witheslint`](../../witheslint) package.
+For the easiest setup experience, we recommend using the main [`witheslint`](../../witheslint) package. Alternatively, compose with `@witheslint/core` directly:
+
+```ts
+import { defineConfig } from '@witheslint/core'
+import { presetSolid } from '@witheslint/preset-solid'
+
+export default defineConfig({ presets: [presetSolid()] })
+```
 
 ## Included Plugins
 
 | Prefix        | Plugin & Parser                                                                  | Description                    |
 |---------------|----------------------------------------------------------------------------------|--------------------------------|
 | `solid/*`     | [eslint-plugin-solid](https://github.com/solidjs-community/eslint-plugin-solid)  | Solid-specific linting rules   |
+
+## Exports
+
+- `presetSolid()` — preset factory
+
+Targets JSX/TSX files via `GLOB_JSX` / `GLOB_TSX` re-exported from `@witheslint/core`.
